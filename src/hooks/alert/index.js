@@ -1,13 +1,12 @@
-import { useContext } from "react";
-import { AlertContext } from "src/context/alert-container";
-
+import {useContext} from 'react';
+import {AlertContext} from 'src/context/alert-container';
 
 const useAlert = () => {
-  const conext = useContext(AlertContext);
+	const conext = useContext(AlertContext);
 
-  if (!conext) throw new Error("useAlert must be used within AlertProvider");
+	if (!conext) throw new Error('useAlert must be used within AlertProvider');
 
-  return conext;
+	return conext;
 };
 
 export default useAlert;

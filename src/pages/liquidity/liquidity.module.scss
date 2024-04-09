@@ -1,0 +1,7 @@
+@import 'src/components/global-style/base.scss';
+
+.liquidity {
+	.container {
+		@include container;
+	}
+}

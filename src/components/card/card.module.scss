@@ -1,9 +1,14 @@
-@import "components/global-style/base.scss";
+@import 'src/components/global-style/base.scss';
 
 .card {
-    box-shadow: rgba(189, 197, 209, 0.2) 0px 8px 19.2px 0px;
-    border-radius: 12px;
-    border: 1px solid $border-color-5;
-    background-color: $background-1;
-    width: 100%;
+	padding: 1px 1px 3px;
+	background-color: $border-color;
+	border-radius: $border-radius-2;
+
+	.card__content {
+		padding: 24px;
+		background-color: $background-1;
+		border-color: $border-color;
+		border-radius: $border-radius-2;
+	}
 }
