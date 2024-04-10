@@ -22,10 +22,7 @@ function ConfigComponent(props) {
 }
 
 ConfigComponent.propTypes = {
-	children: PropTypes.oneOfType([
-		PropTypes.node,
-		
-	]),
+	children: PropTypes.oneOfType([PropTypes.node]),
 };
 
 export default ConfigComponent;

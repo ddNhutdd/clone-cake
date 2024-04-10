@@ -6,7 +6,7 @@ export const url = {
 	staking: '/staking',
 	cakeStaking: '/cake-staking',
 	profile: '/profile',
-	liquidity: '/liquidity'
+	liquidity: '/liquidity',
 };
 
 export const localStorageVariable = {

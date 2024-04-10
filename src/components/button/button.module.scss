@@ -43,6 +43,17 @@
 	padding: 0px 16px;
 }
 
+.button-primaryThinOutline {
+	@include buttonCustom;
+	min-height: 32px;
+	padding: 0px 16px;
+	border-radius: 16px;
+	border: 2px solid rgb(31, 199, 212);
+	background-color: transparent;
+	box-shadow: none;
+	color: rgb(31, 199, 212);
+}
+
 .button-secondThin {
 	@include buttonCustom;
 	min-height: 32px;

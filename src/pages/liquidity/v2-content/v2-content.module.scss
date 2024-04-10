@@ -1,0 +1,21 @@
+@import 'src/components/global-style/base.scss';
+
+.v2Content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+	margin-top: 24px;
+
+	.v2Content__title {
+		margin-bottom: 8px;
+	}
+
+	.v2Content__lastButton {
+		button {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}

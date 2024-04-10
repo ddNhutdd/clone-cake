@@ -3,5 +3,61 @@
 .liquidity {
 	.container {
 		@include container;
+
+		.liquidity__cardHeader {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: 8px;
+
+			.liquidity__headerLeft {
+				font-size: 20px;
+				line-height: 1.1;
+				font-weight: 600;
+				color: $text-color-3
+			}
+
+			.liquidity__headerRight {
+				display: flex;
+				gap: 16px;
+
+				svg {
+					transition: background-color 0.2s ease 0s, opacity 0.2s ease 0s;
+					width: 20px;
+					height: 20px;
+					cursor: pointer;
+
+					&:hover {
+						opacity: 0.65;
+					}
+				}
+			}
+		}
+
+		.liquidity__line {
+			margin-top: 16px;
+			margin-bottom: 16px;
+			border-bottom: 1px solid $border-color;
+		}
+
+		.liquidity__option {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: 24px;
+		}
+
+		.liquidity__content {
+			background-color: $background-10;
+			padding: 24px;
+			margin-left: -24px;
+			margin-right: -24px;
+		}
+
+		.liquidity__addButton {
+			width: 100%;
+			margin-top: 24px;
+		}
+
 	}
 }

@@ -1,0 +1,103 @@
+@import 'src/components/global-style/base.scss';
+
+.tooltipContainer {
+	display: inline-block;
+	width: fit-content;
+}
+
+.tooltip {
+	padding: 16px;
+	line-height: 130%;
+	max-width: 320px;
+	box-shadow: $box-shadow-4;
+	color: $text-color-white-2;
+	background: $background-2;
+	border-radius: 16px;
+	position: relative;
+	ani
+
+	&.top {
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translate(-50%, 50%) rotate(45deg);
+			width: 8px;
+			height: 8px;
+			background: $background-2;
+		}
+	}
+
+	&.left {
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: 0;
+			transform: translate(50%, -15%) rotate(45deg);
+			width: 8px;
+			height: 8px;
+			background: $background-2;
+		}
+	}
+
+	&.bottom {
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translate(-50%, -50%) rotate(45deg);
+			width: 8px;
+			height: 8px;
+			background: $background-2;
+		}
+	}
+
+	&.right {
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translate(-50%, -50%) rotate(45deg);
+			width: 8px;
+			height: 8px;
+			background: $background-2;
+		}
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.fadeIn {
+	animation: fadeIn .4s linear;
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+.fadeOut {
+	animation: fadeOut .4s linear;
+	opacity: 0;
+}

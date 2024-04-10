@@ -59,6 +59,11 @@ $border-radius-2: 24px;
 $border-radius-3: 16px;
 
 $box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 16px 0px;
+$box-shadow-2: inset 0px 2px 2px -1px rgba(74, 74, 104, .1);
+$box-shadow-3: 0px 0px 0px 1px #7645d9, 0px 0px 0px 4px rgba(118, 69, 217, .6);
+$box-shadow-4: 0px 0px 2px rgba(0, 0, 0, .2), 0px 4px 12px -8px rgba(14, 14, 44, .1);
+$box-shadow-5: inset 0px 2px 2px -1px rgba(74, 74, 104, .1);
+
 // ----------------------------------------------------------------
 
 @mixin container {
@@ -70,17 +75,13 @@ $box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 16px 0px;
 	margin-left: auto;
 	max-width: 1200px;
 
-	@media screen and (max-width: 1199px) {
-	}
+	@media screen and (max-width: 1199px) {}
 
-	@media screen and (max-width: 991px) {
-	}
+	@media screen and (max-width: 991px) {}
 
-	@media screen and (max-width: 767px) {
-	}
+	@media screen and (max-width: 767px) {}
 
-	@media screen and (max-width: 575px) {
-	}
+	@media screen and (max-width: 575px) {}
 }
 
 @mixin container2 {

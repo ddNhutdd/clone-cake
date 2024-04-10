@@ -22,5 +22,10 @@
 			background-color: $text-color-1;
 			color: $text-color-white-1;
 		}
+
+		&:active {
+			opacity: 0.85;
+			transform: translateY(1px);
+		}
 	}
 }

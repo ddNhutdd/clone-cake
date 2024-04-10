@@ -61,7 +61,7 @@ export const router = createBrowserRouter([
 						<Liquidity />
 					</Suspense>
 				),
-			}
+			},
 		],
 	},
 ]);

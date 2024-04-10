@@ -1,0 +1,42 @@
+@import 'src/components/global-style/base.scss';
+
+input[type='checkbox']:checked+label {
+	.checkBox__square {
+		background-color: $text-color-7;
+		
+		svg {
+			opacity: 1;
+		}
+	}
+}
+
+.checkBox {
+	display: flex;
+	gap: 8px;
+
+	&:hover {
+		.checkBox__square {
+			box-shadow: $box-shadow-3;
+
+		}
+	}
+
+	.checkBox__square {
+		width: 24px;
+		height: 24px;
+		border-radius: $border-radius;
+		background-color: $border-color;
+		box-shadow: $box-shadow-2;
+		cursor: pointer;
+		transition: background-color 0.2s ease-in-out 0s;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		svg {
+			opacity: 0;
+			transition: opacity .2s ease-in-out 0s;
+			color: $text-color-white-1
+		}
+	}
+}
