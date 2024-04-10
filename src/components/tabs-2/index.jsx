@@ -1,29 +1,32 @@
-import React, {useEffect, useState} from 'react';
-import css from './tabs.module.scss';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import css from './tabs-2.module.scss';
+import Button, { buttonClassesType } from '../button';
 
-function Tabs(props) {
-	const {listTabs, selectedItem, onChange} = props;
+function Tabs2(props) {
+	const { listTabs, selectedItem, onChange } = props;
 
 	const [itemActive, setItemActive] = useState(selectedItem?.value);
 
-	const renderClassActive = (item) => {
+	const renderActive = (item) => {
 		if (item.value !== itemActive) {
-			return;
+			return buttonClassesType.primaryText;
 		}
 
-		return css.active;
+		return buttonClassesType.primaryThin;
 	};
+
 	const itemClickHandle = (item) => setItemActive(item?.value);
 	const renderList = () =>
 		listTabs.map((item) => (
-			<div
+			<Button
 				key={item.id}
-				className={`${css.tabs__item} ${renderClassActive(item)}`}
+
+				type={renderActive(item)}
 				onClick={itemClickHandle.bind(null, item)}
 			>
-				{item.content}
-			</div>
+					{item.content}
+			</Button>
 		));
 
 	useEffect(() => {
@@ -31,13 +34,13 @@ function Tabs(props) {
 		onChange(itemSelected);
 	}, [itemActive]);
 
-	return <div className={css.tabs}>{renderList()}</div>;
+	return <div className={css.tabs2}>{renderList()}</div>;
 }
 
-Tabs.propTypes = {
+Tabs2.propTypes = {
 	listTabs: PropTypes.array,
 	selectedItem: PropTypes.object,
 	onChange: PropTypes.func,
 };
 
-export default Tabs;
+export default Tabs2;

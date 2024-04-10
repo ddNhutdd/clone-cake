@@ -1,18 +1,19 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useRef } from 'react';
+import React, {useEffect, useRef} from 'react';
 import css from './tooltip.module.scss';
+import ReactDOMServer from 'react-dom/server';
 
 export const tooltipTrigger = {
 	hover: 'hover',
-	runtime: 'runtime'
-}
+	runtime: 'runtime',
+};
 
 export const tooltipPosition = {
 	top: 'top',
 	left: 'left',
 	right: 'right',
-	bottom: 'bottom'
-}
+	bottom: 'bottom',
+};
 
 export const ToolTip = (props) => {
 	const {
@@ -22,7 +23,7 @@ export const ToolTip = (props) => {
 		position,
 		show,
 		className,
-		classNameTooltip
+		classNameTooltip,
 	} = props;
 
 	const container = useRef(null);
@@ -39,8 +40,10 @@ export const ToolTip = (props) => {
 		newElement.classList.add(css.tooltip);
 		newElement.classList.add(css.fadeIn);
 
-
-		newElement.innerHTML = content.outerHTML;
+		newElement.innerHTML =
+			typeof content === 'object' ?
+				ReactDOMServer.renderToString(content)
+			:	content;
 		document.body.appendChild(newElement);
 		newElement.style.position = 'absolute';
 
@@ -51,29 +54,41 @@ export const ToolTip = (props) => {
 		switch (position) {
 			case tooltipPosition.top:
 				newElement.classList.add(css.top);
-				tooltipTop = containerInfo.top - tooltipInfo.height - space.current;
-				tooltipLeft = containerInfo.left + (containerInfo.width - tooltipInfo.width) / 2;
+				tooltipTop =
+					containerInfo.top - tooltipInfo.height - space.current;
+				tooltipLeft =
+					containerInfo.left +
+					(containerInfo.width - tooltipInfo.width) / 2;
 				newElement.style.top = tooltipTop + 'px';
 				newElement.style.left = tooltipLeft + 'px';
 				break;
 			case tooltipPosition.left:
 				newElement.classList.add(css.left);
-				tooltipTop = containerInfo.top + (containerInfo.height - tooltipInfo.height) / 2;
-				tooltipLeft = containerInfo.left - tooltipInfo.width - space.current;
+				tooltipTop =
+					containerInfo.top +
+					(containerInfo.height - tooltipInfo.height) / 2;
+				tooltipLeft =
+					containerInfo.left - tooltipInfo.width - space.current;
 				newElement.style.top = tooltipTop + 'px';
 				newElement.style.left = tooltipLeft + 'px';
 				break;
 			case tooltipPosition.bottom:
 				newElement.classList.add(css.bottom);
-				tooltipTop = containerInfo.top + containerInfo.height + space.current;
-				tooltipLeft = containerInfo.left + (containerInfo.width - tooltipInfo.width) / 2;
+				tooltipTop =
+					containerInfo.top + containerInfo.height + space.current;
+				tooltipLeft =
+					containerInfo.left +
+					(containerInfo.width - tooltipInfo.width) / 2;
 				newElement.style.top = tooltipTop + 'px';
 				newElement.style.left = tooltipLeft + 'px';
 				break;
 			case tooltipPosition.right:
 				newElement.classList.add(css.right);
-				tooltipTop = containerInfo.top + (containerInfo.height - tooltipInfo.height) / 2;
-				tooltipLeft = containerInfo.left + containerInfo.width + space.current;
+				tooltipTop =
+					containerInfo.top +
+					(containerInfo.height - tooltipInfo.height) / 2;
+				tooltipLeft =
+					containerInfo.left + containerInfo.width + space.current;
 				newElement.style.top = tooltipTop + 'px';
 				newElement.style.left = tooltipLeft + 'px';
 				break;
@@ -81,12 +96,12 @@ export const ToolTip = (props) => {
 				break;
 		}
 		newElement.style.zIndex = '999999';
-	}
+	};
 	const removeTooltip = () => {
 		if (!tooltipElement || !tooltipElement.current) return;
 		document.body.removeChild(tooltipElement.current);
 		tooltipElement.current = null;
-	}
+	};
 
 	useEffect(() => {
 		if (!container || !container.current) return;
@@ -108,22 +123,14 @@ export const ToolTip = (props) => {
 		}
 
 		return () => removeTooltip();
-	}, [
-		trigger,
-		children,
-		content,
-		position,
-		show
-	]);
+	}, [trigger, children, content, position, show]);
+	
 	return (
-		<div
-			ref={container}
-			className={`${css.tooltipContainer} ${className}`}
-		>
+		<div ref={container} className={`${css.tooltipContainer} ${className}`}>
 			{children}
 		</div>
-	)
-}
+	);
+};
 
 ToolTip.propTypes = {
 	trigger: PropTypes.oneOf(Object.values(tooltipTrigger)),
@@ -131,17 +138,11 @@ ToolTip.propTypes = {
 	content: PropTypes.node,
 	position: PropTypes.oneOf(Object.values(tooltipPosition)),
 	show: PropTypes.bool,
-	className: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.object
-	]),
-	classNameTooltip: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.object
-	])
-}
+	className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+	classNameTooltip: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+};
 
 ToolTip.defaultProps = {
 	trigger: tooltipTrigger.hover,
-	position: tooltipPosition.top
-}
+	position: tooltipPosition.top,
+};

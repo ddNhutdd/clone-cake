@@ -11,7 +11,7 @@
 }
 
 .inline-flex {
-	display: inline-flex;
+	display: inline-flex !important;
 }
 
 @each $breakpoint, $width in $responsive {

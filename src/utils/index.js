@@ -1,22 +1,19 @@
 export const setLocalStorage = (key, data) => {
 	try {
 		localStorage.setItem(key, JSON.stringify(data));
-	} catch (error) {
-	}
+	} catch (error) {}
 };
 
 export const getLocalStorage = (key) => {
 	try {
 		return JSON.parse(localStorage.getItem(key));
-	} catch (error) {
-	}
+	} catch (error) {}
 };
 
 export const removeLocalStorage = (key) => {
 	try {
 		localStorage.removeItem(key);
-	} catch (error) {
-	}
+	} catch (error) {}
 };
 
 export const debounce = function (func, ms) {

@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import css from './liquidity.module.scss';
 import HeaderComponent from 'src/components/header-component';
-import { HeaderComponentList1 } from 'src/constants/header-component-list-1';
+import {HeaderComponentList1} from 'src/constants/header-component-list-1';
 import FooterComponent from 'src/components/footer-component';
 import Card from 'src/components/card';
 import Tabs from 'src/components/tabs';
 import CheckBox from 'src/components/check-box';
-import { FaClockRotateLeft } from "react-icons/fa6";
-import { IoMdSettings } from "react-icons/io";
-import Button from 'src/components/button';
-import { FiPlus } from "react-icons/fi";
+import {FaClockRotateLeft} from 'react-icons/fa6';
+import {IoMdSettings} from 'react-icons/io';
+import Button, {buttonClassesType} from 'src/components/button';
+import {FiPlus} from 'react-icons/fi';
 import V2Content from './v2-content';
-import { ToolTip, tooltipPosition, tooltipTrigger } from 'src/components/tooltip';
-import Switch from 'src/components/switch/switch';
+import Modal from 'src/components/modal';
+import SettingModalContent from './setting-modal-content';
 
 function Liquidity() {
+	// tabs
 	const listTabs = [
 		{
 			id: 1,
@@ -37,13 +38,21 @@ function Liquidity() {
 			value: 'v2',
 		},
 	];
-	const [hideCheckBoxChecked, setHideCheckBoxChecked] = useState(false);
 	const [tabSelectedItem, setTabSelectedItem] = useState(listTabs?.at(0));
-	const listTabsChangeHandle = (item) => {
-		setTabSelectedItem(item);
-	};
-	const [checked, setChecked] = useState(false);
+	const listTabsChangeHandle = (item) => setTabSelectedItem(item);
 
+	// transaction modal
+	const [showTransactionModal, setShowTransactionModal] = useState(false);
+	const openTransactionModal = () => setShowTransactionModal(true);
+	const closeTransactionModal = () => setShowTransactionModal(false);
+
+	// checkbox
+	const [hideCheckBoxChecked, setHideCheckBoxChecked] = useState(false);
+
+	// setting modal
+	const [showSettingModal, setShowSettingModal] = useState();
+	const openSettingModal = () => setShowSettingModal(true);
+	const closeSettingModal = () => setShowSettingModal(false);
 
 	return (
 		<div className={css.liquidity}>
@@ -55,8 +64,8 @@ function Liquidity() {
 							Your Liquidity
 						</div>
 						<div className={css.liquidity__headerRight}>
-							<FaClockRotateLeft />
-							<IoMdSettings />
+							<FaClockRotateLeft onClick={openTransactionModal} />
+							<IoMdSettings onClick={openSettingModal} />
 						</div>
 					</div>
 					<div className={css.liquidity__text}>
@@ -82,27 +91,36 @@ function Liquidity() {
 						</div>
 					</div>
 					<div className={css.liquidity__content}>
-						{tabSelectedItem?.value === listTabs.at(-1).value && <V2Content />}
+						{tabSelectedItem?.value === listTabs.at(-1).value && (
+							<V2Content />
+						)}
 					</div>
 					<Button className={css.liquidity__addButton}>
 						<FiPlus />
 						Add Liquidity
 					</Button>
-					<ToolTip
-						content={`test`}
-						trigger={tooltipTrigger.hover}
-						position={tooltipPosition.right}
-						show={true}
-					>
-						test
-					</ToolTip>
-					<Switch
-						checked={checked}
-						setChecked={setChecked}
-					/>
 				</Card>
 			</div>
 			<FooterComponent />
+			<Modal
+				show={showTransactionModal}
+				setShow={setShowTransactionModal}
+				title={`Recent Transactions`}
+				content={
+					<Button
+						className={`w-100`}
+						type={buttonClassesType.primary}
+					>
+						Connect Wallet
+					</Button>
+				}
+			/>
+			<Modal
+				show={showSettingModal}
+				setShow={setShowSettingModal}
+				title={`Settings`}
+				content={<SettingModalContent />}
+			/>
 		</div>
 	);
 }

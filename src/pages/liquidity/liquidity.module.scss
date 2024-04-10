@@ -14,7 +14,7 @@
 				font-size: 20px;
 				line-height: 1.1;
 				font-weight: 600;
-				color: $text-color-3
+				color: $text-color-3;
 			}
 
 			.liquidity__headerRight {
@@ -22,7 +22,9 @@
 				gap: 16px;
 
 				svg {
-					transition: background-color 0.2s ease 0s, opacity 0.2s ease 0s;
+					transition:
+						background-color 0.2s ease 0s,
+						opacity 0.2s ease 0s;
 					width: 20px;
 					height: 20px;
 					cursor: pointer;
@@ -58,6 +60,5 @@
 			width: 100%;
 			margin-top: 24px;
 		}
-
 	}
 }

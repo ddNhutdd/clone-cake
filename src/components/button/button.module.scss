@@ -82,3 +82,13 @@
 	color: $primary-2;
 	background-color: transparent;
 }
+
+.primary-text {
+	@include buttonCustom;
+	min-height: 32px;
+	padding: 0px 16px;
+	min-height: 32px;
+	background-color: #eff4f5;
+	color: $primary-2;
+	box-shadow: none;
+}

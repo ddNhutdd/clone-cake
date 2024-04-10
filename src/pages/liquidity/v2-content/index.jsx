@@ -1,5 +1,5 @@
 import React from 'react';
-import Button, { buttonClassesType } from 'src/components/button';
+import Button, {buttonClassesType} from 'src/components/button';
 import css from './v2-content.module.scss';
 
 function V2Content() {
@@ -19,7 +19,7 @@ function V2Content() {
 				</Button>
 			</div>
 		</div>
-	)
+	);
 }
 
-export default V2Content
+export default V2Content;

@@ -3,13 +3,10 @@ import PropTypes from 'prop-types';
 import css from './switch.module.scss';
 
 function Switch(props) {
-	const {
-		checked,
-		setChecked
-	} = props;
+	const {checked, setChecked} = props;
 
-	const swithClickHandle = () => setChecked(state => !state);
-	const renderClassChecked = () => checked ? css.active : '';
+	const swithClickHandle = () => setChecked((state) => !state);
+	const renderClassChecked = () => (checked ? css.active : '');
 
 	return (
 		<div
@@ -18,12 +15,12 @@ function Switch(props) {
 		>
 			<div className={css.switch__ball}></div>
 		</div>
-	)
+	);
 }
 
 Switch.propTypes = {
 	checked: PropTypes.bool,
-	setChecked: PropTypes.func
-}
+	setChecked: PropTypes.func,
+};
 
-export default Switch
+export default Switch;

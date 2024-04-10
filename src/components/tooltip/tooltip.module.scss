@@ -14,7 +14,6 @@
 	background: $background-2;
 	border-radius: 16px;
 	position: relative;
-	ani
 
 	&.top {
 		&::after {
@@ -84,7 +83,7 @@
 }
 
 .fadeIn {
-	animation: fadeIn .4s linear;
+	animation: fadeIn 0.4s linear;
 }
 
 @keyframes fadeOut {
@@ -98,6 +97,6 @@
 }
 
 .fadeOut {
-	animation: fadeOut .4s linear;
+	animation: fadeOut 0.4s linear;
 	opacity: 0;
 }

@@ -1,9 +1,9 @@
 @import 'src/components/global-style/base.scss';
 
-input[type='checkbox']:checked+label {
+input[type='checkbox']:checked + label {
 	.checkBox__square {
 		background-color: $text-color-7;
-		
+
 		svg {
 			opacity: 1;
 		}
@@ -17,7 +17,6 @@ input[type='checkbox']:checked+label {
 	&:hover {
 		.checkBox__square {
 			box-shadow: $box-shadow-3;
-
 		}
 	}
 
@@ -35,8 +34,8 @@ input[type='checkbox']:checked+label {
 
 		svg {
 			opacity: 0;
-			transition: opacity .2s ease-in-out 0s;
-			color: $text-color-white-1
+			transition: opacity 0.2s ease-in-out 0s;
+			color: $text-color-white-1;
 		}
 	}
 }

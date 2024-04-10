@@ -1,30 +1,39 @@
 import PropTypes from 'prop-types';
 import css from './button.module.scss';
-import { forwardRef } from 'react';
+import {forwardRef} from 'react';
 
 export const buttonClassesType = {
 	primary: 'primary',
 	primaryThin: 'primaryThin',
 	primaryThinOutline: 'primaryThinOutline',
+	primaryText: 'primaryText',
 	secondThin: 'secondaryThin',
 	outline: 'outline',
 };
 
 const Button = forwardRef((props, ref) => {
-	const { type, children, style, className, isDark, onClick } = props;
+	const {type, children, style, className, isDark, onClick} = props;
 
 	const getButtonClasses = (type) => {
 		switch (type) {
 			case buttonClassesType.primary:
 				return css['button-primary'];
+
 			case buttonClassesType.primaryThin:
 				return css['button-primaryThin'];
+
 			case buttonClassesType.primaryThinOutline:
 				return css['button-primaryThinOutline'];
+
+			case buttonClassesType.primaryText:
+				return css['primary-text'];
+
 			case buttonClassesType.secondThin:
 				return css['button-secondThin'];
+
 			case buttonClassesType.outline:
 				return css['button-outline'];
+
 			default:
 				return css['button-primary'];
 		}
@@ -50,7 +59,7 @@ Button.propDefault = {
 	type: buttonClassesType.primary,
 	className: '',
 	isDark: false,
-	onclick: () => { },
+	onclick: () => {},
 };
 
 Button.propTypes = {

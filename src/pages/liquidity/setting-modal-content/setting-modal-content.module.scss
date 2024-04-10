@@ -1,0 +1,73 @@
+@import 'src/components/global-style/base.scss';
+
+.settingModalContent {
+	.settingModalContent--inputCustom {
+		padding-top: 6px;
+		padding-bottom: 6px;
+		height: 32px;
+		margin-left: 5px;
+		margin-right: 6px;
+	}
+
+	.settingModalContent__small {
+		color: $text-color-4;
+		font-weight: 600;
+		line-height: 1.5;
+		text-transform: uppercase;
+		font-size: 12px;
+		margin-bottom: 24px;
+	}
+
+	.settingModalContent__controls {
+		&.row {
+			display: flex;
+			margin-top: 8px;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.settingModalContent__title {
+			color: $text-color-3;
+			display: flex;
+			align-items: center;
+			gap: 5px;
+			margin-bottom: 8px;
+
+			svg {
+				color: $text-color-1;
+				transition: opacity .2s;
+
+				&:hover {
+					opacity: 0.7;
+				}
+			}
+		}
+
+		.settingModalContent__warning {
+			color: $orange-1;
+			margin-top: 8px;
+			font-size: 14px;
+		}
+
+		.settingModalContent__speedInput {
+			width: 70px;
+			margin-left: 5px;
+			margin-right: 6px;
+		}
+
+		.settingModalContent__timeInput {
+			width: 100px;
+		}
+
+
+	}
+
+	.settingModalContent__footer {
+		margin-top: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $primary-2;
+		font-weight: 600;
+	}
+}

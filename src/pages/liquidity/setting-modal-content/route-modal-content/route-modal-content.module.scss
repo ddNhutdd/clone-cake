@@ -1,0 +1,27 @@
+@import 'src/components/global-style/base.scss';
+
+.routeModalContent {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	.routeModalContent__small {
+		color: $text-color-4;
+		font-weight: 600;
+		text-transform: uppercase;
+		font-size: 12px;
+	}
+
+	.routeModalContent__row {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+
+		.routeModalContent__left {
+			display: flex;
+			gap: 5px;
+			align-items: center;
+		}
+	}
+}

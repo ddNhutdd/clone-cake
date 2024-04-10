@@ -1,8 +1,8 @@
 import css from './modal.module.scss';
-import {IoClose} from 'react-icons/io5';
+import { IoClose } from 'react-icons/io5';
 import PropTypes from 'prop-types';
-import {useRef} from 'react';
-import {useTheme} from 'context/dark-theme';
+import { useRef } from 'react';
+import { useTheme } from 'context/dark-theme';
 
 function Modal(props) {
 	const {
@@ -16,7 +16,7 @@ function Modal(props) {
 		customCssModal,
 	} = props;
 
-	const {isDarkMode} = useTheme();
+	const { isDarkMode } = useTheme();
 
 	const showModal = () => {
 		return show ? css.show : '';
@@ -60,7 +60,7 @@ function Modal(props) {
 				className={`${css.modal__modal} ${customCssModal}`}
 			>
 				<div className={`${css.modal__header} ${renderShowHeader()}`}>
-					<div className={css.modal__title}>{title}</div>
+					{title}
 					<div
 						ref={closeElement}
 						onClick={closeClick}
