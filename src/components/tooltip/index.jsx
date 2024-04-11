@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useRef } from 'react';
+import React, {useEffect, useRef} from 'react';
 import css from './tooltip.module.scss';
 import ReactDOMServer from 'react-dom/server';
 
@@ -43,7 +43,7 @@ export const ToolTip = (props) => {
 		newElement.innerHTML =
 			typeof content === 'object' ?
 				ReactDOMServer.renderToString(content)
-				: content;
+			:	content;
 		document.body.appendChild(newElement);
 		newElement.style.position = 'fixed';
 
@@ -122,10 +122,10 @@ export const ToolTip = (props) => {
 				break;
 		}
 
-		document.addEventListener('scroll', removeTooltip)
+		document.addEventListener('scroll', removeTooltip);
 
 		return () => {
-			document.removeEventListener('scroll', removeTooltip)
+			document.removeEventListener('scroll', removeTooltip);
 			removeTooltip();
 		};
 	}, [trigger, children, content, position, show]);

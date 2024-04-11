@@ -35,7 +35,7 @@
 
 			svg {
 				color: $text-color-1;
-				transition: opacity .2s;
+				transition: opacity 0.2s;
 
 				&:hover {
 					opacity: 0.7;
@@ -58,8 +58,6 @@
 		.settingModalContent__timeInput {
 			width: 100px;
 		}
-
-
 	}
 
 	.settingModalContent__footer {

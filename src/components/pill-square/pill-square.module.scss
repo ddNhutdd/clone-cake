@@ -1,0 +1,21 @@
+@import 'src/components/global-style/base.scss';
+
+.pillSquare {
+	position: relative;
+	align-items: center;
+	border-radius: 8px;
+	cursor: pointer;
+	display: inline-flex;
+	font-weight: 600;
+	justify-content: center;
+	transition:
+		background-color 0.2s ease 0s,
+		opacity 0.2s ease 0s;
+	height: 32px;
+	padding: 0px 4px;
+	border-width: 2px;
+	border-style: solid;
+	border-image: initial;
+	border-color: $primary-2;
+	color: $primary-2;
+}

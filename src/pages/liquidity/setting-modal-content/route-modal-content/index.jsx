@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import css from './route-modal-content.module.scss';
-import { ToolTip } from 'src/components/tooltip';
-import { FaRegQuestionCircle } from "react-icons/fa";
+import {ToolTip} from 'src/components/tooltip';
+import {FaRegQuestionCircle} from 'react-icons/fa';
 import Switch from 'src/components/switch/switch';
 import CheckBox from 'src/components/check-box';
 
 export default function RouteModalContent() {
-
 	// v2
 	const [v2Selected, setV2Seleted] = useState(false);
 
@@ -27,9 +26,7 @@ export default function RouteModalContent() {
 
 	return (
 		<div className={css.routeModalContent}>
-			<div className={css.routeModalContent__small}>
-				LIQUIDITY SOURCE
-			</div>
+			<div className={css.routeModalContent__small}>LIQUIDITY SOURCE</div>
 			<div className={css.routeModalContent__row}>
 				<div className={css.routeModalContent__left}>
 					PancakeSwap V3
@@ -41,10 +38,7 @@ export default function RouteModalContent() {
 					</ToolTip>
 				</div>
 				<div className={css.routeModalContent__right}>
-					<Switch
-						checked={v3Selected}
-						setChecked={setV3Seleted}
-					/>
+					<Switch checked={v3Selected} setChecked={setV3Seleted} />
 				</div>
 			</div>
 			<div className={css.routeModalContent__row}>
@@ -52,23 +46,24 @@ export default function RouteModalContent() {
 					PancakeSwap V2
 					<ToolTip
 						className={`inline-flex items-center`}
-						content={<>
-							<p>
-								The previous V2 exchange is where a number of iconic, popular assets are traded.
-							</p>
-							<p>
-								Recommend leaving this on to ensure backward compatibility.
-							</p>
-						</>}
+						content={
+							<>
+								<p>
+									The previous V2 exchange is where a number
+									of iconic, popular assets are traded.
+								</p>
+								<p>
+									Recommend leaving this on to ensure backward
+									compatibility.
+								</p>
+							</>
+						}
 					>
 						<FaRegQuestionCircle />
 					</ToolTip>
 				</div>
 				<div className={css.routeModalContent__right}>
-					<Switch
-						checked={v2Selected}
-						setChecked={setV2Seleted}
-					/>
+					<Switch checked={v2Selected} setChecked={setV2Seleted} />
 				</div>
 			</div>
 			<div className={css.routeModalContent__row}>
@@ -93,14 +88,19 @@ export default function RouteModalContent() {
 					PancakeSwap MM Linked Pool
 					<ToolTip
 						className={`inline-flex items-center`}
-						content={<>
-							<p>
-								Trade through the market makers if they provide better deal
-							</p>
-							<p>
-								If a trade is going through market makers, it will no longer route through any traditional AMM DEX pools.
-							</p>
-						</>}
+						content={
+							<>
+								<p>
+									Trade through the market makers if they
+									provide better deal
+								</p>
+								<p>
+									If a trade is going through market makers,
+									it will no longer route through any
+									traditional AMM DEX pools.
+								</p>
+							</>
+						}
 					>
 						<FaRegQuestionCircle />
 					</ToolTip>
@@ -129,10 +129,14 @@ export default function RouteModalContent() {
 						content={
 							<>
 								<p>
-									Multihops enables token swaps through multiple hops between several pools to achieve the best deal.
+									Multihops enables token swaps through
+									multiple hops between several pools to
+									achieve the best deal.
 								</p>
 								<p>
-									Turning this off will only allow direct swap, which may cause higher slippage or even fund loss.
+									Turning this off will only allow direct
+									swap, which may cause higher slippage or
+									even fund loss.
 								</p>
 							</>
 						}
@@ -140,8 +144,7 @@ export default function RouteModalContent() {
 						<FaRegQuestionCircle />
 					</ToolTip>
 				</div>
-				<div className={css.routeModalContent__right}>
-				</div>
+				<div className={css.routeModalContent__right}></div>
 			</div>
 			<div className={css.routeModalContent__row}>
 				<div className={css.routeModalContent__left}>
@@ -157,10 +160,14 @@ export default function RouteModalContent() {
 						content={
 							<>
 								<p>
-									Split routing enables token swaps to be broken into multiple routes to achieve the best deal.
+									Split routing enables token swaps to be
+									broken into multiple routes to achieve the
+									best deal.
 								</p>
 								<p>
-									Turning this off will only allow a single route, which may result in low efficiency or higher slippage.
+									Turning this off will only allow a single
+									route, which may result in low efficiency or
+									higher slippage.
 								</p>
 							</>
 						}
@@ -168,9 +175,8 @@ export default function RouteModalContent() {
 						<FaRegQuestionCircle />
 					</ToolTip>
 				</div>
-				<div className={css.routeModalContent__right}>
-				</div>
+				<div className={css.routeModalContent__right}></div>
 			</div>
 		</div>
-	)
+	);
 }

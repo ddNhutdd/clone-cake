@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import { ToolTip, tooltipTrigger } from '../tooltip';
-import { MdOutlineContentCopy } from "react-icons/md";
+import {ToolTip, tooltipPosition, tooltipTrigger} from '../tooltip';
+import {MdOutlineContentCopy} from 'react-icons/md';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import css from './copy-button.module.scss';
 
 function CopyButton(props) {
-	const {
-		contentCopy,
-		tooltipPosition
-	} = props;
+	const {contentCopy, tooltipPosition} = props;
 
 	const onCopyHandle = () => {
 		setShowTooltip(true);
@@ -18,7 +15,7 @@ function CopyButton(props) {
 			setShowTooltip(false);
 			clearTimeout(idTimeout);
 		}, 600);
-	}
+	};
 
 	const [showTooltip, setShowTooltip] = useState(false);
 
@@ -38,9 +35,12 @@ function CopyButton(props) {
 				</CopyToClipboard>
 			</ToolTip>
 		</div>
-	)
+	);
 }
 
-CopyButton.propTypes = {}
+CopyButton.propTypes = {
+	contentCopy: PropTypes.string,
+	tooltipPosition: PropTypes.oneOf(Object.values(tooltipPosition)),
+};
 
-export default CopyButton
+export default CopyButton;
