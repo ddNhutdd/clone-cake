@@ -71,3 +71,13 @@
 		font-weight: 600;
 	}
 }
+
+.settingModalContent__routingReset {
+	font-weight: 600;
+	color: $primary-2;
+	font-size: 16px;
+	position: relative;
+	top: -5px;
+	left: -5px;
+	cursor: pointer;
+}

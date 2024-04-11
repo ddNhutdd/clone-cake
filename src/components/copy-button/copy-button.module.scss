@@ -1,0 +1,10 @@
+@import 'src/components/global-style/base.scss';
+
+.copyButton {
+	cursor: pointer;
+
+	:active {
+		position: relative;
+		top: 1px;
+	}
+}

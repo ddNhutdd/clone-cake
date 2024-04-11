@@ -1,0 +1,201 @@
+@import 'src/components/global-style/base.scss';
+
+@mixin title {
+	color: $text-color-4;
+	font-weight: 600;
+	text-transform: uppercase;
+	margin-bottom: 8px;
+	font-size: 12px;
+}
+
+.addLiquidity {
+	padding-top: 50px;
+
+	.container {
+		@include container;
+		padding-bottom: 40px;
+		padding-bottom: 40px;
+
+		.addLiquidity__card {
+			max-width: 860px;
+			margin-left: auto;
+			margin-right: auto;
+
+			.addLiquidity__header {
+				display: flex;
+				align-items: flex-start;
+				justify-content: space-between;
+
+				.addLiquidity__header__left {
+					display: flex;
+					align-items: center;
+					gap: 10px;
+					color: $text-color-3;
+
+					svg {
+						font-size: 30px;
+						cursor: pointer;
+					}
+				}
+
+				.addLiquidity__header__right {
+					.addLiquidity__small {
+						color: $text-color-1;
+						font-size: 12px;
+					}
+
+					.addLiquidity__listActions {
+						display: flex;
+						gap: 10px;
+						align-items: center;
+
+						div {
+							cursor: pointer;
+						}
+
+						svg {
+							cursor: pointer;
+							font-size: 23px;
+							transition: opacity .2s;
+
+							&:hover {
+								opacity: 65%;
+							}
+
+							&:last-child {
+								margin-left: 10px;
+							}
+						}
+					}
+				}
+			}
+
+			.addLiquidity__line {
+				margin-left: -24px;
+				margin-right: -24px;
+				margin-top: 24px;
+				margin-bottom: 24px;
+				border-bottom: 1px solid $border-color;
+			}
+
+			.addLiquidity__body {
+				display: flex;
+				gap: 20px;
+
+				.addLiquidity__body__left {
+					width: calc(50% - 10px);
+
+					.addLiquidity__title {
+						@include title;
+					}
+
+					.addLiquidity__listDropdown {
+						display: flex;
+						gap: 10px;
+						align-items: center;
+
+						.addLiquidity__dropdownItem {
+							padding-left: 16px;
+							padding-right: 16px;
+							height: 40px;
+							gap: 10px;
+							display: flex;
+							border: 1px solid $background-12;
+							align-items: center;
+							justify-content: flex-start;
+							flex: 1;
+							border-radius: 16px;
+							background: $background-10;
+							transition: opacity .2s;
+							cursor: pointer;
+
+							&:hover {
+								opacity: 0.65;
+							}
+
+							img {
+								width: 20px;
+								height: 20px;
+							}
+
+							svg {
+								margin-left: auto;
+							}
+						}
+					}
+
+					.addLiquidity__pickContainer {
+						padding-bottom: 0;
+						margin-top: 10px;
+						margin-bottom: 20px;
+
+
+						.addLiquidity__pick {
+							display: flex;
+							flex-wrap: wrap;
+							box-shadow: none;
+							border-bottom: 1px solid $border-color;
+							background-color: $background-3;
+							padding: 10px;
+
+							.addLiquidity__pickTitle {
+								color: $text-color-3;
+								display: flex;
+								flex-direction: column;
+								justify-content: flex-start;
+								width: 50%;
+							}
+
+							.addLiquidity__pickMore {
+								width: 50%;
+								display: flex;
+								align-items: center;
+								justify-content: flex-end;
+								gap: 10px;
+								color: $primary-2;
+							}
+
+							.addLiquidity__pick__list {
+								margin-top: 20px;
+								width: 100%;
+								display: flex;
+								gap: 10px;
+
+								.addLiquidity__pick__listItem {
+									padding: 8px;
+								}
+
+								div {
+									&.active {
+										padding: 2px 2px 4px;
+										background-image: linear-gradient(#53dee9, #7645d9);
+									}
+								}
+							}
+
+							.addLiquidity__pick__footer {
+								color: $text-color-1;
+								font-weight: 600;
+							}
+						}
+					}
+
+					.addLiquidity__inputTitle {
+						display: flex;
+						align-items: center;
+						gap: 10px;
+
+						img {
+							width: 20px;
+							height: 20px;
+						}
+					}
+				}
+
+				.addLiquidity__body__right {
+					width: calc(50% - 10px);
+				}
+			}
+		}
+	}
+}

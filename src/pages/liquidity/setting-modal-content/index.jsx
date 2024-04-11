@@ -242,14 +242,14 @@ export default function SettingModalContent() {
 				</div>
 			</div>
 			<Modal
-				className={{color: 'red'}}
+				className={{ color: 'red' }}
 				show={routingModalShow}
 				setShow={setRoutingModalShow}
 				title={<div className='flex items-center justify-between' style={{ flexGrow: 1 }}>
 					<div>
 						Customize Routing
 					</div>
-					<div>
+					<div className={css.settingModalContent__routingReset}>
 						Reset
 					</div>
 				</div>}
