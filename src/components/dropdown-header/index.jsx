@@ -1,6 +1,6 @@
 import css from 'src/components/dropdown-header/dropdown-header.module.scss';
-
-import {useTheme} from 'src/context/dark-theme';
+import { useLocation } from 'react-router-dom';
+import { useTheme } from 'src/context/dark-theme';
 import PropTypes from 'prop-types';
 
 export const dropdownHeaderAlignEnum = {
@@ -10,9 +10,17 @@ export const dropdownHeaderAlignEnum = {
 };
 
 function DropdownHeader(props) {
-	const {header, list, align, disabled, headerHoverEffect} = props;
+	const {
+		header,
+		list,
+		align,
+		disabled,
+		headerHoverEffect,
+		active
+	} = props;
 
-	const {isDarkMode} = useTheme();
+	const { isDarkMode } = useTheme();
+	const location = useLocation();
 
 	const renderDarkTheme = () => {
 		return isDarkMode ? css.dark : '';
@@ -28,7 +36,7 @@ function DropdownHeader(props) {
 				<div
 					onClick={item.onClick}
 					key={item.id}
-					className={`${css.headerMenu__item} hover-p flex align-center justify-between ${renderBorder(
+					className={`${css.headerMenu__item} ${renderClassActiveItem(item)} hover-p flex align-center justify-between ${renderBorder(
 						item.borderBottom,
 					)}`}
 				>
@@ -38,13 +46,16 @@ function DropdownHeader(props) {
 			);
 		});
 	};
+	const renderClassActiveItem = (item) => {
+		return item.url === location.pathname ? css.active : '';
+	}
 	const renderAlign = function (value) {
 		switch (value) {
 			case dropdownHeaderAlignEnum.left:
-				return {left: 0};
+				return { left: 0 };
 
 			case dropdownHeaderAlignEnum.right:
-				return {right: 0};
+				return { right: 0 };
 
 			default:
 				break;
@@ -56,15 +67,19 @@ function DropdownHeader(props) {
 	const renderHeaderHoverEffect = () => {
 		return headerHoverEffect ? '' : css.disableHoverEffect;
 	};
+	const renderClassActive = () => {
+		return active ? css.active : ''
+	}
 
 	return (
 		<div className={`${css['dropdownHeader']} py-1 ${renderDarkTheme()}`}>
 			<div
-				className={`${css.headerContainer} ${renderCanHover()} ${renderHeaderHoverEffect()} flex align-center justify-center p-3 select-none hover-p`}
+				className={`${css.headerContainer} ${renderCanHover()} ${renderHeaderHoverEffect()} flex align-center justify-center p-3 select-none hover-p ${renderClassActive()}`}
 			>
 				{header}
 			</div>
 			<div
+				data-header-menu-container={true}
 				style={renderAlign(align)}
 				className={`${css.headerMenuContainer} ${renderCanHover()}`}
 			>

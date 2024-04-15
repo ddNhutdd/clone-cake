@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import css from './check-box.module.scss';
-import {FaCheck} from 'react-icons/fa';
+import { FaCheck } from 'react-icons/fa';
 
 function CheckBox(props) {
-	const {checked, setCheck, id, children} = props;
+	const { checked, setCheck, id, children } = props;
 
 	const checkBoxClickHandle = () => setCheck((state) => !state);
 
 	return (
 		<>
-			<input className='d-0' id={id} type='checkbox' checked={checked} />
+			<input className='d-0' id={id} type='checkbox' checked={checked} onChange={() => { }} />
 			<label
 				onClick={checkBoxClickHandle}
 				className={css.checkBox}

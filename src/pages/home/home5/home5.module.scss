@@ -52,6 +52,7 @@
 						box-shadow: 0px 2px 0px 0px $border-color-3;
 
 						.home5__right__slide1 {
+
 							.home5__right__slide1__header,
 							.home5__right__slide1__title,
 							.home5__right__slide1__text {
@@ -60,6 +61,7 @@
 						}
 
 						.home5__right__slide2 {
+
 							.home5__right__slide2__header,
 							.home5__right__slide2__text {
 								color: $text-color-white-2;
@@ -150,10 +152,8 @@
 					height: 340px;
 					border-radius: 32px;
 					border: 2px solid rgb(60, 23, 134);
-					background: var(
-						--linear,
-						linear-gradient(180deg, #7645d9 0%, #5121b1 100%)
-					);
+					background: var(--linear,
+							linear-gradient(180deg, #7645d9 0%, #5121b1 100%));
 					box-shadow: rgb(60, 23, 134) 0px 4px 0px 0px;
 
 					@media screen and (max-width: 576px) {
@@ -219,10 +219,8 @@
 							border-radius: 8px;
 							justify-content: center;
 							align-items: center;
-							background: linear-gradient(
-								rgb(83, 222, 233) 0%,
-								rgb(31, 199, 212) 100%
-							);
+							background: linear-gradient(rgb(83, 222, 233) 0%,
+									rgb(31, 199, 212) 100%);
 
 							img {
 								transform: scale(0.4);
@@ -356,7 +354,7 @@
 							}
 
 							&.active {
-								background-color: #7645d9 !important;
+								background-color: $text-color-16 !important;
 							}
 
 							&:first-child {

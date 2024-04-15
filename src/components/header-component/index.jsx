@@ -61,8 +61,8 @@ function HeaderComponent(props) {
 	useEffect(() => {
 		// show button next or prev
 		const observer = new ResizeObserver(() => {
-			const contentWidth = contentElement.current.offsetWidth;
-			const containerWidth = containerElement.current.offsetWidth;
+			const contentWidth = contentElement?.current?.offsetWidth;
+			const containerWidth = containerElement?.current?.offsetWidth;
 			setShowScrollButtons(contentWidth > containerWidth);
 		});
 		observer.observe(containerElement.current);

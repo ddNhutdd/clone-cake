@@ -36,6 +36,12 @@
 		height: 100%;
 		transition: 0.4s;
 		border-radius: 15px;
+		transition: color .2s, font-weight .2s;
+
+		&.active {
+			color: $text-color-16;
+			font-weight: 600;
+		}
 
 		&.canHover {
 			&:hover {
@@ -45,7 +51,7 @@
 
 				background-color: $hover-1;
 
-				& + .headerMenuContainer {
+				&+.headerMenuContainer {
 					display: block;
 				}
 			}
@@ -80,6 +86,11 @@
 				transition: 0.2s;
 				display: flex;
 				align-items: center;
+
+				&.active {
+					font-weight: 600;
+					color: $text-color-16;
+				}
 
 				&:hover {
 					background-color: $hover-1;

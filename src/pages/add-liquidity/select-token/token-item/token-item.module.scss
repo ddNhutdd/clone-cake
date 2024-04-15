@@ -1,0 +1,38 @@
+@import 'src/components/global-style/base.scss';
+
+.tokenItem {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 8px 24px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: $background-3;
+	}
+
+	&.disabled {
+		pointer-events: none;
+		opacity: 0.5;
+	}
+
+	img {
+		width: 24px;
+		height: 24px;
+	}
+
+	.tokenItem__main {
+		flex-grow: 1;
+
+		div {
+			&:first-child {
+				color: $text-color-3;
+				font-weight: 500;
+			}
+
+			&:last-child {
+				font-size: 14px;
+			}
+		}
+	}
+}

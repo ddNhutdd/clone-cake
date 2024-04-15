@@ -1,11 +1,11 @@
-import {useEffect, useState, useRef} from 'react';
+import { useEffect, useState, useRef } from 'react';
 import css from './header-user.module.scss';
-import {IoIosClose} from 'react-icons/io';
-import {NavLink} from 'react-router-dom';
-import {HiOutlineDotsHorizontal} from 'react-icons/hi';
-import {MdLanguage} from 'react-icons/md';
-import {IoSettingsSharp} from 'react-icons/io5';
-import {IoIosNotifications} from 'react-icons/io';
+import { IoIosClose } from 'react-icons/io';
+import { NavLink } from 'react-router-dom';
+import { HiOutlineDotsHorizontal } from 'react-icons/hi';
+import { MdLanguage } from 'react-icons/md';
+import { IoSettingsSharp } from 'react-icons/io5';
+import { IoIosNotifications } from 'react-icons/io';
 import Logo1 from '/src/assets/imgs/logo.svg';
 import DropdownHeader, {
 	dropdownHeaderAlignEnum,
@@ -13,31 +13,38 @@ import DropdownHeader, {
 import DropdownHeader2, {
 	dropdownItemAlignType,
 } from 'components/dropdown-header-2';
-import Button, {buttonClassesType} from 'components/button';
-import {FaChevronDown} from 'react-icons/fa6';
+import Button, { buttonClassesType } from 'components/button';
+import { FaChevronDown } from 'react-icons/fa6';
 import Money from 'src/templates/user/money';
-import {useTheme} from 'src/context/dark-theme';
+import { useTheme } from 'src/context/dark-theme';
 import logoTextLight from 'src/assets/imgs/logo-text-light.svg';
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
 	setPaddingTopPage,
 	setPaddingValue,
 } from 'src/redux/slices/paddingTopPage';
 import Modal from 'components/modal';
-import {useWeb3Modal, useDisconnect} from '@web3modal/ethers/react';
-import {useWeb3ModalAccount} from '@web3modal/ethers/react';
-import {truncatedWalletAddress} from 'src/utils';
-import {FaArrowRightFromBracket} from 'react-icons/fa6';
-import {VscDebugDisconnect} from 'react-icons/vsc';
+import { useWeb3Modal, useDisconnect } from '@web3modal/ethers/react';
+import { useWeb3ModalAccount } from '@web3modal/ethers/react';
+import { truncatedWalletAddress } from 'src/utils';
+import { FaArrowRightFromBracket } from 'react-icons/fa6';
+import { VscDebugDisconnect } from 'react-icons/vsc';
 import ModalWalletContent from './modal-wallet-content';
 import Web3 from 'web3';
+import { languageList } from 'src/translate/i18n';
+import { useLocation } from 'react-router-dom';
+import { url } from 'src/constants';
+import { useNavigate } from 'react-router-dom';
+import { forEach } from 'mathjs';
 
 function Header() {
-	const {isDarkMode} = useTheme();
+	const { isDarkMode } = useTheme();
+	const navigate = useNavigate();
+	const location = useLocation();
 	const dispatch = useDispatch();
-	const {disconnect: disConnectWallet} = useDisconnect();
-	const {open: openConnectWalletWeb3} = useWeb3Modal();
-	const {address, chainId, isConnected} = useWeb3ModalAccount();
+	const { disconnect: disConnectWallet } = useDisconnect();
+	const { open: openConnectWalletWeb3 } = useWeb3Modal();
+	const { address, chainId, isConnected } = useWeb3ModalAccount();
 
 	const threeDotMenuList = [
 		{
@@ -136,10 +143,14 @@ function Header() {
 		{
 			id: 1,
 			content: 'Swap',
+			url: url.swap,
+			onClick: () => { redirectPage(url.swap) }
 		},
 		{
 			id: 2,
 			content: 'Liquidity',
+			url: url.liquidity,
+			onClick: () => { redirectPage(url.liquidity) }
 		},
 		{
 			id: 3,
@@ -164,120 +175,7 @@ function Header() {
 			content: 'Trading Reward',
 		},
 	];
-	const languageList = [
-		{
-			id: 1,
-			content: 'العربية',
-		},
-		{
-			id: 2,
-			content: 'বাংলা',
-		},
-		{
-			id: 3,
-			content: 'English',
-		},
-		{
-			id: 4,
-			content: 'Deutsch',
-		},
-		{
-			id: 5,
-			content: 'Ελληνικά',
-		},
-		{
-			id: 6,
-			content: 'Español',
-		},
-		{
-			id: 7,
-			content: 'Suomalainen',
-		},
-		{
-			id: 8,
-			content: 'Filipino',
-		},
-		{
-			id: 9,
-			content: 'Français',
-		},
-		{
-			id: 10,
-			content: 'हिंदी',
-		},
-		{
-			id: 11,
-			content: 'Magyar',
-		},
-		{
-			id: 12,
-			content: 'Bahasa Indonesia',
-		},
-		{
-			id: 13,
-			content: 'Italiano',
-		},
-		{
-			id: 14,
-			content: '日本語',
-		},
-		{
-			id: 15,
-			content: '한국어',
-		},
-		{
-			id: 16,
-			content: 'Nederlands',
-		},
-		{
-			id: 17,
-			content: 'Polski',
-		},
-		{
-			id: 18,
-			content: 'Português (Brazil)',
-		},
-		{
-			id: 19,
-			content: 'Português',
-		},
-		{
-			id: 20,
-			content: 'Română',
-		},
-		{
-			id: 21,
-			content: 'Русский',
-		},
-		{
-			id: 22,
-			content: 'Svenska',
-		},
-		{
-			id: 23,
-			content: 'தமிழ்',
-		},
-		{
-			id: 24,
-			content: 'Türkçe',
-		},
-		{
-			id: 25,
-			content: 'Українська',
-		},
-		{
-			id: 26,
-			content: 'Tiếng Việt',
-		},
-		{
-			id: 27,
-			content: '简体中文',
-		},
-		{
-			id: 28,
-			content: '繁體中文',
-		},
-	];
+
 	const listChain = [
 		{
 			id: 1,
@@ -330,7 +228,7 @@ function Header() {
 			onClick: () => {
 				disConnectWallet();
 			},
-			icon: <VscDebugDisconnect style={{fontSize: 23}} />,
+			icon: <VscDebugDisconnect style={{ fontSize: 23 }} />,
 		},
 	];
 
@@ -343,6 +241,27 @@ function Header() {
 
 	const header = useRef(null);
 
+	const renderActiveMenu = (list) => {
+		const findItem = list.find(item => {
+			return location.pathname === item.url
+		})
+		return Boolean(findItem);
+	}
+	const closeAllHeaderMenu = () => {
+		const allMenuContainer = document.querySelectorAll('div[data-header-menu-container]');
+		allMenuContainer.forEach(item => {
+			item.classList.add('d-0');
+		});
+		setTimeout(() => {
+			allMenuContainer.forEach(item => {
+				item.classList.remove('d-0');
+			});
+		}, 200);
+	}
+	const redirectPage = (page) => {
+		navigate(page);
+		closeAllHeaderMenu();
+	}
 	const onScrollHandle = () => {
 		let lastScrollTop = 0;
 		return function () {
@@ -359,7 +278,7 @@ function Header() {
 		};
 	};
 	const renderShowMenu = function () {
-		return isShowMenu ? {} : {top: '-170px'};
+		return isShowMenu ? {} : { top: '-170px' };
 	};
 	const closeHeader1Handle = () => {
 		dispatch(setPaddingValue(57));
@@ -372,15 +291,15 @@ function Header() {
 		if (walletAddress) {
 			return;
 		}
-		openConnectWalletWeb3({view: 'Networks'});
+		openConnectWalletWeb3({ view: 'Networks' });
 	};
 	const renderTextButtonConnect = () => {
 		return walletAddress ?
-				truncatedWalletAddress(walletAddress)
-			:	<>
-					Connect
-					<span className={`${css.header2__buttonText}`}>Wallet</span>
-				</>;
+			truncatedWalletAddress(walletAddress)
+			: <>
+				Connect
+				<span className={`${css.header2__buttonText}`}>Wallet</span>
+			</>;
 	};
 	const showModalWallet = (ev) => {
 		ev.stopPropagation();
@@ -391,16 +310,16 @@ function Header() {
 	};
 	const renderLogoByTheme = () => {
 		return isDarkMode ?
-				<img
-					className={`${css['header2__icon__image1']}`}
-					src={logoTextLight}
-					alt='React Logo'
-				/>
-			:	<img
-					className={`${css['header2__icon__image1']}`}
-					src={Logo1}
-					alt='React Logo'
-				/>;
+			<img
+				className={`${css['header2__icon__image1']}`}
+				src={logoTextLight}
+				alt='React Logo'
+			/>
+			: <img
+				className={`${css['header2__icon__image1']}`}
+				src={Logo1}
+				alt='React Logo'
+			/>;
 	};
 	const getBalance = async (address) => {
 		const web3 = new Web3('https://cloudflare-eth.com');
@@ -479,9 +398,8 @@ function Header() {
 				</div>
 			</div>
 			<div
-				className={`${
-					css['header2']
-				} ${renderDarkTheme()} border-b-1 px-3 flex items-center justify-between`}
+				className={`${css['header2']
+					} ${renderDarkTheme()} border-b-1 px-3 flex items-center justify-between`}
 			>
 				<div className={`${css['header2__left']} flex items-center`}>
 					<div
@@ -489,7 +407,7 @@ function Header() {
 					>
 						<NavLink
 							className={`flex align-center justify-between`}
-							to='/'
+							to={url.home}
 						>
 							{renderLogoByTheme()}
 							<img
@@ -502,10 +420,23 @@ function Header() {
 					<div
 						className={`${css['header2__menu']} flex align-center ml-3`}
 					>
-						<DropdownHeader header={'Trade'} list={tradeMenu} />
-						<DropdownHeader header={`Earn`} list={earnList} />
-						<DropdownHeader header={`Game`} list={gameMenuList} />
-						<DropdownHeader header={`NFT`} list={nftMenuList} />
+						<DropdownHeader
+							header={'Trade'}
+							list={tradeMenu}
+							active={renderActiveMenu(tradeMenu)}
+						/>
+						<DropdownHeader
+							header={`Earn`}
+							list={earnList}
+						/>
+						<DropdownHeader
+							header={`Game`}
+							list={gameMenuList}
+						/>
+						<DropdownHeader
+							header={`NFT`}
+							list={nftMenuList}
+						/>
 						<DropdownHeader
 							header={<HiOutlineDotsHorizontal />}
 							list={threeDotMenuList}
@@ -532,10 +463,10 @@ function Header() {
 						/>
 					</div>
 					<div className='flex align-center items-center px-3 px-sm-1'>
-						<IoSettingsSharp style={{fontSize: '25px'}} />
+						<IoSettingsSharp style={{ fontSize: '25px' }} />
 					</div>
 					<div className='flex align-center items-center px-3 px-sm-1'>
-						<IoIosNotifications style={{fontSize: '25px'}} />
+						<IoIosNotifications style={{ fontSize: '25px' }} />
 					</div>
 					<div
 						className={`${css['header2__chain']} px-3 px-sm-1 relative`}
@@ -556,7 +487,7 @@ function Header() {
 									</div>
 									<Button
 										isDark={isDarkMode}
-										style={{paddingLeft: 35}}
+										style={{ paddingLeft: 35 }}
 										type={buttonClassesType.secondThin}
 									>
 										<span
@@ -564,7 +495,7 @@ function Header() {
 										>
 											BNB Chain
 										</span>
-										<span style={{fontSize: '1.2rem'}}>
+										<span style={{ fontSize: '1.2rem' }}>
 											<FaChevronDown />
 										</span>
 									</Button>

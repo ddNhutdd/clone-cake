@@ -1,20 +1,24 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import css from './liquidity.module.scss';
 import HeaderComponent from 'src/components/header-component';
-import {HeaderComponentList1} from 'src/constants/header-component-list-1';
+import { HeaderComponentList1 } from 'src/constants/header-component-list-1';
 import FooterComponent from 'src/components/footer-component';
 import Card from 'src/components/card';
 import Tabs from 'src/components/tabs';
 import CheckBox from 'src/components/check-box';
-import {FaClockRotateLeft} from 'react-icons/fa6';
-import {IoMdSettings} from 'react-icons/io';
-import Button, {buttonClassesType} from 'src/components/button';
-import {FiPlus} from 'react-icons/fi';
+import { FaClockRotateLeft } from 'react-icons/fa6';
+import { IoMdSettings } from 'react-icons/io';
+import Button, { buttonClassesType } from 'src/components/button';
+import { FiPlus } from 'react-icons/fi';
 import V2Content from './v2-content';
 import Modal from 'src/components/modal';
 import SettingModalContent from './setting-modal-content';
+import { useNavigate } from 'react-router-dom';
+import { url } from 'src/constants';
 
 function Liquidity() {
+	const navigate = useNavigate();
+
 	// tabs
 	const listTabs = [
 		{
@@ -53,6 +57,11 @@ function Liquidity() {
 	const [showSettingModal, setShowSettingModal] = useState();
 	const openSettingModal = () => setShowSettingModal(true);
 	const closeSettingModal = () => setShowSettingModal(false);
+
+	// redirect
+	const redirectPage = (page) => {
+		navigate(page)
+	}
 
 	return (
 		<div className={css.liquidity}>
@@ -95,7 +104,10 @@ function Liquidity() {
 							<V2Content />
 						)}
 					</div>
-					<Button className={css.liquidity__addButton}>
+					<Button
+						onClick={redirectPage.bind(null, url.liquidityAdd)}
+						className={css.liquidity__addButton}
+					>
 						<FiPlus />
 						Add Liquidity
 					</Button>

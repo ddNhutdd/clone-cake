@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import css from './setting-modal-content.module.scss';
-import {ToolTip} from 'src/components/tooltip';
+import { ToolTip } from 'src/components/tooltip';
 import Tabs2 from 'src/components/tabs-2';
 import Switch from 'src/components/switch/switch';
-import {FaRegQuestionCircle} from 'react-icons/fa';
+import { FaRegQuestionCircle } from 'react-icons/fa';
 import Input3 from 'src/components/input-3';
 import Modal from 'src/components/modal';
 import RouteModalContent from './route-modal-content';
@@ -13,22 +13,22 @@ export default function SettingModalContent() {
 	const speedListTabs = [
 		{
 			id: 1,
-			content: <div style={{whiteSpace: 'nowrap'}}>Default</div>,
+			content: <div style={{ whiteSpace: 'nowrap' }}>Default</div>,
 			value: 'default',
 		},
 		{
 			id: 2,
-			content: <div style={{whiteSpace: 'nowrap'}}>Standard (1)</div>,
+			content: <div style={{ whiteSpace: 'nowrap' }}>Standard (1)</div>,
 			value: 'standard',
 		},
 		{
 			id: 3,
-			content: <div style={{whiteSpace: 'nowrap'}}>Fast (4)</div>,
+			content: <div style={{ whiteSpace: 'nowrap' }}>Fast (4)</div>,
 			value: 'fast',
 		},
 		{
 			id: 4,
-			content: <div style={{whiteSpace: 'nowrap'}}>Instant (5)</div>,
+			content: <div style={{ whiteSpace: 'nowrap' }}>Instant (5)</div>,
 			value: 'instant',
 		},
 	];
@@ -41,17 +41,17 @@ export default function SettingModalContent() {
 	const slipListTabs = [
 		{
 			id: 1,
-			content: <div style={{whiteSpace: 'nowrap'}}>0.1%</div>,
+			content: <div style={{ whiteSpace: 'nowrap' }}>0.1%</div>,
 			value: 0.1,
 		},
 		{
 			id: 2,
-			content: <div style={{whiteSpace: 'nowrap'}}>0.5%</div>,
+			content: <div style={{ whiteSpace: 'nowrap' }}>0.5%</div>,
 			value: 0.5,
 		},
 		{
 			id: 3,
-			content: <div style={{whiteSpace: 'nowrap'}}>1.0</div>,
+			content: <div style={{ whiteSpace: 'nowrap' }}>1.0</div>,
 			value: 1,
 		},
 	];
@@ -230,13 +230,13 @@ export default function SettingModalContent() {
 				</div>
 			</div>
 			<Modal
-				className={{color: 'red'}}
+				className={{ color: 'red' }}
 				show={routingModalShow}
 				setShow={setRoutingModalShow}
 				title={
 					<div
 						className='flex items-center justify-between'
-						style={{flexGrow: 1}}
+						style={{ flexGrow: 1 }}
 					>
 						<div>Customize Routing</div>
 						<div className={css.settingModalContent__routingReset}>
@@ -245,6 +245,7 @@ export default function SettingModalContent() {
 					</div>
 				}
 				content={<RouteModalContent />}
+				customCssModal={css.settingModalContent__routingResetCustom}
 			/>
 		</>
 	);

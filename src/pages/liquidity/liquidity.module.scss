@@ -3,6 +3,8 @@
 .liquidity {
 	.container {
 		@include container;
+		padding-top: 40px;
+		max-width: 852px;
 
 		.liquidity__cardHeader {
 			display: flex;
