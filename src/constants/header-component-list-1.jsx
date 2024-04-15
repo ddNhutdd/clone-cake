@@ -3,7 +3,7 @@ import {url as urlConstant} from './index';
 
 export const HeaderComponentList1 = [
 	{content: 'Swap', url: urlConstant.swap},
-	{content: 'Liquidity'},
+	{content: 'Liquidity', url: urlConstant.liquidity},
 	{
 		content: (
 			<>
