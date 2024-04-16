@@ -1,0 +1,33 @@
+@import 'src/components/global-style/base.scss';
+
+.tabs3__header {
+	display: flex;
+	margin-top: -24px;
+	margin-left: -24px;
+	margin-right: -24px;
+	border-top-left-radius: 24px;
+	border-top-right-radius: 24px;
+	background-color: $background-10;
+
+	.tabs3__headerItem {
+		padding: 18px 24px;
+		flex-grow: 1;
+		text-align: center;
+		border-top-left-radius: 24px;
+		border-top-right-radius: 24px;
+		cursor: pointer;
+		font-weight: 500;
+		transition: color .2s;
+
+		&:active {
+			position: relative;
+			top: 1px;
+		}
+
+		&.active {
+			background-color: $background-1;
+			color: $text-color-3;
+		}
+	}
+}
+

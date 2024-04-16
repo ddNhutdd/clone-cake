@@ -1,7 +1,7 @@
-import {createBrowserRouter} from 'react-router-dom';
-import {Suspense, lazy} from 'react';
+import { createBrowserRouter } from 'react-router-dom';
+import { Suspense, lazy } from 'react';
 import UserTemplate from '../templates/user/user.template';
-import {url} from 'src/constants';
+import { url } from 'src/constants';
 
 const Home = lazy(() => import('../pages/home'));
 const Swap = lazy(() => import('../pages/swap'));
@@ -10,6 +10,7 @@ const CakeStaking = lazy(() => import('../pages/cake-staking'));
 const Profile = lazy(() => import('../pages/profile'));
 const Liquidity = lazy(() => import('../pages/liquidity'));
 const LiquidityAdd = lazy(() => import('../pages/add-liquidity'));
+const BuyCrypto = lazy(() => import('../pages/buy-crypto'));
 
 export const router = createBrowserRouter([
 	{
@@ -71,6 +72,14 @@ export const router = createBrowserRouter([
 					</Suspense>
 				),
 			},
+			{
+				path: url.buyCrypto,
+				element: (
+					<Suspense>
+						<BuyCrypto />
+					</Suspense>
+				),
+			}
 		],
 	},
 ]);

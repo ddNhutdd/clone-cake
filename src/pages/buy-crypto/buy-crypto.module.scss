@@ -1,0 +1,36 @@
+@import 'src/components/global-style/base.scss';
+
+.buyCrypto {
+	.container {
+		@include container2;
+		padding-top: 20px;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+
+		.buyCrypto__card {
+			&.top {
+				
+			}
+
+			&.bot {
+				.buyCrypto__bot__header {
+					padding: 24px;
+					margin-top: -24px;
+					margin-left: -24px;
+					margin-right: -24px;
+					border-top-left-radius: 24px;
+					border-top-right-radius: 24px;
+					font-size: 24px;
+					font-weight: 600;
+					color: $text-color-4;
+					background: linear-gradient(111.68deg, #f2ecf2, #e8f2f6);
+				}
+
+				.buyCrypto__bot__content {
+					padding-top: 24px;
+				}
+			}
+		}
+	}
+}

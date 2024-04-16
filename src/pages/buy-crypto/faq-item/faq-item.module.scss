@@ -1,0 +1,34 @@
+@import 'src/components/global-style/base.scss';
+
+.faqItem {
+	padding-bottom: 24px;
+
+	.faqItem__header {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+
+		.faqItem__header__title {
+			color: $text-color-3;
+			font-weight: 700;
+			flex: 1;
+		}
+
+		.faqItem__header__action {
+			display: flex;
+			gap: 20px;
+			font-weight: 600;
+			color: $primary-2;
+			cursor: pointer;
+
+			.faqItem__icon {
+				display: flex;
+				align-items: center;
+			}
+		}
+	}
+
+	.faqItem__body {
+		padding-top: 24px;
+	}
+}

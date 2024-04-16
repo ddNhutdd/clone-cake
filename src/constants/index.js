@@ -1,4 +1,4 @@
-import {defaultConfig} from '@web3modal/ethers/react';
+import { defaultConfig } from '@web3modal/ethers/react';
 
 export const url = {
 	home: '/',
@@ -8,6 +8,7 @@ export const url = {
 	profile: '/profile',
 	liquidity: '/liquidity',
 	liquidityAdd: '/liquidity-add',
+	buyCrypto: '/buy-crypto'
 };
 
 export const localStorageVariable = {

@@ -1,0 +1,71 @@
+import { useEffect, useRef } from 'react';
+import Card from '../card';
+import css from './tabs-3.module.scss';
+
+function Tabs3(props) {
+	const {
+		tabs,
+		children,
+		selectedTabValue,
+		onChange
+	} = props
+
+	const containerElement = useRef(null);
+
+	const setTabActive = (value) => {
+		if (selectedTabValue === value) {
+			return css.active;
+		}
+	}
+
+	const renderTabHeader = () => {
+		return tabs.map((header, index) => {
+			return (
+				<div
+					onClick={tabHeaderClickHandle.bind(null, header.value)}
+					key={index}
+					className={`${css.tabs3__headerItem} ${setTabActive(header.value)}`}
+				>
+					{header.header}
+				</div>
+			)
+		})
+	}
+
+	const tabHeaderClickHandle = (value) => {
+		if (!containerElement || !containerElement.current) {
+			return;
+		}
+
+		// lấy các phần tử con có dataset là tab
+		const listTab = containerElement.current.querySelectorAll('div[data-item]');
+		listTab.forEach(tab => {
+			const tabValue = tab.dataset['item'];
+			if (value === tabValue) {
+				tab.classList.remove('d-0')
+			} else if (value !== tabValue) {
+				!tab.classList.contains('d-0') && tab.classList.add('d-0')
+			}
+		})
+
+
+		onChange(value)
+	}
+
+	useEffect(() => {
+		tabHeaderClickHandle(selectedTabValue)
+	}, [])
+
+	return (
+		<Card ref={containerElement}>
+			<div className={css.tabs3__header}>
+				{renderTabHeader()}
+			</div>
+			<div className={css.tabs3__content}>
+				{children}
+			</div>
+		</Card>
+	)
+}
+
+export default Tabs3

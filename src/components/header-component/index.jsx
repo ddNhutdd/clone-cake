@@ -41,6 +41,7 @@ function HeaderComponent(props) {
 		});
 	};
 	const renderMenuItem = () => {
+		console.log(list);
 		if (!list || list.length <= 0) {
 			return;
 		}
