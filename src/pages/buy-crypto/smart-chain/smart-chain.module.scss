@@ -1,0 +1,19 @@
+@import 'src/components/global-style/base.scss';
+
+.smartChain {
+	padding: 2px 16px;
+	border-radius: 16px;
+	z-index: 10;
+	background: $background-10;
+	border: 1.5px dashed $background-12;
+	width: fit-content;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	cursor: pointer;
+
+	img {
+		width: 20px;
+		height: 20px;
+	}
+}

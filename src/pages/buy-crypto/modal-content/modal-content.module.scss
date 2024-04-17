@@ -1,0 +1,19 @@
+@import 'src/components/global-style/base.scss';
+
+.modalContent {
+	input {
+		height: 48px;
+	}
+
+	.modalContent__selectTitle {
+		color: $primary-2;
+		font-weight: bold;
+	}
+
+	.modalContent__list {
+		margin-left: -24px;
+		margin-right: -24px;
+		max-height: 300px;
+		overflow-y: auto;
+	}
+}

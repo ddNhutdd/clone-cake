@@ -7,10 +7,98 @@
 		display: flex;
 		flex-direction: column;
 		gap: 20px;
+		justify-content: center;
 
 		.buyCrypto__card {
 			&.top {
-				
+				position: relative;
+				overflow: hidden;
+
+				.buyCrypto__top__header {
+					display: flex;
+					justify-content: space-between;
+
+					.buyCrypto__top__header__title {
+						font-size: 20px;
+						font-weight: 600;
+						line-height: 1.1;
+						color: $text-color-3;
+					}
+
+					.buyCrypto__top__header__small {
+						font-size: 14px;
+					}
+
+					.buyCrypto__circle {
+						width: 32px;
+						height: 32px;
+						padding: 2px;
+						border-radius: 32px;
+						background-color: $background-8;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+
+						svg {
+							color: $primary-2;
+						}
+					}
+				}
+
+				.buyCrypto__top__content {
+					margin-top: 20px;
+					display: flex;
+					flex-direction: column;
+					gap: 20px;
+					position: relative;
+
+					&::after {
+						content: '';
+						display: block;
+						position: absolute;
+						height: 67%;
+						width: 0;
+						border-left: 2px dashed $background-12;
+						top: 50%;
+						left: 50%;
+						transform: translate3d(-50%, -60%, 0);
+						z-index: 1;
+					}
+
+					.buyCryto__input {
+						position: relative;
+						z-index: 2;
+
+						&:first-child {
+							&::after {
+								content: '';
+								display: block;
+								height: 8px;
+								width: 8px;
+								border-radius: 50%;
+								background: $background-12;
+								position: absolute;
+								bottom: 0;
+								left: 50%;
+								transform: translate3d(-50%, 50%, 0);
+							}
+						}
+					}
+				}
+
+				small {
+					color: $text-color-1;
+					font-weight: 400;
+					padding-left: 4px;
+					padding-right: 4px;
+					font-size: 14px;
+					text-align: center;
+
+					a {
+						font-weight: 600;
+						color: $primary-2;
+					}
+				}
 			}
 
 			&.bot {
@@ -33,4 +121,11 @@
 			}
 		}
 	}
+}
+.buyCryto__drawer {
+	bottom: -5px !important;
+}
+
+.buyCrypto__drawerOverlay {
+	bottom: -3px !important;
 }

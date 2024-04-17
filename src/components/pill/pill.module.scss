@@ -2,14 +2,35 @@
 
 .pill {
 	align-items: center;
-	border-radius: 16px;
 	display: inline-flex;
 	white-space: nowrap;
-	height: 28px;
-	padding: 4px;
 	font-size: 10px;
-	color: $text-color-4;
 	background: none;
-	border: 2px solid $text-color-4;
 	width: fit-content;
+
+	&.outline {
+		height: 28px;
+		padding: 4px;
+		color: $text-color-4;
+		border: 2px solid $text-color-4;
+		border-radius: 16px;
+	}
+
+	&.success {
+		background: $text-color-7;
+		border-radius: 9px;
+		padding: 4px;
+		font-weight: 600;
+		font-size: 11px;
+		color: $background-3;
+	}
+
+	&.fail {
+		background: $background-21;
+		border-radius: 9px;
+		padding: 4px;
+		font-weight: 600;
+		font-size: 11px;
+		color: $background-3
+	}
 }

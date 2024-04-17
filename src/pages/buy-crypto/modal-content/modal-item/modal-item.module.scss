@@ -1,0 +1,50 @@
+@import 'src/components/global-style/base.scss';
+
+.modalItem {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 4px 20px;
+	transition: background-color .2s;
+	cursor: pointer;
+
+	&.disabled {
+		opacity: 0.65;
+		pointer-events: none;
+	}
+
+	&:hover {
+		background-color: $background-3;
+	}
+
+	img {
+		width: 25px;
+		height: 25px;
+	}
+
+	.modalItem__top {
+		color: $text-color-3;
+		font-weight: 600;
+	}
+
+	.modalItem__bot {
+		color: $text-color-1;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-width: 200px;
+		font-size: 14px;
+	}
+
+	.modalItem__last {
+		display: flex;
+		align-items: center;
+		margin-left: auto;
+		overflow: hidden;
+
+		.content__switch {
+			position: relative;
+			left: 15px;
+		}
+	}
+}
