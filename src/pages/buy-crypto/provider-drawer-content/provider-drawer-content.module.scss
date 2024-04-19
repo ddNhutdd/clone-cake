@@ -1,1 +1,24 @@
 @import "src/components/global-style/base.scss";
+
+.providerDrawerContent {
+	.providerDrawerContent__header {
+		padding-bottom: 24px;
+		color: $text-color-3;
+		font-size: 20px;
+		font-weight: 600;
+	}
+
+	.providerDrawerContent__line {
+		margin-left: -24px;
+		margin-right: -24px;
+		height: 0;
+		border-bottom: 1px solid $border-color;
+	}
+
+	.providerDrawerContent__content {
+		padding-top: 24px;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+}

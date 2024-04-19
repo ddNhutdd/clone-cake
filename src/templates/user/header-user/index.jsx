@@ -169,6 +169,8 @@ function Header() {
 		{
 			id: 6,
 			content: 'Buy Crypto',
+			url: url.buyCrypto,
+			onClick: () => redirectPage(url.buyCrypto)
 		},
 		{
 			id: 7,

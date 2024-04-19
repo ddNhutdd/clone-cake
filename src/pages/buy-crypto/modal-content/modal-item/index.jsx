@@ -35,7 +35,7 @@ function ModalItem(props) {
 					<FaArrowRight />
 				</div>
 				<div  className={`${showSwitch(content.switch)} ${css.content__switch}`} style={{ transform: 'scale(0.5)' }}>
-					<Switch checked={false} setChecked={() => { }} />
+					<Switch checked={content?.switchChecked} setChecked={content?.switchSetCheck} />
 				</div>
 			</div>
 		</div>

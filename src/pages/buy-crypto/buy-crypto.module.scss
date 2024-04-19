@@ -122,10 +122,12 @@
 		}
 	}
 }
-.buyCryto__drawer {
+.buyCrypto__providerDrawerCustom {
 	bottom: -5px !important;
+	z-index: 25!important;
 }
 
-.buyCrypto__drawerOverlay {
+.buyCrypto__providerDrawerOverlayCustom {
 	bottom: -3px !important;
+	z-index: 24!important;
 }

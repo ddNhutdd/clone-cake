@@ -1,0 +1,45 @@
+@import 'src/components/global-style/base.scss';
+
+.networkItem {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 12px 24px;
+	cursor: pointer;
+	position: relative;
+	transition: background .2s;
+
+	&.active {
+		background-color: $background-3;
+
+		.networkItem__text {
+			color: $text-color-3;
+			font-weight: 600;
+			line-height: 1.5;
+		}
+	}
+
+	&:hover {
+		background-color: $background-3;
+	}
+
+	img {
+		width: 24px;
+		height: 24px;
+	}
+
+	.networkItem__dot {
+		display: flex;
+		align-items: center;
+		position: absolute;
+		top: 50%;
+		right: 10px;
+		transform: translate3d(0, -50%, 0);
+
+		svg {
+			width: 20px;
+			height: 20px;
+			color: $text-color-7;
+		}
+	}
+}

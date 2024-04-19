@@ -2,38 +2,60 @@ import Pill, { pillType } from 'src/components/pill';
 import css from './provider.module.scss';
 import { IoMdCheckmark } from "react-icons/io";
 import { FaCaretDown } from "react-icons/fa";
+import PropTypes from 'prop-types'
 
 function Provider(props) {
 	const {
-		onClick
+		onClick,
+		isButton = false,
+		img,
+		name,
+		exchange,
+		pill
 	} = props;
+
+	const renderOnClick = (onClick) => {
+		let result = {};
+
+		if (isButton) {
+			result = {
+				onClick
+			}
+		}
+
+		return result;
+	}
+
 	return (
-		<div onClick={onClick} className={css.provider}>
+		<div {...renderOnClick(onClick)} className={css.provider}>
 			<div>
-				<img src="https://assets.pancakeswap.finance/web/onramp/mercuryo.svg" alt="mercuryo" />
+				{img}
 			</div>
 			<div>
 				<div>
-					Mercuryo
+					{name}
 				</div>
 				<div>
-					1 ETH = $3,115.39
+					{exchange}
 				</div>
 			</div>
 			<div>
 				<div className='flex items-center gap-1'>
-					<Pill
-						type={pillType.success}
-						className={'gap-1'}
-					>
-						Best Price
-						<IoMdCheckmark />
-					</Pill>
-					<FaCaretDown />
+					{pill}
+					{isButton && <FaCaretDown />}
 				</div>
 			</div>
 		</div>
 	)
 }
 
-export default Provider
+Provider.propTypes = {
+	onClick: PropTypes.func,
+	isButton: PropTypes.bool,
+	img: PropTypes.node,
+	name: PropTypes.node,
+	exchage: PropTypes.node,
+	pill: PropTypes.node
+}
+
+export default Provider;

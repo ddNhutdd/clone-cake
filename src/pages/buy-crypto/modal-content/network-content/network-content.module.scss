@@ -1,0 +1,38 @@
+@import 'src/components/global-style/base.scss';
+
+.network {
+	.network__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-bottom: 24px;
+
+		div {
+			&:first-child {
+				font-size: 20px;
+				font-weight: 600;
+				line-height: 1.1;
+				color: $text-color-3;
+			}
+
+			svg {
+				width: 20px;
+				height: 20px;
+				color: $primary-2;
+				cursor: pointer;
+			}
+		}
+	}
+
+	.network__line {
+		margin-left: -24px;
+		margin-right: -24px;
+		height: 0;
+		border-bottom: 1px solid $border-color;
+	}
+
+	.network__content {
+		margin-left: -24px;
+		margin-right: -24px;
+	}
+}
