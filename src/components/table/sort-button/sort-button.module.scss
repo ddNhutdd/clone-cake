@@ -1,0 +1,37 @@
+@import 'src/components/global-style/base.scss';
+
+.sortButton {
+	border-radius: 8px;
+	width: 25px;
+	height: 25px;
+	margin-left: 3px;
+	border-color: $border-color;
+	background: $background-10;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+
+	&:active {
+		position: relative;
+		top: 1px;
+	}
+
+	svg {
+		path {
+			fill: $background-23;
+		}
+
+	}
+
+	&.active {
+		background: $text-color-1;
+
+		svg {
+			path {
+				fill: $background-1;
+			}
+
+		}
+	}
+}

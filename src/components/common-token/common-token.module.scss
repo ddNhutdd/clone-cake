@@ -1,0 +1,16 @@
+@import 'src/components/global-style/base.scss';
+
+.commonToken {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	.commonToken__title {
+		color: $text-color-3;
+		font-size: 14px;
+		margin-bottom: 10px;
+	}
+
+	.commonToken__list {
+		display: flex;
+		gap: 10px;
+	}
+}

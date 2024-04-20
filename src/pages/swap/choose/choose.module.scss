@@ -1,0 +1,67 @@
+@import 'src/components/global-style/base.scss';
+
+.choose {
+	margin: -24px;
+
+	.choose__header {
+		padding: 24px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 1px solid $border-color;
+
+		.choose__title {
+			font-size: 20px;
+			font-weight: 600;
+			line-height: 1.1;
+			color: $text-color-3
+		}
+
+		.choose__close {
+			cursor: pointer;
+
+			&:active {
+				position: relative;
+				top: 1px;
+			}
+
+			svg {
+				width: 20px;
+				height: 20px;
+				color: $primary-2;
+			}
+		}
+	}
+
+	.choose__body {
+		padding: 24px;
+	}
+
+	.choose__action {
+		display: flex;
+		justify-content: center;
+		padding-top: 24px;
+
+		.choose__manage {
+			align-items: center;
+			cursor: pointer;
+			display: inline-flex;
+			font-weight: 600;
+			justify-content: center;
+			letter-spacing: 0.03em;
+			line-height: 1;
+			height: 32px;
+			color: $primary-2;
+			transition: opacity .2s;
+
+			&:hover {
+				opacity: 0.65;
+			}
+
+			&:active {
+				position: relative;
+				top: 1px;
+			}
+		}
+	}
+}

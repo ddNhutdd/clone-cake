@@ -1,0 +1,46 @@
+@import 'src/components/global-style/base.scss';
+
+.tokenItem {
+	padding: 12px 24px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	transition: background-color .2s;
+
+	&.disabled {
+		opacity: 0.5;
+		pointer-events: none;
+	}
+
+	&:hover {
+		background-color: $background-3;
+	}
+
+	img {
+		width: 24px;
+		height: 24px;
+	}
+
+	svg {
+		color: $text-color-3;
+	}
+
+	.tokenItem__body {
+		.tokenItem__body__top {
+			color: $text-color-3;
+			font-weight: 600;
+		}
+
+		.tokenItem__body__bot {
+			color: $text-color-1;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			max-width: 200px;
+			font-size: 14px;
+		}
+
+
+	}
+}

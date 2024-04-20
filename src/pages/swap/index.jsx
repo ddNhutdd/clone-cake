@@ -18,13 +18,60 @@ import { FaArrowDown } from 'react-icons/fa';
 import { HiOutlineArrowsUpDown } from 'react-icons/hi2';
 import { useTheme } from 'src/context/dark-theme';
 import { HeaderComponentList1 } from 'src/constants/header-component-list-1.jsx';
+import Modal from 'src/components/modal';
+import { useEffect, useState } from 'react';
+import useStep from 'src/hooks/use-step';
+import Choose from './choose';
+import Manage from './manage';
 
 function Swap() {
 	const { isDarkMode } = useTheme();
 
+	// select token modal top
+	const [selectTokenTopShow, setSelectTokenTopShow] = useState(false);
+	const selectTokenTopOpen = () => {
+		setSelectTokenTopShow(() => true)
+	}
+	const selectTokenTopClose = () => {
+		setSelectTokenTopShow(() => false)
+	}
+	const stepsTop = [
+		<Choose closeModal={selectTokenTopClose} />,
+		<Manage closeModal={selectTokenTopClose} />
+	]
+	const [generateContentTop, setStepTop,] = useStep(0, stepsTop);
+
+	// select token cho modal bot
+	const [selectTokenBotShow, setSelectTokenBotShow] = useState(false);
+	const selectTokenBotOpen = () => {
+		setSelectTokenBotShow(true);
+	}
+	const selectTokenBotClose = () => {
+		setSelectTokenBotShow(false);
+	}
+	const stepsBot = [
+		<Choose closeModal={selectTokenBotClose} />,
+		<Manage closeModal={selectTokenBotClose} />
+	]
+	const [generateContentBot, setStepBot,] = useStep(0, stepsBot);
+
+	//
 	const renderDarkTheme = () => {
 		return isDarkMode ? css.dark : '';
 	};
+
+	// useEffect
+	useEffect(() => {
+		if (selectTokenTopShow === false) {
+			setStepTop(0);
+		}
+	}, [selectTokenTopShow])
+	useEffect(() => {
+		if (selectTokenBotShow === false) {
+			setStepBot(0);
+		}
+	}, [selectTokenBotShow])
+
 	return (
 		<>
 			<HeaderComponent list={HeaderComponentList1} />
@@ -65,6 +112,7 @@ function Swap() {
 											<img src='src/assets/imgs/bnbicon.png' />
 										}
 										text={`BNB`}
+										onClick={selectTokenTopOpen}
 									/>
 								</div>
 								<div className={css.swap__input}>
@@ -82,6 +130,7 @@ function Swap() {
 								</div>
 								<div className={`${css.swap__select}`}>
 									<SwapSelect
+										onClick={selectTokenBotOpen}
 										image={
 											<img src='src/assets/imgs/bnbicon.png' />
 										}
@@ -135,6 +184,18 @@ function Swap() {
 				</div>
 				<FooterComponent />
 			</div>
+			<Modal
+				show={selectTokenTopShow}
+				setShow={setSelectTokenTopShow}
+				showHeader={false}
+				content={generateContentTop()}
+			/>
+			<Modal
+				show={selectTokenBotShow}
+				setShow={setSelectTokenBotShow}
+				showHeader={false}
+				content={generateContentBot()}
+			/>
 		</>
 	);
 }

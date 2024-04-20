@@ -1,79 +1,70 @@
 import { useState } from "react";
 import { Paging } from "src/components/paging";
 import Table from "src/components/table";
+import SortButton from "src/components/table/sort-button";
 import Tabs3 from "src/components/tabs-3";
+import useStep from "src/hooks/use-step";
+
+
 
 function Profile() {
 
-
-	const tabList = [
-		{
-			header: 'Open Order',
-			value: 'order'
-		},
-		{
-			header: 'Expired',
-			value: 'expired'
-		},
-		{
-			header: 'History',
-			value: 'history'
-		}
+	const steps = [
+		<Step1 title='thong tin 1' />,
+		<Step2 title='thong tin 2' />,
+		<Step3 title='thong tin 3' />,
 	]
-	const [selectedTab, setSelectedTab] = useState(tabList[0].value);
-	const tabChangeHandle = (value) => {
-		setSelectedTab(value);
-	}
 
-	const [page, setPage] = useState(1);
-	const [totalItems, setTotalItems] = useState(50);
-	const pageChangeHandle = (newPage) => {
-		console.log(newPage)
-		setPage(newPage);
-	}
+	const [generateContent, setStep, nextStep, prevStep] = useStep(0, steps)
 
 	return (
-		<div style={{ padding: 200 }}>
-			<Tabs3
-				tabs={tabList}
-				selectedTabValue={selectedTab}
-				onChange={tabChangeHandle}
-			>
-				<div data-item={'order'}>Open Order Content</div>
-				<div data-item={'expired'}>Expired Content</div>
-				<div data-item={'history'}>Order History Content</div>
-			</Tabs3>
-
-			<div className="mt-3">
-				<Table
-					listCol={[
-						{
-							key: 'test',
-							header: 'Test'
-						},
-						{
-							key: 'test2',
-							header: 'Test 2'
-						}
-					]}
-
-					listRecord={[
-						{
-							id: 1,
-							test: 'abc',
-							test2: 'zyz'
-						},
-						{
-							id: 2,
-							test: 'abc2',
-							test2: 'zyz2'
-						}
-					]}
-
-				/>
+		<div style={{ padding: 20 }}>
+			<div style={{ padding: 20 }}>
+				<button onClick={nextStep}>next</button>
+				<button onClick={prevStep}>prev</button>
+			</div>
+			<div>
+				{generateContent()}
 			</div>
 		</div>
-	);
+	)
 }
 
 export default Profile;
+
+
+function Step1({ nextStep, title }) {
+	return (
+		<>
+			Step1 - {title}
+			<button onClick={nextStep}>
+				next
+			</button>
+		</>
+	)
+}
+
+function Step2({ nextStep, prevStep, title }) {
+	return (
+		<>
+			Step2 - {title}
+			<button onClick={prevStep}>
+				prev
+			</button>
+			<button onClick={nextStep}>
+				next
+			</button>
+		</>
+	)
+}
+
+function Step3({ prevStep }) {
+	return (
+		<>
+			Step3
+			<button onClick={prevStep}>
+				prev
+			</button>
+		</>
+	)
+}

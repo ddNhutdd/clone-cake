@@ -8,6 +8,7 @@ function Input3(props) {
 		className,
 		onChange,
 		placeholder,
+		style
 	} = props;
 
 	return (
@@ -17,6 +18,7 @@ function Input3(props) {
 			value={value}
 			onChange={onChange}
 			placeholder={placeholder}
+			style={style}
 		/>
 	);
 }
@@ -26,7 +28,8 @@ Input3.propTypes = {
 	icon: PropTypes.node,
 	className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 	onChange: PropTypes.func,
-	placeholder: PropTypes.string
+	placeholder: PropTypes.string,
+	style: PropTypes.object
 };
 
 export default Input3;

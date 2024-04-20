@@ -69,5 +69,8 @@ export const Paging = (props) => {
 }
 
 Paging.propTypes = {
-	second: PropTypes.third
+	currentPage: PropTypes.number,
+	pageSize: PropTypes.number,
+	totalItems: PropTypes.number,
+	onChange: PropTypes.func
 }

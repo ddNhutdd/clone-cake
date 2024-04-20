@@ -1,0 +1,32 @@
+@import 'src/components/global-style/base.scss';
+
+.item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 16px;
+	border: 1px solid $background-8;
+	border-radius: 20px;
+	transition: border-color .2s, background .2s;
+
+	&.active {
+		background: $background-24;
+		border-color: $text-color-7;
+	}
+
+	img {
+		width: 30px;
+		height: 30px;
+	}
+
+	.item__top {
+		color: $text-color-3;
+		font-weight: 600;
+	}
+
+	.item__bot {
+		color: $text-color-3;
+		text-transform: lowercase;
+		font-size: 12px;
+	}
+}

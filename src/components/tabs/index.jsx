@@ -1,9 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import css from './tabs.module.scss';
 import PropTypes from 'prop-types';
 
 function Tabs(props) {
-	const {listTabs, selectedItem, onChange} = props;
+	const {
+		listTabs,
+		selectedItem,
+		onChange
+	} = props;
 
 	const [itemActive, setItemActive] = useState(selectedItem?.value);
 

@@ -6,7 +6,6 @@ function Table(props) {
 	const {
 		listCol,
 		listRecord,
-
 		currentPage,
 		totalItems,
 		onPageChange,
