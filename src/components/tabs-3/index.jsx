@@ -6,14 +6,15 @@ function Tabs3(props) {
 	const {
 		tabs,
 		children,
-		selectedTabValue,
+		selectedTab,
 		onChange
 	} = props
 
 	const containerElement = useRef(null);
 
 	const setTabActive = (value) => {
-		if (selectedTabValue === value) {
+		console.log(selectedTab?.value, value)
+		if (selectedTab?.value === value) {
 			return css.active;
 		}
 	}
@@ -48,12 +49,15 @@ function Tabs3(props) {
 			}
 		})
 
-
-		onChange(value)
+		// 
+		const tab = tabs.find(item => item.value === value);
+		if (tab) {
+			onChange(tab)
+		}
 	}
 
 	useEffect(() => {
-		tabHeaderClickHandle(selectedTabValue)
+		tabHeaderClickHandle(selectedTab.value)
 	}, [])
 
 	return (

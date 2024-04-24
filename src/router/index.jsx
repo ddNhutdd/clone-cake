@@ -11,6 +11,7 @@ const Profile = lazy(() => import('../pages/profile'));
 const Liquidity = lazy(() => import('../pages/liquidity'));
 const LiquidityAdd = lazy(() => import('../pages/add-liquidity'));
 const BuyCrypto = lazy(() => import('../pages/buy-crypto'));
+const Twap = lazy(() => import('../pages/twap'));
 
 export const router = createBrowserRouter([
 	{
@@ -77,6 +78,14 @@ export const router = createBrowserRouter([
 				element: (
 					<Suspense>
 						<BuyCrypto />
+					</Suspense>
+				),
+			},
+			{
+				path: url.twap,
+				element: (
+					<Suspense>
+						<Twap />
 					</Suspense>
 				),
 			}

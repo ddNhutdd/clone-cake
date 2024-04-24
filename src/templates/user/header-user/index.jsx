@@ -35,7 +35,6 @@ import { languageList } from 'src/translate/i18n';
 import { useLocation } from 'react-router-dom';
 import { url } from 'src/constants';
 import { useNavigate } from 'react-router-dom';
-import { forEach } from 'mathjs';
 
 function Header() {
 	const { isDarkMode } = useTheme();
@@ -121,6 +120,8 @@ function Header() {
 		{
 			id: 2,
 			content: 'Cake Staking',
+			url: url.cakeStaking,
+			onClick: () => { redirectPage(url.cakeStaking) }
 		},
 		{
 			id: 3,
@@ -137,6 +138,8 @@ function Header() {
 		{
 			id: 6,
 			content: 'Simple Staking',
+			url: url.staking,
+			onClick: () => { redirectPage(url.staking) }
 		},
 	];
 	const tradeMenu = [

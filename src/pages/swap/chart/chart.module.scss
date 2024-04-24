@@ -1,0 +1,98 @@
+@import 'src/components/global-style/base.scss';
+
+.chart {
+	.chart--radius-0 {
+		border-radius: 0 !important;
+	}
+
+	.chart--mt-30 {
+		margin-top: -30px;
+	}
+
+	.chart__card {
+		.chart__header {
+			display: flex;
+			justify-content: space-between;
+
+			.chart__header__left {
+				display: flex;
+				align-items: center;
+				gap: 5px;
+				color: $text-color-17;
+				font-weight: 600;
+
+				img {
+					width: 20px;
+					height: 20px;
+				}
+
+				svg {
+					margin-left: 15px;
+					color: $primary-2;
+					transition: opacity .2s;
+					cursor: pointer;
+
+					&:hover {
+						opacity: 0.65;
+					}
+				}
+			}
+
+			.chart__header__right {
+				transition: opacity .2s;
+				cursor: pointer;
+
+				svg {
+					width: 20px;
+					height: 20px;
+					color: $text-color-3;
+				}
+
+				&:hover {
+					opacity: 0.65;
+				}
+			}
+		}
+
+		.chart__info {
+			display: flex;
+			justify-content: space-between;
+			padding-top: 20px;
+			padding-bottom: 20px;
+
+			.chart__info__left {
+				.chart__info__main {
+					display: flex;
+					align-items: flex-end;
+					gap: 5px;
+
+					.chart__info__value {
+						font-size: 40px;
+						color: $text-color-3;
+						font-weight: 600;
+						line-height: 1.1;
+					}
+
+					.chart__info__token {
+						color: $text-color-1;
+						font-weight: 600;
+						font-size: 20px;
+					}
+
+					.chart__info__difference {
+						color: $text-color-7;
+						font-weight: 600;
+						margin-left: 4px;
+						font-size: 20px;
+					}
+				}
+
+				.chart__info__date {
+					color: $text-color-4;
+					line-height: 1.5;
+					font-size: 14px;
+				}
+			}
+		}
+	}
+}

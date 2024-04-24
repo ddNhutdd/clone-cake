@@ -5,7 +5,8 @@ import css from './pill.module.scss';
 export const pillType = {
 	outline: 'outline',
 	success: 'success',
-	fail: 'fail'
+	fail: 'fail',
+	outlineSky: 'outlineSky'
 }
 
 function Pill(props) {
@@ -23,6 +24,8 @@ function Pill(props) {
 				return css.success;
 			case pillType.fail:
 				return css.fail;
+			case pillType.outlineSky:
+				return css.outlineSky;
 			default:
 				break;
 		}

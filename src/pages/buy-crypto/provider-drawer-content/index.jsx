@@ -49,9 +49,10 @@ function ProviderDrawerContent() {
 		)
 	}]
 
-	const renderList = (list) => {
+	const renderList = (list, index) => {
 		return list?.map(item => {
 			return <Provider
+				key={index}
 				img={item.img}
 				name={item.name}
 				exchange={item.exchange}

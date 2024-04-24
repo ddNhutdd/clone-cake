@@ -8,7 +8,8 @@ export const url = {
 	profile: '/profile',
 	liquidity: '/liquidity',
 	liquidityAdd: '/liquidity-add',
-	buyCrypto: '/buy-crypto'
+	buyCrypto: '/buy-crypto',
+	twap: '/twap'
 };
 
 export const localStorageVariable = {

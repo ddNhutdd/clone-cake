@@ -1,19 +1,11 @@
 import HeaderComponent from '../../components/header-component';
 import FooterComponent from '../../components/footer-component';
-import css from './swap.module.scss';
-import { GiCash } from 'react-icons/gi';
+import css from '../swap/swap.module.scss';
 import { FaChartBar } from 'react-icons/fa';
-import { FaFire } from 'react-icons/fa6';
-import { IoSettingsSharp } from 'react-icons/io5';
-import { VscHistory } from 'react-icons/vsc';
-import { GrRotateRight } from 'react-icons/gr';
-import SwapSelect from './swap-select';
+import SwapSelect from '../swap/swap-select';
 import Input from 'src/components/input';
 import { FaRegCopy } from 'react-icons/fa';
-import { IoPencil } from 'react-icons/io5';
-import Button from 'src/components/button';
-import { VscArrowSwap } from 'react-icons/vsc';
-import { FaArrowsRotate } from 'react-icons/fa6';
+import Button, { buttonClassesType } from 'src/components/button';
 import { FaArrowDown } from 'react-icons/fa';
 import { HiOutlineArrowsUpDown } from 'react-icons/hi2';
 import { useTheme } from 'src/context/dark-theme';
@@ -21,18 +13,26 @@ import { HeaderComponentList1 } from 'src/constants/header-component-list-1.jsx'
 import Modal from 'src/components/modal';
 import { useEffect, useState } from 'react';
 import useStep from 'src/hooks/use-step';
-import Choose from './choose';
-import Manage from './manage';
+import Choose from '../swap/choose';
+import Manage from '../swap/manage';
 import Tabs from 'src/components/tabs';
-import { ToolTip, tooltipPosition } from 'src/components/tooltip';
 import { url } from 'src/constants';
-import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getShowChart, toggleSlice } from 'src/redux/slices/swap.slices';
-import Chart from './chart';
+import Chart from '../swap/chart';
 import { useNavigate } from 'react-router-dom';
+import Tabs3 from 'src/components/tabs-3';
+import leftTab from './left-tabs';
+import percentTab from './percent-tab';
+import Tabs2 from 'src/components/tabs-2';
+import { CiCircleQuestion } from "react-icons/ci";
+import { ToolTip } from 'src/components/tooltip';
+import Pill, { pillType } from 'src/components/pill';
+import { GrPowerReset } from "react-icons/gr";
+import Switch from 'src/components/switch/switch';
 
-function Swap() {
+function Twap() {
+	console.log(css);
 	const { isDarkMode } = useTheme();
 	const dispatch = useDispatch();
 	const showChart = useSelector(getShowChart);
@@ -56,7 +56,7 @@ function Swap() {
 			value: 'limit'
 		}
 	]
-	const [tabSelected, setTabSelected] = useState(tabList.at(0));
+	const [tabSelected, setTabSelected] = useState(tabList.at(1));
 	const tabChangeHandle = (tab) => {
 		setTabSelected(tab);
 	}
@@ -64,6 +64,10 @@ function Swap() {
 	const toggleChart = () => {
 		dispatch(toggleSlice());
 	}
+
+	// tab bên trái
+	const [leftTabSelected, setLeftTabSelected] = useState(leftTab.at(0));
+	const leftTabChangeHandle = (tab) => setLeftTabSelected(tab);
 
 	// select token modal top
 	const [selectTokenTopShow, setSelectTokenTopShow] = useState(false);
@@ -114,6 +118,9 @@ function Swap() {
 			navigate(url.twap);
 		}
 	}, [tabSelected])
+	useEffect(() => {
+		console.log(leftTabSelected)
+	}, [leftTabSelected])
 
 	return (
 		<>
@@ -121,12 +128,34 @@ function Swap() {
 			<div className={`${css.swap} ${renderDarkTheme()}`}>
 				<div className={css.swap__container}>
 					<div className={`${css.swap__content} ${css.full}`}>
-						{
-							showChart && <div className={css.swap__left}>
-								<Chart />
+						<div className={css.swap__left}>
+							<div className='mb-3'>
+								{
+									showChart &&
+									<Chart />
+								}
 							</div>
-						}
-
+							<div>
+								<Tabs3
+									tabs={leftTab}
+									selectedTab={leftTabSelected}
+									onChange={leftTabChangeHandle}
+								>
+									<div data-item={leftTab.at(0).value}>
+										You currently don't have open orders
+									</div>
+									<div data-item={leftTab.at(1).value}>
+										You currently don't have canceled orders
+									</div>
+									<div data-item={leftTab.at(2).value}>
+										You currently don't have completed orders
+									</div>
+									<div data-item={leftTab.at(3).value}>
+										You currently don't have expired orders
+									</div>
+								</Tabs3>
+							</div>
+						</div>
 						<div className={css.swap__right}>
 							<div className={css.swap__tabs}>
 								<Tabs
@@ -143,34 +172,9 @@ function Swap() {
 									</div>
 									<div className={css.swap__list}>
 										<div className={css.swap__listItem}>
-											<ToolTip
-												position={tooltipPosition.bottom}
-												content="Buy crypto with fiat "
-											>
-												<NavLink
-													to={url.buyCrypto}
-												>
-													<GiCash />
-												</NavLink>
-											</ToolTip>
-
-										</div>
-										<div className={css.swap__listItem}>
 											<span onClick={toggleChart}>
 												<FaChartBar />
 											</span>
-										</div>
-										<div className={css.swap__listItem}>
-											<FaFire />
-										</div>
-										<div className={css.swap__listItem}>
-											<IoSettingsSharp />
-										</div>
-										<div className={css.swap__listItem}>
-											<VscHistory />
-										</div>
-										<div className={css.swap__listItem}>
-											<GrRotateRight />
 										</div>
 									</div>
 								</div>
@@ -183,9 +187,22 @@ function Swap() {
 											text={`BNB`}
 											onClick={selectTokenTopOpen}
 										/>
+										<div className={css.swap__balance}>
+											Balance: 0
+										</div>
 									</div>
-									<div className={css.swap__input}>
-										<Input />
+									<div className={`${css.swap__input} ${css.custom}`}>
+										<Input
+											styleContainer={{ height: '111px' }}
+										/>
+										<div className={css.swap__input__tab}>
+											<Tabs2
+												listTabs={percentTab}
+												selectedItem={{}}
+												onChange={() => { }}
+												typeButton={buttonClassesType.primaryThinOutline}
+											/>
+										</div>
 									</div>
 									<div className={css.swap__button}>
 										<button>
@@ -212,31 +229,58 @@ function Swap() {
 									<div className={css.swap__input}>
 										<Input />
 									</div>
-									<div className={css.swap__info}>
-										<div className={css.swap__infoItem}>
-											<div className={css.swap__left}>
-												Price
+									<div className={css.swap__twap__limit}>
+										<div className={css.swap__twap__limit__left}>
+											<div>
+												Limit price
 											</div>
-											<div className={css.swap__right}>
-												1 CAKE2367166670{' '}
-												<span>
-													<VscArrowSwap />
-												</span>{' '}
-												BNB{' '}
-												<span>
-													<FaArrowsRotate />
-												</span>
+											<div>
+												<ToolTip
+													content={(
+														<div>
+															<div>
+																This sets the lowest price for trades in
+															</div>
+															<div>
+																your order. Trades will ONLY be
+															</div>
+															<div>
+																executed when this limit price is lower
+															</div>
+															<div>
+																than or equal to the available market
+															</div>
+															<div>
+																price. Some trades may not be  executed
+															</div>
+															<div>
+																if the limit price is higher than the
+															</div>
+															<div>
+																available market price and your order
+															</div>
+															<div>
+																may only be partially filled.
+															</div>
+														</div>
+													)}
+												>
+														<CiCircleQuestion />
+												</ToolTip>
+											</div>
+											<div>
+												<Pill
+													type={pillType.outlineSky}
+												>
+													<GrPowerReset />
+													<span className='ml-3'>
+														reset
+													</span>
+												</Pill>
 											</div>
 										</div>
-										<div className={css.swap__infoItem}>
-											<div className={css.swap__left}>
-												Slippage Tolerance <IoPencil />
-											</div>
-											<div
-												className={`${css.swap__right} ${css['swap__right--bold']}`}
-											>
-												0.5%
-											</div>
+										<div className={css.swap__twap__limit__right}>
+											<Switch />
 										</div>
 									</div>
 									<div className={css.swap__action}>
@@ -250,7 +294,6 @@ function Swap() {
 								</div>
 							</div>
 						</div>
-
 					</div>
 				</div>
 				<FooterComponent />
@@ -271,4 +314,4 @@ function Swap() {
 	);
 }
 
-export default Swap;
+export default Twap;

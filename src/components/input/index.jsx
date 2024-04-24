@@ -1,8 +1,11 @@
 import css from './input.module.scss';
-import {useTheme} from 'src/context/dark-theme';
+import { useTheme } from 'src/context/dark-theme';
 
-function Input() {
-	const {isDarkMode} = useTheme();
+function Input(props) {
+	const {
+		styleContainer
+	} = props;
+	const { isDarkMode } = useTheme();
 
 	const renderDarkTheme = () => {
 		return isDarkMode ? css.dark : '';
@@ -10,7 +13,10 @@ function Input() {
 
 	return (
 		<div className={`${css.input} ${renderDarkTheme()}`}>
-			<div className={`${css.inputContainer} `}>
+			<div
+				style={styleContainer}
+				className={`${css.inputContainer} `}
+			>
 				<input type='text' />
 				<div className={css.inputInfo}>test</div>
 			</div>
