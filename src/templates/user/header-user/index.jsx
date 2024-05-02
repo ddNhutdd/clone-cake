@@ -35,6 +35,7 @@ import { languageList } from 'src/translate/i18n';
 import { useLocation } from 'react-router-dom';
 import { url } from 'src/constants';
 import { useNavigate } from 'react-router-dom';
+import SettingsModalContent from './settings-modal-content';
 
 function Header() {
 	const { isDarkMode } = useTheme();
@@ -44,6 +45,12 @@ function Header() {
 	const { disconnect: disConnectWallet } = useDisconnect();
 	const { open: openConnectWalletWeb3 } = useWeb3Modal();
 	const { address, chainId, isConnected } = useWeb3ModalAccount();
+
+
+
+	// phần modal settings
+
+
 
 	const threeDotMenuList = [
 		{
@@ -539,6 +546,12 @@ function Header() {
 						balance={Number(balance)}
 					/>
 				}
+			/>
+			<Modal
+				show={false}
+				setShow={() => { }}
+				title={'Settings'}
+				content={<SettingsModalContent />}
 			/>
 		</div>
 	);

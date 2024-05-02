@@ -13,7 +13,8 @@ function Pill(props) {
 	const {
 		children,
 		type,
-		className
+		className,
+		style
 	} = props;
 
 	const renderType = () => {
@@ -32,7 +33,7 @@ function Pill(props) {
 	}
 
 	return (
-		<div className={`${css.pill} ${renderType()} ${className}`}>
+		<div style={style} className={`${css.pill} ${renderType()} ${className}`}>
 			{children}
 		</div>
 	);

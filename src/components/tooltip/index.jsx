@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, {useEffect, useRef} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import css from './tooltip.module.scss';
 import ReactDOMServer from 'react-dom/server';
 
@@ -28,6 +28,7 @@ export const ToolTip = (props) => {
 
 	const container = useRef(null);
 	const tooltipElement = useRef(null);
+	const isHoverToolTipElement = useRef(false);
 	const space = useRef(10);
 
 	const addTooltip = () => {
@@ -43,7 +44,7 @@ export const ToolTip = (props) => {
 		newElement.innerHTML =
 			typeof content === 'object' ?
 				ReactDOMServer.renderToString(content)
-			:	content;
+				: content;
 		document.body.appendChild(newElement);
 		newElement.style.position = 'fixed';
 
@@ -96,11 +97,21 @@ export const ToolTip = (props) => {
 				break;
 		}
 		newElement.style.zIndex = '999999';
+
+		// thêm sự khiện cho tooltip
+		newElement.addEventListener('mouseenter', () => {
+			isHoverToolTipElement.current = true;
+		})
+		newElement.addEventListener('mouseleave', () => {
+			isHoverToolTipElement.current = false;
+			removeTooltip();
+		})
 	};
 	const removeTooltip = () => {
 		if (!tooltipElement || !tooltipElement.current) return;
 		document.body.removeChild(tooltipElement.current);
 		tooltipElement.current = null;
+		isHoverToolTipElement.current = false;
 	};
 
 	useEffect(() => {
@@ -109,7 +120,14 @@ export const ToolTip = (props) => {
 		switch (trigger) {
 			case tooltipTrigger.hover:
 				container.current.addEventListener('mouseenter', addTooltip);
-				container.current.addEventListener('mouseleave', removeTooltip);
+				container.current.addEventListener('mouseleave', () => {
+					const idTimeout = setTimeout(() => {
+						if (!isHoverToolTipElement.current) {
+							removeTooltip();
+						}
+						clearTimeout(idTimeout);
+					}, 100);
+				});
 				break;
 			case tooltipTrigger.runtime:
 				if (show) {
@@ -129,6 +147,8 @@ export const ToolTip = (props) => {
 			removeTooltip();
 		};
 	}, [trigger, children, content, position, show]);
+
+
 
 	return (
 		<div ref={container} className={`${css.tooltipContainer} ${className}`}>
