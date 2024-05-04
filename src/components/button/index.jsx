@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import css from './button.module.scss';
 import { forwardRef } from 'react';
+import { useTheme } from 'src/context/dark-theme';
 
 export const buttonClassesType = {
 	primary: 'primary',
@@ -12,12 +13,13 @@ export const buttonClassesType = {
 };
 
 const Button = forwardRef((props, ref) => {
+	const {isDarkMode} = useTheme()
+
 	const {
 		type,
 		children,
 		style,
 		className,
-		isDark,
 		onClick
 	} = props;
 
@@ -47,7 +49,7 @@ const Button = forwardRef((props, ref) => {
 	};
 
 	const renderDark = () => {
-		return isDark ? ' button-dark' : '';
+		return isDarkMode ? css.dark : '';
 	};
 
 	return (
@@ -65,7 +67,6 @@ const Button = forwardRef((props, ref) => {
 Button.propDefault = {
 	type: buttonClassesType.primary,
 	className: '',
-	isDark: false,
 	onclick: () => { },
 };
 
@@ -74,7 +75,6 @@ Button.propTypes = {
 	style: PropTypes.object,
 	children: PropTypes.node,
 	className: PropTypes.string,
-	isDark: PropTypes.bool,
 	onClick: PropTypes.func,
 };
 

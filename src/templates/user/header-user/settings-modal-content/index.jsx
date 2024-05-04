@@ -61,6 +61,13 @@ function SettingsModalContent() {
 	}
 
 
+	// switch test
+	const [enable, setEnable] = useState();
+	const swichChangeHandle = () => {
+		setEnable(state => !state);
+	}
+
+
 
 	return (
 		<div className={`${css.settingsModalContent} ${classDark}`}>
@@ -88,7 +95,7 @@ function SettingsModalContent() {
 					</ToolTip>
 				</div>
 				<div className={css.settingsModalContent__right}>
-					<Switch checked={true} setChecked={() => { }} />
+					<Switch checked={enable} setChecked={swichChangeHandle} />
 				</div>
 			</div>
 			<div className={css.settingsModalContent__row}>

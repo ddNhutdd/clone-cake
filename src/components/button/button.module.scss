@@ -18,7 +18,7 @@
 	border: none;
 	padding: 10px 24px;
 	min-height: 48px;
-	
+
 
 	&.dark {
 		color: $text-color-5;
@@ -42,6 +42,11 @@
 	@include buttonCustom;
 	min-height: 32px;
 	padding: 0px 16px;
+
+
+	&.dark {
+		color: $text-color-5;
+	}
 }
 
 .button-primaryThinOutline {
@@ -89,7 +94,12 @@
 	min-height: 32px;
 	padding: 0px 16px;
 	min-height: 32px;
-	background-color: #eff4f5;
+	background-color: $background-8;
 	color: $primary-2;
 	box-shadow: none;
+
+	&.dark {
+		background-color: $background-5;
+		color: $primary-2;
+	}
 }

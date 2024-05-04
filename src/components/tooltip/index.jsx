@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 import css from './tooltip.module.scss';
 import ReactDOMServer from 'react-dom/server';
+import { useTheme } from 'src/context/dark-theme';
 
 export const tooltipTrigger = {
 	hover: 'hover',
@@ -26,6 +27,8 @@ export const ToolTip = (props) => {
 		classNameTooltip,
 	} = props;
 
+	const { isDarkMode } = useTheme();
+
 	const container = useRef(null);
 	const tooltipElement = useRef(null);
 	const isHoverToolTipElement = useRef(false);
@@ -40,6 +43,7 @@ export const ToolTip = (props) => {
 		newElement.classList.add(classNameTooltip);
 		newElement.classList.add(css.tooltip);
 		newElement.classList.add(css.fadeIn);
+		newElement.classList.add(renderDarkTheme());
 
 		newElement.innerHTML =
 			typeof content === 'object' ?
@@ -113,6 +117,9 @@ export const ToolTip = (props) => {
 		tooltipElement.current = null;
 		isHoverToolTipElement.current = false;
 	};
+	const renderDarkTheme = () => {
+		return isDarkMode ? css.dark : css.light;
+	}
 
 	useEffect(() => {
 		if (!container || !container.current) return;
@@ -151,7 +158,10 @@ export const ToolTip = (props) => {
 
 
 	return (
-		<div ref={container} className={`${css.tooltipContainer} ${className}`}>
+		<div
+			ref={container}
+			className={`${css.tooltipContainer} ${className}`}
+		>
 			{children}
 		</div>
 	);

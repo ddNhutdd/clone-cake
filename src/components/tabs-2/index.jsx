@@ -4,8 +4,9 @@ import css from './tabs-2.module.scss';
 import Button, { buttonClassesType } from '../button';
 
 function Tabs2(props) {
-	const { listTabs, selectedItem, onChange, typeButton } = props;
 
+
+	const { listTabs, selectedItem, onChange, typeButton } = props;
 	const [itemActive, setItemActive] = useState(selectedItem?.value);
 
 	const renderActive = (item) => {
@@ -16,7 +17,11 @@ function Tabs2(props) {
 		return buttonClassesType.primaryThin;
 	};
 
-	const itemClickHandle = (item) => setItemActive(item?.value);
+	const itemClickHandle = (item) => {
+		setItemActive(item?.value)
+		onChange(item);
+	};
+
 	const renderList = () =>
 		listTabs.map((item) => (
 			<div
@@ -32,12 +37,15 @@ function Tabs2(props) {
 			</div>
 		));
 
-	useEffect(() => {
-		const itemSelected = listTabs.find((item) => item.value === itemActive);
-		onChange(itemSelected);
-	}, [itemActive]);
 
-	return <div style={{ gridTemplateColumns: `repeat(${listTabs.length}, 1fr)` }} className={css.tabs2}>{renderList()}</div>;
+	return (
+		<div
+			style={{ gridTemplateColumns: `repeat(${listTabs.length}, 1fr)` }}
+			className={`${css.tabs2}`}
+		>
+			{renderList()}
+		</div>
+	);
 }
 
 Tabs2.propTypes = {
