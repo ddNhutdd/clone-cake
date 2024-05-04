@@ -28,14 +28,17 @@ import { ToolTip, tooltipPosition } from 'src/components/tooltip';
 import { url } from 'src/constants';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getShowChart, toggleSlice } from 'src/redux/slices/swap.slices';
+import { close, getShowChart, toggleSlice } from 'src/redux/slices/swap.slices';
 import Chart from './chart';
 import NavigateTab from './navigate-tab';
+import useMediaQuery, { widthDevice } from 'src/hooks/useMedia';
+import Drawer from 'src/components/drawer';
 
 function Swap() {
 	const { isDarkMode } = useTheme();
 	const dispatch = useDispatch();
 	const showChart = useSelector(getShowChart);
+	const screen = useMediaQuery();
 
 
 
@@ -43,6 +46,9 @@ function Swap() {
 	const toggleChart = () => {
 		dispatch(toggleSlice());
 	}
+
+
+
 
 	// select token modal top
 	const [selectTokenTopShow, setSelectTokenTopShow] = useState(false);
@@ -58,6 +64,28 @@ function Swap() {
 	]
 	const [generateContentTop, setStepTop,] = useStep(0, stepsTop);
 
+
+
+
+
+
+
+	//Drawer chart khi màn hình nhỏ
+	const isOpenChartDrawer = showChart &&
+		(screen === widthDevice.width_576 ||
+			screen === widthDevice.width_768 ||
+			screen === widthDevice.width_992)
+	const closeDrawer = () => {
+		dispatch(close());
+	}
+
+
+
+
+
+
+
+
 	// select token cho modal bot
 	const [selectTokenBotShow, setSelectTokenBotShow] = useState(false);
 	const selectTokenBotOpen = () => {
@@ -72,10 +100,21 @@ function Swap() {
 	]
 	const [generateContentBot, setStepBot,] = useStep(0, stepsBot);
 
+
+
+
+
+
 	// theme
 	const renderDarkTheme = () => {
 		return isDarkMode ? css.dark : '';
 	};
+
+
+
+
+
+
 
 	// useEffect
 	useEffect(() => {
@@ -96,7 +135,11 @@ function Swap() {
 				<div className={css.swap__container}>
 					<div className={`${css.swap__content} ${css.full}`}>
 						{
-							showChart && <div className={css.swap__left}>
+							showChart &&
+							screen !== widthDevice.width_576 &&
+							screen !== widthDevice.width_768 &&
+							screen !== widthDevice.width_992 &&
+							<div className={css.swap__left}>
 								<Chart />
 							</div>
 						}
@@ -223,6 +266,12 @@ function Swap() {
 					</div>
 				</div>
 				<FooterComponent />
+				<Drawer
+					open={isOpenChartDrawer}
+					setOpen={closeDrawer}
+				>
+					<Chart />
+				</Drawer>
 			</div>
 			<Modal
 				show={selectTokenTopShow}

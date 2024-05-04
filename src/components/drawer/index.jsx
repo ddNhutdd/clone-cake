@@ -17,7 +17,8 @@ function Drawer(props) {
 		direction,
 		open,
 		setOpen,
-		children
+		children,
+		screen
 	} = props;
 
 	const closeDrawer = () => {
