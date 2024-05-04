@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './footer-user.module.scss';
-import {NavLink} from 'react-router-dom';
-import {url} from '../../../constants';
+import { NavLink } from 'react-router-dom';
+import { url } from '../../../constants';
 import logoTextLight from 'src/assets/imgs/logo-text-light.svg';
 import twitter from 'src/assets/imgs/twitter.svg';
 import telegram from 'src/assets/imgs/telegram.svg';
@@ -10,16 +10,16 @@ import instagram from 'src/assets/imgs/instagram.svg';
 import github from 'src/assets/imgs/github.svg';
 import dicord from 'src/assets/imgs/discord.svg';
 import youtube from 'src/assets/imgs/youtube.svg';
-import {MdLanguage} from 'react-icons/md';
-import {FaArrowRight} from 'react-icons/fa6';
+import { MdLanguage } from 'react-icons/md';
+import { FaArrowRight } from 'react-icons/fa6';
 import Money from '../money/index';
 import Button from 'src/components/button';
-import {buttonClassesType} from '../../../components/button';
+import { buttonClassesType } from '../../../components/button';
 import SwitchTheme from '../../../components/switch/switch-theme';
-import {useTheme} from 'src/context/dark-theme';
+import { useTheme } from 'src/context/dark-theme';
 
 function Footer() {
-	const {isDarkMode, toggleTheme} = useTheme();
+	const { isDarkMode } = useTheme();
 
 	return (
 		<div className={`${css['footer']} w-100`}>
@@ -111,7 +111,7 @@ function Footer() {
 						<li>
 							<NavLink className={css.footer__logo1}>
 								<img
-									style={{width: '160px'}}
+									style={{ width: '160px' }}
 									className={`${css['header2__icon__image']}`}
 									src={logoTextLight}
 									alt='React Logo'
@@ -119,7 +119,7 @@ function Footer() {
 							</NavLink>
 							<NavLink className={css.footer__logo2}>
 								<img
-									style={{width: '20px'}}
+									style={{ width: '20px' }}
 									className={`${css['header2__icon__image']}`}
 									src={`src/assets/imgs/pancakeswap-logo.png`}
 									alt='React Logo'
@@ -158,14 +158,11 @@ function Footer() {
 						className={`${css['footer__left']} flex items-center justify-between gap-2`}
 					>
 						<span>
-							<SwitchTheme
-								active={isDarkMode}
-								change={toggleTheme}
-							/>
+							<SwitchTheme />
 						</span>
 						<span className='flex items-center justify-between gap-2 hover-p ml-2'>
 							<div className='flex items-center justify-between '>
-								<MdLanguage style={{fontSize: 30}} />
+								<MdLanguage style={{ fontSize: 30 }} />
 							</div>
 							<div>EN</div>
 						</span>

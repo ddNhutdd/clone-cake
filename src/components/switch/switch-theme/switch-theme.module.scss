@@ -1,18 +1,36 @@
 @import 'src/components/global-style/base.scss';
 
-@mixin image {
+@mixin svgcss {
+	display: block;
 	width: 20px;
 	height: 20px;
-	obj-fit: cover;
-	display: block;
 }
 
 .switchThemeContainer {
 	width: 56px;
 	height: 32px;
 	border-radius: 26px;
-	background-color: #666171;
+	background-color: #bdc2c4;
 	position: relative;
+
+	&.dark {
+		background-color: #666171;
+
+
+
+
+		.switchThemeContainer__item {
+			path {
+				fill: $background-1;
+			}
+		}
+
+		.switchThemeContainer__ringContainer {
+			.switchThemeContainer__ring {
+				background-color: #27262c;
+			}
+		}
+	}
 
 	&:hover {
 		cursor: pointer;
@@ -24,18 +42,22 @@
 
 	.switchThemeContainer__item {
 		position: absolute;
-		top: 7px;
+		top: 6px;
 
-		img {
-			@include image;
+		svg {
+			@include svgcss;
+
+			path {
+				fill: $background-1;
+			}
 		}
 
 		&.switchThemeContainer__left {
-			left: 5px;
+			left: 4px;
 		}
 
 		&.switchThemeContainer__right {
-			right: 5px;
+			right: 4px;
 		}
 	}
 
@@ -64,7 +86,7 @@
 		}
 
 		.switchThemeContainer__ring {
-			background-color: $background-2;
+			background-color: $background-1;
 			z-index: 3;
 			width: 26px;
 			height: 26px;
@@ -77,8 +99,8 @@
 				cursor: pointer;
 			}
 
-			img {
-				@include image;
+			svg {
+				@include svgcss;
 			}
 		}
 	}

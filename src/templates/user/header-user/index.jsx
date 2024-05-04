@@ -548,7 +548,7 @@ function Header() {
 				}
 			/>
 			<Modal
-				show={false}
+				show={true}
 				setShow={() => { }}
 				title={'Settings'}
 				content={<SettingsModalContent />}

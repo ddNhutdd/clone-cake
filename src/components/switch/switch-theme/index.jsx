@@ -1,13 +1,16 @@
 import React from 'react';
 import css from './switch-theme.module.scss';
-import moondark from 'src/assets/imgs/moon.svg';
-import sundark from 'src/assets/imgs/sun.svg';
+import MoonIcon from 'src/assets/icons/moon.icon';
+import SunIcon from 'src/assets/icons/sun.icon';
 import PropTypes from 'prop-types';
-import sunactive from 'src/assets/imgs/sunactive.svg';
-import moonactive from 'src/assets/imgs/moonactive.svg';
+import SunActiveIcon from 'src/assets/icons/sun-active.icon';
+import { useTheme } from 'src/context/dark-theme';
+import MoonActiveIcon from 'src/assets/icons/moon-active.icon';
 
-function SwitchTheme(props) {
-	const {active, change} = props;
+function SwitchTheme() {
+	const { isDarkMode: active, toggleTheme: change } = useTheme();
+	const activeClass = active ? css.dark : '';
+
 
 	const renderActive = function () {
 		return active ? css['active'] : '';
@@ -16,25 +19,24 @@ function SwitchTheme(props) {
 		change((s) => !s);
 	};
 	const renderRingContent = function () {
-		return active ?
-				<img src={moonactive} alt='moon active' />
-			:	<img src={sunactive} alt='sun active' />;
+		return active ? <MoonActiveIcon /> : <SunActiveIcon />
+
 	};
 
 	return (
 		<div
 			onClick={switchClickHandle}
-			className={css['switchThemeContainer']}
+			className={`${css['switchThemeContainer']} ${activeClass}`}
 		>
 			<div
 				className={`${css['switchThemeContainer__item']} ${css['switchThemeContainer__left']}`}
 			>
-				<img src={sundark} alt='sun' />
+				{active ? <SunIcon /> : <SunActiveIcon />}
 			</div>
 			<div
 				className={`${css['switchThemeContainer__item']} ${css['switchThemeContainer__right']}`}
 			>
-				<img src={moondark} alt='moon' />
+				{active ? <MoonIcon /> : <MoonActiveIcon />}
 			</div>
 			<div
 				className={

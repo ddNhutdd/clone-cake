@@ -1,1 +1,35 @@
 @import 'src/components/global-style/base.scss';
+
+.settingsModalContent {
+
+	&.dark {
+		
+	}
+
+	.settingsModalContent__title {
+		color: $text-color-4;
+		font-weight: 600;
+		text-transform: uppercase;
+		margin-bottom: 24px;
+		font-size: 1.2rem;
+	}
+
+	.settingsModalContent__row {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 24px;
+		gap: 40px;
+
+		.settingsModalContent__left {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+			color: $text-color-3;
+
+			svg {
+				position: relative;
+				top: 3px;
+			}
+		}
+	}
+}
