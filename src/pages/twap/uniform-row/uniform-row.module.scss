@@ -1,0 +1,16 @@
+.uniformRow {
+	width: 100%;
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	justify-content: space-between;
+
+	.uniformRow__text {
+		white-space: nowrap;
+	}
+
+	.svg {
+		position: relative;
+		top: 2px;
+	}
+}

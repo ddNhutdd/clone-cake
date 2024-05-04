@@ -9,6 +9,18 @@
 	border-top-right-radius: 24px;
 	background-color: $background-10;
 
+	&.dark {
+		background-color: $background-11;
+		color: $text-color-6;
+
+		.tabs3__headerItem {
+			&.active {
+				background-color: $background-2;
+				color: $text-color-white-2;
+			}
+		}
+	}
+
 	.tabs3__headerItem {
 		padding: 18px 24px;
 		flex-grow: 1;
@@ -30,4 +42,3 @@
 		}
 	}
 }
-

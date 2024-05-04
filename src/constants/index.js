@@ -9,7 +9,8 @@ export const url = {
 	liquidity: '/liquidity',
 	liquidityAdd: '/liquidity-add',
 	buyCrypto: '/buy-crypto',
-	twap: '/twap'
+	twap: '/twap',
+	limit: '/limit',
 };
 
 export const localStorageVariable = {

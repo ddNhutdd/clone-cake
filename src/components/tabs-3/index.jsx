@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import Card from '../card';
 import css from './tabs-3.module.scss';
-
+import { useTheme } from 'src/context/dark-theme';
 
 function Tabs3(props) {
 	const {
@@ -11,6 +11,8 @@ function Tabs3(props) {
 		onChange
 	} = props
 
+	const { isDarkMode } = useTheme();
+	const classTheme = isDarkMode ? css.dark : '';
 
 
 	const containerElement = useRef(null);
@@ -64,7 +66,7 @@ function Tabs3(props) {
 
 	return (
 		<Card ref={containerElement}>
-			<div className={css.tabs3__header}>
+			<div className={`${css.tabs3__header} ${classTheme}`}>
 				{renderTabHeader()}
 			</div>
 			<div className={css.tabs3__content}>

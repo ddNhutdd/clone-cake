@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import css from './input-3.module.scss';
+import { useTheme } from 'src/context/dark-theme';
 
 function Input3(props) {
 	const {
@@ -11,10 +12,13 @@ function Input3(props) {
 		style
 	} = props;
 
+	const { isDarkMode } = useTheme();
+	const classTheme = isDarkMode ? css.dark : '';
+
 	return (
 		<input
 			type='text'
-			className={`${css.input3} ${className}`}
+			className={`${css.input3} ${className} ${classTheme}`}
 			value={value}
 			onChange={onChange}
 			placeholder={placeholder}

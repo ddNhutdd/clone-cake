@@ -13,6 +13,12 @@
 	width: 100%;
 	border: 1px solid $background-12;
 
+	&.dark {
+		background-color: $background-25;
+		border-color: $background-25;
+		color: $text-color-white-2;
+	}
+
 	&:focus {
 		box-shadow: $box-shadow-6;
 	}

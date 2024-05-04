@@ -30,43 +30,15 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getShowChart, toggleSlice } from 'src/redux/slices/swap.slices';
 import Chart from './chart';
-import { useNavigate } from 'react-router-dom';
+import NavigateTab from './navigate-tab';
 
 function Swap() {
 	const { isDarkMode } = useTheme();
 	const dispatch = useDispatch();
 	const showChart = useSelector(getShowChart);
-	const navigate = useNavigate();
 
-	// tab 
-	const tabList = [
-		{
-			id: 1,
-			content: 'MARKET',
-			value: 'market'
-		},
-		{
-			id: 2,
-			content: 'TWAP',
-			value: 'twap'
-		},
-		{
-			id: 3,
-			content: 'LIMIT',
-			value: 'limit'
-		}
-	]
-	const [tabSelected, setTabSelected] = useState(tabList.at(0));
-	const tabChangeHandle = (tab) => {
-		switch (tab.value) {
-			case tabList?.at(1)?.value:
-				navigate(url.twap);
-				break;
-			
-			default:
-				break;
-		}
-	}
+
+
 	//toggle show Chart
 	const toggleChart = () => {
 		dispatch(toggleSlice());
@@ -128,14 +100,9 @@ function Swap() {
 								<Chart />
 							</div>
 						}
-
 						<div className={css.swap__right}>
 							<div className={css.swap__tabs}>
-								<Tabs
-									listTabs={tabList}
-									selectedItem={tabSelected}
-									onChange={tabChangeHandle}
-								/>
+								<NavigateTab />
 							</div>
 							<div className={css.swap__card}>
 								<div className={css.swap__cardTop}>

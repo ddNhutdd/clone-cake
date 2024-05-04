@@ -14,14 +14,12 @@ import { useEffect, useState } from 'react';
 import useStep from 'src/hooks/use-step';
 import Choose from '../swap/choose';
 import Manage from '../swap/manage';
-import Tabs from 'src/components/tabs';
 import { url } from 'src/constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { getShowChart, toggleSlice } from 'src/redux/slices/swap.slices';
 import Chart from '../swap/chart';
 import { useNavigate } from 'react-router-dom';
 import Tabs3 from 'src/components/tabs-3';
-import leftTab from './left-tabs';
 import percentTab from './percent-tab';
 import Tabs2 from 'src/components/tabs-2';
 import { ToolTip } from 'src/components/tooltip';
@@ -29,40 +27,16 @@ import Pill, { pillType } from 'src/components/pill';
 import { GrPowerReset } from "react-icons/gr";
 import Switch from 'src/components/switch/switch';
 import Input3 from 'src/components/input-3';
-import UniformRow from './uniform-row';
+
 import { GoQuestion } from "react-icons/go";
 import NavigateTab from '../swap/navigate-tab';
+import leftTab from '../twap/left-tabs';
 
-function Twap() {
+function Limit() {
 	const { isDarkMode } = useTheme();
 	const dispatch = useDispatch();
 	const showChart = useSelector(getShowChart);
-
-	// phần uniform row
-	const [options, setOptions] = useState([
-		{
-			value: `minutes`,
-			content: 'Minutes'
-		},
-		{
-			value: `hours`,
-			content: 'Hours'
-		},
-		{
-			value: `days`,
-			content: 'Days'
-		}
-	]);
-	const [seletedItem, setSeletedItem] = useState(options?.at(0));
-	const dropdownChangeHandle = (item) => {
-		setSeletedItem(item)
-	}
-
-	const [inputValue, setInputValue] = useState('');
-	const inputChangeHandle = (ev) => {
-		setInputValue(ev.target.value)
-	}
-
+	const navigate = useNavigate();
 
 
 	//toggle show Chart
@@ -134,7 +108,7 @@ function Twap() {
 									<Chart />
 								</div>
 							}
-							<div style={{ width: '100%' }}>
+							<div>
 								<Tabs3
 									tabs={leftTab}
 									selectedTab={leftTabSelected}
@@ -278,28 +252,7 @@ function Twap() {
 									<div className='my-2'>
 										<Input3 style={{ height: 40, boxShadow: 'none', textAlign: 'right' }} />
 									</div>
-									<div className='my-2'>
-										<UniformRow
-											text={`Trade interval`}
-											popupContent={`The estimated time that will elapse between each trade in your order. Note that as this time includes an allowance of two minutes for bidder auction and block settlement, which cannot be predicted exactly, actual time may vary.`}
-											options={options}
-											selectedOption={seletedItem}
-											dropdownOnChange={dropdownChangeHandle}
-											inputValue={inputValue}
-											inputOnChange={inputChangeHandle}
-										/>
-									</div>
-									<div className='my-2'>
-										<UniformRow
-											text={`Max duration`}
-											popupContent={`The maximum time during which the total amount of individual trades making up your full order can be executed. Note that depending on your parameters, your order may be filled earlier than this time, partially filled or not filled at all.`}
-											options={options}
-											selectedOption={seletedItem}
-											dropdownOnChange={dropdownChangeHandle}
-											inputValue={inputValue}
-											inputOnChange={inputChangeHandle}
-										/>
-									</div>
+
 									<div className={css.swap__action}>
 										<Button
 											isDark={isDarkMode}
@@ -331,4 +284,4 @@ function Twap() {
 	);
 }
 
-export default Twap;
+export default Limit;

@@ -1,0 +1,104 @@
+@import 'src/components/global-style/base.scss';
+
+.inputDropdown {
+	background: rgb(238, 234, 244);
+	border-radius: 16px;
+	box-shadow: rgba(74, 74, 104, 0.1) 0px 2px 2px -1px inset;
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	padding: 4px 10px;
+	width: fit-content;
+	position: relative;
+
+	&.dark {
+		background: $background-25;
+
+		input {
+			color: $text-color-white-2 ;
+		}
+
+		.inputDropdown__header {
+			color: $text-color-white-2 ;
+		}
+
+		.inputDropdown__menu {
+			border-color: $background-29;
+			background-color: $background-29;
+
+			&.show {
+				display: block;
+			}
+
+
+			.inputDropdown__menu__item {
+				color: $text-color-white-2 ;
+
+				&:hover {
+					background: $background-30;
+				}
+			}
+		}
+	}
+
+	input {
+		outline: none;
+		border: none;
+		background-color: transparent;
+		color: $text-color-3;
+		font-size: 14px;
+		text-align: right;
+		width: 100%;
+	}
+
+	.inputDropdown__header {
+		color: $text-color-3;
+		font-weight: 300;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		cursor: pointer;
+		font-size: 14px;
+		user-select: none;
+		text-transform: uppercase;
+
+		svg {
+			width: 12px;
+			height: 12px;
+		}
+	}
+
+	.inputDropdown__menu {
+		display: none;
+		position: absolute;
+		top: 0;
+		right: 0;
+		background: $background-27;
+		border: 1px solid $border-color;
+		border-radius: 16px;
+		padding: 0px;
+		overflow: hidden;
+		z-index: 9999;
+
+		&.show {
+			display: block;
+		}
+
+
+		.inputDropdown__menu__item {
+			padding: 0px 24px;
+			text-align: left;
+			height: 36px;
+			display: flex;
+			align-items: center;
+			cursor: pointer;
+			transition: all 0.2s ease 0s;
+			font-size: 14px;
+			color: $text-color-3;
+
+			&:hover {
+				background: $background-28;
+			}
+		}
+	}
+}
