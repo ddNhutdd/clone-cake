@@ -58,6 +58,10 @@
 	background-color: transparent;
 	box-shadow: none;
 	color: rgb(31, 199, 212);
+
+	&.dark {
+		color: rgb(31, 199, 212);
+	}
 }
 
 .button-secondThin {
@@ -87,6 +91,10 @@
 	box-shadow: none;
 	color: $primary-2;
 	background-color: transparent;
+
+	&.dark {
+		color: $primary-2;
+	}
 }
 
 .primary-text {

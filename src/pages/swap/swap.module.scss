@@ -10,54 +10,34 @@
 			.swap__content {
 				.swap__card {
 					.swap__cardTop {
-						background-color: $background-2;
-						border-color: $border-color-3;
+						background-color: #27262C !important;
+						border-color: #383241 !important;
 
 						.swap__header {
-							color: $text-color-white-2;
+							color: $text-color-white-2 !important;
 						}
 
 						.swap__text {
-							color: $text-color-6;
-						}
-
-						.swap__list {
-							color: $text-color-6;
+							color: $text-color-6 !important;
 						}
 					}
 
 					.swap__cardBot {
-						background-color: $background-2;
-						border-color: $border-color-3;
-						box-shadow: 0px 2px 0px 0px $border-color-3;
-
-						.swap__button {
-							button {
-								background-color: $background-11;
-								color: $primary-2;
-							}
-						}
+						background-color: $background-2 !important;
+						border-color: $border-color-3 !important;
+						box-shadow: 0px 2px 0px 0px $border-color-3 !important;
 
 						.swap__info {
 							.swap__infoItem {
 								.swap__left {
-									color: $primary-1;
+									color: $primary-1 !important;
 								}
 
 								.swap__right {
-									color: $text-color-white-2;
+									color: $text-color-white-2 !important;
 								}
 							}
 						}
-
-						.swap__select {
-							span {
-								color: $primary-1;
-							}
-
-						}
-
-
 					}
 				}
 			}
@@ -282,7 +262,7 @@
 
 									&.swap__right--bold {
 										font-weight: 600;
-										color: $primary-2;
+										color: $primary-2 !important;
 										font-size: 16px;
 									}
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import css from './tabs.module.scss';
 import PropTypes from 'prop-types';
+import { useTheme } from 'src/context/dark-theme';
 
 function Tabs(props) {
 	const {
@@ -8,6 +9,9 @@ function Tabs(props) {
 		selectedItem,
 		onChange
 	} = props;
+
+	const { isDarkMode } = useTheme();
+	const classTheme = isDarkMode ? css.dark : '';
 
 	const [itemActive, setItemActive] = useState(selectedItem?.value);
 
@@ -18,7 +22,10 @@ function Tabs(props) {
 
 		return css.active;
 	};
-	const itemClickHandle = (item) => setItemActive(item?.value);
+	const itemClickHandle = (item) => {
+		setItemActive(item?.value)
+		onChange(item)
+	};
 	const renderList = () =>
 		listTabs.map((item) => (
 			<div
@@ -30,12 +37,12 @@ function Tabs(props) {
 			</div>
 		));
 
-	useEffect(() => {
-		const itemSelected = listTabs.find((item) => item.value === itemActive);
-		onChange(itemSelected);
-	}, [itemActive]);
 
-	return <div className={css.tabs}>{renderList()}</div>;
+	return (
+		<div className={`${css.tabs} ${classTheme}`}>
+			{renderList()}
+		</div>
+	);
 }
 
 Tabs.propTypes = {

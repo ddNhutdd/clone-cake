@@ -49,6 +49,13 @@ function Header() {
 
 
 	// phần modal settings
+	const [settingsModalShow, setSettingsModalShow] = useState(false);
+	const settingsModalOpen = () => {
+		setSettingsModalShow(true);
+	}
+	const settingsModalClose = () => {
+		setSettingsModalShow(false);
+	}
 
 
 
@@ -475,7 +482,7 @@ function Header() {
 						/>
 					</div>
 					<div className='flex align-center items-center px-3 px-sm-1'>
-						<IoSettingsSharp style={{ fontSize: '25px' }} />
+						<IoSettingsSharp onClick={settingsModalOpen} style={{ fontSize: '25px', cursor: 'pointer' }} />
 					</div>
 					<div className='flex align-center items-center px-3 px-sm-1'>
 						<IoIosNotifications style={{ fontSize: '25px' }} />
@@ -548,8 +555,8 @@ function Header() {
 				}
 			/>
 			<Modal
-				show={true}
-				setShow={() => { }}
+				show={settingsModalShow}
+				setShow={setSettingsModalShow}
 				title={'Settings'}
 				content={<SettingsModalContent />}
 			/>

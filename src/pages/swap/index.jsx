@@ -58,7 +58,14 @@ function Swap() {
 	]
 	const [tabSelected, setTabSelected] = useState(tabList.at(0));
 	const tabChangeHandle = (tab) => {
-		setTabSelected(tab);
+		switch (tab.value) {
+			case tabList?.at(1)?.value:
+				navigate(url.twap);
+				break;
+			
+			default:
+				break;
+		}
 	}
 	//toggle show Chart
 	const toggleChart = () => {
@@ -109,11 +116,6 @@ function Swap() {
 			setStepBot(0);
 		}
 	}, [selectTokenBotShow])
-	useEffect(() => {
-		if (tabSelected.value === tabList?.at(1)?.value) {
-			navigate(url.twap);
-		}
-	}, [tabSelected])
 
 	return (
 		<>

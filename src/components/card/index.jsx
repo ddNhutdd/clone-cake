@@ -2,6 +2,7 @@ import React from 'react';
 import css from './card.module.scss';
 import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
+import { useTheme } from 'src/context/dark-theme';
 
 const Card = forwardRef((props, ref) => {
 	const {
@@ -10,8 +11,11 @@ const Card = forwardRef((props, ref) => {
 		classNameContent,
 	} = props;
 
+	const { isDarkMode } = useTheme();
+	const classTheme = isDarkMode ? css.dark : '';
+
 	return (
-		<div ref={ref} className={`${css.card} ${className}`}>
+		<div ref={ref} className={`${css.card} ${className} ${classTheme}`}>
 			<div className={`${css.card__content} ${classNameContent}`}>
 				{children}
 			</div>

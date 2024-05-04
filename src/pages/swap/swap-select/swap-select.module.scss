@@ -10,11 +10,11 @@
 	&.dark {
 		span {
 			&:nth-of-type(2) {
-				color: $text-color-white-2;
+				color: $text-color-white-2 !important;
 			}
 
 			&:nth-of-type(3) {
-				color: $text-color-white-2;
+				color: $text-color-white-2 !important;
 			}
 		}
 	}

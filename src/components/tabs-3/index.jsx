@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import Card from '../card';
 import css from './tabs-3.module.scss';
 
+
 function Tabs3(props) {
 	const {
 		tabs,
@@ -10,10 +11,11 @@ function Tabs3(props) {
 		onChange
 	} = props
 
+
+
 	const containerElement = useRef(null);
 
 	const setTabActive = (value) => {
-		console.log(selectedTab?.value, value)
 		if (selectedTab?.value === value) {
 			return css.active;
 		}

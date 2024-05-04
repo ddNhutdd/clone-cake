@@ -5,6 +5,16 @@
 	background-color: $border-color;
 	border-radius: $border-radius-2;
 
+	&.dark {
+		background-color: $border-color-3;
+		color: $text-color-white-2;
+
+		.card__content {
+			background-color: $background-2;
+			border-color: $border-color-3;
+		}
+	}
+
 	.card__content {
 		padding: 24px;
 		background-color: $background-1;

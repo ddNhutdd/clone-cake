@@ -58,7 +58,14 @@ function Twap() {
 	]
 	const [tabSelected, setTabSelected] = useState(tabList.at(1));
 	const tabChangeHandle = (tab) => {
-		setTabSelected(tab);
+		switch (tab.value) {
+			case tabList?.at(0)?.value:
+				navigate(url.swap);
+				break;
+
+			default:
+				break;
+		}
 	}
 	//toggle show Chart
 	const toggleChart = () => {
@@ -265,7 +272,7 @@ function Twap() {
 														</div>
 													)}
 												>
-														<CiCircleQuestion />
+													<CiCircleQuestion />
 												</ToolTip>
 											</div>
 											<div>

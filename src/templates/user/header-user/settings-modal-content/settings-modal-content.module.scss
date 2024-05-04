@@ -1,9 +1,12 @@
 @import 'src/components/global-style/base.scss';
 
 .settingsModalContent {
-
 	&.dark {
-		
+		.settingsModalContent__row {
+			.settingsModalContent__left {
+				color: $text-color-white-2;
+			}
+		}
 	}
 
 	.settingsModalContent__title {
