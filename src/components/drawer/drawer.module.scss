@@ -2,6 +2,10 @@
 
 
 .drawer__overlayCustom {
+	&.screen {
+		position: fixed !important;
+	}
+
 	position: absolute !important;
 	background-color: $background-21 !important;
 	opacity: 0.8;
@@ -9,6 +13,10 @@
 }
 
 .drawer__modalCustom {
+	&.screen {
+		position: fixed !important;
+	}
+
 	position: absolute !important;
 	height: unset !important;
 	width: unset !important;

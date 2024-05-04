@@ -21,6 +21,8 @@ function Drawer(props) {
 		screen
 	} = props;
 
+	const isScreen = screen ? css.screen : '';
+
 	const closeDrawer = () => {
 		setOpen(() => false);
 	}
@@ -30,8 +32,8 @@ function Drawer(props) {
 			open={open}
 			onClose={closeDrawer}
 			direction={direction || drawerDirection.bottom}
-			className={`${css.drawer__modalCustom} ${className}`}
-			overlayClassName={`${css.drawer__overlayCustom} ${classNameOverlay}`}
+			className={`${css.drawer__modalCustom} ${className} ${isScreen}`}
+			overlayClassName={`${css.drawer__overlayCustom} ${classNameOverlay} ${isScreen}`}
 		>
 			{
 				children

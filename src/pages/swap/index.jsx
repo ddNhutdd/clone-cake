@@ -45,6 +45,7 @@ function Swap() {
 	//toggle show Chart
 	const toggleChart = () => {
 		dispatch(toggleSlice());
+		setChartDrawerShow(state => !state);
 	}
 
 
@@ -71,13 +72,11 @@ function Swap() {
 
 
 	//Drawer chart khi màn hình nhỏ
-	const isOpenChartDrawer = showChart &&
+	const [chartDrawerShow, setChartDrawerShow] = useState(showChart &&
 		(screen === widthDevice.width_576 ||
 			screen === widthDevice.width_768 ||
-			screen === widthDevice.width_992)
-	const closeDrawer = () => {
-		dispatch(close());
-	}
+			screen === widthDevice.width_992));
+
 
 
 
@@ -266,12 +265,22 @@ function Swap() {
 					</div>
 				</div>
 				<FooterComponent />
-				<Drawer
-					open={isOpenChartDrawer}
-					setOpen={closeDrawer}
-				>
-					<Chart />
-				</Drawer>
+				{
+
+					screen === widthDevice.width_576 ||
+						screen === widthDevice.width_768 ||
+						screen === widthDevice.width_992 ?
+						<Drawer
+							open={chartDrawerShow}
+							setOpen={setChartDrawerShow}
+							screen={true}
+						>
+							<div>
+								<Chart />
+							</div>
+						</Drawer>
+						: null
+				}
 			</div>
 			<Modal
 				show={selectTokenTopShow}
