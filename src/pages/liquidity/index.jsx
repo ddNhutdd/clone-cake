@@ -15,56 +15,75 @@ import Modal from 'src/components/modal';
 import SettingModalContent from './setting-modal-content';
 import { useNavigate } from 'react-router-dom';
 import { url } from 'src/constants';
+import listTabs from './list-tab';
+import { useTheme } from 'src/context/dark-theme';
 
 function Liquidity() {
 	const navigate = useNavigate();
 
+
+
+
+
+
+
+	// phần theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
+
+
+
+
 	// tabs
-	const listTabs = [
-		{
-			id: 1,
-			content: 'ALL',
-			value: 'all',
-		},
-		{
-			id: 2,
-			content: 'V3',
-			value: 'v3',
-		},
-		{
-			id: 3,
-			content: 'TableSwap',
-			value: 'TableSwap',
-		},
-		{
-			id: 4,
-			content: 'V2',
-			value: 'v2',
-		},
-	];
 	const [tabSelectedItem, setTabSelectedItem] = useState(listTabs?.at(0));
 	const listTabsChangeHandle = (item) => setTabSelectedItem(item);
+
+
+
+
 
 	// transaction modal
 	const [showTransactionModal, setShowTransactionModal] = useState(false);
 	const openTransactionModal = () => setShowTransactionModal(true);
 	const closeTransactionModal = () => setShowTransactionModal(false);
 
+
+
+
+
 	// checkbox
 	const [hideCheckBoxChecked, setHideCheckBoxChecked] = useState(false);
+
+
+
+
 
 	// setting modal
 	const [showSettingModal, setShowSettingModal] = useState();
 	const openSettingModal = () => setShowSettingModal(true);
 	const closeSettingModal = () => setShowSettingModal(false);
 
+
+
+
+
+
+
+
+
 	// redirect
 	const redirectPage = (page) => {
 		navigate(page)
 	}
 
+
+
+
+
+
 	return (
-		<div className={css.liquidity}>
+		<div className={`${css.liquidity} ${darkClass}`}>
 			<HeaderComponent list={HeaderComponentList1} />
 			<div className={css.container}>
 				<Card>

@@ -1,29 +1,14 @@
+import { useTheme } from 'src/context/dark-theme';
 import CommonItem from './common-item';
 import css from './common-token.module.scss';
-import cake from 'imgs/staking-1.png';
+import list from './list';
+
 
 function CommonToken() {
-	const list = [
-		{
-			key: 'BNB',
-			img: cake,
-			disabled: true
-		},
-		{
-			key: 'USDT',
-			img: cake
-		}
-		,
-		{
-			key: 'CAKE',
-			img: cake
-		}
-		,
-		{
-			key: 'BTCB',
-			img: cake
-		}
-	]
+
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 
 	const renderList = () => {
 		return list?.map(item => {
@@ -38,7 +23,7 @@ function CommonToken() {
 	}
 
 	return (
-		<div className={css.commonToken}>
+		<div className={`${css.commonToken} ${darkClass}`}>
 			<div className={css.commonToken__title}>
 				Common tokens
 			</div>

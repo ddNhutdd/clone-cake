@@ -9,7 +9,39 @@
 		margin-top: -30px;
 	}
 
+	&.dark {
+		.chart__card {
+			.chart__header {
+				.chart__header__left {
+					color: $text-color-white-2;
+				}
+
+				.chart__header__right {
+					svg {
+						color: #f4eeff;
+					}
+				}
+			}
+
+			.chart__info {
+				.chart__info__left {
+					.chart__info__main {
+						.chart__info__value {
+							color: $text-color-white-2;
+						}
+					}
+				}
+			}
+		}
+	}
+
 	.chart__card {
+
+		&.borderBottomRadiusNone {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+
 		.chart__header {
 			display: flex;
 			justify-content: space-between;
@@ -59,12 +91,15 @@
 			justify-content: space-between;
 			padding-top: 20px;
 			padding-bottom: 20px;
+			flex-wrap: wrap;
 
 			.chart__info__left {
 				.chart__info__main {
 					display: flex;
 					align-items: flex-end;
 					gap: 5px;
+					flex-wrap: wrap;
+
 
 					.chart__info__value {
 						font-size: 40px;

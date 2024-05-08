@@ -5,12 +5,23 @@ import { IoClose } from 'react-icons/io5';
 import { useState } from 'react';
 import Tokens from './tokens';
 import List from './list';
+import { useTheme } from 'src/context/dark-theme';
 
 function Manage(props) {
 	const {
 		prevStep,
 		closeModal
 	} = props;
+
+	// phần theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : ''
+
+
+
+
+
+
 
 	// tabs
 	const tabType = {
@@ -51,8 +62,16 @@ function Manage(props) {
 		}
 	}
 
+
+
+
+
+
+
+
+
 	return (
-		<div className={css.manage}>
+		<div className={`${css.manage} ${darkClass}`}>
 			<div className={css.manage__header}>
 				<div onClick={prevStep} className={css.manage__button}>
 					<FaArrowLeft />

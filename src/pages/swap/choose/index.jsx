@@ -4,14 +4,19 @@ import Input3 from 'src/components/input-3';
 import PropTypes from 'prop-types'
 import ListToken from 'src/components/list-token';
 import CommonToken from 'src/components/common-token';
+import { useTheme } from 'src/context/dark-theme';
 
 function Choose(props) {
 	const {
 		closeModal,
 		nextStep
 	} = props;
+
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.choose}>
+		<div className={`${css.choose} ${darkClass}`}>
 			<div className={css.choose__header}>
 				<div className={css.choose__title}>
 					Select a Token

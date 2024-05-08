@@ -6,6 +6,10 @@
 
 	&.dark {
 		.headerContainer {
+			&.active {
+				color: $primary-1;
+			}
+
 			&.canHover {
 				&:hover {
 					background-color: $background-5;
@@ -19,6 +23,10 @@
 				border-color: $border-color-3;
 
 				.headerMenu__item {
+					&.active {
+						color: $primary-1;
+					}
+
 					&:hover {
 						background-color: $background-5;
 					}

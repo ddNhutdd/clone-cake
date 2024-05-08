@@ -18,8 +18,16 @@ import ModalContent from './modal-content';
 import Modal from 'src/components/modal';
 import Pill, { pillType } from 'src/components/pill';
 import { IoMdCheckmark } from 'react-icons/io';
+import currencyModalList from './currencyModalList';
+import { useTheme } from 'src/context/dark-theme';
 
 function BuyCrypto() {
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
+
+
+
 
 	// Drawer
 	const [providerDrawerShow, setProviderDrawerShow] = useState(false);
@@ -27,46 +35,22 @@ function BuyCrypto() {
 		setProviderDrawerShow(() => true);
 	}
 
+
+
+
+
+
 	// modal currency
 	const currencyModalString = `select a currency`;
 	const [modalCurrencyShow, setModalCurrencyShow] = useState(false);
 	const modalCurrencyOpen = () => {
 		setModalCurrencyShow(true);
 	}
-	const currencyModalList = [
-		{
-			img: <img src='https://pancakeswap.finance/images/currencies/usd.png' alt='USD' />,
-			top: 'USD',
-			bot: 'United States Dollar'
-		},
-		{
-			img: <img src='https://pancakeswap.finance/images/currencies/usd.png' alt='USD' />,
-			top: 'USD',
-			bot: 'United States Dollar',
-			disabled: true,
-			switch: true
-		},
-		{
-			img: <img src='https://pancakeswap.finance/images/currencies/usd.png' alt='USD' />,
-			top: 'USD',
-			bot: 'United States Dollar'
-		},
-		{
-			img: <img src='https://pancakeswap.finance/images/currencies/usd.png' alt='USD' />,
-			top: 'USD',
-			bot: 'United States Dollar'
-		},
-		{
-			img: <img src='https://pancakeswap.finance/images/currencies/usd.png' alt='USD' />,
-			top: 'USD',
-			bot: 'United States Dollar'
-		},
-		{
-			img: <img src='https://pancakeswap.finance/images/currencies/usd.png' alt='USD' />,
-			top: 'USD',
-			bot: 'United States Dollar'
-		},
-	]
+
+
+
+
+
 
 	// modal token
 	const [modalTokenShow, setModalTokenShow] = useState(false);
@@ -95,9 +79,14 @@ function BuyCrypto() {
 		}
 	]
 
+
+
+
+	
+
 	return (
 		<>
-			<div className={css.buyCrypto}>
+			<div className={`${css.buyCrypto} ${darkClass}`}>
 				<HeaderComponent list={HeaderComponentList3} />
 				<div className={css.container}>
 					<Card

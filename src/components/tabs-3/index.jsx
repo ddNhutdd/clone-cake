@@ -8,7 +8,9 @@ function Tabs3(props) {
 		tabs,
 		children,
 		selectedTab,
-		onChange
+		onChange,
+		headerClass,
+		contentClass
 	} = props
 
 	const { isDarkMode } = useTheme();
@@ -66,10 +68,10 @@ function Tabs3(props) {
 
 	return (
 		<Card ref={containerElement}>
-			<div className={`${css.tabs3__header} ${classTheme}`}>
+			<div className={`${css.tabs3__header} ${classTheme} ${headerClass}`}>
 				{renderTabHeader()}
 			</div>
-			<div className={css.tabs3__content}>
+			<div className={`${css.tabs3__content} ${contentClass}`}>
 				{children}
 			</div>
 		</Card>

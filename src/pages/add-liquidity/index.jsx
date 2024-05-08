@@ -16,40 +16,35 @@ import Button, { buttonClassesType } from 'src/components/button';
 import Card from 'src/components/card';
 import FooterComponent from 'src/components/footer-component';
 import { FaCaretDown } from 'react-icons/fa';
-import Pill from 'src/components/pill';
+import Pill, { pillType } from 'src/components/pill';
 import CopyButton from 'src/components/copy-button';
 import { ToolTip, tooltipPosition } from 'src/components/tooltip';
 import PillSquare from 'src/components/pill-square';
 import Modal from 'src/components/modal';
 import SelectToken from './select-token';
 import SettingModalContent from '../liquidity/setting-modal-content';
+import rangeListTab from './rangeListTab';
+import { useTheme } from 'src/context/dark-theme';
 
 export default function AddLiquidity() {
+
+	// theme 
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
+
+
+
+
+
+
+
 	// range tab
-	const rangeListTab = [
-		{
-			id: 1,
-			content: '10%',
-			value: '10',
-		},
-		{
-			id: 2,
-			content: '20%',
-			value: '20',
-		},
-		{
-			id: 3,
-			content: '50%',
-			value: '50',
-		},
-		{
-			id: 4,
-			content: 'Full Range',
-			value: 'full',
-		},
-	];
 	const [rangeSelected, setRangeSelected] = useState(rangeListTab.at(0));
 	const rangeChangeHandle = (item) => setRangeSelected(item);
+
+
+
 
 	// select token left
 	const [modalTokenLeftShow, setModalTokenLeftShow] = useState(false);
@@ -60,6 +55,10 @@ export default function AddLiquidity() {
 		setModalTokenLeftShow(false);
 	}
 
+
+
+
+
 	// select token right
 	const [modalTokenRightShow, setModalTokenRightshow] = useState(false);
 	const modalTokenRightOpen = () => {
@@ -68,6 +67,11 @@ export default function AddLiquidity() {
 	const modalTokenRightClose = () => {
 		setModalTokenRightshow(false);
 	}
+
+
+
+
+
 
 	// modal setting
 	const [modalSettingShow, setModalSettingShow] = useState(false);
@@ -78,6 +82,11 @@ export default function AddLiquidity() {
 		setModalSettingShow(false);
 	}
 
+
+
+
+
+
 	// pick more
 	const pickMoreList = [0.01, 0.05, 0.25, 1];
 	const [pickMoreSelected, setPickMoreSelected] = useState(pickMoreList?.at(0));
@@ -86,7 +95,6 @@ export default function AddLiquidity() {
 			return (
 				<div key={item} onClick={pickMoreItemClickHandle.bind(null, item)}>
 					<Card
-
 						classNameContent={
 							css.addLiquidity__pick__listItem
 						}
@@ -113,9 +121,16 @@ export default function AddLiquidity() {
 		return pickMoreShow ? '' : 'd-0';
 	}
 
+
+
+
+
+
+
+
 	return (
 		<>
-			<div className={css.addLiquidity}>
+			<div className={`${css.addLiquidity} ${darkClass}`}>
 				<div className={css.container}>
 					<Card className={css.addLiquidity__card}>
 						<div className={css.addLiquidity__header}>
@@ -200,7 +215,9 @@ export default function AddLiquidity() {
 								>
 									<div className={css.addLiquidity__pickTitle}>
 										V3 LP - 0.25% fee tier
-										<Pill>96% Pick</Pill>
+										<Pill
+											type={pillType.outline}
+										>96% Pick</Pill>
 									</div>
 									<div
 										onClick={pickMoreToggle}

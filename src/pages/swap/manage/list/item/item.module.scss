@@ -9,6 +9,18 @@
 	border-radius: 20px;
 	transition: border-color .2s, background .2s;
 
+	&.dark {
+		border-color: #353547;
+
+		.item__top {
+			color: $text-color-white-2;
+		}
+
+		.item__bot {
+			color: $text-color-white-2;
+		}
+	}
+
 	&.active {
 		background: $background-24;
 		border-color: $text-color-7;

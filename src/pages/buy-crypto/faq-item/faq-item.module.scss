@@ -3,6 +3,18 @@
 .faqItem {
 	padding-bottom: 24px;
 
+	&.dark {
+		.faqItem__header {
+			.faqItem__header__title {
+				color: $text-color-white-2;
+			}
+		}
+
+		.faqItem__body {
+			color: $text-color-6;
+		}
+	}
+
 	.faqItem__header {
 		display: flex;
 		align-items: center;

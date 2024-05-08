@@ -73,3 +73,10 @@ export const regular = {
 };
 
 export const dateFormat = `d-M-yyyy`;
+
+export const apiStatus = {
+	pending: 'pending',
+	fetching: 'fetching',
+	fulfilled: 'fulfilled',
+	rejected: 'rejected'
+}

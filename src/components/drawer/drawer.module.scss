@@ -17,6 +17,15 @@
 		position: fixed !important;
 	}
 
+	&.dark {
+		background-color: $background-2;
+	}
+
+	&.radiusButtonNone {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
 	position: absolute !important;
 	height: unset !important;
 	width: unset !important;

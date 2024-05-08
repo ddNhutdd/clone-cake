@@ -3,6 +3,16 @@
 .choose {
 	margin: -24px;
 
+	&.dark {
+		.choose__header {
+			border-color: $border-color-3;
+
+			.choose__title {
+				color: $text-color-white-2;
+			}
+		}
+	}
+
 	.choose__header {
 		padding: 24px;
 		display: flex;

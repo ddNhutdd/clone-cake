@@ -1,3 +1,4 @@
+import { useTheme } from 'src/context/dark-theme';
 import css from './input.module.scss';
 import { FaCaretDown } from "react-icons/fa";
 
@@ -5,9 +6,13 @@ function Input(props) {
 	const {
 		onShowModal
 	} = props;
+
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
 		<>
-			<div className={css.input}>
+			<div className={`${css.input} ${darkClass}`}>
 				<input
 					type="text"
 				/>

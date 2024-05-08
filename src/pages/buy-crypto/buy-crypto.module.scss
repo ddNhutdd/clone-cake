@@ -1,6 +1,35 @@
 @import 'src/components/global-style/base.scss';
 
 .buyCrypto {
+	&.dark {
+		.container {
+			.buyCrypto__card {
+				&.top {
+					.buyCrypto__top__header {
+						.buyCrypto__top__header__title {
+							color: $text-color-white-2;
+						}
+
+						.buyCrypto__top__header__small {
+							color: $text-color-6;
+						}
+
+						.buyCrypto__circle {
+							background-color: $background-5
+						}
+					}
+				}
+
+				&.bot {
+					.buyCrypto__bot__header {
+						background: linear-gradient(166.77deg, #3b4155, #3a3045);
+						color: $primary-1;
+					}
+				}
+			}
+		}
+	}
+
 	.container {
 		@include container2;
 		padding-top: 20px;
@@ -38,6 +67,11 @@
 						display: flex;
 						align-items: center;
 						justify-content: center;
+						cursor: pointer;
+
+						&:hover {
+							opacity: 0.65;
+						}
 
 						svg {
 							color: $primary-2;
@@ -122,12 +156,14 @@
 		}
 	}
 }
+
+
 .buyCrypto__providerDrawerCustom {
 	bottom: -5px !important;
-	z-index: 25!important;
+	z-index: 25 !important;
 }
 
 .buyCrypto__providerDrawerOverlayCustom {
 	bottom: -3px !important;
-	z-index: 24!important;
+	z-index: 24 !important;
 }

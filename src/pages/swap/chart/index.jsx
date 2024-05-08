@@ -8,14 +8,39 @@ import { FaArrowRightArrowLeft } from "react-icons/fa6";
 import { BsArrowsAngleExpand } from "react-icons/bs";
 import Tabs2 from 'src/components/tabs-2';
 import tabList from './tab-list';
+import { useTheme } from 'src/context/dark-theme';
+import useMediaQuery, { widthDevice } from 'src/hooks/useMedia';
 
 function Chart() {
+
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
 
 	// tab
 	const [tabSelected, setTabSelected] = useState(tabList.at(0));
 	const tabChangeHandle = (tab) => {
 		setTabSelected(tab)
 	}
+
+
+
+
+	// kích thước màn hình
+	const screen = useMediaQuery();
+	const isShowExtend = screen !== widthDevice.width_576 &&
+		screen !== widthDevice.width_768 &&
+		screen !== widthDevice.width_992
+
+
+
+	// border radius
+	// nếu đang là drawer thì set border bottom radius là 0
+	const borderBottomRadiusClass = !isShowExtend ? css.borderBottomRadiusNone : '';
+
+
+
+
 
 	// extend
 	const [isExtend, setIsExtend] = useState(false);
@@ -27,10 +52,10 @@ function Chart() {
 	}
 
 	return (
-		<div className={css.chart}>
+		<div className={`${css.chart} ${darkClass}`}>
 			<Card
-				classNameContent={`${css.chart__card} ${extendClass} `}
-				className={`${extendClass} ${extendMargin}`}
+				classNameContent={`${css.chart__card} ${extendClass} ${borderBottomRadiusClass}`}
+				className={`${extendClass} ${extendMargin} ${borderBottomRadiusClass}`}
 			>
 				<div className={css.chart__header}>
 					<div className={css.chart__header__left}>
@@ -39,9 +64,11 @@ function Chart() {
 						BNB/CAKE
 						<FaArrowRightArrowLeft />
 					</div>
-					<div onClick={extendClickHandle} className={css.chart__header__right}>
-						<BsArrowsAngleExpand />
-					</div>
+					{
+						isShowExtend && <div onClick={extendClickHandle} className={css.chart__header__right}>
+							<BsArrowsAngleExpand />
+						</div>
+					}
 				</div>
 				<div className={css.chart__info}>
 					<div className={css.chart__info__left}>

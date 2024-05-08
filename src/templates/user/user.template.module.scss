@@ -1,3 +1,10 @@
-.userTemplate {
+@import 'src/components/global-style/base.scss';
+
+.userTemplate__outlet {
+	min-height: 100vh;
 	background: linear-gradient(139.73deg, #e5fdff, #f3efff);
+
+	&.dark {
+		background: $background-7;
+	}
 }

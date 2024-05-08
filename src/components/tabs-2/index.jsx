@@ -31,6 +31,7 @@ function Tabs2(props) {
 					type={renderActive(item)}
 					onClick={itemClickHandle.bind(null, item)}
 					className={`w-100`}
+					style={{whiteSpace: "nowrap"}}
 				>
 					{item.content}
 				</Button>

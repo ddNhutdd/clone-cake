@@ -3,7 +3,6 @@
 .provider {
 	display: flex;
 	align-items: center;
-
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -17,6 +16,11 @@
 	position: relative;
 	user-select: none;
 	z-index: 20;
+
+	&.dark {
+		background: $background-11;
+		border-color: $border-color-4;
+	}
 
 	img {
 		width: 32px;

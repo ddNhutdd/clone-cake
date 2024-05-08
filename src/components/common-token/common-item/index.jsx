@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import css from './common-item.module.scss';
+import { useTheme } from 'src/context/dark-theme';
 
 function CommonItem(props) {
 	const {
@@ -7,12 +8,22 @@ function CommonItem(props) {
 		disabled
 	} = props;
 
+
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
+
+
 	const renderDisabled = (disabled) => {
 		return disabled ? css.disabled : '';
 	}
 
+
+
+
+
 	return (
-		<div className={`${css.commonItem} ${renderDisabled(disabled)}`}>
+		<div className={`${darkClass} ${css.commonItem} ${renderDisabled(disabled)}`}>
 			<img src={content?.img} alt={content?.key} />
 			<div className={css.commonItem__text}>
 				{

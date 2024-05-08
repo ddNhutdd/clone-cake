@@ -3,12 +3,24 @@
 .manage {
 	margin: -24px;
 
+	&.dark {
+		.manage__header {
+			.manage__title {
+				color: $text-color-white-2
+			}
+		}
+	}
+
 	.manage__header {
 		display: flex;
 		align-items: center;
 		gap: 10px;
 		padding: 24px;
 		border-bottom: 1px solid $border-color;
+
+		.manage__title {
+			font-size: 20px
+		}
 
 		div {
 			&:last-child {

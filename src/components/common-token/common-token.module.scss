@@ -3,6 +3,16 @@
 .commonToken {
 	margin-top: 20px;
 	margin-bottom: 20px;
+
+
+
+	&.dark {
+		.commonToken__title {
+			color: $text-color-white-2;
+		}
+	}
+
+
 	.commonToken__title {
 		color: $text-color-3;
 		font-size: 14px;

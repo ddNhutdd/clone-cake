@@ -1,8 +1,7 @@
-import Pill, { pillType } from 'src/components/pill';
 import css from './provider.module.scss';
-import { IoMdCheckmark } from "react-icons/io";
 import { FaCaretDown } from "react-icons/fa";
 import PropTypes from 'prop-types'
+import { useTheme } from 'src/context/dark-theme';
 
 function Provider(props) {
 	const {
@@ -13,6 +12,9 @@ function Provider(props) {
 		exchange,
 		pill
 	} = props;
+
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
 
 	const renderOnClick = (onClick) => {
 		let result = {};
@@ -27,7 +29,7 @@ function Provider(props) {
 	}
 
 	return (
-		<div {...renderOnClick(onClick)} className={css.provider}>
+		<div {...renderOnClick(onClick)} className={`${css.provider} ${darkClass}`}>
 			<div>
 				{img}
 			</div>

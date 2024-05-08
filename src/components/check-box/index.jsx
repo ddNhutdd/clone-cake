@@ -2,9 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import css from './check-box.module.scss';
 import { FaCheck } from 'react-icons/fa';
+import { useTheme } from 'src/context/dark-theme';
 
 function CheckBox(props) {
 	const { checked, setCheck, id, children } = props;
+
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
 
 	const checkBoxClickHandle = () => setCheck((state) => !state);
 
@@ -13,7 +17,7 @@ function CheckBox(props) {
 			<input className='d-0' id={id} type='checkbox' checked={checked} onChange={() => { }} />
 			<label
 				onClick={checkBoxClickHandle}
-				className={css.checkBox}
+				className={`${css.checkBox} ${darkClass}`}
 				htmlFor={id}
 			>
 				<div className={css.checkBox__square}>

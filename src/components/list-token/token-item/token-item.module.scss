@@ -8,6 +8,26 @@
 	gap: 10px;
 	transition: background-color .2s;
 
+	&.dark {
+		.tokenItem__body {
+			.tokenItem__body__top {
+				color: $text-color-white-2;
+			}
+
+			.tokenItem__body__bot {
+				color: $text-color-6;
+			}
+		}
+
+		&:hover {
+			background-color: $background-6;
+		}
+
+		svg {
+			color: $text-color-white-2;
+		}
+	}
+
 	&.disabled {
 		opacity: 0.5;
 		pointer-events: none;
@@ -40,7 +60,5 @@
 			max-width: 200px;
 			font-size: 14px;
 		}
-
-
 	}
 }

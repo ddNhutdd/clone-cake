@@ -3,12 +3,16 @@ import PropTypes from 'prop-types';
 import css from './faq-item.module.scss';
 import { FaAngleDown } from "react-icons/fa6";
 import { FaAngleUp } from "react-icons/fa6";
+import { useTheme } from 'src/context/dark-theme';
 
 function FaqItem(props) {
 	const {
 		title,
 		content
 	} = props;
+
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
 
 	const [open, setOpen] = useState(false);
 
@@ -21,7 +25,7 @@ function FaqItem(props) {
 	}
 
 	return (
-		<div className={css.faqItem}>
+		<div className={`${css.faqItem} ${darkClass}`}>
 			<div className={css.faqItem__header}>
 				<div className={css.faqItem__header__title}>
 					{title}

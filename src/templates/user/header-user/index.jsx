@@ -57,7 +57,71 @@ function Header() {
 		setSettingsModalShow(false);
 	}
 
+	const earnList = [
+		{
+			id: 1,
+			content: 'Farms',
+		},
+		{
+			id: 2,
+			content: 'Cake Staking',
+			url: url.cakeStaking,
+			onClick: () => { redirectPage(url.cakeStaking) }
+		},
+		{
+			id: 3,
+			content: 'Pool',
+		},
+		{
+			id: 4,
+			content: 'Position Manager',
+		},
+		{
+			id: 5,
+			content: 'Liquid Staking',
+		},
+		{
+			id: 6,
+			content: 'Simple Staking',
+			url: url.staking,
+			onClick: () => { redirectPage(url.staking) }
+		},
+	];
 
+	const gameMenuList = [
+		{
+			id: 1,
+			content: 'Game Marketplace',
+			icon: true,
+		},
+		{
+			id: 2,
+			content: 'Prediction (BETA)',
+		},
+		{
+			id: 3,
+			content: 'Lottery',
+		},
+		{
+			id: 4,
+			content: 'Bottery (BETA)',
+		},
+	];
+
+	const nftMenuList = [
+		{
+			id: 1,
+			content: 'Overide',
+		},
+		{
+			id: 2,
+			content: 'Colection',
+		},
+		{
+			id: 3,
+			content: 'Activity',
+		},
+	];
 
 	const threeDotMenuList = [
 		{
@@ -93,69 +157,7 @@ function Header() {
 			icon: <FaArrowRightFromBracket />,
 		},
 	];
-	const nftMenuList = [
-		{
-			id: 1,
-			content: 'Overide',
-		},
-		{
-			id: 2,
-			content: 'Colection',
-		},
-		{
-			id: 3,
-			content: 'Activity',
-		},
-	];
-	const gameMenuList = [
-		{
-			id: 1,
-			content: 'Game Marketplace',
-			icon: true,
-		},
-		{
-			id: 2,
-			content: 'Prediction (BETA)',
-		},
-		{
-			id: 3,
-			content: 'Lottery',
-		},
-		{
-			id: 4,
-			content: 'Bottery (BETA)',
-		},
-	];
-	const earnList = [
-		{
-			id: 1,
-			content: 'Farms',
-		},
-		{
-			id: 2,
-			content: 'Cake Staking',
-			url: url.cakeStaking,
-			onClick: () => { redirectPage(url.cakeStaking) }
-		},
-		{
-			id: 3,
-			content: 'Pool',
-		},
-		{
-			id: 4,
-			content: 'Position Manager',
-		},
-		{
-			id: 5,
-			content: 'Liquid Staking',
-		},
-		{
-			id: 6,
-			content: 'Simple Staking',
-			url: url.staking,
-			onClick: () => { redirectPage(url.staking) }
-		},
-	];
+
 	const tradeMenu = [
 		{
 			id: 1,

@@ -1,6 +1,7 @@
 import HeaderComponent from '../../components/header-component';
 import FooterComponent from '../../components/footer-component';
-import css from '../swap/swap.module.scss';
+import swapCss from '../swap/swap.module.scss';
+import twapCss from '../twap/twap.module.scss';
 import { FaChartBar } from 'react-icons/fa';
 import SwapSelect from '../swap/swap-select';
 import Input from 'src/components/input';
@@ -14,11 +15,9 @@ import { useEffect, useState } from 'react';
 import useStep from 'src/hooks/use-step';
 import Choose from '../swap/choose';
 import Manage from '../swap/manage';
-import { url } from 'src/constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { getShowChart, toggleSlice } from 'src/redux/slices/swap.slices';
 import Chart from '../swap/chart';
-import { useNavigate } from 'react-router-dom';
 import Tabs3 from 'src/components/tabs-3';
 import percentTab from './percent-tab';
 import Tabs2 from 'src/components/tabs-2';
@@ -27,16 +26,23 @@ import Pill, { pillType } from 'src/components/pill';
 import { GrPowerReset } from "react-icons/gr";
 import Switch from 'src/components/switch/switch';
 import Input3 from 'src/components/input-3';
-
 import { GoQuestion } from "react-icons/go";
 import NavigateTab from '../swap/navigate-tab';
 import leftTab from '../twap/left-tabs';
+import ChartDrawer from '../swap/chart-drawer';
+import useMediaQuery, { widthDevice } from 'src/hooks/useMedia';
 
 function Limit() {
 	const { isDarkMode } = useTheme();
 	const dispatch = useDispatch();
 	const showChart = useSelector(getShowChart);
-	const navigate = useNavigate();
+	const screen = useMediaQuery();
+
+
+
+
+
+
 
 
 	//toggle show Chart
@@ -44,9 +50,20 @@ function Limit() {
 		dispatch(toggleSlice());
 	}
 
+
+
+
+
 	// tab bên trái
 	const [leftTabSelected, setLeftTabSelected] = useState(leftTab.at(0));
 	const leftTabChangeHandle = (tab) => setLeftTabSelected(tab);
+
+
+
+
+
+
+
 
 	// select token modal top
 	const [selectTokenTopShow, setSelectTokenTopShow] = useState(false);
@@ -62,6 +79,13 @@ function Limit() {
 	]
 	const [generateContentTop, setStepTop,] = useStep(0, stepsTop);
 
+
+
+
+
+
+
+
 	// select token cho modal bot
 	const [selectTokenBotShow, setSelectTokenBotShow] = useState(false);
 	const selectTokenBotOpen = () => {
@@ -76,10 +100,21 @@ function Limit() {
 	]
 	const [generateContentBot, setStepBot,] = useStep(0, stepsBot);
 
+
+
+
+
+
 	// theme
 	const renderDarkTheme = () => {
-		return isDarkMode ? css.dark : '';
+		return isDarkMode ? swapCss.dark : '';
 	};
+
+
+
+
+
+
 
 	// useEffect
 	useEffect(() => {
@@ -96,15 +131,27 @@ function Limit() {
 		console.log(leftTabSelected)
 	}, [leftTabSelected])
 
+
+
+
+
+
+
+
+
 	return (
 		<>
 			<HeaderComponent list={HeaderComponentList1} />
-			<div className={`${css.swap} ${renderDarkTheme()}`}>
-				<div className={css.swap__container}>
-					<div className={`${css.swap__content} ${css.full}`}>
-						<div className={css.swap__left}>
+			<div className={`${swapCss.swap} ${renderDarkTheme()}`}>
+				<div className={swapCss.swap__container}>
+					<div className={`${swapCss.swap__content} ${swapCss.full}`}>
+						<div className={swapCss.swap__left}>
 							{
-								showChart && <div className='mb-3'>
+								showChart &&
+								screen !== widthDevice.width_576 &&
+								screen !== widthDevice.width_768 &&
+								widthDevice.width_992 &&
+								<div className='mb-3'>
 									<Chart />
 								</div>
 							}
@@ -113,6 +160,7 @@ function Limit() {
 									tabs={leftTab}
 									selectedTab={leftTabSelected}
 									onChange={leftTabChangeHandle}
+									headerClass={twapCss.leftTab}
 								>
 									<div data-item={leftTab.at(0).value}>
 										You currently don't have open orders
@@ -129,13 +177,13 @@ function Limit() {
 								</Tabs3>
 							</div>
 						</div>
-						<div className={css.swap__right}>
-							<div className={css.swap__tabs}>
+						<div className={swapCss.swap__right}>
+							<div className={swapCss.swap__tabs}>
 								<NavigateTab />
 							</div>
-							<div className={css.swap__card}>
-								<div className={css.swap__cardTop}>
-									<div className={`${css.swap__header} flex items-center justify-between`}>
+							<div className={swapCss.swap__card}>
+								<div className={swapCss.swap__cardTop}>
+									<div className={`${swapCss.swap__header} flex items-center justify-between`}>
 										Swap
 										<span style={{ cursor: 'pointer' }} className='flex items-center' onClick={toggleChart}>
 											<FaChartBar />
@@ -143,8 +191,8 @@ function Limit() {
 									</div>
 
 								</div>
-								<div className={css.swap__cardBot}>
-									<div className={css.swap__select}>
+								<div className={swapCss.swap__cardBot}>
+									<div className={swapCss.swap__select}>
 										<SwapSelect
 											image={
 												<img src='src/assets/imgs/bnbicon.png' />
@@ -152,15 +200,15 @@ function Limit() {
 											text={`BNB`}
 											onClick={selectTokenTopOpen}
 										/>
-										<div className={css.swap__balance}>
+										<div className={swapCss.swap__balance}>
 											Balance: 0
 										</div>
 									</div>
-									<div className={`${css.swap__input} ${css.custom}`}>
+									<div className={`${swapCss.swap__input} ${swapCss.custom}`}>
 										<Input
 											styleContainer={{ height: '111px' }}
 										/>
-										<div className={css.swap__input__tab}>
+										<div className={swapCss.swap__input__tab}>
 											<Tabs2
 												listTabs={percentTab}
 												selectedItem={{}}
@@ -169,7 +217,7 @@ function Limit() {
 											/>
 										</div>
 									</div>
-									<div className={css.swap__button}>
+									<div className={swapCss.swap__button}>
 										<button>
 											<span>
 												<FaArrowDown />
@@ -179,7 +227,7 @@ function Limit() {
 											</span>
 										</button>
 									</div>
-									<div className={`${css.swap__select}`}>
+									<div className={`${swapCss.swap__select}`}>
 										<SwapSelect
 											onClick={selectTokenBotOpen}
 											image={
@@ -187,15 +235,15 @@ function Limit() {
 											}
 											text={`BNB`}
 										/>
-										<div className={css.swap__balance}>
+										<div className={swapCss.swap__balance}>
 											Balance: 0
 										</div>
 									</div>
-									<div className={css.swap__input}>
+									<div className={swapCss.swap__input}>
 										<Input />
 									</div>
-									<div className={css.swap__twap__limit}>
-										<div className={css.swap__twap__limit__left}>
+									<div className={swapCss.swap__twap__limit}>
+										<div className={swapCss.swap__twap__limit__left}>
 											<div>
 												Limit price
 											</div>
@@ -245,7 +293,7 @@ function Limit() {
 												</Pill>
 											</div>
 										</div>
-										<div className={css.swap__twap__limit__right}>
+										<div className={swapCss.swap__twap__limit__right}>
 											<Switch />
 										</div>
 									</div>
@@ -253,7 +301,7 @@ function Limit() {
 										<Input3 style={{ height: 40, boxShadow: 'none', textAlign: 'right' }} />
 									</div>
 
-									<div className={css.swap__action}>
+									<div className={swapCss.swap__action}>
 										<Button
 											isDark={isDarkMode}
 											style={{ width: '100%' }}
@@ -267,6 +315,7 @@ function Limit() {
 					</div>
 				</div >
 				<FooterComponent />
+				<ChartDrawer />
 			</div >
 			<Modal
 				show={selectTokenTopShow}

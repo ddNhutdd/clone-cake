@@ -1,6 +1,34 @@
 @import 'src/components/global-style/base.scss';
 
 .liquidity {
+	&.dark {
+
+
+		.container {
+			.liquidity__cardHeader {
+				.liquidity__headerLeft {
+					color: $text-color-white-2;
+				}
+
+				.liquidity__headerRight {
+					svg {
+						color: $text-color-6;
+					}
+				}
+			}
+
+			.liquidity__text {
+				color: $text-color-6;
+			}
+
+			.liquidity__content {
+				background-color: $background-31;
+				border-top: 1px solid $border-color-3;
+				border-bottom: 1px solid $border-color-3;
+			}
+		}
+	}
+
 	.container {
 		@include container;
 		padding-top: 40px;

@@ -1,6 +1,7 @@
 import HeaderComponent from '../../components/header-component';
 import FooterComponent from '../../components/footer-component';
-import css from '../swap/swap.module.scss';
+import swapCss from '../swap/swap.module.scss';
+import twapCss from './twap.module.scss';
 import { FaChartBar } from 'react-icons/fa';
 import SwapSelect from '../swap/swap-select';
 import Input from 'src/components/input';
@@ -14,12 +15,9 @@ import { useEffect, useState } from 'react';
 import useStep from 'src/hooks/use-step';
 import Choose from '../swap/choose';
 import Manage from '../swap/manage';
-import Tabs from 'src/components/tabs';
-import { url } from 'src/constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { getShowChart, toggleSlice } from 'src/redux/slices/swap.slices';
 import Chart from '../swap/chart';
-import { useNavigate } from 'react-router-dom';
 import Tabs3 from 'src/components/tabs-3';
 import leftTab from './left-tabs';
 import percentTab from './percent-tab';
@@ -32,6 +30,7 @@ import Input3 from 'src/components/input-3';
 import UniformRow from './uniform-row';
 import { GoQuestion } from "react-icons/go";
 import NavigateTab from '../swap/navigate-tab';
+import ChartDrawer from '../swap/chart-drawer';
 
 function Twap() {
 	const { isDarkMode } = useTheme();
@@ -104,7 +103,7 @@ function Twap() {
 
 	// theme
 	const renderDarkTheme = () => {
-		return isDarkMode ? css.dark : '';
+		return isDarkMode ? swapCss.dark : '';
 	};
 
 	// useEffect
@@ -125,10 +124,10 @@ function Twap() {
 	return (
 		<>
 			<HeaderComponent list={HeaderComponentList1} />
-			<div className={`${css.swap} ${renderDarkTheme()}`}>
-				<div className={css.swap__container}>
-					<div className={`${css.swap__content} ${css.full}`}>
-						<div className={css.swap__left}>
+			<div className={`${swapCss.swap} ${renderDarkTheme()}`}>
+				<div className={swapCss.swap__container}>
+					<div className={`${swapCss.swap__content} ${swapCss.full}`}>
+						<div className={swapCss.swap__left}>
 							{
 								showChart && <div className='mb-3'>
 									<Chart />
@@ -139,6 +138,7 @@ function Twap() {
 									tabs={leftTab}
 									selectedTab={leftTabSelected}
 									onChange={leftTabChangeHandle}
+									headerClass={twapCss.leftTab}
 								>
 									<div data-item={leftTab.at(0).value}>
 										You currently don't have open orders
@@ -155,13 +155,13 @@ function Twap() {
 								</Tabs3>
 							</div>
 						</div>
-						<div className={css.swap__right}>
-							<div className={css.swap__tabs}>
+						<div className={swapCss.swap__right}>
+							<div className={swapCss.swap__tabs}>
 								<NavigateTab />
 							</div>
-							<div className={css.swap__card}>
-								<div className={css.swap__cardTop}>
-									<div className={`${css.swap__header} flex items-center justify-between`}>
+							<div className={swapCss.swap__card}>
+								<div className={swapCss.swap__cardTop}>
+									<div className={`${swapCss.swap__header} flex items-center justify-between`}>
 										Swap
 										<span style={{ cursor: 'pointer' }} className='flex items-center' onClick={toggleChart}>
 											<FaChartBar />
@@ -169,8 +169,8 @@ function Twap() {
 									</div>
 
 								</div>
-								<div className={css.swap__cardBot}>
-									<div className={css.swap__select}>
+								<div className={swapCss.swap__cardBot}>
+									<div className={swapCss.swap__select}>
 										<SwapSelect
 											image={
 												<img src='src/assets/imgs/bnbicon.png' />
@@ -178,15 +178,15 @@ function Twap() {
 											text={`BNB`}
 											onClick={selectTokenTopOpen}
 										/>
-										<div className={css.swap__balance}>
+										<div className={swapCss.swap__balance}>
 											Balance: 0
 										</div>
 									</div>
-									<div className={`${css.swap__input} ${css.custom}`}>
+									<div className={`${swapCss.swap__input} ${swapCss.custom}`}>
 										<Input
 											styleContainer={{ height: '111px' }}
 										/>
-										<div className={css.swap__input__tab}>
+										<div className={swapCss.swap__input__tab}>
 											<Tabs2
 												listTabs={percentTab}
 												selectedItem={{}}
@@ -195,7 +195,7 @@ function Twap() {
 											/>
 										</div>
 									</div>
-									<div className={css.swap__button}>
+									<div className={swapCss.swap__button}>
 										<button>
 											<span>
 												<FaArrowDown />
@@ -205,7 +205,7 @@ function Twap() {
 											</span>
 										</button>
 									</div>
-									<div className={`${css.swap__select}`}>
+									<div className={`${swapCss.swap__select}`}>
 										<SwapSelect
 											onClick={selectTokenBotOpen}
 											image={
@@ -213,15 +213,15 @@ function Twap() {
 											}
 											text={`BNB`}
 										/>
-										<div className={css.swap__balance}>
+										<div className={swapCss.swap__balance}>
 											Balance: 0
 										</div>
 									</div>
-									<div className={css.swap__input}>
+									<div className={swapCss.swap__input}>
 										<Input />
 									</div>
-									<div className={css.swap__twap__limit}>
-										<div className={css.swap__twap__limit__left}>
+									<div className={swapCss.swap__twap__limit}>
+										<div className={swapCss.swap__twap__limit__left}>
 											<div>
 												Limit price
 											</div>
@@ -271,7 +271,7 @@ function Twap() {
 												</Pill>
 											</div>
 										</div>
-										<div className={css.swap__twap__limit__right}>
+										<div className={swapCss.swap__twap__limit__right}>
 											<Switch />
 										</div>
 									</div>
@@ -300,7 +300,7 @@ function Twap() {
 											inputOnChange={inputChangeHandle}
 										/>
 									</div>
-									<div className={css.swap__action}>
+									<div className={swapCss.swap__action}>
 										<Button
 											isDark={isDarkMode}
 											style={{ width: '100%' }}
@@ -314,6 +314,7 @@ function Twap() {
 					</div>
 				</div >
 				<FooterComponent />
+				<ChartDrawer />
 			</div >
 			<Modal
 				show={selectTokenTopShow}

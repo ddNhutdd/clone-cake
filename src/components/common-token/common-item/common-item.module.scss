@@ -10,6 +10,26 @@
 	cursor: pointer;
 	transition: background-color .2s;
 
+	&.dark {
+		border-color: $background-14;
+
+		&:hover {
+			background-color: $background-6
+		}
+
+		&.disabled {
+			opacity: 0.4;
+			border-color: transparent;
+			background-color: $background-14;
+		}
+
+		.commonItem__text {
+			color: $text-color-white-2;
+		}
+	}
+
+
+
 	&:hover {
 		background-color: $background-3;
 	}

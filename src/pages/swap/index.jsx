@@ -23,16 +23,16 @@ import { useEffect, useState } from 'react';
 import useStep from 'src/hooks/use-step';
 import Choose from './choose';
 import Manage from './manage';
-import Tabs from 'src/components/tabs';
+
 import { ToolTip, tooltipPosition } from 'src/components/tooltip';
 import { url } from 'src/constants';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { close, getShowChart, toggleSlice } from 'src/redux/slices/swap.slices';
+import { getShowChart, toggleSlice } from 'src/redux/slices/swap.slices';
 import Chart from './chart';
 import NavigateTab from './navigate-tab';
 import useMediaQuery, { widthDevice } from 'src/hooks/useMedia';
-import Drawer from 'src/components/drawer';
+import ChartDrawer from './chart-drawer';
 
 function Swap() {
 	const { isDarkMode } = useTheme();
@@ -42,11 +42,19 @@ function Swap() {
 
 
 
+
 	//toggle show Chart
 	const toggleChart = () => {
 		dispatch(toggleSlice());
-		setChartDrawerShow(state => !state);
 	}
+
+
+
+
+
+
+
+
 
 
 
@@ -71,11 +79,7 @@ function Swap() {
 
 
 
-	//Drawer chart khi màn hình nhỏ
-	const [chartDrawerShow, setChartDrawerShow] = useState(showChart &&
-		(screen === widthDevice.width_576 ||
-			screen === widthDevice.width_768 ||
-			screen === widthDevice.width_992));
+
 
 
 
@@ -126,6 +130,15 @@ function Swap() {
 			setStepBot(0);
 		}
 	}, [selectTokenBotShow])
+
+
+
+
+
+
+
+
+
 
 	return (
 		<>
@@ -265,22 +278,7 @@ function Swap() {
 					</div>
 				</div>
 				<FooterComponent />
-				{
-
-					screen === widthDevice.width_576 ||
-						screen === widthDevice.width_768 ||
-						screen === widthDevice.width_992 ?
-						<Drawer
-							open={chartDrawerShow}
-							setOpen={setChartDrawerShow}
-							screen={true}
-						>
-							<div>
-								<Chart />
-							</div>
-						</Drawer>
-						: null
-				}
+				<ChartDrawer />
 			</div>
 			<Modal
 				show={selectTokenTopShow}

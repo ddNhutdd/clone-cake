@@ -1,15 +1,19 @@
 import css from './token-item.module.scss';
 import PropTypes from 'prop-types';
 import { FaArrowRight } from "react-icons/fa6";
+import { useTheme } from 'src/context/dark-theme';
 
 function TokenItem({ content, disabled }) {
+
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
 
 	const renderDisabled = (disabled) => {
 		return disabled ? css.disabled : '';
 	}
 
 	return (
-		<div className={`${css.tokenItem} ${renderDisabled(disabled)}`}>
+		<div className={`${darkClass} ${css.tokenItem} ${renderDisabled(disabled)}`}>
 			<div>
 				<img src={content?.img} alt={content?.key} />
 			</div>

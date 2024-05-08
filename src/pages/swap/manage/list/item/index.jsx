@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import css from './item.module.scss';
 import Switch from 'src/components/switch/switch';
+import { useTheme } from 'src/context/dark-theme';
 
 function Item(props) {
 	const {
@@ -12,12 +13,17 @@ function Item(props) {
 		setChecked
 	} = props;
 
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
+
+
 	const renderActive = (checked) => {
 		return checked ? css.active : ''
 	}
 
 	return (
-		<div className={`${css.item} ${renderActive(checked)}`}>
+		<div className={`${darkClass} ${css.item} ${renderActive(checked)}`}>
 			<div>
 				<img src={img} alt={top} />
 			</div>

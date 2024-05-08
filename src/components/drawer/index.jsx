@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import DrawerLibrary from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 import css from './drawer.module.scss';
+import { useTheme } from 'src/context/dark-theme';
 
 export const drawerDirection = {
 	top: 'top',
@@ -18,10 +19,15 @@ function Drawer(props) {
 		open,
 		setOpen,
 		children,
-		screen
+		screen,
+		radiusBottom
 	} = props;
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
 
 	const isScreen = screen ? css.screen : '';
+
+	const radiusButtonClass = radiusBottom !== false ? '' : css.radiusButtonNone
 
 	const closeDrawer = () => {
 		setOpen(() => false);
@@ -32,7 +38,7 @@ function Drawer(props) {
 			open={open}
 			onClose={closeDrawer}
 			direction={direction || drawerDirection.bottom}
-			className={`${css.drawer__modalCustom} ${className} ${isScreen}`}
+			className={`${css.drawer__modalCustom} ${className} ${isScreen} ${darkClass} ${radiusButtonClass}`}
 			overlayClassName={`${css.drawer__overlayCustom} ${classNameOverlay} ${isScreen}`}
 		>
 			{

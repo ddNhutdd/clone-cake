@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import css from './pill.module.scss';
+import { useTheme } from 'src/context/dark-theme';
 
 export const pillType = {
 	outline: 'outline',
@@ -16,6 +17,9 @@ function Pill(props) {
 		className,
 		style
 	} = props;
+
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
 
 	const renderType = () => {
 		switch (type) {
@@ -33,7 +37,7 @@ function Pill(props) {
 	}
 
 	return (
-		<div style={style} className={`${css.pill} ${renderType()} ${className}`}>
+		<div style={style} className={`${css.pill} ${renderType()} ${darkClass} ${className} `}>
 			{children}
 		</div>
 	);

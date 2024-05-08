@@ -9,6 +9,23 @@
 	display: flex;
 	align-items: center;
 
+	&.dark {
+		background: $background-11;
+		border-color: $border-color-4;
+
+		input {
+			color: $text-color-white-2;
+		}
+
+		.input__buttonModal {
+			border-color: $border-color-4;
+
+			.input__currency {
+				color: $text-color-white-2;
+			}
+		}
+	}
+
 	input {
 		outline: none;
 		border: none;
