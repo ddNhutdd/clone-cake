@@ -56,7 +56,6 @@ function SettingsModalContent() {
 	]);
 	const [selectedTabId, setSelectedTabId] = useState(1);
 	const tabChangeHandle = (item) => {
-		console.log(item)
 		setSelectedTabId(item.id)
 	}
 

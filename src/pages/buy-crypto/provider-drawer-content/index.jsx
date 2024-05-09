@@ -3,8 +3,12 @@ import css from './provider-drawer-content.module.scss';
 import { FaArrowDown } from "react-icons/fa6";
 import { IoMdCheckmark } from 'react-icons/io';
 import Provider from '../provider';
+import { useTheme } from 'src/context/dark-theme';
 
 function ProviderDrawerContent() {
+
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
 
 	const providerList = [{
 		img: <img src='https://assets.pancakeswap.finance/web/onramp/transak.svg' alt='transak' />,
@@ -63,7 +67,7 @@ function ProviderDrawerContent() {
 	}
 
 	return (
-		<div className={css.providerDrawerContent}>
+		<div className={`${css.providerDrawerContent} ${darkClass}`}>
 			<div className={css.providerDrawerContent__header}>
 				Choose a Provider
 			</div>

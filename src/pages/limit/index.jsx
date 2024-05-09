@@ -127,9 +127,7 @@ function Limit() {
 			setStepBot(0);
 		}
 	}, [selectTokenBotShow])
-	useEffect(() => {
-		console.log(leftTabSelected)
-	}, [leftTabSelected])
+
 
 
 

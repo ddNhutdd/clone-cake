@@ -1,6 +1,17 @@
 @import "src/components/global-style/base.scss";
 
 .providerDrawerContent {
+
+	&.dark {
+		.providerDrawerContent__header {
+			color: $text-color-white-2;
+		}
+
+		.providerDrawerContent__line {
+			border-color: $border-color-3;
+		}
+	}
+
 	.providerDrawerContent__header {
 		padding-bottom: 24px;
 		color: $text-color-3;

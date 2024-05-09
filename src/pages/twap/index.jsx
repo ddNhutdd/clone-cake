@@ -117,9 +117,7 @@ function Twap() {
 			setStepBot(0);
 		}
 	}, [selectTokenBotShow])
-	useEffect(() => {
-		console.log(leftTabSelected)
-	}, [leftTabSelected])
+
 
 	return (
 		<>

@@ -18,6 +18,20 @@
 							background-color: $background-5
 						}
 					}
+
+					.buyCrypto__top__content {
+						&::after {
+							border-color: $background-11;
+						}
+
+						.buyCryto__input {
+							&:first-child {
+								&::after {
+									background: $background-11;
+								}
+							}
+						}
+					}
 				}
 
 				&.bot {

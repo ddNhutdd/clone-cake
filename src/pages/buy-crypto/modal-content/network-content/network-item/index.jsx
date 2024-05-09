@@ -9,7 +9,6 @@ function NetworkItem(props) {
 	} = props;
 
 	const renderActive = (isActive) => {
-		console.log(isActive)
 		return isActive ? css.active : '';
 	}
 

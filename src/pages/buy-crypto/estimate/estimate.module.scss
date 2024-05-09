@@ -30,6 +30,10 @@
 		background: $background-2;
 		border-color: $background-11;
 
+		&::after {
+			border-top-color: $background-11;
+		}
+
 		.estimate__header {
 			.estimate__header__left {
 				color: $text-color-white-2;
