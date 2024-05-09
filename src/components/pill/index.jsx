@@ -37,7 +37,7 @@ function Pill(props) {
 	}
 
 	return (
-		<div style={style} className={`${css.pill} ${renderType()} ${darkClass} ${className} `}>
+		<div style={style} className={`${darkClass} ${css.pill} ${renderType()} ${darkClass} ${className} `}>
 			{children}
 		</div>
 	);

@@ -8,6 +8,12 @@
 	background: none;
 	width: fit-content;
 
+	&.dark {
+		&.success {
+			color: $background-6;
+		}
+	}
+
 	&.outline {
 		height: 28px;
 		padding: 4px;

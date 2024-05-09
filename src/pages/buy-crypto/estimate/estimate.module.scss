@@ -26,6 +26,27 @@
 		transform: translate3d(-50%, 0, 0);
 	}
 
+	&.dark {
+		background: $background-2;
+		border-color: $background-11;
+
+		.estimate__header {
+			.estimate__header__left {
+				color: $text-color-white-2;
+			}
+		}
+
+		.estimate__body {
+			.estimate__row {
+				color: $text-color-6;
+
+				.estimate__number {
+					color: $text-color-white-2;
+				}
+			}
+		}
+	}
+
 	.estimate__header {
 		display: flex;
 		justify-content: space-between;
@@ -34,7 +55,6 @@
 		.estimate__header__left {
 			color: $text-color-3;
 			font-weight: 400;
-
 			display: flex;
 			align-items: center;
 			gap: 3px;

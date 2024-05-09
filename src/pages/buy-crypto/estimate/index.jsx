@@ -3,10 +3,14 @@ import { MdInfo } from "react-icons/md";
 import { FaCaretDown } from "react-icons/fa";
 import { FaCaretUp } from "react-icons/fa";
 import { useState } from 'react';
+import { useTheme } from 'src/context/dark-theme';
 
 export default function Estimate() {
 
 	const [show, setShow] = useState(false);
+
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
 
 	const renderShow = (value) => {
 		return value ? 'd-0' : ''
@@ -19,7 +23,10 @@ export default function Estimate() {
 	}
 
 	return (
-		<div onClick={toggleShow} className={css.estimate}>
+		<div
+			onClick={toggleShow}
+			className={`${css.estimate} ${darkClass}`}
+		>
 			<div className={css.estimate__header}>
 				<div className={css.estimate__header__left}>
 					<div>

@@ -119,7 +119,7 @@ function BuyCrypto() {
 									onShowModal={modalTokenOpen}
 								/>
 							</div>
-							<div >
+							<div>
 								<Provider
 									img={<img src="https://assets.pancakeswap.finance/web/onramp/mercuryo.svg" alt="mercuryo" />}
 									name={`Mercuryo`}
