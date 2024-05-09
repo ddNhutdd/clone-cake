@@ -36,6 +36,7 @@ import { useLocation } from 'react-router-dom';
 import { url } from 'src/constants';
 import { useNavigate } from 'react-router-dom';
 import SettingsModalContent from './settings-modal-content';
+import ChainSelector from './header-chain';
 
 function Header() {
 	const { isDarkMode } = useTheme();
@@ -197,43 +198,7 @@ function Header() {
 		},
 	];
 
-	const listChain = [
-		{
-			id: 1,
-			content: 'العربية',
-			borderBottom: true,
-		},
-		{
-			id: 2,
-			content: 'বাংলা',
-			image: 'src/assets/imgs/arbitrumicon.png',
-		},
-		{
-			id: 3,
-			content: 'English',
-			image: 'src/assets/imgs/arbitrumicon.png',
-		},
-		{
-			id: 4,
-			content: 'Deutsch',
-			image: 'src/assets/imgs/arbitrumicon.png',
-		},
-		{
-			id: 5,
-			content: 'Ελληνικά',
-			image: 'src/assets/imgs/arbitrumicon.png',
-		},
-		{
-			id: 6,
-			content: 'Español',
-			image: 'src/assets/imgs/arbitrumicon.png',
-		},
-		{
-			id: 7,
-			content: 'Suomalainen',
-			image: 'src/assets/imgs/arbitrumicon.png',
-		},
-	];
+
 	const listWallerConnected = [
 		{
 			id: 1,
@@ -492,38 +457,7 @@ function Header() {
 					<div
 						className={`${css['header2__chain']} px-3 px-sm-1 relative`}
 					>
-						<DropdownHeader2
-							positionMenu={{
-								top: '26px',
-								right: '-55px',
-								paddingTop: '18px',
-							}}
-							dropdownItemAlign={dropdownItemAlignType.left}
-							header={
-								<>
-									<div
-										className={`${css['header2__chainImage']}`}
-									>
-										<img src='src/assets/imgs/polygonicon.png' />
-									</div>
-									<Button
-										isDark={isDarkMode}
-										style={{ paddingLeft: 35 }}
-										type={buttonClassesType.secondThin}
-									>
-										<span
-											className={`${css.header2__buttonText}`}
-										>
-											BNB Chain
-										</span>
-										<span style={{ fontSize: '1.2rem' }}>
-											<FaChevronDown />
-										</span>
-									</Button>
-								</>
-							}
-							list={listChain}
-						/>
+						<ChainSelector />
 					</div>
 					<div className='px-3 px-sm-1'>
 						<DropdownHeader

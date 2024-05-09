@@ -1,0 +1,26 @@
+@import 'components/global-style/base.scss';
+
+.infoTop {
+	background: linear-gradient(111.68deg, #f2ecf2, #e8f2f6);
+	height: 80px;
+
+	.container {
+		@include container;
+
+		.infoTop__content {
+			width: 95%;
+			margin-left: auto;
+			margin-right: auto;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 20px 40px;
+
+			.infoTop__left {
+				display: flex;
+				gap: 20px;
+			}
+		}
+	}
+
+}

@@ -7,8 +7,24 @@ import { FaRegQuestionCircle } from 'react-icons/fa';
 import Input3 from 'src/components/input-3';
 import Modal from 'src/components/modal';
 import RouteModalContent from './route-modal-content';
+import { useTheme } from 'src/context/dark-theme';
 
 export default function SettingModalContent() {
+
+
+
+
+	// theme 
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
+
+
+
+
+
+
+
 	// speed tab
 	const speedListTabs = [
 		{
@@ -37,6 +53,16 @@ export default function SettingModalContent() {
 	);
 	const speedTabChangeHandle = (item) => setSpeedSelectedItem(item);
 
+
+
+
+
+
+
+
+
+
+
 	// Slippage tab
 	const slipListTabs = [
 		{
@@ -62,28 +88,72 @@ export default function SettingModalContent() {
 	const renderClassShowWarning = () =>
 		slipSelectedItem.value === slipListTabs.at(0).value ? '' : 'd-0';
 
+
+
+
+
+
+
+
+
+
+
 	// Flippy  switch
 	const [flippyCheck, setFlippyCheck] = useState(false);
 
+
+
+
+
+
+
+
+
 	// route switch
 	const [routeCheck, setRouteCheck] = useState(false);
+
+
+
+
+
+
+
 
 	//slip input
 	const [slipInput, setSlipInput] = useState();
 	const slipInputChangeHandle = (ev) => setSlipInput(ev.target.value);
 
+
+
+
+
+
+
+
 	// time input
 	const [timeInput, setTimeInput] = useState();
 	const timeInputChangeHandle = (ev) => setTimeInput(ev.target.value);
+
+
+
+
+
+
 
 	// Routing modal
 	const [routingModalShow, setRoutingModalShow] = useState(false);
 	const showModal = () => setRoutingModalShow(true);
 	const closeModal = () => setRoutingModalShow(false);
 
+
+
+
+
+
+
 	return (
 		<>
-			<div className={css.settingModalContent}>
+			<div className={`${css.settingModalContent} ${darkClass}`}>
 				<div className={css.settingModalContent__small}>
 					SWAPS & LIQUIDITY
 				</div>

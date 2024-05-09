@@ -4,6 +4,29 @@
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
+
+
+	&.dark {
+		.routeModalContent__small {
+			color: $primary-1;
+		}
+
+		.routeModalContent__row {
+			.routeModalContent__left {
+				color: $text-color-white-2;
+			}
+
+			.routeModalContent__left {
+				color: $text-color-white-2;
+
+				.routeModalContent__left__checkbox {
+					color: $text-color-white-2;
+				}
+			}
+		}
+	}
+
+
 	.routeModalContent__small {
 		color: $text-color-4;
 		font-weight: 600;

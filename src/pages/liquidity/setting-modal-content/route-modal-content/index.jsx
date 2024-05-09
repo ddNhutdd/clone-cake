@@ -1,11 +1,22 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import css from './route-modal-content.module.scss';
-import {ToolTip} from 'src/components/tooltip';
-import {FaRegQuestionCircle} from 'react-icons/fa';
+import { ToolTip } from 'src/components/tooltip';
+import { FaRegQuestionCircle } from 'react-icons/fa';
 import Switch from 'src/components/switch/switch';
 import CheckBox from 'src/components/check-box';
+import { useTheme } from 'src/context/dark-theme';
 
 export default function RouteModalContent() {
+
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
+
+
+
+
+
 	// v2
 	const [v2Selected, setV2Seleted] = useState(false);
 
@@ -25,7 +36,7 @@ export default function RouteModalContent() {
 	const [routingSelected, setRoutingSelected] = useState(false);
 
 	return (
-		<div className={css.routeModalContent}>
+		<div className={`${css.routeModalContent} ${darkClass}`}>
 			<div className={css.routeModalContent__small}>LIQUIDITY SOURCE</div>
 			<div className={css.routeModalContent__row}>
 				<div className={css.routeModalContent__left}>
@@ -122,7 +133,9 @@ export default function RouteModalContent() {
 						checked={multihopsSelected}
 						setCheck={setmultihopsSelected}
 					>
-						Allow Multihops
+						<span className={css.routeModalContent__left__checkbox}>
+							Allow Multihops
+						</span>
 					</CheckBox>
 					<ToolTip
 						className={`inline-flex items-center`}
@@ -153,7 +166,9 @@ export default function RouteModalContent() {
 						checked={routingSelected}
 						setCheck={setRoutingSelected}
 					>
-						Allow Split Routing
+						<span className={css.routeModalContent__left__checkbox}>
+							Allow Split Routing
+						</span>
 					</CheckBox>
 					<ToolTip
 						className={`inline-flex items-center`}

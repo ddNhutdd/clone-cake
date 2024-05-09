@@ -11,6 +11,7 @@ export const url = {
 	buyCrypto: '/buy-crypto',
 	twap: '/twap',
 	limit: '/limit',
+	info: '/info'
 };
 
 export const localStorageVariable = {

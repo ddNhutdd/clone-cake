@@ -22,4 +22,10 @@
 	&:focus {
 		box-shadow: $box-shadow-6;
 	}
+
+	&::placeholder {
+		font-size: 16px;
+		color: $text-color-3;
+	}
+
 }

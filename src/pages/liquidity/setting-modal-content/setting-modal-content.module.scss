@@ -9,6 +9,18 @@
 		margin-right: 6px;
 	}
 
+	&.dark {
+		.settingModalContent__small {
+			color: $primary-1;
+		}
+
+		.settingModalContent__controls {
+			.settingModalContent__title {
+				color: $text-color-white-2
+			}
+		}
+	}
+
 	.settingModalContent__small {
 		color: $text-color-4;
 		font-weight: 600;
@@ -67,6 +79,7 @@
 		justify-content: center;
 		color: $primary-2;
 		font-weight: 600;
+		cursor: pointer;
 	}
 }
 
@@ -83,5 +96,5 @@
 .settingModalContent__routingResetCustom {
 	width: 500px;
 
-	
+
 }
