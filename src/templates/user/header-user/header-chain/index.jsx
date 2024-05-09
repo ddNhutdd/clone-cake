@@ -2,8 +2,24 @@ import DropdownHeader2, { dropdownItemAlignType } from 'src/components/dropdown-
 import css from './header-chain.module.scss';
 import Button, { buttonClassesType } from 'src/components/button';
 import { FaChevronDown } from 'react-icons/fa';
+import useMediaQuery, { widthDevice } from 'src/hooks/useMedia';
 
-function ChainSelector() {
+function ChainSelector(props) {
+
+	const {
+		stylePosition = {
+			top: '26px',
+			right: '-55px',
+			paddingTop: '18px'
+		}
+	} = props;
+
+
+	const screen = useMediaQuery();
+	const showTextStyle = screen === widthDevice.width_576 ? { display: 'none' } : {}
+
+
+
 	const listChain = [
 		{
 			id: 1,
@@ -45,11 +61,9 @@ function ChainSelector() {
 
 	return (
 		<DropdownHeader2
-			positionMenu={{
-				top: '26px',
-				right: '-55px',
-				paddingTop: '18px',
-			}}
+			positionMenu={
+				stylePosition
+			}
 			dropdownItemAlign={dropdownItemAlignType.left}
 			header={
 				<>
@@ -63,11 +77,12 @@ function ChainSelector() {
 						type={buttonClassesType.secondThin}
 					>
 						<span
+							style={showTextStyle}
 							className={`${css.chainSelector__buttonText}`}
 						>
 							BNB Chain
 						</span>
-						<span style={{ fontSize: '1.2rem' }}>
+						<span style={{ fontSize: '1.2rem', ...showTextStyle }}>
 							<FaChevronDown />
 						</span>
 					</Button>

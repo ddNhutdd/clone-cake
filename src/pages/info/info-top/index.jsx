@@ -1,10 +1,31 @@
 import ChainSelector from 'src/templates/user/header-user/header-chain';
 import css from './info-top.module.scss';
 import Tabs from 'src/components/tabs';
-import Input3 from 'src/components/input-3';
 import InputSearch from './input-search';
+import { useState } from 'react';
+
 
 function InfoTop() {
+
+
+
+	//search
+	const [showSearch, setShowSearch] = useState(false);
+	const closeSearch = (ev) => {
+		ev.stopPropagation();
+		setShowSearch(false)
+	}
+
+
+
+
+
+
+
+
+
+
+
 	return (
 		<div className={css.infoTop}>
 			<div className={css.container}>
@@ -38,11 +59,18 @@ function InfoTop() {
 							/>
 						</div>
 						<div>
-							<ChainSelector />
+							<ChainSelector stylePosition={{
+								right: 0,
+								top: '26px',
+								paddingTop: '18px'
+							}} />
 						</div>
 					</div>
-					<div className={css.infoTop__right}>
-						<InputSearch />
+					<div onClick={setShowSearch.bind(null, true)} className={css.infoTop__right}>
+						<InputSearch
+							show={showSearch}
+							close={closeSearch}
+						/>
 					</div>
 				</div>
 			</div>

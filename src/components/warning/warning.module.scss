@@ -1,0 +1,30 @@
+@import 'src/components/global-style/base.scss';
+
+.warning {
+	display: flex;
+	gap: 10px;
+	padding: 16px;
+	border-radius: 16px;
+	border-width: 1px;
+	border-style: solid;
+	border-image: initial;
+	margin: 24px;
+	background: $background-32;
+	border-color: $yellow-1;
+
+	.warning__icon {
+		svg {
+			path {
+				fill: $yellow-1
+			}
+		}
+	}
+
+	.warning__text {
+		color: $yellow-1;
+
+		span {
+			font-weight: 600;
+		}
+	}
+}
