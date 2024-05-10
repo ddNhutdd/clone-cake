@@ -49,6 +49,11 @@ function Header() {
 
 
 
+	// show chain Selector
+	const [showChain, setShowChain] = useState(false);
+
+
+
 	// phần modal settings
 	const [settingsModalShow, setSettingsModalShow] = useState(false);
 	const settingsModalOpen = () => {
@@ -128,6 +133,9 @@ function Header() {
 		{
 			id: 1,
 			content: 'Info',
+			url: url.info,
+			subUrl: [url.info_stable_swap, url.info_v3],
+			onClick: () => { redirectPage(url.info) }
 		},
 		{
 			id: 2,
@@ -344,6 +352,18 @@ function Header() {
 			setUserChainId(null);
 		}
 	}, [isConnected]);
+	useEffect(() => {
+		const conditionHideChain = location.pathname === url.info ||
+			location.pathname === url.info_stable_swap ||
+			location.pathname === url.info_v3
+
+		if (conditionHideChain) {
+			setShowChain(false);
+		}
+		else {
+			setShowChain(true);
+		}
+	}, [location])
 
 	return (
 		<div
@@ -454,11 +474,13 @@ function Header() {
 					<div className='flex align-center items-center px-3 px-sm-1'>
 						<IoIosNotifications style={{ fontSize: '25px' }} />
 					</div>
-					<div
-						className={`${css['header2__chain']} px-3 px-sm-1 relative`}
-					>
-						<ChainSelector />
-					</div>
+					{
+						showChain && <div
+							className={`${css['header2__chain']} px-3 px-sm-1 relative`}
+						>
+							<ChainSelector />
+						</div>
+					}
 					<div className='px-3 px-sm-1'>
 						<DropdownHeader
 							header={

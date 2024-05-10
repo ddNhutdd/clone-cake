@@ -3,6 +3,7 @@ import css from './info-top.module.scss';
 import Tabs from 'src/components/tabs';
 import InputSearch from './input-search';
 import { useState } from 'react';
+import { useTheme } from 'src/context/dark-theme';
 
 
 function InfoTop() {
@@ -20,6 +21,14 @@ function InfoTop() {
 
 
 
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
+
+
+
+
 
 
 
@@ -27,7 +36,7 @@ function InfoTop() {
 
 
 	return (
-		<div className={css.infoTop}>
+		<div className={`${css.infoTop} ${darkClass}`}>
 			<div className={css.container}>
 				<div className={css.infoTop__content}>
 					<div className={css.infoTop__left}>

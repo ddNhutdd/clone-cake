@@ -47,7 +47,7 @@ function DropdownHeader(props) {
 		});
 	};
 	const renderClassActiveItem = (item) => {
-		return item.url === location.pathname ? css.active : '';
+		return item.url === location.pathname || item?.subUrl?.find(item => item === location.pathname) ? css.active : '';
 	}
 	const renderAlign = function (value) {
 		switch (value) {

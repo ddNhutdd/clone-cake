@@ -1,45 +1,53 @@
-import { useState } from "react";
-import InputDropdown from "src/components/input-dropdown";
+
+import Radio from "src/components/radio";
 
 function Profile() {
 
-	const [options, setOptions] = useState([
-		{
-			value: `minutes`,
-			content: 'Minutes'
-		},
-		{
-			value: `hours`,
-			content: 'Hours'
-		},
-		{
-			value: `days`,
-			content: 'Days'
-		}
-	]);
-	const [seletedItem, setSeletedItem] = useState(options?.at(0));
 
-	const dropdownChangeHandle = (item) => {
-		setSeletedItem(item)
+	const radioChange = (value, children, ev) => {
+		
 	}
-
-	const [inputValue, setInputValue] = useState('');
-	const inputChangeHandle = (ev) => {
-		setInputValue(ev.target.value)
-	}
-
-
 	return (
 		<div style={{ margin: 300 }}>
-			<div>
-				<InputDropdown
-					options={options}
-					selectedOption={seletedItem}
-					dropdownOnChange={dropdownChangeHandle}
-					inputValue={inputValue}
-					inputOnChange={inputChangeHandle}
-				/>
-			</div>
+			<Radio
+
+				id={`radio1`}
+				name={`test`}
+				onChange={radioChange}
+				value={`value1`}
+			>
+				All
+			</Radio> 
+			<br />
+			<Radio
+
+				id={`radio2`}
+				name={`test`}
+				onChange={radioChange}
+				value={`value1`}
+			>
+				2
+			</Radio>
+			<br />
+			<Radio
+
+				id={`radio3`}
+				name={`test`}
+				onChange={radioChange}
+				value={`value1`}
+			>
+				3
+			</Radio>
+			<br />
+			<Radio
+
+				id={`radio4`}
+				name={`test`}
+				onChange={radioChange}
+				value={`value1`}
+			>
+				4
+			</Radio>
 		</div>
 	)
 }

@@ -1,0 +1,67 @@
+@import 'components/global-style/base.scss';
+
+.transaction {
+	padding: 24px;
+
+	&.dark {
+		.transaction__actionCell {
+			a {
+				color: $text-color-white-2;
+
+				svg {
+					path {
+						fill: $primary-2;
+					}
+				}
+			}
+		}
+	}
+
+	.transaction__listRadio {
+		display: flex;
+		gap: 20px;
+		flex-wrap: wrap;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	.transaction__tableContainer {
+		overflow-x: auto;
+	}
+
+	// phần css cho dữ liệu của table
+	.transaction__actionCell {
+		a {
+			display: inline-flex;
+			align-items: center;
+			gap: 5px;
+
+			&:hover {
+				text-decoration-color: $primary-2;
+			}
+
+			svg {
+				path {
+					fill: $primary-2;
+				}
+			}
+		}
+	}
+
+	.transaction__accountCell {
+		a {
+			font-weight: 600;
+			color: $primary-2;
+			display: inline-flex;
+			align-items: center;
+			gap: 5px;
+
+			svg {
+				path {
+
+					fill: $primary-2;
+				}
+			}
+		}
+	}
+}

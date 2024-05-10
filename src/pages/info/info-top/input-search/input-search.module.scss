@@ -4,10 +4,54 @@
 	position: relative;
 	width: 100%;
 
+	&.dark {
+		input {
+			border: 1px solid $border-color-4;
+
+			&::placeholder {
+				color: $text-color-white-2;
+			}
+		}
+
+		.inputSearch__modal {
+			border-color: $primary-1;
+			background: $background-6;
+
+			.inputSearch__modal__header {
+				.inputSearch__modal__header__item {
+					color: $primary-1;
+				}
+			}
+
+			.inputSearch__modal__body {
+				.inputSearch__modal__body__item {
+					.inputSearch__modal__top {
+						.inputSearch__modal__top__first {
+							color: $primary-1;
+						}
+
+						.inputSearch__modal__top__item {
+							color: $text-color-white-2;
+						}
+					}
+
+					.inputSearch__modal__bot {
+						color: $text-color-white-2;
+					}
+				}
+
+				.inputSearch__modal__line {
+					background-color: $border-color-3;
+				}
+			}
+		}
+	}
+
 	input {
 		position: relative;
 		z-index: 11;
 		width: 100%;
+		border: 1px solid transparent;
 	}
 
 	.inputSearch__overlay {
@@ -28,6 +72,7 @@
 		z-index: 11;
 		background-color: red;
 		width: 80vw;
+		max-width: 1024px;
 		min-height: 200px;
 		background: $background-3;
 		padding: 1.5rem 1.5rem 2.5rem;

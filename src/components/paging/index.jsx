@@ -14,7 +14,7 @@ export const Paging = (props) => {
 
 	const totalPage = Math.ceil(totalItems / pageSize);
 	const [prevDisable, setPrevDisable] = useState(currentPage <= 1);
-	const [nextDisable, setNextDisable] = useState(currentPage > totalPage);
+	const [nextDisable, setNextDisable] = useState(currentPage >= totalPage);
 
 	const preClickHandle = (currentPage) => {
 		const newPage = currentPage - 1;

@@ -1,0 +1,24 @@
+@import 'components/global-style/base.scss';
+
+.chart {
+	padding: 24px;
+
+	&.dark {
+		.chart__total {
+			color: $text-color-white-2;
+		}
+	}
+
+	.chart__chartContainer {
+		display: flex;
+		gap: 20px;
+
+		.chart__item {
+			flex-grow: 1;
+		}
+	}
+
+	.chart__total {
+		padding: 1rem;
+	}
+}

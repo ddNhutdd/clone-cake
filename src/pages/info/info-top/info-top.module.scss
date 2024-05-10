@@ -8,6 +8,10 @@
 		height: 120px;
 	}
 
+	&.dark {
+		background: linear-gradient(166.77deg,#3b4155,#3a3045)
+	}
+
 	.container {
 		@include container;
 

@@ -1,0 +1,89 @@
+@import 'src/components/global-style/base.scss';
+
+@mixin shadow {
+	box-shadow: 0px 0px 0px 1px #7645d9, 0px 0px 0px 4px rgba(118, 69, 217, .6);
+}
+
+.radio {
+	position: relative;
+
+	&.dark {
+		input {
+			&:focus+label {
+				.radio__circle {
+					@include shadow;
+				}
+			}
+		}
+
+		label {
+			.radio__circle {
+				background-color: $border-color-3;
+				border-color: $border-color-7;
+
+				.radio__dot {
+					background-color: $background-2;
+				}
+			}
+
+			.radio__text {
+				color: $text-color-white-2;
+			}
+		}
+	}
+
+	input[type='radio']:checked+label {
+		.radio__circle {
+			background-color: $text-color-7;
+
+			.radio__dot {
+				opacity: 1;
+			}
+		}
+	}
+
+	input {
+		&:focus+label {
+			.radio__circle {
+				@include shadow;
+			}
+		}
+	}
+
+	label {
+		display: flex;
+		cursor: pointer;
+
+		&:hover {
+			.radio__circle {
+				@include shadow;
+			}
+		}
+
+		.radio__circle {
+			width: 24px;
+			height: 24px;
+			background-color: $border-color;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50%;
+			transition: background-color .4s;
+			border: 1px solid transparent;
+
+			.radio__dot {
+				width: 12px;
+				height: 12px;
+				background-color: $background-1;
+				opacity: 0;
+				border-radius: 50%;
+				transition: opacity .4s;
+			}
+		}
+
+		.radio__text {
+			color: $text-color-3;
+			margin-left: 5px;
+		}
+	}
+}

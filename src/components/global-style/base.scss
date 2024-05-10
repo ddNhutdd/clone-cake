@@ -183,6 +183,16 @@ $box-shadow-6: 0px 0px 0px 1px #7645d9,
 	}
 }
 
+.--red {
+	font-weight: 500;
+	color: $background-22;
+}
+
+.--green {
+	font-weight: 500;
+	color: $text-color-7;
+}
+
 //----------------------------------------------------------------
 @keyframes fadeInUp {
 	from {

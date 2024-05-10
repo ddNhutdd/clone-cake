@@ -11,7 +11,9 @@ export const url = {
 	buyCrypto: '/buy-crypto',
 	twap: '/twap',
 	limit: '/limit',
-	info: '/info'
+	info: '/info',
+	info_v3: '/info/v3',
+	info_stable_swap: '/info/stable-swap'
 };
 
 export const localStorageVariable = {
@@ -80,4 +82,9 @@ export const apiStatus = {
 	fetching: 'fetching',
 	fulfilled: 'fulfilled',
 	rejected: 'rejected'
+}
+
+export const sortType = {
+	asc: 'acscending',
+	des: 'descending'
 }

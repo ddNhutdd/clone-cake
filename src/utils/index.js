@@ -1,19 +1,19 @@
 export const setLocalStorage = (key, data) => {
 	try {
 		localStorage.setItem(key, JSON.stringify(data));
-	} catch (error) {}
+	} catch (error) { }
 };
 
 export const getLocalStorage = (key) => {
 	try {
 		return JSON.parse(localStorage.getItem(key));
-	} catch (error) {}
+	} catch (error) { }
 };
 
 export const removeLocalStorage = (key) => {
 	try {
 		localStorage.removeItem(key);
-	} catch (error) {}
+	} catch (error) { }
 };
 
 export const debounce = function (func, ms) {
@@ -118,3 +118,34 @@ export const hasKey = (obj, key) => {
 	const keys = Object.keys(obj);
 	return keys.includes(key);
 };
+
+export const shortenHash = (inputString) => {
+	if (!inputString || inputString.length < 9) {
+		return inputString;
+	}
+
+	const firstFourChars = inputString.substring(0, 4);
+
+	const lastFourChars = inputString.substring(inputString.length - 4);
+
+	const shortenedString = `${firstFourChars}...${lastFourChars}`;
+
+	return shortenedString;
+}
+
+
+export const generateUniqueUUID = () => {
+	const timestamp = Date.now(); // Get the current timestamp in milliseconds
+	const randomBytes = new Uint8Array(8); // Create an empty Uint8Array for random bytes
+	window.crypto.getRandomValues(randomBytes); // Generate random bytes using crypto.getRandomValues
+
+	// Convert random bytes to hexadecimal string
+	const randomString = Array.from(randomBytes)
+		.map(byte => byte.toString(16).padStart(2, '0'))
+		.join('');
+
+	// Combine timestamp and random string into a UUID-like format
+	const uuid = `${timestamp}-${randomString}`;
+
+	return uuid;
+}

@@ -1,3 +1,4 @@
+import { useTheme } from 'src/context/dark-theme';
 import { Paging } from '../paging';
 import css from './table.module.scss';
 import PropTypes from 'prop-types'
@@ -11,10 +12,21 @@ function Table(props) {
 		onPageChange,
 	} = props;
 
+
+
+	// phần theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
+
+
+
+
+	// phần render table 
 	const renderColumn = (listCol) => {
 		return listCol?.map((item) => {
 			return (
-				<th key={item.key}>
+				<th key={item.key} style={item.style}>
 					{item.header}
 				</th>
 			)
@@ -37,11 +49,17 @@ function Table(props) {
 			)
 		})
 	}
-
 	const tableColumn = listCol?.length || 0;
 
+
+
+
+
+
+
+
 	return (
-		<div className={css.table}>
+		<div className={`${css.table} ${darkClass}`}>
 			<table>
 				<thead>
 					<tr>
@@ -83,3 +101,21 @@ Table.propTypes = {
 }
 
 export default Table;
+
+///
+//const listCol = [
+//	{
+//		key: 'id',
+//		header: '#'
+//	},
+//	{
+//		key: 'name',
+//		header: 'NAME'
+//	}
+//]
+//const listRecord = [
+//	{
+//		id: '1',
+//		name: 'name',
+//	}
+//]

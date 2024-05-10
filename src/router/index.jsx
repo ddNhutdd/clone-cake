@@ -106,6 +106,22 @@ export const router = createBrowserRouter([
 						<Info />
 					</Suspense>
 				),
+			},
+			{
+				path: url.info_v3,
+				element: (
+					<Suspense>
+						<Info />
+					</Suspense>
+				),
+			},
+			{
+				path: url.info_stable_swap,
+				element: (
+					<Suspense>
+						<Info />
+					</Suspense>
+				),
 			}
 		],
 	},

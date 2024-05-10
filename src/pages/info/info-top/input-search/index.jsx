@@ -1,8 +1,8 @@
 import Input3 from 'src/components/input-3';
 import css from './input-search.module.scss';
-import Pill, { pillType } from 'src/components/pill';
 import PillSquare from 'src/components/pill-square';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
+import { useTheme } from 'src/context/dark-theme';
 
 
 const tabList = {
@@ -26,6 +26,13 @@ function InputSearch(props) {
 
 
 
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
+
+
+
 
 
 
@@ -42,7 +49,7 @@ function InputSearch(props) {
 
 
 	return (
-		<div className={css.inputSearch}>
+		<div className={`${css.inputSearch} ${darkClass}`}>
 			<Input3
 				placeholder={`Search liquidity pairs or tokens`}
 				style={{ height: '40px' }}
