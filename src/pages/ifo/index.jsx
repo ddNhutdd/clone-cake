@@ -1,8 +1,8 @@
-import HeaderComponent from 'src/components/header-component'
-import css from './ifo.module.scss'
-import HeaderComponentList5 from 'src/constants/header-component-list-5'
-import Top from './top'
-import Cards from './cards'
+import HeaderComponent from 'src/components/header-component';
+import css from './ifo.module.scss';
+import HeaderComponentList5 from 'src/constants/header-component-list-5';
+import Top from './top';
+import Cards from './cards';
 
 function Ifo() {
 	return (
@@ -17,4 +17,4 @@ function Ifo() {
 	)
 }
 
-export default Ifo
+export default Ifo;

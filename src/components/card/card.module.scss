@@ -5,6 +5,7 @@
 	background-color: $border-color;
 	border-radius: $border-radius-2;
 
+
 	&.blueEffect {
 		background-image: linear-gradient(rgb(83, 222, 233), rgb(118, 69, 217));
 		background-color: transparent;
@@ -27,8 +28,7 @@
 		background-color: $background-1;
 		border-color: $border-color;
 		border-radius: $border-radius-2;
-
-
+		overflow: hidden;
 	}
 }
 

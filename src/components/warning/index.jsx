@@ -1,18 +1,18 @@
 import css from './warning.module.scss';
-import WarningIcon from 'icons/warning.icon'
 
-function Warning() {
+function Warning(props) {
+	const {
+		icon,
+		children
+	} = props;
+
 	return (
 		<div className={css.warning}>
-			<div className={css.warning__icon}> 
-				<WarningIcon />
+			<div className={css.warning__icon}>
+				{icon}
 			</div>
 			<div className={css.warning__text}>
-				The markets for some of the newer and low-cap tokens displayed on the v2 info page are highly volatile, and as a result, token information may not be accurate.
-				{" "}
-				<span>
-					Before trading any token, please DYOR, and pay attention to the risk scanner.
-				</span>
+				{children}
 			</div>
 		</div>
 	)
