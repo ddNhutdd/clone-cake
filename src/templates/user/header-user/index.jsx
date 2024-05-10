@@ -140,6 +140,8 @@ function Header() {
 		{
 			id: 2,
 			content: 'IFO',
+			url: url.ifo,
+			onClick: () => { redirectPage(url.ifo) }
 		},
 		{
 			id: 3,

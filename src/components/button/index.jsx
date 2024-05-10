@@ -10,10 +10,11 @@ export const buttonClassesType = {
 	primaryText: 'primaryText',
 	secondThin: 'secondaryThin',
 	outline: 'outline',
+	primaryPuple: 'primaryPuple'
 };
 
 const Button = forwardRef((props, ref) => {
-	const {isDarkMode} = useTheme()
+	const { isDarkMode } = useTheme()
 
 	const {
 		type,
@@ -42,6 +43,9 @@ const Button = forwardRef((props, ref) => {
 
 			case buttonClassesType.outline:
 				return css['button-outline'];
+
+			case buttonClassesType.primaryPuple:
+				return css['button-primary-puple'];
 
 			default:
 				return css['button-primary'];

@@ -1,0 +1,7 @@
+@import 'components/global-style/base.scss';
+
+.cards {
+	display: grid;
+	grid-template-columns: 30% 70%;
+	gap: 20px;
+}

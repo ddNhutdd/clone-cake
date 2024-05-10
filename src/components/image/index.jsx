@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 
-const LazyLoadImage = (props) => {
-	const { smallImageUrl, largeImageUrl } = props;
+const Image = (props) => {
+	const {
+		smallImageUrl,
+		largeImageUrl,
+		alt
+	} = props;
 	const [imageLoaded, setImageLoaded] = useState(false);
 
 	// Hàm được gọi khi hình ảnh lớn đã tải xong
@@ -12,12 +16,12 @@ const LazyLoadImage = (props) => {
 	return (
 		<div>
 			{/* Hiển thị hình ảnh nhỏ */}
-			{!imageLoaded && <img src={smallImageUrl} alt="Thumbnail" />}
+			{!imageLoaded && <img src={smallImageUrl} alt={alt} />}
 
 			{/* Hiển thị hình ảnh lớn khi đã tải xong */}
-			{imageLoaded && <img src={largeImageUrl} alt="Large Image" onLoad={handleImageLoad} />}
+			{imageLoaded && <img src={largeImageUrl} alt={alt} onLoad={handleImageLoad} />}
 		</div>
 	);
 };
 
-export default LazyLoadImage;
+export default Image;

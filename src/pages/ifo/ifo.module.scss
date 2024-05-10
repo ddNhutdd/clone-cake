@@ -1,1 +1,10 @@
 @import 'components/global-style/base.scss';
+
+.ifo {
+	background-color: $background-3;
+	min-height: 100vh;
+
+	.container {
+		@include container;
+	}
+}

@@ -32,6 +32,7 @@ export const ToolTip = (props) => {
 	const container = useRef(null);
 	const tooltipElement = useRef(null);
 	const isHoverToolTipElement = useRef(false);
+	const isHoverContainer = useRef(false);
 	const space = useRef(10);
 
 	const addTooltip = () => {
@@ -102,14 +103,21 @@ export const ToolTip = (props) => {
 		}
 		newElement.style.zIndex = '999999';
 
-		// thêm sự khiện cho tooltip
-		newElement.addEventListener('mouseenter', () => {
-			isHoverToolTipElement.current = true;
-		})
-		newElement.addEventListener('mouseleave', () => {
-			isHoverToolTipElement.current = false;
-			removeTooltip();
-		})
+		// thêm sự khiện cho tooltip chỉ xảy ra khi trigger là hover 
+		if (trigger === tooltipTrigger.hover) {
+			newElement.addEventListener('mouseenter', () => {
+				isHoverToolTipElement.current = true;
+			})
+			newElement.addEventListener('mouseleave', () => {
+				isHoverToolTipElement.current = false;
+				const idTimeount = setTimeout(() => {
+					if (!isHoverContainer.current) {
+						removeTooltip();
+					}
+					clearTimeout(idTimeount);
+				}, 100);
+			})
+		}
 	};
 	const removeTooltip = () => {
 		if (!tooltipElement || !tooltipElement.current) return;
@@ -121,13 +129,84 @@ export const ToolTip = (props) => {
 		return isDarkMode ? css.dark : css.light;
 	}
 
+	const updatePosition = (element) => {
+		let tooltipTop = 0;
+		let tooltipLeft = 0;
+		const containerInfo = container.current.getBoundingClientRect();
+		const tooltipInfo = tooltipElement.current.getBoundingClientRect();
+		switch (position) {
+			case tooltipPosition.top:
+				tooltipTop =
+					containerInfo.top - tooltipInfo.height - space.current;
+				tooltipLeft =
+					containerInfo.left +
+					(containerInfo.width - tooltipInfo.width) / 2;
+				element.style.top = tooltipTop + 'px';
+				element.style.left = tooltipLeft + 'px';
+				break;
+			case tooltipPosition.left:
+				tooltipTop =
+					containerInfo.top +
+					(containerInfo.height - tooltipInfo.height) / 2;
+				tooltipLeft =
+					containerInfo.left - tooltipInfo.width - space.current;
+				element.style.top = tooltipTop + 'px';
+				element.style.left = tooltipLeft + 'px';
+				break;
+			case tooltipPosition.bottom:
+				tooltipTop =
+					containerInfo.top + containerInfo.height + space.current;
+				tooltipLeft =
+					containerInfo.left +
+					(containerInfo.width - tooltipInfo.width) / 2;
+				element.style.top = tooltipTop + 'px';
+				element.style.left = tooltipLeft + 'px';
+				break;
+			case tooltipPosition.right:
+				tooltipTop =
+					containerInfo.top +
+					(containerInfo.height - tooltipInfo.height) / 2;
+				tooltipLeft =
+					containerInfo.left + containerInfo.width + space.current;
+				element.style.top = tooltipTop + 'px';
+				element.style.left = tooltipLeft + 'px';
+				break;
+			default:
+				break;
+		}
+	}
+
+	const scrollHandle = () => {
+		switch (trigger) {
+			case tooltipTrigger.hover:
+				removeTooltip();
+				break;
+
+
+			case tooltipTrigger.runtime:
+				updatePosition(tooltipElement.current);
+				break;
+
+			default:
+				break;
+		}
+	}
+
+	const containerMouseEnterHandle = () => {
+		isHoverContainer.current = true;
+		if (!tooltipElement.current) {
+			addTooltip();
+		}
+	}
+
 	useEffect(() => {
 		if (!container || !container.current) return;
 
 		switch (trigger) {
 			case tooltipTrigger.hover:
-				container.current.addEventListener('mouseenter', addTooltip);
+				container.current.addEventListener('mouseenter', containerMouseEnterHandle);
 				container.current.addEventListener('mouseleave', () => {
+					isHoverContainer.current = false;
 					const idTimeout = setTimeout(() => {
 						if (!isHoverToolTipElement.current) {
 							removeTooltip();
@@ -147,7 +226,7 @@ export const ToolTip = (props) => {
 				break;
 		}
 
-		document.addEventListener('scroll', removeTooltip);
+		document.addEventListener('scroll', scrollHandle);
 
 		return () => {
 			document.removeEventListener('scroll', removeTooltip);

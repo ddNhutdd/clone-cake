@@ -5,6 +5,13 @@
 	background-color: $border-color;
 	border-radius: $border-radius-2;
 
+	&.blueEffect {
+		background-image: linear-gradient(rgb(83, 222, 233), rgb(118, 69, 217));
+		background-color: transparent;
+		background-size: 400% 400%;
+		animation: 3s ease 0s infinite normal none running idZEjz;
+	}
+
 	&.dark {
 		background-color: $border-color-3;
 		color: $text-color-white-2;
@@ -20,5 +27,23 @@
 		background-color: $background-1;
 		border-color: $border-color;
 		border-radius: $border-radius-2;
+
+
+	}
+}
+
+
+
+@keyframes idZEjz {
+	0% {
+		background-position: 50% 0%;
+	}
+
+	50% {
+		background-position: 50% 100%;
+	}
+
+	100% {
+		background-position: 50% 0%;
 	}
 }

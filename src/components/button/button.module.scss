@@ -97,6 +97,11 @@
 	}
 }
 
+.button-primary-puple {
+	@include buttonCustom;
+	background: $text-color-1;
+}
+
 .primary-text {
 	@include buttonCustom;
 	min-height: 32px;

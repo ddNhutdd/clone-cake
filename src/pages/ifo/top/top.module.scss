@@ -1,0 +1,84 @@
+@import 'components/global-style/base.scss';
+
+.top {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background: linear-gradient(139.73deg, rgb(230, 253, 255) 0%, rgb(243, 239, 255) 100%);
+	position: relative;
+	height: 23vh;
+
+	@media screen and (max-width: 894px) {
+		height: 30vh;
+	}
+
+	@media screen and (max-width: 576px) {
+		height: 300px;
+	}
+
+	.container {
+		@include container;
+
+		.top__content {
+			display: flex;
+			justify-content: space-between;
+			position: relative;
+			z-index: 2;
+
+			@media screen and (max-width: 768px) {
+				flex-direction: column;
+			}
+
+			.top__content__item {
+				&:last-child {
+					display: flex;
+					align-items: flex-end;
+					justify-content: flex-end;
+
+					@media screen and (max-width: 576px) {
+						justify-content: flex-start;
+					}
+
+					button {
+						&:hover {
+							opacity: 1;
+						}
+					}
+				}
+
+				.top__title {
+					font-size: 5.8rem;
+					font-weight: 600;
+					line-height: 1.1;
+					color: $text-color-4;
+					margin-bottom: 24px;
+
+					@media screen and (max-width: 768px) {
+						font-size: 4rem;
+					}
+				}
+
+				.top__small {
+					font-size: 2rem;
+					color: $text-color-3;
+					font-weight: 600;
+
+					@media screen and (max-width: 768px) {
+						font-size: 1.6rem;
+						;
+					}
+				}
+			}
+		}
+	}
+
+	img {
+		position: absolute;
+		right: 10%;
+		bottom: 0;
+		width: 390px;
+
+		@media screen and (max-width: 992px) {
+			width: 309px;
+		}
+	}
+}

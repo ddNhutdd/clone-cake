@@ -1,53 +1,20 @@
 
 import Radio from "src/components/radio";
+import { ToolTip, tooltipPosition, tooltipTrigger } from "src/components/tooltip";
 
 function Profile() {
 
 
-	const radioChange = (value, children, ev) => {
-		
-	}
 	return (
 		<div style={{ margin: 300 }}>
-			<Radio
-
-				id={`radio1`}
-				name={`test`}
-				onChange={radioChange}
-				value={`value1`}
+			<ToolTip
+				show={false}
+				trigger={tooltipTrigger.runtime}
+				content={`123123123123`}
+				position={tooltipPosition.right}
 			>
-				All
-			</Radio> 
-			<br />
-			<Radio
-
-				id={`radio2`}
-				name={`test`}
-				onChange={radioChange}
-				value={`value1`}
-			>
-				2
-			</Radio>
-			<br />
-			<Radio
-
-				id={`radio3`}
-				name={`test`}
-				onChange={radioChange}
-				value={`value1`}
-			>
-				3
-			</Radio>
-			<br />
-			<Radio
-
-				id={`radio4`}
-				name={`test`}
-				onChange={radioChange}
-				value={`value1`}
-			>
-				4
-			</Radio>
+				dsàdsàdsàdá
+			</ToolTip>
 		</div>
 	)
 }

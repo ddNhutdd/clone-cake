@@ -13,7 +13,8 @@ export const url = {
 	limit: '/limit',
 	info: '/info',
 	info_v3: '/info/v3',
-	info_stable_swap: '/info/stable-swap'
+	info_stable_swap: '/info/stable-swap',
+	ifo: 'ifo'
 };
 
 export const localStorageVariable = {
