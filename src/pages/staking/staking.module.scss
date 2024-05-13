@@ -20,7 +20,7 @@
 	}
 
 	.staking__header {
-		background: linear-gradient(139.73deg, #e5fdff, #f3efff);
+		background: $background-41;
 
 		.staking__header__container {
 			@include container;

@@ -6,11 +6,8 @@ import css from './user.template.module.scss';
 import { useTheme } from 'src/context/dark-theme';
 
 function UserTemplate() {
-
-
 	const { isDarkMode } = useTheme();
 	const darkClass = isDarkMode ? css.dark : '';
-
 
 	return (
 		<ConfigComponent>

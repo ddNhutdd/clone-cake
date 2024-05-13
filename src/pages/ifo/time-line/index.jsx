@@ -3,10 +3,15 @@ import css from './time-line.module.scss';
 import Button from 'src/components/button';
 import { NavLink } from 'react-router-dom';
 import Number from './Number';
+import { useTheme } from 'src/context/dark-theme';
 
 function TimeLine() {
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.timeLine}>
+		<div className={`${css.timeLine} ${darkClass}`}>
 			<div className={css.container}>
 				<div className={css.timeLine__header}>
 					How to Take Part in the Public Sale

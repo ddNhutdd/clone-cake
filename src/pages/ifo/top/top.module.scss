@@ -3,7 +3,7 @@
 .top {
 	padding-top: 40px;
 	padding-bottom: 40px;
-	background: linear-gradient(139.73deg, rgb(230, 253, 255) 0%, rgb(243, 239, 255) 100%);
+	background: $background-33;
 	position: relative;
 	height: 23vh;
 
@@ -13,6 +13,30 @@
 
 	@media screen and (max-width: 576px) {
 		height: 300px;
+	}
+
+	&.dark {
+		background: $background-34;
+
+		.container {
+			.top__content {
+				.top__content__item {
+					&:last-child {
+						button {
+							background: $text-color-6;
+						}
+					}
+
+					.top__title {
+						color: $primary-1;
+					}
+
+					.top__small {
+						color: $text-color-white-2;
+					}
+				}
+			}
+		}
 	}
 
 	.container {

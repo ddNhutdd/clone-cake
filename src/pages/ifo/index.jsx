@@ -11,14 +11,12 @@ function Ifo() {
 		<div className={css.ifo}>
 			<HeaderComponent list={HeaderComponentList5} />
 			<Top />
+			<Cards />
 			<div className={css.container}>
-				<Cards />
 				<div className={css.ifo__timeline}></div>
 			</div>
 			<TimeLine />
-			<div className={css.container}>
-				<Navigate />
-			</div>
+			<Navigate />
 		</div>
 	)
 }

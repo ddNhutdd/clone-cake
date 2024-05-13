@@ -2,7 +2,7 @@
 
 .userTemplate__outlet {
 	min-height: 100vh;
-	background: linear-gradient(139.73deg, #e5fdff, #f3efff);
+	background: $background-41;
 
 	&.dark {
 		background: $background-7;

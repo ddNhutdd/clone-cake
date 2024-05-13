@@ -3,11 +3,18 @@ import css from './coming-soon.module.scss';
 import { ToolTip, tooltipPosition } from 'src/components/tooltip';
 import { FaRegQuestionCircle } from "react-icons/fa";
 import PancakeGrowIcon from 'src/assets/icons/pancake-grow.icon';
+import PancakeGrowDarkIcon from 'src/assets/icons/pancake-grow-dark.icon';
 import PancakeUnknowIcon from 'src/assets/icons/pancake-unknow.icon';
+import PancakeUnknowDarkIcon from 'src/assets/icons/pancake-unknow-dark.icon';
+import { useTheme } from 'src/context/dark-theme';
 
 function ComingSoon() {
+	//theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.comingSoon}>
+		<div className={`${css.comingSoon} ${darkClass}`}>
 			<Card
 				type={cardType.flat}
 			>
@@ -33,7 +40,9 @@ function ComingSoon() {
 								</div>
 							</div>
 							<div className={css.comingSoon__cards__body}>
-								<PancakeGrowIcon />
+								{
+									isDarkMode ? <PancakeGrowDarkIcon /> : <PancakeGrowIcon />
+								}
 								<div className={css.comingSoon__cards__body__text}>
 									Follow our social channels to learn more about the next IFO.
 								</div>
@@ -52,7 +61,9 @@ function ComingSoon() {
 								</div>
 							</div>
 							<div className={css.comingSoon__cards__body}>
-								<PancakeUnknowIcon />
+								{
+									isDarkMode ? <PancakeUnknowDarkIcon /> : <PancakeUnknowIcon />
+								}
 								<div className={css.comingSoon__cards__body__text}>
 									Follow our social channels to learn more about the next IFO.
 								</div>

@@ -22,6 +22,28 @@
 	width: 100%;
 	height: 100%;
 
+	&.dark {
+		.number__circle {
+			.number__circle__content {
+				background-color: $text-color-5;
+				color: $text-color-19;
+
+				&.active {
+					background-color: $primary-1;
+					color: $text-color-5;
+				}
+			}
+		}
+
+		.number__line__top {
+			background-color: $text-color-19;
+		}
+
+		.number__line__bot {
+			background-color: $text-color-19;
+		}
+	}
+
 	.number__circle {
 		width: 80px;
 		position: relative;

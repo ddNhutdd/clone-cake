@@ -47,12 +47,8 @@ function Header() {
 	const { open: openConnectWalletWeb3 } = useWeb3Modal();
 	const { address, chainId, isConnected } = useWeb3ModalAccount();
 
-
-
 	// show chain Selector
 	const [showChain, setShowChain] = useState(false);
-
-
 
 	// phần modal settings
 	const [settingsModalShow, setSettingsModalShow] = useState(false);
@@ -146,6 +142,8 @@ function Header() {
 		{
 			id: 3,
 			content: 'Affiliate Program',
+			url: url.affiliates,
+			onClick: () => { redirectPage(url.affiliates) }
 		},
 		{
 			id: 4,
@@ -207,7 +205,6 @@ function Header() {
 			content: 'Trading Reward',
 		},
 	];
-
 
 	const listWallerConnected = [
 		{

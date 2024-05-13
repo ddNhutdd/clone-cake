@@ -1,3 +1,4 @@
+import { useTheme } from 'src/context/dark-theme';
 import css from './number.module.scss';
 
 function Number(props) {
@@ -10,8 +11,12 @@ function Number(props) {
 
 	const activeClacss = active ? css.active : '';
 
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.number}>
+		<div className={`${css.number} ${darkClass}`}>
 			<div className={`${css.number__circle}`}>
 				<div className={`${css.number__circle__content} ${activeClacss}`}>
 					{number}

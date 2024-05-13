@@ -4,12 +4,24 @@
 	display: flex;
 	flex-direction: column;
 
+	&.dark {
+		.icake__top {
+			background: $background-35;
+
+			.icake__top__item {
+				.icake__top__title {
+					color: $text-color-white-2
+				}
+			}
+		}
+	}
+
 	.icake__top {
 		margin-left: -24px;
 		margin-right: -24px;
 		margin-top: -24px;
 		padding: 24px;
-		background: linear-gradient(111.68deg, #f2ecf2, #e8f2f6);
+		background: $background-36;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;

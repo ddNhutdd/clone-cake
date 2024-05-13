@@ -1,9 +1,15 @@
+import { useTheme } from 'src/context/dark-theme';
 import css from './token.module.scss';
 import PancakeUnknow from 'icons/pancake-unknow.icon';
+import PancakeUnknowDarkIcon from 'icons/pancake-unknow-dark.icon';
 
 function Token() {
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.token}>
+		<div className={`${css.token} ${darkClass}`}>
 			<div className={css.token__header}>
 				<div className={css.token__header__item}>
 					<div className={css.token__title}>
@@ -19,7 +25,10 @@ function Token() {
 			</div>
 			<div className={css.token__body}>
 				<div className={css.token__body__image}>
-					<PancakeUnknow />
+					{
+						darkClass ? <PancakeUnknowDarkIcon /> : <PancakeUnknow />
+					}
+
 				</div>
 				<div className={css.token__body__main}>
 					<div className={css.token__body__title}>

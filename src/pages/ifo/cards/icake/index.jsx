@@ -4,10 +4,14 @@ import { FaRegQuestionCircle } from "react-icons/fa";
 import Warning from 'src/components/warning';
 import { FaCircleInfo } from "react-icons/fa6";
 import Button from 'src/components/button';
+import { useTheme } from 'src/context/dark-theme';
 
 function Icake() {
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.icake}>
+		<div className={`${css.icake} ${darkClass}`}>
 			<div className={css.icake__top}>
 				<div className={css.icake__top__item}>
 					<div className={css.icake__top__title}>

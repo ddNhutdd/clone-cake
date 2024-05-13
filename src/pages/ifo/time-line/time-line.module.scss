@@ -1,9 +1,35 @@
 @import 'components/global-style/base.scss';
 
 .timeLine {
-	background: linear-gradient(139.73deg, #e5fdff, #f3efff);
+	background: $background-41;
 	padding-top: 48px;
 	padding-bottom: 48px;
+
+	&.dark {
+		background: $background-42;
+
+		.container {
+			.timeLine__header {
+				color: $primary-1;
+			}
+
+			.timeLine__row {
+				.timeLine__row__side {
+					.timeLine__row__header {
+						color: $primary-1;
+					}
+
+					.timeLine__row__text {
+						color: $text-color-6;
+					}
+
+					.timeLine__row__link {
+						color: $text-color-6;
+					}
+				}
+			}
+		}
+	}
 
 	.container {
 		@include container;

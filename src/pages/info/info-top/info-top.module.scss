@@ -1,7 +1,7 @@
 @import 'components/global-style/base.scss';
 
 .infoTop {
-	background: linear-gradient(111.68deg, #f2ecf2, #e8f2f6);
+	background: $background-36;
 	height: 80px;
 
 	@media screen and (max-width: 576px) {
@@ -9,7 +9,7 @@
 	}
 
 	&.dark {
-		background: linear-gradient(166.77deg,#3b4155,#3a3045)
+		background: $background-35;
 	}
 
 	.container {
@@ -39,12 +39,12 @@
 				display: flex;
 				gap: 10px;
 
-					@media screen and (max-width: 340px) {
-						transform: scale(0.7);
-						position: relative;
-						left: -30px;
-						z-index: 20;
-					}
+				@media screen and (max-width: 340px) {
+					transform: scale(0.7);
+					position: relative;
+					left: -30px;
+					z-index: 20;
+				}
 			}
 
 			.infoTop__right {

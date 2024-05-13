@@ -3,46 +3,54 @@
 .cards {
 	padding-top: 40px;
 	padding-bottom: 40px;
-	display: grid;
-	grid-template-columns: repeat(10, 1fr);
-	gap: 32px;
 
-	@media screen and (max-width: 1070px) {
-		grid-template-columns: repeat(1, 1fr);
+	&.dark {
+		background: $background-6;
 	}
 
-	.cards__left {
-		display: flex;
-		flex-direction: column;
-		grid-column: span 3;
-		gap: 40px;
+	.container {
+		@include container;
+		display: grid;
+		grid-template-columns: repeat(10, 1fr);
+		gap: 32px;
 
 		@media screen and (max-width: 1070px) {
-			grid-column: 1
+			grid-template-columns: repeat(1, 1fr);
 		}
 
-		.cards__icake {
+		.cards__left {
+			display: flex;
+			flex-direction: column;
+			grid-column: span 3;
+			gap: 40px;
+
 			@media screen and (max-width: 1070px) {
-				max-width: 400px;
-				margin-left: auto;
-				margin-right: auto;
+				grid-column: 1
+			}
+
+			.cards__icake {
+				@media screen and (max-width: 1070px) {
+					max-width: 400px;
+					margin-left: auto;
+					margin-right: auto;
+				}
+			}
+
+			.cards__token {
+				@media screen and (max-width: 1070px) {
+					max-width: 400px;
+					margin-left: auto;
+					margin-right: auto;
+				}
 			}
 		}
 
-		.cards__token {
+		.cards__right {
+			grid-column: span 7;
+
 			@media screen and (max-width: 1070px) {
-				max-width: 400px;
-				margin-left: auto;
-				margin-right: auto;
+				grid-column: 1
 			}
-		}
-	}
-
-	.cards__right {
-		grid-column: span 7;
-
-		@media screen and (max-width: 1070px) {
-			grid-column: 1
 		}
 	}
 }

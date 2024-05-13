@@ -14,7 +14,8 @@ export const url = {
 	info: '/info',
 	info_v3: '/info/v3',
 	info_stable_swap: '/info/stable-swap',
-	ifo: 'ifo'
+	ifo: '/ifo',
+	affiliates: '/affiliates'
 };
 
 export const localStorageVariable = {

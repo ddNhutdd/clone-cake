@@ -14,10 +14,7 @@
 	position: relative;
 
 	&.dark {
-		background-color: #666171;
-
-
-
+		background-color: $text-color-19;
 
 		.switchThemeContainer__item {
 			path {

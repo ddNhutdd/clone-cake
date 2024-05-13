@@ -36,7 +36,7 @@
 
 				&.bot {
 					.buyCrypto__bot__header {
-						background: linear-gradient(166.77deg, #3b4155, #3a3045);
+						background: $background-35;
 						color: $primary-1;
 					}
 				}
@@ -160,7 +160,7 @@
 					font-size: 24px;
 					font-weight: 600;
 					color: $text-color-4;
-					background: linear-gradient(111.68deg, #f2ecf2, #e8f2f6);
+					background: $background-36;
 				}
 
 				.buyCrypto__bot__content {

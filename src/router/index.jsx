@@ -15,6 +15,7 @@ const Twap = lazy(() => import('../pages/twap'));
 const Limit = lazy(() => import('../pages/limit'));
 const Info = lazy(() => import('../pages/info'));
 const Ifo = lazy(() => import('../pages/ifo'));
+const Affiliates = lazy(() => import('../pages/affiliates'));
 
 export const router = createBrowserRouter([
 	{
@@ -129,6 +130,14 @@ export const router = createBrowserRouter([
 				element: (
 					<Suspense>
 						<Ifo />
+					</Suspense>
+				),
+			},
+			{
+				path: url.affiliates,
+				element: (
+					<Suspense>
+						<Affiliates />
 					</Suspense>
 				),
 			}

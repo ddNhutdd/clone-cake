@@ -1,6 +1,42 @@
 @import 'components/global-style/base.scss';
 
 .comingSoon {
+	&.dark {
+		.comingSoon__content {
+			background: $border-color-3;
+
+			.comingSoon__cards {
+				.comingSoon__card {
+					.comingSoon__cards__header {
+						&.left {
+							background: $background-39;
+						}
+
+						&.right {
+							background: $background-40;
+						}
+
+						.comingSoon__cards__header__title {
+							color: $text-color-white-2;
+						}
+
+						.comingSoon__cards__header__info {
+							svg {
+								color: $text-color-white-2;
+							}
+						}
+					}
+
+					.comingSoon__cards__body {
+						.comingSoon__cards__body__text {
+							color: $text-color-white-2;
+						}
+					}
+				}
+			}
+		}
+	}
+
 	.comingSoon__content {
 		background: $border-color;
 		margin: -24px;
@@ -41,11 +77,11 @@
 					padding: 16px 24px;
 
 					&.left {
-						background: linear-gradient(180deg, #e2c9fb, #cdb8fa);
+						background: $background-37;
 					}
 
 					&.right {
-						background: linear-gradient(180deg, #a7e8f1, #94e1f2);
+						background: $background-38;
 					}
 
 					.comingSoon__cards__header__title {

@@ -1,8 +1,34 @@
 @import 'components/global-style/base.scss';
 
 .token {
+	&.dark {
+		.token__header {
+			background: $background-35;
+
+			.token__title {
+				color: $primary-1;
+			}
+
+			.token__small {
+				color: $text-color-6;
+			}
+		}
+
+		.token__body {
+			.token__body__main {
+				.token__body__title {
+					color: $text-color-white-2;
+				}
+
+				.token__body__small {
+					color: $text-color-6;
+				}
+			}
+		}
+	}
+
 	.token__header {
-		background: linear-gradient(111.68deg, #f2ecf2, #e8f2f6);
+		background: $background-36;
 		margin-top: -24px;
 		margin-left: -24px;
 		margin-right: -24px;
@@ -46,6 +72,7 @@
 				display: inline;
 				width: fit-content;
 				color: $primary-2;
+				text-decoration: underline;
 			}
 		}
 	}

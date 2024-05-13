@@ -1,0 +1,161 @@
+@import 'src/components/global-style/base.scss';
+
+
+@mixin backgroundImage {
+	position: absolute;
+	z-index: 1;
+
+}
+
+.main {
+	background: $background-43;
+
+	.container {
+		@include container;
+		position: relative;
+
+		.main__content {
+			display: flex;
+			align-items: center;
+			padding-top: 50px;
+			position: relative;
+			z-index: 3;
+
+			@media screen and (max-width: 768px) {
+				flex-direction: column;
+			}
+
+			.main__content__left {
+				img {
+					width: 423px;
+
+					@media screen and (max-width: 576px) {
+						width: 100%;
+					}
+				}
+			}
+
+			.main__content__right {
+				margin-left: 50px;
+
+				@media screen and (max-width: 768px) {
+					margin-left: 0;
+				}
+
+				.main__content__right__header {
+					font-size: 64px;
+					font-weight: 600;
+					color: $text-color-4;
+					line-height: 110%;
+
+					@media screen and (max-width: 576px) {
+						font-size: 38px;
+					}
+				}
+
+				.main__content__right__text {
+					font-size: 24px;
+					color: $text-color-3;
+					font-weight: 600;
+					margin: 32px 0px;
+					line-height: 110%;
+
+					@media screen and (max-width: 576px) {
+						font-size: 16px;
+					}
+				}
+
+				.main__content__right__actions {
+					display: flex;
+					gap: 10px;
+					align-items: center;
+				}
+			}
+		}
+
+		.main__backgroundImage {
+			.main__dialog {
+				left: 11%;
+				top: 4%;
+				animation: 3s ease-in-out 0s infinite normal none running topLeftAnimate;
+				@include backgroundImage;
+
+				@media screen and (max-width: 768px) {
+					width: 100px;
+				}
+
+				@media screen and (max-width: 576px) {
+					top: 10px;
+					left: 10px;
+				}
+			}
+
+			.main__rightPlan {
+				right: 4%;
+				top: 10%;
+				animation: 3s ease-in-out 0s infinite normal none running topRightAnimate;
+				@include backgroundImage;
+
+				@media screen and (max-width: 768px) {
+					width: 120px;
+				}
+
+				@media screen and (max-width: 576px) {
+					top: 10px;
+					right: 10px;
+				}
+			}
+
+			.main__bottomPlan {
+				left: 2%;
+				bottom: 36%;
+				animation: 3s ease-in-out 0s infinite normal none running topRightAnimate;
+				@include backgroundImage;
+
+				@media screen and (max-width: 768px) {
+					width: 120px;
+				}
+
+				@media screen and (max-width: 576px) {
+					width: 120px;
+				}
+			}
+
+		}
+	}
+
+	.main__backgroundFooter {
+		transform: rotateY(180deg);
+		position: relative;
+		z-index: 2;
+		width: 100%;
+	}
+}
+
+@keyframes topLeftAnimate {
+	0% {
+		transform: translate(0px, 0px);
+	}
+
+	50% {
+		transform: translate(10px, 10px);
+	}
+
+	100% {
+		transform: translate(0px, 0px);
+	}
+}
+
+@keyframes topRightAnimate {
+	0% {
+		transform: translate(0px, 0px);
+	}
+
+	50% {
+		transform: translate(-10px, 10px);
+	}
+
+	100% {
+		transform: translate(0px, 0px);
+	}
+}

@@ -2,9 +2,12 @@ import useMediaQuery, { widthDevice } from 'src/hooks/useMedia';
 import css from './top.module.scss';
 import Button, { buttonClassesType } from 'src/components/button';
 import { useState } from 'react';
+import { useTheme } from 'src/context/dark-theme';
 
 function Top() {
-
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : ''
 
 	// responsive button
 	const [largeButton, setLargeButton] = useState(buttonClassesType.primaryPuple);
@@ -19,10 +22,8 @@ function Top() {
 		}
 	}
 
-
-
 	return (
-		<div className={css.top}>
+		<div className={`${css.top} ${darkClass}`}>
 			<div className={css.container}>
 				<div className={css.top__content}>
 					<div className={css.top__content__item}>

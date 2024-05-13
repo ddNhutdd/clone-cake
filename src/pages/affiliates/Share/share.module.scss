@@ -1,0 +1,80 @@
+@import 'src/components/global-style/base.scss';
+
+.share {
+	.container {
+		@include container;
+		padding-top: 80px;
+		padding-bottom: 80px;
+		text-align: center;
+
+		.share__logo {
+			margin-bottom: 24px;
+		}
+
+		.share__header {
+			font-size: 40px;
+			font-weight: 600;
+			line-height: 1.1;
+			color: $text-color-3;
+			margin-bottom: 32px;
+		}
+
+		.share__text {
+			color: $text-color-1;
+		}
+
+		.share__question {
+			font-weight: 600;
+			margin-bottom: 32px;
+		}
+
+		.share__cards {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 15px;
+			color: $text-color-3;
+			font-weight: 600;
+			font-size: 40px;
+			line-height: 110%;
+			text-align: left;
+
+			@media screen and (max-width: 860px) {
+				grid-template-columns: repeat(1, 1fr);
+			}
+
+			.share__cards--puple {
+				color: $text-color-4;
+			}
+
+			.share__cards--sky {
+				color: $primary-2;
+			}
+
+			.share__cards--pink {
+				color: $background-22
+			}
+
+			.share__card {
+
+				@media screen and (max-width: 860px) {
+					max-width: 280px;
+					margin-left: auto;
+					margin-right: auto;
+				}
+
+				@media screen and (max-width: 576px) {
+					width: 100%;
+					max-width: unset;
+				}
+
+				.share__cards__text {
+					color: $text-color-3;
+					margin-top: 24px;
+					font-size: 14px;
+					line-height: 1.5;
+					font-weight: 400;
+				}
+			}
+		}
+	}
+}
