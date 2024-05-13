@@ -1,0 +1,52 @@
+@import 'components/global-style/base.scss';
+
+.token {
+	.token__header {
+		background: linear-gradient(111.68deg, #f2ecf2, #e8f2f6);
+		margin-top: -24px;
+		margin-left: -24px;
+		margin-right: -24px;
+		padding: 16px;
+		display: flex;
+
+		.token__title {
+			color: $text-color-4;
+			font-weight: 600;
+			font-size: 24px;
+		}
+
+		.token__small {
+			color: $text-color-1;
+			font-size: 14px;
+		}
+	}
+
+	.token__body {
+		padding-top: 24px;
+		text-align: center;
+
+		.token__body__main {
+			margin-top: 16px;
+
+			.token__body__title {
+				color: $text-color-3;
+				font-weight: 600;
+				margin-bottom: 8px;
+			}
+
+			.token__body__small {
+				color: $text-color-1;
+				font-size: 14px;
+			}
+
+			.token__body__navigate {
+				font-weight: bold;
+				font-size: 14px;
+				white-space: nowrap;
+				display: inline;
+				width: fit-content;
+				color: $primary-2;
+			}
+		}
+	}
+}

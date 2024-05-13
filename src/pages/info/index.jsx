@@ -26,16 +26,17 @@ function Info() {
 			<HeaderComponent list={HeaderComponentList4} />
 			<InfoTop />
 			<div className={css.container}>
-				<Warning
-					icon={<WarningIcon />}
-
-				>
-					The markets for some of the newer and low-cap tokens displayed on the v2 info page are highly volatile, and as a result, token information may not be accurate.
-					{" "}
-					<span>
-						Before trading any token, please DYOR, and pay attention to the risk scanner.
-					</span>
-				</Warning>
+				<div className={css.info__warning}>
+					<Warning
+						icon={<WarningIcon />}
+					>
+						The markets for some of the newer and low-cap tokens displayed on the v2 info page are highly volatile, and as a result, token information may not be accurate.
+						{" "}
+						<span>
+							Before trading any token, please DYOR, and pay attention to the risk scanner.
+						</span>
+					</Warning>
+				</div>
 				<Chart titleCss={css[`info--title`]} />
 				<TopToken titleCss={css[`info--title`]} />
 				<TopPair titleCss={css[`info--title`]} />

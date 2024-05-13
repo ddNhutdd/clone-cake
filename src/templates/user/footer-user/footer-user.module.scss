@@ -6,7 +6,7 @@
 	padding: 56px 40px 32px;
 
 	.footer__container {
-		@include container(false);
+		@include container;
 
 		.footer__nav {
 			font-weight: bold;

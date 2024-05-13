@@ -87,7 +87,7 @@ $box-shadow-6: 0px 0px 0px 1px #7645d9,
 
 // ----------------------------------------------------------------
 
-@mixin container ($useMinHeight: true) {
+@mixin container () {
 	width: 100%;
 	height: 100%;
 	padding-right: 15px;
@@ -95,10 +95,6 @@ $box-shadow-6: 0px 0px 0px 1px #7645d9,
 	margin-right: auto;
 	margin-left: auto;
 	max-width: 1200px;
-
-	@if $useMinHeight {
-		min-height: 100vh;
-	}
 
 	@media screen and (max-width: 1199px) {}
 

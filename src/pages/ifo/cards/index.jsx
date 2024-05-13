@@ -1,7 +1,8 @@
 import Card, { cardType } from 'src/components/card';
 import css from './cards.module.scss';
 import Icake from './icake';
-
+import Token from './token';
+import ComingSoon from './coming-soon';
 
 const Cards = () => {
 	return (
@@ -15,11 +16,15 @@ const Cards = () => {
 					</Card>
 				</div>
 				<div className={css.cards__left__bot}>
-					2
+					<Card
+						type={cardType.blueEffect}
+					>
+						<Token />
+					</Card>
 				</div>
 			</div>
 			<div className={css.cards__right}>
-				3
+				<ComingSoon />
 			</div>
 		</div>
 	)

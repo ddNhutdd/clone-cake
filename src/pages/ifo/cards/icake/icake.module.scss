@@ -1,8 +1,13 @@
 @import 'components/global-style/base.scss';
 
 .icake {
+	display: flex;
+	flex-direction: column;
+
 	.icake__top {
-		margin: -24px;
+		margin-left: -24px;
+		margin-right: -24px;
+		margin-top: -24px;
 		padding: 24px;
 		background: linear-gradient(111.68deg, #f2ecf2, #e8f2f6);
 		display: flex;
@@ -17,11 +22,69 @@
 			}
 
 			.icake__top__value {
-				 
+				color: $background-22;
+				font-size: 24px;
+				display: flex;
+				gap: 5px;
+				align-items: center;
+
+				.icake__top__value__tooltip {
+					display: inline-flex;
+					align-items: center;
+				}
 			}
 
 			img {
 				width: 60px;
+			}
+		}
+	}
+
+	.icake__bot {
+		padding-top: 24px;
+
+		.icake__bot__value {
+			display: flex;
+			align-items: center;
+			padding: 12px 16px;
+			background-image: linear-gradient(228.54deg, rgb(31, 199, 212) -13.69%, rgb(118, 69, 217) 91.33%);
+			border-radius: 16px;
+			gap: 10px;
+			font-size: 20px;
+			color: $text-color-white-1;
+			font-weight: 600;
+
+			img {
+				width: 40px;
+				height: 40px;
+			}
+
+			.icake__bot__value__value {
+				margin-left: auto;
+			}
+		}
+
+		.icake__bot__radio {
+			margin-top: 24px;
+			display: flex;
+			justify-content: space-between;
+
+			.icake__bot__radio__title {
+				text-decoration: underline dotted;
+				cursor: help;
+				color: $text-color-1;
+				font-size: 14px;
+			}
+		}
+
+		.icake__warning {
+			margin-top: 24px;
+			margin-bottom: 24px;
+		}
+
+		.icake__bot__action {
+			button {
+				width: 100%;
 			}
 		}
 	}

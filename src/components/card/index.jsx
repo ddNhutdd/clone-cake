@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
 import { useTheme } from 'src/context/dark-theme';
 
-
 export const cardType = {
 	default: 'default',
 	blueEffect: 'blueEffect',
@@ -19,21 +18,9 @@ const Card = forwardRef((props, ref) => {
 		type = cardType.default
 	} = props;
 
-
-
-
-
-
-
 	// phần dark theme
 	const { isDarkMode } = useTheme();
 	const classTheme = isDarkMode ? css.dark : '';
-
-
-
-
-
-
 
 	// render card type 
 	const renderCardType = () => {
@@ -48,11 +35,6 @@ const Card = forwardRef((props, ref) => {
 				break;
 		}
 	}
-
-
-
-
-
 
 	return (
 		<div

@@ -14,12 +14,14 @@ function Icake() {
 						My Cake
 					</div>
 					<div className={css.icake__top__value}>
-						0
+						<span>
+							0
+						</span>
 						<ToolTip
-							trigger={tooltipTrigger.runtime}
+							trigger={tooltipTrigger.hover}
 							content={`Your available iCAKE is calculated with the veCAKE balance at the snapshot time, multiplied by a fixed ratio.`}
 							position={tooltipPosition.right}
-							show={false}
+							className={css.icake__top__value__tooltip}
 						>
 							<FaRegQuestionCircle />
 						</ToolTip>
@@ -34,15 +36,32 @@ function Icake() {
 			</div>
 			<div className={css.icake__bot}>
 				<div className={css.icake__bot__value}>
-					<img src={`src/assets/imgs/token-vecake.webp`} alt="vecake" />
-					<div>veCAKE</div>
-					<div>0</div>
+					<img
+						src={`src/assets/imgs/token-vecake.webp`}
+						alt="vecake"
+					/>
+					<div className={css.icake__bot__value__name}>
+						veCAKE
+					</div>
+					<div className={css.icake__bot__value__value}>
+						0
+					</div>
 				</div>
 				<div className={css.icake__bot__radio}>
-					<div>Ratio</div>
-					<div>1x</div>
+					<div>
+						<ToolTip
+							content="Your iCAKE is calculated by applying this ratio on the number of veCAKE at the snapshot time."
+							position={tooltipPosition.right}
+							className={css.icake__bot__radio__title}
+						>
+							Ratio
+						</ToolTip>
+					</div>
+					<div className={css.icake__bot__radio__multiply}>
+						1x
+					</div>
 				</div>
-				<div>
+				<div className={css.icake__warning}>
 					<Warning
 						icon={
 							<div className=''>
@@ -59,7 +78,7 @@ function Icake() {
 					</Warning>
 				</div>
 				<div className={css.icake__bot__action}>
-					<Button>
+					<Button >
 						Go to CAKE staking
 					</Button>
 				</div>
