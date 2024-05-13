@@ -1,0 +1,73 @@
+@import 'components/global-style/base.scss';
+
+.timeLine {
+	background: linear-gradient(139.73deg, #e5fdff, #f3efff);
+	padding-top: 48px;
+	padding-bottom: 48px;
+
+	.container {
+		@include container;
+
+		.timeLine__header {
+			margin-bottom: 24px;
+			font-weight: 600;
+			font-size: 40px;
+			color: $text-color-4;
+			text-align: center;
+		}
+
+		.timeLine__row {
+			display: grid;
+			grid-template-columns: repeat(12, 1fr);
+			gap: 8px;
+
+			.timeLine__row__side {
+				grid-column: span 5;
+
+				@media screen and (max-width: 850px) {
+					order: 2;
+					grid-column: span 10;
+					margin-bottom: 16px;
+				}
+
+				&.empty {
+					@media screen and (max-width: 850px) {
+						display: none;
+					}
+				}
+
+				.timeLine__row__header {
+					font-size: 20px;
+					margin-bottom: 16px;
+					color: $text-color-4;
+					font-weight: 600;
+				}
+
+				.timeLine__row__text {
+					color: $text-color-1;
+					font-size: 14px;
+					margin-bottom: 8px;
+				}
+
+				.timeLine__row__link {
+					color: $text-color-1;
+					margin-bottom: 8px;
+					font-size: 14px;
+					display: inline-block;
+					font-weight: 600;
+				}
+			}
+
+			.timeLine__row__center {
+				grid-column: span 2;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				@media screen and (max-width: 850px) {
+					order: -1;
+				}
+			}
+		}
+	}
+}

@@ -1,1 +1,78 @@
 @import 'components/global-style/base.scss';
+
+.comingSoon {
+	.comingSoon__content {
+		background: $border-color;
+		margin: -24px;
+		padding: 24px;
+
+		.comingSoon__panel {
+			background-image: url("https://pancakeswap.finance/images/ifos/assets/ifo-coming-soon-desktop.png");
+			height: 160px;
+			margin-top: -24px;
+			margin-right: -24px;
+			margin-left: -24px;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center center;
+		}
+
+		.comingSoon__cards {
+			padding-top: 24px;
+			display: flex;
+			gap: 30px;
+
+			@media screen and (max-width: 1200px) {
+				flex-direction: column;
+			}
+
+			.comingSoon__card {
+				max-width: 368px;
+				margin-left: auto;
+				margin-right: auto;
+
+				.comingSoon__cards__header {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					margin-top: -24px;
+					margin-left: -24px;
+					margin-right: -24px;
+					padding: 16px 24px;
+
+					&.left {
+						background: linear-gradient(180deg, #e2c9fb, #cdb8fa);
+					}
+
+					&.right {
+						background: linear-gradient(180deg, #a7e8f1, #94e1f2);
+					}
+
+					.comingSoon__cards__header__title {
+						color: $text-color-3;
+						font-weight: 600;
+						font-size: 20px;
+					}
+
+					.comingSoon__cards__header__info {
+						svg {
+							width: 20px;
+							height: 20px;
+							color: $text-color-3;
+						}
+					}
+				}
+
+				.comingSoon__cards__body {
+					padding-top: 24px;
+					text-align: center;
+
+					.comingSoon__cards__body__text {
+						color: $text-color-3;
+						font-weight: 600;
+					}
+				}
+			}
+		}
+	}
+}

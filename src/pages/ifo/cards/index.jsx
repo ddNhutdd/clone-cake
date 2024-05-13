@@ -11,6 +11,7 @@ const Cards = () => {
 				<div className={css.cards__left__top}>
 					<Card
 						type={cardType.blueEffect}
+						className={css.cards__icake}
 					>
 						<Icake />
 					</Card>
@@ -18,6 +19,7 @@ const Cards = () => {
 				<div className={css.cards__left__bot}>
 					<Card
 						type={cardType.blueEffect}
+						className={css.cards__token}
 					>
 						<Token />
 					</Card>
