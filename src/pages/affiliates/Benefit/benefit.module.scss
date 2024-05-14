@@ -1,0 +1,70 @@
+@import 'src/components/global-style/base.scss';
+
+.benefit {
+	background: $background-3;
+	padding-top: 34px;
+	padding-bottom: 30px;
+
+	.container {
+		@include container;
+		text-align: center;
+		max-width: 723px;
+
+		.benefit__logo {
+			margin-bottom: 24px;
+		}
+
+		.benefit__header {
+			font-size: 40px;
+			line-height: 1.1;
+			font-weight: 600;
+			color: $text-color-3;
+		}
+
+		.benefit__row {
+			margin-top: 48px;
+			display: flex;
+
+			@media screen and (max-width: 850px) {
+				flex-direction: column;
+			}
+
+			.benefit__row__img {
+				width: 33.3333333%;
+
+				@media screen and (max-width: 850px) {
+					margin-left: auto;
+					margin-right: auto;
+				}
+
+				img {
+					width: 100%;
+				}
+			}
+
+			.benefit__row__content {
+				margin-left: 32px;
+				margin-right: 32px;
+				width: 67.7777777%;
+
+				@media screen and (max-width: 850px) {
+					width: 100%;
+					order: 1;
+				}
+
+				.benefit__row__content__header {
+					margin-bottom: 24px;
+					font-size: 32px;
+					line-height: 1.5;
+					font-weight: 600;
+					color: $text-color-4;
+					text-align: left;
+				}
+
+				.benefit__row__content__text {
+					text-align: left;
+				}
+			}
+		}
+	}
+}

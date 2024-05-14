@@ -1,15 +1,17 @@
 import Button, { buttonClassesType } from 'src/components/button';
 import css from './main.module.scss';
 import backgroundFooter from 'src/assets/imgs/svgexport-15.svg';
+import backgroundFooterDark from 'src/assets/imgs/svgexport-14.svg'
 import useMediaQuery, { widthDevice } from 'src/hooks/useMedia';
+import { useTheme } from 'src/context/dark-theme';
 
 function Main() {
-	// use media
-	const screen = useMediaQuery();
-	const maxWidth768 = screen === widthDevice.width_576 || screen === widthDevice.width_768 ? true : false;
+	//theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
 
 	return (
-		<div className={css.main}>
+		<div className={`${css.main} ${darkClass}`}>
 			<div className={css.container}>
 				<div className={css.main__content}>
 					<div className={css.main__content__left}>
@@ -37,14 +39,12 @@ function Main() {
 				<div className={css.main__backgroundImage}>
 					<img className={css.main__dialog} src="https://pancakeswap.finance/images/affiliates-program/bobbing-1.png" alt="bobbing-1" />
 					<img className={css.main__rightPlan} src="https://pancakeswap.finance/images/affiliates-program/bobbing-3.png" alt="bobbing-2.png" />
-					{
-						maxWidth768 && <img className={css.main__bottomPlan} src="https://pancakeswap.finance/images/affiliates-program/bobbing-2.png" alt="bobbing-3.png" />
-					}
+					<img className={css.main__bottomPlan} src="https://pancakeswap.finance/images/affiliates-program/bobbing-2.png" alt="bobbing-3.png" />
 				</div>
 			</div>
 			<img
 				className={css.main__backgroundFooter}
-				src={backgroundFooter}
+				src={isDarkMode ? backgroundFooterDark : backgroundFooter}
 				alt="main"
 			/>
 		</div>

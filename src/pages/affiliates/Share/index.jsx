@@ -1,10 +1,15 @@
 import Card from 'src/components/card';
 import css from './share.module.scss';
 import PancakeFaceIcon from 'icons/pancake-face.icon'
+import { useTheme } from 'src/context/dark-theme';
 
 function Share() {
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.share}>
+		<div className={`${css.share} ${darkClass}`}>
 			<div className={css.container}>
 				<div className={css.share__logo}>
 					<PancakeFaceIcon />

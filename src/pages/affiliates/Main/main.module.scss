@@ -4,15 +4,32 @@
 @mixin backgroundImage {
 	position: absolute;
 	z-index: 1;
-
 }
 
 .main {
 	background: $background-43;
+	position: relative;
+
+	&.dark {
+		background: $background-48;
+
+		.container {
+			.main__content {
+				.main__content__right {
+					.main__content__right__header {
+						color: $primary-1;
+					}
+
+					.main__content__right__text {
+						color: $text-color-white-2;
+					}
+				}
+			}
+		}
+	}
 
 	.container {
 		@include container;
-		position: relative;
 
 		.main__content {
 			display: flex;
@@ -77,7 +94,7 @@
 			.main__dialog {
 				left: 11%;
 				top: 4%;
-				animation: 3s ease-in-out 0s infinite normal none running topLeftAnimate;
+				@include topLeftToBottomRight;
 				@include backgroundImage;
 
 				@media screen and (max-width: 768px) {
@@ -93,7 +110,7 @@
 			.main__rightPlan {
 				right: 4%;
 				top: 10%;
-				animation: 3s ease-in-out 0s infinite normal none running topRightAnimate;
+				@include botLeftTotopRight;
 				@include backgroundImage;
 
 				@media screen and (max-width: 768px) {
@@ -107,13 +124,15 @@
 			}
 
 			.main__bottomPlan {
-				left: 2%;
-				bottom: 36%;
-				animation: 3s ease-in-out 0s infinite normal none running topRightAnimate;
+				left: 8%;
+				bottom: 7%;
+				@include botLeftTotopRight;
 				@include backgroundImage;
 
 				@media screen and (max-width: 768px) {
 					width: 120px;
+					top: 50%;
+					left: 10px;
 				}
 
 				@media screen and (max-width: 576px) {
@@ -129,33 +148,5 @@
 		position: relative;
 		z-index: 2;
 		width: 100%;
-	}
-}
-
-@keyframes topLeftAnimate {
-	0% {
-		transform: translate(0px, 0px);
-	}
-
-	50% {
-		transform: translate(10px, 10px);
-	}
-
-	100% {
-		transform: translate(0px, 0px);
-	}
-}
-
-@keyframes topRightAnimate {
-	0% {
-		transform: translate(0px, 0px);
-	}
-
-	50% {
-		transform: translate(-10px, 10px);
-	}
-
-	100% {
-		transform: translate(0px, 0px);
 	}
 }

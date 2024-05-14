@@ -1,6 +1,34 @@
 @import 'src/components/global-style/base.scss';
 
 .share {
+	background: $background-3;
+
+	&.dark {
+		background: $background-6;
+
+		.container {
+			.share__header {
+				color: $text-color-white-2;
+			}
+
+			.share__text {
+				color: $text-color-6;
+			}
+
+			.share__question {
+				color: $text-color-6;
+			}
+
+			.share__cards {
+				.share__card {
+					.share__cards__text {
+						color: $text-color-white-2;
+					}
+				}
+			}
+		}
+	}
+
 	.container {
 		@include container;
 		padding-top: 80px;
