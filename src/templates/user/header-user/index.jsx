@@ -73,6 +73,8 @@ function Header() {
 		{
 			id: 3,
 			content: 'Pool',
+			url: url.pools,
+			onClick: () => { redirectPage(url.pools) }
 		},
 		{
 			id: 4,
@@ -433,6 +435,7 @@ function Header() {
 						<DropdownHeader
 							header={`Earn`}
 							list={earnList}
+							active={renderActiveMenu(earnList)}
 						/>
 						<DropdownHeader
 							header={`Game`}

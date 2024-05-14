@@ -46,10 +46,10 @@ function Join() {
 								<div className={css.join__bot__img}>
 									<img src="https://pancakeswap.finance/images/affiliates-program/perpetual.png" alt="dk" />
 								</div>
-								<div className={css.join__bot__title}>
+								<div className={`${css.join__bot__title}`}>
 									V1 PERPETUAL
 								</div>
-								<div className={css.join__bot__number}>
+								<div className={`${css.join__bot__number} ${css.border}`}>
 									20%
 								</div>
 							</div>
@@ -73,14 +73,11 @@ function Join() {
 								alt="dk"
 							/>
 						</div>
-						<div
+						<img
 							className={css.join__backgroundImage__topRightBlue}
-						>
-							<img
-								src="https://pancakeswap.finance/images/affiliates-program/m-3.png"
-								alt="dk"
-							/>
-						</div>
+							src="https://pancakeswap.finance/images/affiliates-program/m-3.png"
+							alt="dk"
+						/>
 						<div className={css.join__backgroundImage__topRight}>
 							<img
 								src="https://pancakeswap.finance/images/affiliates-program/m-4.png"

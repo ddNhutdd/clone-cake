@@ -2,10 +2,15 @@ import Card from 'src/components/card';
 import css from './question.module.scss';
 import Row from './row';
 import { NavLink } from 'react-router-dom';
+import { useTheme } from 'src/context/dark-theme';
 
 function Question() {
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.question}>
+		<div className={`${css.question} ${darkClass}`}>
 			<div className={css.question__topBackground}></div>
 			<div className={css.container}>
 				<div className={css.question__header}>

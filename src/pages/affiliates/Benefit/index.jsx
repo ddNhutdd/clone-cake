@@ -1,9 +1,14 @@
+import { useTheme } from 'src/context/dark-theme';
 import css from './benefit.module.scss';
 import PancakeFaceIcon from 'src/assets/icons/pancake-face.icon';
 
 function Benefit() {
+	//theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.benefit}>
+		<div className={`${css.benefit} ${darkClass}`}>
 			<div className={css.container}>
 				<div className={css.benefit__logo}>
 					<PancakeFaceIcon />

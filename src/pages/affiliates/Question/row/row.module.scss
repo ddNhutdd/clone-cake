@@ -2,6 +2,21 @@
 
 .row {
 	margin-top: 24px;
+
+	&.dark {
+		.row__header {
+			.row__header__left {
+				color: $text-color-white-2;
+			}
+		}
+
+		.row__body {
+			li {
+				color: $text-color-6;
+			}
+		}
+	}
+
 	.row__header {
 		display: flex;
 		align-items: center;

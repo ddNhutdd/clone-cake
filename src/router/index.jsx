@@ -16,6 +16,7 @@ const Limit = lazy(() => import('../pages/limit'));
 const Info = lazy(() => import('../pages/info'));
 const Ifo = lazy(() => import('../pages/ifo'));
 const Affiliates = lazy(() => import('../pages/affiliates'));
+const Pools = lazy(() => import('../pages/pools'));
 
 export const router = createBrowserRouter([
 	{
@@ -138,6 +139,14 @@ export const router = createBrowserRouter([
 				element: (
 					<Suspense>
 						<Affiliates />
+					</Suspense>
+				),
+			},
+			{
+				path: url.pools,
+				element: (
+					<Suspense>
+						<Pools />
 					</Suspense>
 				),
 			}

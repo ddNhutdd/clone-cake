@@ -5,6 +5,28 @@
 	padding-top: 34px;
 	padding-bottom: 30px;
 
+	&.dark {
+		background: $background-6;
+
+		.container {
+			.benefit__header {
+				color: $text-color-white-2;
+			}
+
+			.benefit__row {
+				.benefit__row__content {
+					.benefit__row__content__header {
+						color: $primary-1;
+					}
+
+					.benefit__row__content__text {
+						color: $text-color-6;
+					}
+				}
+			}
+		}
+	}
+
 	.container {
 		@include container;
 		text-align: center;
