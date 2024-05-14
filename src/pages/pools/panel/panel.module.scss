@@ -1,1 +1,94 @@
 @import 'components/global-style/base.scss';
+
+.panel {
+	padding-top: 32px;
+	padding-bottom: 32px;
+	background: $background-41;
+
+	.container {
+		@include container;
+		display: flex;
+
+		@media screen and (max-width: 850px) {
+			flex-direction: column;
+		}
+
+		.panel__left {
+			width: 60%;
+
+			@media screen and (max-width: 850px) {
+				width: 100%;
+			}
+
+			.panel__header {
+				font-size: 64px;
+				line-height: 1.1;
+				font-weight: 600;
+				color: $text-color-4;
+				margin-bottom: 24px;
+			}
+
+			.panel__headerSub {
+				font-size: 20px;
+				font-weight: 600;
+				line-height: 1.1;
+				color: $text-color-3;
+			}
+		}
+
+		.panel__right {
+			width: 40%;
+			display: flex;
+
+			@media screen and (max-width: 850px) {
+				width: 100%;
+				margin-top: 40px;
+			}
+
+			.panel__right__image {
+				@media screen and (max-width: 850px) {
+					display: none;
+				}
+			}
+
+			.panel__right__content {
+				.panel__right__cardHeader {
+					margin-top: -24px;
+					margin-left: -24px;
+					margin-right: -24px;
+					padding: 8px 24px 2px;
+
+					.panel__right__title {
+						color: $text-color-4;
+						font-weight: 600;
+						font-size: 14px;
+					}
+
+					.panel__right__value {
+						color: $text-color-3;
+						font-weight: 600;
+						font-size: 20px;
+					}
+				}
+
+				.panel__right__line {
+					height: 1px;
+					background-color: $border-color;
+				}
+
+				.panel__right__cardBody {
+					margin-bottom: -24px;
+					margin-left: -24px;
+					margin-right: -24px;
+					padding: 8px 24px 16px;
+
+					.panel__right__text {
+						color: $text-color-1;
+						font-size: 12px;
+						margin-bottom: 16px;
+					}
+				}
+			}
+		}
+	}
+}

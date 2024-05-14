@@ -1,6 +1,6 @@
-import Card from 'src/components/card';
+import Card, { cardType } from 'src/components/card';
 import css from './panel.module.scss';
-import Button from 'src/components/button';
+import Button, { buttonClassesType } from 'src/components/button';
 
 function Panel() {
 	return (
@@ -11,8 +11,12 @@ function Panel() {
 						Syrup Pools
 					</div>
 					<div className={css.panel__headerSub}>
-						Just stake some tokens to earn.
-						High APR, low risk.
+						<div>
+							Just stake some tokens to earn.
+						</div>
+						<div>
+							High APR, low risk.
+						</div>
 					</div>
 				</div>
 
@@ -23,23 +27,30 @@ function Panel() {
 							alt="dk"
 						/>
 					</div>
-					<Card className={css.panel__right__content}>
-						<div className={css.panel__right__title}>
-							CAKE Staking
-						</div>
-						<div className={css.panel__right__value}>
-							Up to 27.02% APR
+					<Card type={cardType.flat} className={css.panel__right__content}>
+						<div className={css.panel__right__cardHeader}>
+							<div className={css.panel__right__title}>
+								CAKE Staking
+							</div>
+							<div className={css.panel__right__value}>
+								Up to 27.02% APR
+							</div>
 						</div>
 						<div className={css.panel__right__line}></div>
-						<p className={css.panel__right__text}>
-							Stake CAKE to get veCAKE, earn up to 27.02% APR from veCAKE pool and revenue sharing.
-						</p>
-						<p className={css.panel__right__text}>
-							Unlock other benefits like voting incentives, yield boosting, IFO, and so much more...
-						</p>
-						<Button>
-							Go to veCAKE staking
-						</Button>
+						<div className={css.panel__right__cardBody}>
+							<p className={css.panel__right__text}>
+								Stake CAKE to get veCAKE, earn up to 27.02% APR from veCAKE pool and revenue sharing.
+							</p>
+							<p className={css.panel__right__text}>
+								Unlock other benefits like voting incentives, yield boosting, IFO, and so much more...
+							</p>
+							<Button
+								type={buttonClassesType.primaryPuple}
+								style={{ width: '100%' }}
+							>
+								Go to veCAKE staking
+							</Button>
+						</div>
 					</Card>
 				</div>
 			</div>

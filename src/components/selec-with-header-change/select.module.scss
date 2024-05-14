@@ -1,0 +1,58 @@
+@import 'src/components/global-style/base.scss';
+
+.selectWithHeaderChange {
+	.selectWithHeaderChange__header {
+		width: 100%;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0px 16px;
+		box-shadow: $box-shadow-7;
+		border: 1px solid $background-12;
+		border-radius: 16px;
+		background: $background-10;
+		transition: border-radius 0.15s ease 0s;
+		cursor: pointer;
+		color: $text-color-3;
+
+		&.show {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+	}
+}
+
+.selectWithHeaderChange__menu {
+	box-shadow: $box-shadow-7;
+	border: 1px solid $background-12;
+	border-top: 0;
+	border-radius: 16px;
+	background: $background-10;
+	transition: border-radius 0.15s ease 0s, transform 0.15s ease 0s;
+	overflow: hidden;
+	position: fixed;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	transform: scaleY(0);
+	transform-origin: top;
+
+	&.show {
+		transform: scaleY(1);
+	}
+
+	ul {
+		width: 100%;
+		list-style: none;
+
+		li {
+			padding: 8px 16px;
+			cursor: pointer;
+			color: $text-color-3;
+
+			&:hover {
+				background: #d7caec;
+			}
+		}
+	}
+}
