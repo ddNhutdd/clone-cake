@@ -46,7 +46,8 @@ function SelectWithHeaderChange(props) {
 		})
 
 	}
-	const headerClickHandle = () => {
+	const headerClickHandle = (event) => {
+		event.stopPropagation();
 		if (showMenu.current === false) {
 			showMenu.current = true;
 			setSelectOpen();
@@ -73,8 +74,10 @@ function SelectWithHeaderChange(props) {
 	useEffect(() => {
 		initial();
 		document.addEventListener('scroll', calcPostion);
+		document.addEventListener('click', setSelectClose)
 		return () => {
 			document.removeEventListener('scroll', calcPostion);
+			document.removeEventListener('click', setSelectClose);
 			document.body.removeChild(menuElement.current);
 		}
 	}, []);

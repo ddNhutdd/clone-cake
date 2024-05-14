@@ -1,1 +1,67 @@
 @import 'components/global-style/base.scss';
+
+.control {
+	.container {
+		@include container;
+
+		.control__content {
+			padding: 16px 32px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			.control__left {
+				display: flex;
+				align-items: center;
+
+				.control__display {
+					font-size: 20px;
+					cursor: pointer;
+
+					&.active {
+						color: $primary-2;
+					}
+
+					&:hover {
+						opacity: 0.65;
+					}
+
+					&:nth-of-type(2) {
+						margin-left: 10px;
+						margin-right: 10px;
+					}
+
+				}
+
+				.control__tab {
+					margin-left: 20px;
+				}
+
+				.control__staking {
+					margin-left: 20px;
+					display: flex;
+					align-items: center;
+
+					.control__staking__switch {
+						transform: scale(0.7);
+					}
+				}
+			}
+
+			.control__right {
+				display: flex;
+				align-items: center;
+				gap: 15px;
+
+				.control__right__controlGroup {
+					&:nth-of-type(1) {
+
+					}
+					&:nth-of-type(2) {
+						
+					}
+				}
+			}
+		}
+	}
+}
