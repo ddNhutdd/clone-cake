@@ -3,7 +3,7 @@
 .swap {
 
 	&.dark {
-				.swap__container {
+		.swap__container {
 			.swap__content {
 				.swap__card {
 					.swap__cardTop {
@@ -230,6 +230,11 @@
 									position: absolute;
 									bottom: 22px;
 									right: -32px;
+
+									.swap__customTab {
+										border: 2px solid $primary-2;
+										height: 28px;
+									}
 								}
 							}
 						}

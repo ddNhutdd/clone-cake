@@ -211,7 +211,7 @@ function Limit() {
 												listTabs={percentTab}
 												selectedItem={{}}
 												onChange={() => { }}
-												typeButton={buttonClassesType.primaryThinOutline}
+												customItem={swapCss.swap__customTab}
 											/>
 										</div>
 									</div>

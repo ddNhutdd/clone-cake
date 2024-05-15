@@ -3,11 +3,17 @@ import css from './tabs.module.scss';
 import PropTypes from 'prop-types';
 import { useTheme } from 'src/context/dark-theme';
 
+export const tabColor = {
+	purple: 'purple',
+	skyBlue: 'skyBlue'
+}
+
 function Tabs(props) {
 	const {
 		listTabs,
 		selectedItem,
-		onChange
+		onChange,
+		color = tabColor.purple
 	} = props;
 
 	const { isDarkMode } = useTheme();
@@ -36,10 +42,22 @@ function Tabs(props) {
 				{item.content}
 			</div>
 		));
+	const renderColor = () => {
+		switch (color) {
+			case tabColor.purple:
+				return css.purple;
+
+			case tabColor.skyBlue:
+				return css.skyBlue;
+
+			default:
+				break;
+		}
+	}
 
 
 	return (
-		<div className={`${css.tabs} ${classTheme}`}>
+		<div className={`${css.tabs} ${classTheme} ${renderColor()}`}>
 			{renderList()}
 		</div>
 	);

@@ -323,6 +323,15 @@
 							}
 						}
 					}
+
+					.addLiquidity__body__right__customTab {
+						height: 30px;
+						border: 2px solid $primary-2;
+					}
+
+					.addLiquidity__body__right__customActiveTab {
+						height: 30px;
+					}
 				}
 			}
 		}

@@ -1,9 +1,10 @@
 import { ToolTip, tooltipPosition, tooltipTrigger } from 'src/components/tooltip';
-import css from './mobile-content.module.scss';
+import css from './value-content.module.scss';
 import ArrowSquareIcon from 'icons/arrow-square.icon';
 import { NavLink } from 'react-router-dom';
+import CountUp from 'src/components/count-up';
 
-function MobileContent() {
+function ValueContent() {
 	return (
 		<div className={css.mobileContent}>
 			<div className={css.mobileContent__rowTwoSide}>
@@ -19,7 +20,11 @@ function MobileContent() {
 					</ToolTip>
 				</div>
 				<div>
-					64,042,986 CAKE
+					<CountUp
+						endValue={64042986}
+						decimals={0}
+					/>
+					CAKE
 				</div>
 			</div>
 			<div className={css.mobileContent__rowTwoSide}>
@@ -27,7 +32,11 @@ function MobileContent() {
 					Total locked:
 				</div>
 				<div>
-					57,475,463 CAKE
+					<CountUp
+						endValue={57475463}
+						decimals={0}
+					/>
+					CAKE
 				</div>
 			</div>
 			<div className={css.mobileContent__rowTwoSide}>
@@ -43,7 +52,11 @@ function MobileContent() {
 					</ToolTip>
 				</div>
 				<div>
-					64,042,986 CAKE
+					<CountUp
+						endValue={64042986}
+						decimals={0}
+					/>
+					CAKE
 				</div>
 			</div>
 			<div className={css.mobileContent__rowOneSide}>
@@ -68,4 +81,4 @@ function MobileContent() {
 	)
 }
 
-export default MobileContent
+export default ValueContent

@@ -1,0 +1,56 @@
+@import 'src/components/global-style/base.scss';
+
+.inputSwap {
+	background-color: $background-10;
+	border: 1px solid $background-12;
+	border-radius: 16px;
+	box-shadow: $box-shadow-5;
+	padding: 8px 16px;
+	display: flex;
+
+	.inputSwap__left {
+		flex: 1;
+
+		.inputSwap__input {
+			display: flex;
+			gap: 10px;
+			color: $text-color-3;
+			font-size: 16px;
+
+			.inputSwap__inputTop {
+				width: 100%;
+				text-align: right;
+				background: transparent;
+				outline: none;
+				border: 0;
+				font-size: 16px;
+				color: $text-color-3;
+			}
+		}
+
+		.inputSwap__convert {
+			font-size: 12px;
+			justify-content: flex-end;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+	}
+
+	.inputSwap__right {
+		width: fit-content;
+		display: flex;
+		align-items: center;
+		padding-left: 12px;
+
+		svg {
+			width: 20px;
+			cursor: pointer;
+
+			&:active {
+				position: relative;
+				top: 1px;
+			}
+		}
+	}
+}

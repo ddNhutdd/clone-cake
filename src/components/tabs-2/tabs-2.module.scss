@@ -3,4 +3,28 @@
 .tabs2 {
 	display: grid;
 	gap: 4px;
+
+	&.purple {
+		.button {
+			&.active {
+				color: $text-color-white-2;
+				background: $text-color-1;
+				box-shadow: rgba(14, 14, 44, 0.4) 0px -1px 0px 0px inset;
+			}
+		}
+	}
+
+	.button {
+		min-height: unset;
+		padding: 5px 12px;
+		background: transparent;
+		color: $primary-2;
+		box-shadow: none;
+
+		&.active {
+			color: $text-color-white-2;
+			background: $primary-2;
+			box-shadow: rgba(14, 14, 44, 0.4) 0px -1px 0px 0px inset;
+		}
+	}
 }

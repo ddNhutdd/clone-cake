@@ -19,8 +19,20 @@
 				color: $background-2;
 			}
 		}
+	}
 
+	&.skyBlue {
+		background: $background-8;
+		border-color: $border-color-8;
 
+		.tabs__item {
+			color: $primary-2 ;
+
+			&.active {
+				background-color: $primary-2;
+				color: $text-color-white-1;
+			}
+		}
 	}
 
 	.tabs__item {

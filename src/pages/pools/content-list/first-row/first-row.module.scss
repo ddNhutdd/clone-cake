@@ -1,8 +1,63 @@
 @import 'components/global-style/base.scss';
 
+@mixin rowCell {
+	padding: 8px 24px;
+	flex: 0 0 200px;
+
+	@media screen and (max-width: 1110px) {
+		flex: 0 0 160px;
+	}
+
+	@media screen and (max-width: 968px) {
+		flex: 0 0 180px;
+	}
+
+	@media screen and (max-width: 650px) {
+		flex: 0 0 120px;
+		padding: 8px;
+	}
+
+	@media screen and (max-width: 576px) {
+		flex: 0 0 auto;
+		padding: 8px;
+	}
+
+	@media screen and (max-width: 390px) {
+		flex: unset;
+		padding: 8px;
+	}
+}
+
 .firstRow {
 	display: flex;
 	border-bottom: 2px solid $border-color-8;
+
+	.firstRow--text {
+		color: $text-color-1;
+		font-size: 12px;
+		text-align: left;
+	}
+
+	.firstRow--textInfo {
+		color: $text-color-3;
+		display: flex;
+		align-items: center;
+		gap: 5px;
+
+		&:hover {
+			opacity: 0.65;
+		}
+
+		svg {
+			font-size: 20px;
+			cursor: pointer;
+
+			&:active {
+				position: relative;
+				top: 1px;
+			}
+		}
+	}
 
 	.firstRow__firstCell {
 		flex: 0 0 210px;
@@ -10,7 +65,13 @@
 		display: flex;
 
 		@media screen and (max-width: 576px) {
-			flex: 1;
+			padding-left: 8px;
+			flex: 0 0 140px;
+		}
+
+		@media screen and (max-width: 380px) {
+			padding-left: 8px;
+			flex: 0 0 80px;
 		}
 
 		.firstRow__firstCell__left {
@@ -54,6 +115,8 @@
 					display: flex;
 					align-items: center;
 					margin-right: 10px;
+					font-weight: 400;
+					font-size: 14px;
 				}
 			}
 
@@ -74,15 +137,11 @@
 		display: flex;
 		align-items: center;
 
-		@media screen and (max-width: 576px) {
-			display: none;
-		}
-
 		.firstRow__secondCell__content {
 			display: flex;
 			padding: 10px 16px;
 			border-radius: 16px;
-			background: linear-gradient(229deg, rgb(31, 199, 212) -13.69%, rgb(118, 69, 217) 91.33%);
+			background: $background-54;
 
 			.firstRow__secondCell__img {
 				width: 38px;
@@ -102,6 +161,42 @@
 				font-size: 14px;
 			}
 		}
+
+		.firstRow__secondCell__cakeStaked {
+			@include rowCell;
+
+			div {
+				&:nth-of-type(2) {
+					color: $text-color-16;
+					font-weight: 600;
+				}
+
+				&:nth-of-type(3) {
+					color: $text-color-16;
+					font-size: 12px;
+				}
+			}
+
+			@media screen and (max-width: 968px) {
+				display: none;
+			}
+		}
+
+		.firstRow__secondCell__apy {
+			@include rowCell;
+		}
+
+		.firstRow__secondCell__apr {
+			@include rowCell;
+		}
+
+		.firstRow__secondCell__totalStaked {
+			flex: 1 1 auto;
+
+			@media screen and (max-width: 840px) {
+				display: none;
+			}
+		}
 	}
 
 	.firstRow__lastCell {
@@ -116,6 +211,8 @@
 		font-weight: 600;
 
 		@media screen and (max-width: 576px) {
+			padding-right: 8px;
+
 			span {
 				display: none;
 			}
@@ -132,18 +229,33 @@
 		flex-direction: column-reverse;
 	}
 
-	.hidenContent__mainImage {
+	.hidenContent__left {
+		width: 230px;
 
-		@media screen and (max-width: 576px) {
-			display: none;
+		@media screen and (max-width: 968px) {
+			flex-direction: column-reverse;
+			width: 100%;
+			margin-top: 10px;
 		}
 
-		img {
-			width: 230px;
+		.hidenContent__mainImage {
+			@media screen and (max-width: 576px) {
+				display: none;
+			}
+
+			img {
+				width: 230px;
+				margin-right: 8px;
+			}
+		}
+
+		.hidenContent__valueContent {
+			margin-right: 8px;
 		}
 	}
 
 	.hiddenContent__right {
+		flex: 1;
 		display: flex;
 
 		@media screen and (max-width: 576px) {
@@ -301,6 +413,9 @@
 
 			.hiddenContent__right__cardRight__content {
 				padding: 16px;
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
 
 				@media screen and (max-width: 576px) {
 					padding: 0;
@@ -321,14 +436,6 @@
 				.hiddenContent__right__cardRight__button {
 					width: 100%;
 				}
-			}
-		}
-
-		.hidenContent__mobileContent {
-			display: none;
-
-			@media screen and (max-width: 576px) {
-				display: block;
 			}
 		}
 	}

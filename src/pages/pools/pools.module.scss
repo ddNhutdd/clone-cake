@@ -3,3 +3,11 @@
 .pools {
 	background: $background-3;
 }
+
+.roiModal__modal {
+	max-width: 380px !important;
+
+	@media screen and (max-width: 576px) {
+		max-width: 100% !important;
+	}
+}

@@ -304,9 +304,8 @@ export default function AddLiquidity() {
 									listTabs={rangeListTab}
 									selectedItem={rangeSelected}
 									onChange={rangeChangeHandle}
-									typeButton={
-										buttonClassesType.primaryThinOutline
-									}
+									customItem={css.addLiquidity__body__right__customTab}
+									customActiveItem={css.addLiquidity__body__right__customActiveTab}
 								/>
 								<div className='mt-3'>
 									<Button
