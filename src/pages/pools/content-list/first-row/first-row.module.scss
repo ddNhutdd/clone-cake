@@ -1,0 +1,335 @@
+@import 'components/global-style/base.scss';
+
+.firstRow {
+	display: flex;
+	border-bottom: 2px solid $border-color-8;
+
+	.firstRow__firstCell {
+		flex: 0 0 210px;
+		padding: 24px 8px 24px 32px;
+		display: flex;
+
+		@media screen and (max-width: 576px) {
+			flex: 1;
+		}
+
+		.firstRow__firstCell__left {
+			position: relative;
+			margin-right: 10px;
+
+			.firstRow__firstCell__left__large {
+				width: 37px;
+				height: 37px;
+
+				img {
+					width: 100%;
+				}
+			}
+
+			.firstRow__firstCell__left__small {
+				width: 20px;
+				height: 20px;
+				position: absolute;
+				left: 20px;
+				top: 22px;
+
+				img {
+					width: 100%;
+				}
+			}
+		}
+
+		.firstRow__firstCell__right {
+
+			@media screen and (max-width: 576px) {
+				display: flex;
+			}
+
+			.firstRow__firstCell__right__header {
+				line-height: 1;
+				font-weight: 600;
+				color: $text-color-3;
+
+				@media screen and (max-width: 576px) {
+					display: flex;
+					align-items: center;
+					margin-right: 10px;
+				}
+			}
+
+			.firstRow__firstCell__right__text {
+				line-height: 1;
+				font-size: 12px;
+
+				@media screen and (max-width: 576px) {
+					display: flex;
+					align-items: center;
+				}
+			}
+		}
+	}
+
+	.firstRow__secondCell {
+		flex: 1;
+		display: flex;
+		align-items: center;
+
+		@media screen and (max-width: 576px) {
+			display: none;
+		}
+
+		.firstRow__secondCell__content {
+			display: flex;
+			padding: 10px 16px;
+			border-radius: 16px;
+			background: linear-gradient(229deg, rgb(31, 199, 212) -13.69%, rgb(118, 69, 217) 91.33%);
+
+			.firstRow__secondCell__img {
+				width: 38px;
+				height: 38px;
+				margin-right: 10px;
+
+				img {
+					width: 100%;
+				}
+			}
+
+			.firstRow__secondCell__text {
+				display: flex;
+				align-items: center;
+				color: $text-color-white-1;
+				font-weight: 600;
+				font-size: 14px;
+			}
+		}
+	}
+
+	.firstRow__lastCell {
+		flex: 0;
+		padding: 24px 32px 24px 8px;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 5px;
+		color: $primary-2;
+		width: fit-content;
+		font-weight: 600;
+
+		@media screen and (max-width: 576px) {
+			span {
+				display: none;
+			}
+		}
+	}
+}
+
+.hidenContent {
+	display: flex;
+	padding: 16px;
+	border-bottom: 2px solid $border-color-8;
+
+	@media screen and (max-width: 968px) {
+		flex-direction: column-reverse;
+	}
+
+	.hidenContent__mainImage {
+
+		@media screen and (max-width: 576px) {
+			display: none;
+		}
+
+		img {
+			width: 230px;
+		}
+	}
+
+	.hiddenContent__right {
+		display: flex;
+
+		@media screen and (max-width: 576px) {
+			flex-direction: column;
+		}
+
+		.hiddenContent__right__cardLeftCutom {
+			@media screen and (max-width: 576px) {
+				background-color: transparent;
+			}
+
+			.hiddenContent__right__cardLeft {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 5px;
+				padding: 16px;
+
+				@media screen and (max-width: 576px) {
+					padding: 0;
+				}
+
+				.hiddenContent__cardItem {
+
+					@media screen and (max-width: 576px) {
+						padding: 0;
+						border: 0;
+						border-radius: 0;
+						border-bottom: 1px solid $border-color;
+					}
+
+					&:nth-of-type(1) {
+						width: calc(50% - 2.5px);
+
+						@media screen and (max-width: 768px) {
+							width: 100%;
+						}
+					}
+
+					&:nth-of-type(2) {
+						width: calc(50% - 2.5px);
+
+						@media screen and (max-width: 768px) {
+							width: 100%;
+						}
+					}
+
+					&:nth-of-type(3) {
+						width: calc(40% - 2.5px);
+
+						@media screen and (max-width: 768px) {
+							width: 100%;
+						}
+					}
+
+					&:nth-of-type(4) {
+						width: calc(60% - 2.5px);
+
+						@media screen and (max-width: 1050px) {
+							width: 100%;
+						}
+
+						@media screen and (max-width: 576px) {
+							border-bottom: 0;
+						}
+					}
+
+					.hiddenContent__cardItem__container {
+						padding: 16px;
+
+						@media screen and (max-width: 576px) {
+							padding-top: 0;
+							padding-left: 0;
+							padding-right: 0;
+							padding-bottom: 10px;
+							border-radius: 0;
+						}
+
+						.hiddenContent__cardItem__contentContainer {
+							display: flex;
+							align-items: center;
+
+							.hidenContent__cartItem__image {
+								width: 40px;
+								padding-right: 5px;
+
+								img {
+									width: 100%;
+								}
+							}
+
+							.hidenContent__cartItem__content {
+								.hiddenContent__cardItem__header {
+									color: $text-color-4;
+									font-weight: 600;
+									font-size: 16px;
+								}
+
+								.hiddenContent__cardItem__text {
+									color: $text-color-3;
+									font-weight: 400;
+									font-size: 14px;
+								}
+
+								.hiddenContent__cardItem__value {
+									color: $text-color-3;
+									font-weight: 600;
+									font-size: 14px;
+								}
+							}
+						}
+
+						.hiddenContent__cardItem__last {
+							display: flex;
+							align-items: center;
+							position: relative;
+
+							.hiddenContent__cardItem__last__content {
+								display: flex;
+								align-items: center;
+								gap: 10px;
+								padding-right: 10px;
+
+								&:last-child {
+									padding-left: 10px;
+									border-left: 1px solid $border-color;
+								}
+
+								.hidenContent__cartItem__image {
+									img {
+										width: 40px;
+									}
+								}
+
+								.hiddenContent__cardItem__header {
+									color: $text-color-4;
+									font-weight: 600;
+									font-size: 16px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.hiddenContent__right__cardRight {
+			margin-left: 16px;
+			margin-right: 16px;
+
+			@media screen and (max-width: 576px) {
+				margin: 0;
+				border-radius: 0;
+				background-color: transparent;
+			}
+
+			.hiddenContent__right__cardRight__content {
+				padding: 16px;
+
+				@media screen and (max-width: 576px) {
+					padding: 0;
+					border-radius: 0;
+				}
+
+				.hiddenContent__right__cardRight__text {
+					color: $text-color-1;
+					font-weight: 600;
+					text-transform: uppercase;
+					font-size: 12px;
+
+					@media screen and (max-width: 576px) {
+						display: none;
+					}
+				}
+
+				.hiddenContent__right__cardRight__button {
+					width: 100%;
+				}
+			}
+		}
+
+		.hidenContent__mobileContent {
+			display: none;
+
+			@media screen and (max-width: 576px) {
+				display: block;
+			}
+		}
+	}
+}

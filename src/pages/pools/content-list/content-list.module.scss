@@ -1,1 +1,10 @@
 @import 'components/global-style/base.scss';
+
+.contentList {
+	.container {
+		@include container;
+		.contentList__content {
+			margin: -24px;
+		}
+	}
+}
