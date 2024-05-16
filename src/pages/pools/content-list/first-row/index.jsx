@@ -10,7 +10,7 @@ import { DrillContext } from 'src/context/drill';
 
 function FirstRow() {
 	// show detail
-	const [showDetail, setShowDetail] = useState(true);
+	const [showDetail, setShowDetail] = useState(false);
 	const rowClickHandle = () => {
 		setShowDetail(state => !state);
 	}

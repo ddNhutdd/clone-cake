@@ -5,6 +5,46 @@
 	padding-bottom: 32px;
 	background: $background-41;
 
+	&.dark {
+		background: $background-58;
+
+		.container {
+			.panel__left {
+				.panel__header {
+					color: $primary-1;
+				}
+
+				.panel__headerSub {
+					color: $text-color-white-2;
+				}
+			}
+
+			.panel__right {
+				.panel__right__content {
+					.panel__right__cardHeader {
+						.panel__right__title {
+							color: $primary-1;
+						}
+
+						.panel__right__value {
+							color: $text-color-white-2;
+						}
+					}
+
+					.panel__right__line {
+						background-color: $border-color-3;
+					}
+
+					.panel__right__cardBody {
+						.panel__right__text {
+							color: $text-color-6;
+						}
+					}
+				}
+			}
+		}
+	}
+
 	.container {
 		@include container;
 		display: flex;

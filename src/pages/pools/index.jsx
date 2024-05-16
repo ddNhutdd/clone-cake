@@ -9,6 +9,12 @@ import { DrillContext } from 'src/context/drill';
 import { useState } from 'react';
 import Modal from 'src/components/modal';
 import RoiModal from './roi-modal';
+import { useTheme } from 'src/context/dark-theme';
+
+export const showType = {
+	list: 'list',
+	grid: 'grid'
+}
 
 function Pools() {
 	// modal calc roi
@@ -17,22 +23,35 @@ function Pools() {
 		ev.stopPropagation();
 		setRoiModalShow(true);
 	}
-	const closeModal = () => {
+	const closeModal = (ev) => {
 		ev.stopPropagation();
 		setRoiModalShow(false);
 	}
 
+	// kiểu hiển thị
+	const [showTypeSelected, setShowTypeSelected] = useState(showType.grid);
+
+	// theme 
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
 		<DrillContext.Provider value={{
 			openModal,
-			closeModal
+			closeModal,
+			showTypeSelected,
+			setShowTypeSelected
 		}}>
-			<div className={css.pools}>
+			<div className={`${css.pools} ${darkClass}`}>
 				<HeaderComponent list={HeaderComponentList2} />
 				<Panel />
 				<Control />
-				<ContentList />
-				<ContentGrid />
+				{
+					showTypeSelected === showType.list && <ContentList />
+				}
+				{
+					showTypeSelected === showType.grid && <ContentGrid />
+				}
 			</div>
 			<Modal
 				show={roiModalShow}

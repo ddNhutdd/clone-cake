@@ -2,6 +2,11 @@
 
 .pools {
 	background: $background-3;
+	padding-bottom: 50px;
+
+	&.dark {
+		background: $background-6;
+	}
 }
 
 .roiModal__modal {

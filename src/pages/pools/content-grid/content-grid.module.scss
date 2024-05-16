@@ -1,1 +1,35 @@
 @import 'components/global-style/base.scss';
+
+.contentGrid {
+	&.dark {
+		background: $background-6;
+	}
+
+	.container {
+		@include container;
+
+		.contentGrid__content {
+			display: flex;
+			flex-wrap: wrap;
+			margin-left: -10px;
+			margin-right: -10px;
+			justify-content: center;
+			align-items: flex-start;
+
+			.contentGrid__content__item {
+				width: 33.333333%;
+				padding-left: 10px;
+				padding-right: 10px;
+				margin-bottom: 48px;
+
+				@media screen and (max-width: 1170px) {
+					width: 50%;
+				}
+
+				@media screen and (max-width: 768px) {
+					width: 100%;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,56 @@
+@import 'components/global-style/base.scss';
+
+.header {
+	padding: 24px;
+	background: $background-57;
+	border-radius: 24px 24px 0 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 30px;
+
+	&.dark {
+		background: $background-59;
+	}
+
+	.header__left {
+		.header__title {
+			font-size: 24px;
+			font-weight: 600;
+			line-height: 1.1;
+			color: $text-color-4;
+		}
+
+		.header__small {
+			color: $text-color-1;
+			font-size: 14px;
+		}
+	}
+
+	.header__right {
+		position: relative;
+
+		.header__right__large {
+			width: 60px;
+			height: 60px;
+
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.header__right__small {
+			width: 32px;
+			height: 32px;
+			position: absolute;
+			top: 36px;
+			left: 35px;
+
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import css from './control.module.scss';
 import { BsGrid3X2GapFill } from "react-icons/bs";
 import { FaList } from "react-icons/fa6";
@@ -6,6 +6,9 @@ import Tabs from 'src/components/tabs';
 import SelectWithHeaderChange from 'src/components/selec-with-header-change';
 import Switch from 'src/components/switch/switch';
 import Input3 from 'src/components/input-3';
+import { DrillContext } from 'src/context/drill';
+import { showType } from '..';
+import { useTheme } from 'src/context/dark-theme';
 
 const sortOptions = [
 	{
@@ -44,6 +47,10 @@ const listTab = [
 ]
 
 function Control() {
+	// theme 
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	// tab
 	const [selectedTabValue, setSelectedTabValue] = useState('live');
 	const tabChangeHandle = (tab) => {
@@ -57,16 +64,19 @@ function Control() {
 	const [sortSelected, setSortSelected] = useState(sortOptions.at(0).value);
 	const sortChangeHandle = (value) => { setSortSelected(value) }
 
+	//set show type
+	const { showTypeSelected, setShowTypeSelected } = useContext(DrillContext);
+
 	return (
-		<div className={css.control}>
+		<div className={`${css.control} ${darkClass}`}>
 			<div className={css.container}>
 				<div className={css.control__content}>
 					<div className={css.control__left}>
-						<div className={`${css.control__display} ${css.active}`}>
-							<BsGrid3X2GapFill />
+						<div className={`${css.control__display} ${showTypeSelected === showType.grid ? css.active : ''}`}>
+							<BsGrid3X2GapFill onClick={setShowTypeSelected.bind(null, showType.grid)} />
 						</div>
-						<div className={css.control__display}>
-							<FaList />
+						<div className={`${css.control__display} ${showTypeSelected === showType.list ? css.active : ''}`}>
+							<FaList onClick={setShowTypeSelected.bind(null, showType.list)} />
 						</div>
 						<div className={css.control__tab}>
 							<Tabs

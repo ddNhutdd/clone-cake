@@ -100,6 +100,10 @@
 .button-primary-puple {
 	@include buttonCustom;
 	background: $text-color-1;
+
+	&.dark {
+		background: $text-color-6;
+	}
 }
 
 .primary-text {

@@ -1,6 +1,7 @@
 import { createElement, useEffect, useRef, useState } from 'react';
 import css from './select.module.scss';
 import { FaCaretDown } from "react-icons/fa6";
+import { useTheme } from 'src/context/dark-theme';
 
 function SelectWithHeaderChange(props) {
 	const {
@@ -8,6 +9,10 @@ function SelectWithHeaderChange(props) {
 		onChange,
 		selectValue
 	} = props;
+
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
 
 	const headerElement = useRef();
 	const menuElement = useRef();
@@ -31,6 +36,7 @@ function SelectWithHeaderChange(props) {
 		const menuContainer = document.createElement('div');
 		menuElement.current = menuContainer;
 		menuContainer.classList.add(css.selectWithHeaderChange__menu);
+		darkClass && menuContainer.classList.add(darkClass);
 		calcPostion(headerElement?.current, menuContainer);
 
 		//create ul
@@ -83,7 +89,7 @@ function SelectWithHeaderChange(props) {
 	}, []);
 
 	return (
-		<div className={css.selectWithHeaderChange}>
+		<div className={`${css.selectWithHeaderChange} ${darkClass}`}>
 			<div
 				ref={headerElement}
 				className={css.selectWithHeaderChange__header}

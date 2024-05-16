@@ -197,6 +197,7 @@
 		font-weight: 600;
 		color: $primary-2;
 		margin-left: auto;
+		user-select: none;
 
 		@media screen and (max-width: 576px) {
 			padding: 24px 8px;

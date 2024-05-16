@@ -1,0 +1,125 @@
+@import 'components/global-style/base.scss';
+
+.footer {
+	padding: 24px;
+	font-size: 14px;
+	color: $text-color-3;
+	border-top: 1px solid $border-color;
+
+	.footer--underline-dash {
+		text-decoration: underline;
+		text-decoration-style: dotted;
+		text-decoration-color: $text-color-1;
+		text-underline-offset: 0.1em;
+	}
+
+	.footer__row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		&.first {
+			margin-bottom: 10px;
+		}
+
+		.footer__pillContainer {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+
+			.footer__autoPill {
+				align-items: center;
+				border-radius: 16px;
+				display: inline-flex;
+				white-space: nowrap;
+				height: 28px;
+				padding: 0px 8px;
+				font-size: 14px;
+				color: $text-color-7;
+				border: 2px solid $text-color-7;
+				gap: 5px;
+
+				svg {
+					stroke-width: 0.5;
+					transform: rotate(90deg);
+				}
+			}
+
+			.footer__manualPill {
+				align-items: center;
+				border-radius: 16px;
+				display: inline-flex;
+				white-space: nowrap;
+				height: 28px;
+				padding: 0px 8px;
+				font-size: 14px;
+				color: $text-color-4;
+				border: 2px solid $text-color-4;
+				gap: 5px;
+
+				svg {
+					stroke-width: 0.5;
+				}
+			}
+		}
+
+		.footer__toggleButton {
+			font-weight: 600;
+			display: flex;
+			gap: 10px;
+			align-items: center;
+			color: $primary-2;
+			font-size: 16px;
+			cursor: pointer;
+			user-select: none;
+
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+
+		.footer__calcContainer {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+
+			&:hover {
+				opacity: 0.65;
+			}
+
+			svg {
+				cursor: pointer;
+			}
+		}
+
+		.footer__row__timeContainer {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+
+			svg {
+				fill: $primary-2;
+			}
+		}
+	}
+
+	a {
+		display: flex;
+		margin-left: auto;
+		width: fit-content;
+		color: $primary-2;
+		line-height: 1.5;
+		font-weight: 600;
+		font-size: 14px;
+		gap: 5px;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+		svg {
+			fill: $primary-2;
+		}
+	}
+}
