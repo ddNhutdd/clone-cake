@@ -13,10 +13,12 @@ import RoiModal from './roi-modal';
 function Pools() {
 	// modal calc roi
 	const [roiModalShow, setRoiModalShow] = useState(false);
-	const openModal = () => {
+	const openModal = (ev) => {
+		ev.stopPropagation();
 		setRoiModalShow(true);
 	}
 	const closeModal = () => {
+		ev.stopPropagation();
 		setRoiModalShow(false);
 	}
 

@@ -11,7 +11,7 @@ import { DrillContext } from 'src/context/drill';
 function FirstRow() {
 	// show detail
 	const [showDetail, setShowDetail] = useState(true);
-	const lastCellClickHandle = () => {
+	const rowClickHandle = () => {
 		setShowDetail(state => !state);
 	}
 
@@ -29,7 +29,7 @@ function FirstRow() {
 
 	return (
 		<>
-			<div className={css.firstRow}>
+			<div onClick={rowClickHandle} className={css.firstRow}>
 				<div className={css.firstRow__firstCell}>
 					<div className={css.firstRow__firstCell__left}>
 						<div className={css.firstRow__firstCell__left__large}>
@@ -113,7 +113,6 @@ function FirstRow() {
 					</div>
 				}
 				<div
-					onClick={lastCellClickHandle}
 					className={css.firstRow__lastCell}
 				>
 					<span>

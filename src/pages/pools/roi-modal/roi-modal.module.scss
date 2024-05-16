@@ -17,6 +17,10 @@
 			font-size: 12px;
 		}
 
+		.roiModal__controlGroup__tab {
+			height: 30px;
+		}
+
 		.roiModal__controlGroup__list {
 			display: flex;
 			align-items: center;
@@ -61,10 +65,138 @@
 			stroke-width: 1px;
 			width: 20px;
 			height: 20px;
+			animation: 0.3s zoom;
 		}
 	}
 
-	.roiModal__result {
+	.roiModal__resultContainer {
 		margin-top: 30px;
+		background: $background-56;
+		padding: 1px;
+		width: 100%;
+		border-radius: 16px;
+
+		.roiModal__result {
+			height: 120px;
+			padding: 24px;
+			border-radius: 16px;
+			background: $background-55;
+
+			.roiModal__result__title {
+				color: $text-color-4;
+				font-weight: 600;
+				text-transform: uppercase;
+				font-size: 12px;
+			}
+
+			.roiModal__result__main {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+
+				.roiModal__result__main__value {
+					color: $text-color-3;
+					font-weight: 600;
+					font-size: 24px;
+				}
+
+				.roiModal__result__main__input {
+					color: $text-color-3;
+				}
+
+				svg {
+					color: $primary-2;
+					cursor: pointer;
+				}
+			}
+
+			.roiModal__result__result__small {
+				color: $text-color-1;
+				margin-left: 3px;
+				font-size: 12px;
+				display: inline-block;
+			}
+		}
+	}
+
+	.roiModal__more {
+		margin-top: 30px;
+		display: flex;
+		justify-content: center;
+
+		.roiModal__more__item {
+			display: inline-flex;
+			justify-content: center;
+			gap: 10px;
+			align-items: center;
+			color: $primary-2;
+			font-weight: 600;
+			cursor: pointer;
+			user-select: none;
+		}
+	}
+
+	.roiModal__moreContent {
+		.roiModal__row {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			font-size: 14px;
+
+			div {
+				&:last-child {
+					color: $text-color-3;
+				}
+			}
+		}
+
+		ul {
+			margin-top: 40px;
+
+			li {
+				font-size: 12px;
+			}
+		}
+
+		.roiModal__action {
+			margin-top: 30px;
+
+			a {
+				display: flex;
+				width: fit-content;
+				align-items: center;
+				gap: 5px;
+				font-weight: 600;
+				color: $primary-2;
+				margin-right: auto;
+				margin-left: auto;
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: underline;
+				}
+
+				svg {
+					fill: $primary-2;
+				}
+			}
+		}
+	}
+}
+
+@keyframes zoom {
+	0% {
+		transform: scale(1);
+		fill: $text-color-3;
+	}
+
+	50% {
+		transform: scale(1.4);
+		fill: $primary-2;
+	}
+
+	100% {
+		transform: scale(1);
+		fill: $text-color-3;
 	}
 }

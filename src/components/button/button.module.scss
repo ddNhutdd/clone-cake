@@ -116,3 +116,16 @@
 		color: $primary-2;
 	}
 }
+
+.button-disabled {
+	@include buttonCustom();
+	cursor: not-allowed;
+	background-color: $border-color-8;
+	border-color: $border-color-8;
+	box-shadow: none;
+	color: $text-color-16;
+	
+	&:hover {
+		opacity: 1;
+	}
+}

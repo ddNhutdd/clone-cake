@@ -25,6 +25,7 @@ export const ToolTip = (props) => {
 		show,
 		className,
 		classNameTooltip,
+		onClick
 	} = props;
 
 	const { isDarkMode } = useTheme();
@@ -53,54 +54,23 @@ export const ToolTip = (props) => {
 		document.body.appendChild(newElement);
 		newElement.style.position = 'fixed';
 
-		let tooltipTop = 0;
-		let tooltipLeft = 0;
-		const containerInfo = container.current.getBoundingClientRect();
-		const tooltipInfo = tooltipElement.current.getBoundingClientRect();
 		switch (position) {
 			case tooltipPosition.top:
 				newElement.classList.add(css.top);
-				tooltipTop =
-					containerInfo.top - tooltipInfo.height - space.current;
-				tooltipLeft =
-					containerInfo.left +
-					(containerInfo.width - tooltipInfo.width) / 2;
-				newElement.style.top = tooltipTop + 'px';
-				newElement.style.left = tooltipLeft + 'px';
 				break;
 			case tooltipPosition.left:
 				newElement.classList.add(css.left);
-				tooltipTop =
-					containerInfo.top +
-					(containerInfo.height - tooltipInfo.height) / 2;
-				tooltipLeft =
-					containerInfo.left - tooltipInfo.width - space.current;
-				newElement.style.top = tooltipTop + 'px';
-				newElement.style.left = tooltipLeft + 'px';
 				break;
 			case tooltipPosition.bottom:
 				newElement.classList.add(css.bottom);
-				tooltipTop =
-					containerInfo.top + containerInfo.height + space.current;
-				tooltipLeft =
-					containerInfo.left +
-					(containerInfo.width - tooltipInfo.width) / 2;
-				newElement.style.top = tooltipTop + 'px';
-				newElement.style.left = tooltipLeft + 'px';
 				break;
 			case tooltipPosition.right:
 				newElement.classList.add(css.right);
-				tooltipTop =
-					containerInfo.top +
-					(containerInfo.height - tooltipInfo.height) / 2;
-				tooltipLeft =
-					containerInfo.left + containerInfo.width + space.current;
-				newElement.style.top = tooltipTop + 'px';
-				newElement.style.left = tooltipLeft + 'px';
 				break;
 			default:
 				break;
 		}
+		calcPosition(newElement)
 		newElement.style.zIndex = '999999';
 
 		// thêm sự khiện cho tooltip chỉ xảy ra khi trigger là hover 
@@ -129,7 +99,7 @@ export const ToolTip = (props) => {
 		return isDarkMode ? css.dark : css.light;
 	}
 
-	const updatePosition = (element) => {
+	const calcPosition = (element) => {
 		let tooltipTop = 0;
 		let tooltipLeft = 0;
 		const containerInfo = container.current.getBoundingClientRect();
@@ -182,9 +152,8 @@ export const ToolTip = (props) => {
 				removeTooltip();
 				break;
 
-
 			case tooltipTrigger.runtime:
-				updatePosition(tooltipElement.current);
+				calcPosition(tooltipElement.current);
 				break;
 
 			default:
@@ -234,11 +203,10 @@ export const ToolTip = (props) => {
 		};
 	}, [trigger, children, content, position, show]);
 
-
-
 	return (
 		<div
 			ref={container}
+			onClick={onClick}
 			className={`${css.tooltipContainer} ${className}`}
 		>
 			{children}

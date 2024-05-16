@@ -10,7 +10,8 @@ export const buttonClassesType = {
 	primaryText: 'primaryText',
 	secondThin: 'secondaryThin',
 	outline: 'outline',
-	primaryPuple: 'primaryPuple'
+	primaryPuple: 'primaryPuple',
+	disaled: 'disabled'
 };
 
 const Button = forwardRef((props, ref) => {
@@ -46,6 +47,9 @@ const Button = forwardRef((props, ref) => {
 
 			case buttonClassesType.primaryPuple:
 				return css['button-primary-puple'];
+
+			case buttonClassesType.disaled:
+				return css['button-disabled'];
 
 			default:
 				return css['button-primary'];

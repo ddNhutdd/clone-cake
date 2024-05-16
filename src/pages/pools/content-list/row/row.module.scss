@@ -1,0 +1,325 @@
+@import 'components/global-style/base.scss';
+
+@mixin cell {
+	padding: 8px 24px;
+	flex: 0 0 200px;
+
+	@media screen and (max-width: 1110px) {
+		flex: 0 0 160px;
+	}
+
+	@media screen and (max-width: 968px) {
+		flex: 0 0 180px;
+	}
+
+	@media screen and (max-width: 650px) {
+		flex: 0 0 120px;
+		padding: 8px;
+	}
+
+	@media screen and (max-width: 576px) {
+		flex: 0 0 auto;
+		padding: 8px;
+	}
+
+	@media screen and (max-width: 390px) {
+		flex: unset;
+		padding: 8px;
+	}
+}
+
+.row--text {
+	color: $text-color-1;
+	font-size: 12px;
+	text-align: left;
+	line-height: 1;
+}
+
+.row--textLarge {
+	color: $text-color-1;
+	font-size: 14px;
+	text-align: left;
+	line-height: 1;
+	display: flex;
+	gap: 5px;
+	align-items: center;
+
+	svg {
+		width: 17px;
+		height: 17px;
+		color: $primary-2;
+		stroke-width: 0.5px;
+	}
+}
+
+.row--textMain {
+	color: $text-color-3;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	cursor: pointer;
+
+	&:hover {
+		opacity: 0.65;
+	}
+
+	svg {
+		width: 20px;
+		height: 20px;
+		fill: $text-color-3;
+	}
+}
+
+.row--disable {
+	color: $text-color-16;
+	margin-top: 4px;
+	font-size: 12px;
+	line-height: 1;
+}
+
+.row--disableBold {
+	color: $text-color-16;
+	margin-top: 4px;
+	font-weight: 600;
+	line-height: 1;
+}
+
+.row {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	border-bottom: 2px solid $border-color-8;
+
+	.row__firstCell {
+		padding: 24px 8px 24px 32px;
+		flex: 0 0 210px;
+		display: flex;
+
+		@media screen and (max-width: 576px) {
+			padding: 24px 8px;
+			flex: 0 0 140px;
+		}
+
+		@media screen and (max-width: 380px) {
+			flex: unset
+		}
+
+		.row__firstCell__left {
+			position: relative;
+			padding-right: 10px;
+
+			.row__firstCell__large {
+				width: 37px;
+				height: 37px;
+
+				img {
+					width: 100%;
+				}
+			}
+
+			.row__firstCell__small {
+				width: 20px;
+				height: 20px;
+				position: absolute;
+				top: 21px;
+				left: 22px;
+
+				img {
+					width: 100%;
+				}
+			}
+		}
+
+		.row__firstCell__right {
+			.row__firstCell__title {
+				font-weight: 600;
+				color: $text-color-3;
+			}
+		}
+	}
+
+	.row__secondCell {
+		@include cell;
+	}
+
+	.row__thirdCell {
+		@include cell;
+
+		@media screen and (max-width: 840px) {
+			display: none;
+		}
+	}
+
+	.row__fourthCell {
+		@include cell;
+
+		@media screen and (max-width: 968px) {
+			padding: 0;
+			flex: 1 0 auto;
+		}
+
+		@media screen and (max-width: 840px) {
+			width: fit-content;
+			padding: 8px 24px;
+		}
+
+		@media screen and (max-width: 576px) {
+			padding: 8px;
+			width: unset;
+		}
+
+		.row__fourthCell__icon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			@media screen and (max-width: 576px) {
+				display: none;
+			}
+		}
+	}
+
+	.row__fifthCell {
+		flex: 1 0 auto;
+
+		@media screen and (max-width: 968px) {
+			display: none;
+		}
+	}
+
+	.row__lastCell {
+		padding: 24px 32px 24px 8px;
+		width: fit-content;
+		display: flex;
+		gap: 5px;
+		align-items: center;
+		justify-content: flex-end;
+		font-weight: 600;
+		color: $primary-2;
+		margin-left: auto;
+
+		@media screen and (max-width: 576px) {
+			padding: 24px 8px;
+		}
+
+		.row__lastCell__text {
+			@media screen and (max-width: 576px) {
+				display: none;
+			}
+		}
+	}
+}
+
+.detail {
+	display: flex;
+	padding: 16px;
+	border-bottom: 2px solid $border-color-8;
+
+	@media screen and (max-width: 986px) {
+		flex-direction: column-reverse;
+	}
+
+	.detail__left {
+		width: 230px;
+		margin-right: 16px;
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+
+		@media screen and (max-width: 986px) {
+			margin-top: 10px;
+			width: 100%;
+		}
+
+		.detail__row {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			.detail__row__title {
+				color: $text-color-3;
+				font-size: 14px;
+			}
+
+			.detail__row__value {
+				font-size: 14px;
+			}
+		}
+
+		a {
+			font-size: 14px;
+			font-weight: 600;
+			color: $primary-2;
+			display: flex;
+			align-items: center;
+			gap: 5px;
+			text-decoration: none;
+
+			@media screen and (max-width: 576px) {
+				justify-content: flex-end;
+			}
+
+			&:hover {
+				text-decoration: underline;
+			}
+
+			svg {
+				fill: $primary-2;
+			}
+		}
+
+		.detail__pill {
+			font-size: 14px;
+			display: flex;
+			gap: 5px;
+			align-items: center;
+			padding: 0 8px;
+		}
+	}
+
+	.detail__right {
+		flex: 1;
+		display: flex;
+		align-items: flex-start;
+
+		@media screen and (max-width: 576px) {
+			flex-direction: column;
+			gap: 10px;
+		}
+
+		.detail__right__card {
+			padding: 2px;
+			background: $background-10;
+			margin-left: 12px;
+			margin-right: 12px;
+			flex: 1;
+
+			@media screen and (max-width: 576px) {
+				width: 100%;
+			}
+
+			.detail__right__cardContent {
+				padding: 16px;
+				width: 100%;
+
+				.detail__right__title {
+					color: $text-color-1;
+					font-weight: 600;
+					text-transform: uppercase;
+					font-size: 12px;
+					margin-bottom: 10px;
+
+					span {
+						color: $text-color-4;
+					}
+				}
+
+				.detail__right__row {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+				}
+			}
+		}
+	}
+}

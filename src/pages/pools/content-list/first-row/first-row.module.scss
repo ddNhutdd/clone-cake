@@ -31,6 +31,7 @@
 .firstRow {
 	display: flex;
 	border-bottom: 2px solid $border-color-8;
+	cursor: pointer;
 
 	.firstRow--text {
 		color: $text-color-1;
@@ -209,6 +210,7 @@
 		color: $primary-2;
 		width: fit-content;
 		font-weight: 600;
+		margin-left: auto;
 
 		@media screen and (max-width: 576px) {
 			padding-right: 8px;
