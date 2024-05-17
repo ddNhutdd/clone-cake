@@ -5,6 +5,50 @@ import V3 from './v3';
 import EthPill from './eth-pill';
 
 function Breakdown() {
+
+	const renderList = () => {
+		const result = [];
+		for (let index = 0; index < 50; index++) {
+			result.push(
+				<div className={css.breakdown__row}>
+					<div className={css.breakdown__cell}>
+						<div
+							className={css.breakdown__firstData}
+						>
+							<div className={css.breakdown__firstData__img}>
+								<img src="https://tokens.pancakeswap.finance/images/eth/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2.png" alt="dk" />
+								<img src="https://tokens.pancakeswap.finance/images/eth/0xae78736Cd615f374D3085123A210448E74Fc6393.png" alt="dk" />
+							</div>
+							<div className={css.breakdown__firstData__text}>
+								USDT-USDC LP
+							</div>
+							<Pill
+								type={pillType.outline}
+								className={css.breakdown__firstData__pill}
+							>
+								0.01%
+							</Pill>
+							<div>
+								<V3 />
+							</div>
+							<EthPill />
+						</div>
+					</div>
+					<div className={css.breakdown__cell}>
+						0.01%
+					</div>
+					<div className={css.breakdown__cell}>
+						0.01%
+					</div>
+					<div className={css.breakdown__cell}>
+						0.01%
+					</div>
+				</div>
+			)
+		}
+		return result;
+	}
+
 	return (
 		<div className={css.breakdown}>
 			<div className={css.container}>
@@ -35,40 +79,7 @@ function Breakdown() {
 						</div>
 					</div>
 					<div className={css.breakdown__body}>
-						<div className={css.breakdown__row}>
-							<div className={css.breakdown__cell}>
-								<div
-									className={css.breakdown__firstData}
-								>
-									<div className={css.breakdown__firstData__img}>
-										<img src="https://tokens.pancakeswap.finance/images/eth/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2.png" alt="dk" />
-										<img src="https://tokens.pancakeswap.finance/images/eth/0xae78736Cd615f374D3085123A210448E74Fc6393.png" alt="dk" />
-									</div>
-									<div className={css.breakdown__firstData__text}>
-										USDT-USDC LP
-									</div>
-									<Pill
-										type={pillType.outline}
-										className={css.breakdown__firstData__pill}
-									>
-										0.01%
-									</Pill>
-									<div>
-										<V3 />
-									</div>
-									<EthPill />
-								</div>
-							</div>
-							<div className={css.breakdown__cell}>
-								0.01%
-							</div>
-							<div className={css.breakdown__cell}>
-								0.01%
-							</div>
-							<div className={css.breakdown__cell}>
-								0.01%
-							</div>
-						</div>
+						{renderList()}
 					</div>
 				</Card>
 			</div>

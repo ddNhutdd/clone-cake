@@ -7,6 +7,10 @@
 
 @mixin cellConfig {
 	padding: 10px;
+
+	&:last-child {
+		text-align: right;
+	}
 }
 
 .breakdown {
