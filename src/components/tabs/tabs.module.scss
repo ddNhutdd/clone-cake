@@ -21,20 +21,6 @@
 		}
 	}
 
-	&.skyBlue {
-		background: $background-8;
-		border-color: $border-color-8;
-
-		.tabs__item {
-			color: $primary-2 ;
-
-			&.active {
-				background-color: $primary-2;
-				color: $text-color-white-1;
-			}
-		}
-	}
-
 	.tabs__item {
 		flex: 1;
 		padding-left: 16px;
@@ -55,6 +41,31 @@
 		&:active {
 			opacity: 0.85;
 			transform: translateY(1px);
+		}
+	}
+
+	&.skyBlue {
+		background: $background-8;
+		border-color: $border-color-8;
+
+		&.dark {
+			background: $background-5;
+			border-color: $border-color-7;
+
+			.tabs__item {
+				&.active {
+					color: $text-color-5;
+				}
+			}
+		}
+
+		.tabs__item {
+			color: $primary-2 ;
+
+			&.active {
+				background-color: $primary-2;
+				color: $text-color-white-1;
+			}
 		}
 	}
 }

@@ -1,6 +1,38 @@
 @import 'components/global-style/base.scss';
 
 .item {
+
+	&.dark {
+		.item--title {
+			color: $text-color-6;
+
+			.item--titleHight {
+				color: $primary-1;
+			}
+		}
+
+		.item--disableBold {
+			color: $text-color-19;
+		}
+
+		.item--disable {
+			color: $text-color-19;
+		}
+
+		.item__content {
+			.item__content__main {
+				.item__tooltip {
+					text-decoration-color: $text-color-6;
+					color: $text-color-white-2;
+				}
+
+				.item__tooltip__value {
+					color: $text-color-white-2;
+				}
+			}
+		}
+	}
+
 	.item--row {
 		display: flex;
 		align-items: center;

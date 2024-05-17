@@ -10,11 +10,8 @@ import Logo1 from '/src/assets/imgs/logo.svg';
 import DropdownHeader, {
 	dropdownHeaderAlignEnum,
 } from 'components/dropdown-header';
-import DropdownHeader2, {
-	dropdownItemAlignType,
-} from 'components/dropdown-header-2';
+import DropdownHeader2 from 'components/dropdown-header-2';
 import Button, { buttonClassesType } from 'components/button';
-import { FaChevronDown } from 'react-icons/fa6';
 import Money from 'src/templates/user/money';
 import { useTheme } from 'src/context/dark-theme';
 import logoTextLight from 'src/assets/imgs/logo-text-light.svg';
@@ -205,6 +202,8 @@ function Header() {
 		{
 			id: 7,
 			content: 'Trading Reward',
+			url: url.tradingReward,
+			onClick: () => redirectPage(url.tradingReward)
 		},
 	];
 

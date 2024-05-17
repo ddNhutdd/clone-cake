@@ -12,6 +12,7 @@ import Button, { buttonClassesType } from 'src/components/button';
 import { useContext, useState } from 'react';
 import { DrillContext } from 'src/context/drill';
 import { ToolTip } from 'src/components/tooltip';
+import { useTheme } from 'src/context/dark-theme';
 
 function Row() {
 	// detail
@@ -23,9 +24,13 @@ function Row() {
 	// modal calc roi
 	const { openModal } = useContext(DrillContext);
 
+	// theme 
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<>
-			<div onClick={toggleDetail} className={css.row}>
+		<div className={`${css.rowContainer} ${darkClass}`}>
+			<div onClick={toggleDetail} className={`${css.row}`}>
 				<div className={css.row__firstCell}>
 					<div className={css.row__firstCell__left}>
 						<div className={css.row__firstCell__large}>
@@ -215,7 +220,7 @@ function Row() {
 					</div>
 				</div>
 			}
-		</>
+		</div>
 	)
 }
 

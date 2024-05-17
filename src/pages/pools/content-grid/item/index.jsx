@@ -7,14 +7,19 @@ import { AiOutlineCalculator } from "react-icons/ai";
 import Button, { buttonClassesType } from 'src/components/button';
 import { useContext } from 'react';
 import { DrillContext } from 'src/context/drill';
+import { useTheme } from 'src/context/dark-theme';
 
 function Item() {
 	// modal calculator
 	const { openModal } = useContext(DrillContext);
 
+	// theme 
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
 		<Card
-			className={css.item}
+			className={`${css.item} ${darkClass}`}
 			classNameContent={css.item__content}
 		>
 			<Header />

@@ -13,6 +13,7 @@ import ArrowSquareIcon from 'src/assets/icons/arrow-square.icon';
 import { NavLink } from 'react-router-dom';
 import Tabs2, { tab2Color } from 'src/components/tabs-2';
 import { useState } from 'react';
+import { useTheme } from 'src/context/dark-theme';
 
 const mainTabList = [
 	{
@@ -175,8 +176,12 @@ function RoiModal() {
 		setMoreDetailShow(false);
 	}
 
+	//theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.roiModal}>
+		<div className={`${css.roiModal} ${darkClass}`}>
 			<div className={css.roiModal__tab}>
 				<Tabs
 					listTabs={mainTabList}
@@ -236,41 +241,44 @@ function RoiModal() {
 					</div>
 				</div>
 			</div>
-			<div className={css.roiModal__more}>
+			<div className={css.roiModal__Detail}>
+				<div className={css.roiModal__more}>
+					{
+						moreDetailShow ?
+							<div onClick={moreDetailClose} className={css.roiModal__more__item}>
+								Hide
+								<FaChevronUp />
+							</div>
+							:
+							<div onClick={moreDetailOpen} className={css.roiModal__more__item}>
+								Details
+								<FaChevronDown />
+							</div>
+					}
+				</div>
 				{
-					moreDetailShow ?
-						<div onClick={moreDetailClose} className={css.roiModal__more__item}>
-							Details
-							<FaChevronDown />
-						</div> :
-						<div onClick={moreDetailOpen} className={css.roiModal__more__item}>
-							Hide
-							<FaChevronUp />
+					moreDetailShow && <div className={css.roiModal__moreContent}>
+						<div className={css.roiModal__row}>
+							<div>APR</div>
+							<div>0.00%</div>
 						</div>
+						<ul>
+							<li>
+								Calculated based on current rates.
+							</li>
+							<li>
+								All figures are estimates provided for your convenience only, and by no means represent guaranteed returns.
+							</li>
+						</ul>
+						<div className={css.roiModal__action}>
+							<NavLink>
+								Get CAKE
+								<ArrowSquareIcon />
+							</NavLink>
+						</div>
+					</div>
 				}
 			</div>
-			{
-				moreDetailShow && <div className={css.roiModal__moreContent}>
-					<div className={css.roiModal__row}>
-						<div>APR</div>
-						<div>0.00%</div>
-					</div>
-					<ul>
-						<li>
-							Calculated based on current rates.
-						</li>
-						<li>
-							All figures are estimates provided for your convenience only, and by no means represent guaranteed returns.
-						</li>
-					</ul>
-					<div className={css.roiModal__action}>
-						<NavLink>
-							Get CAKE
-							<ArrowSquareIcon />
-						</NavLink>
-					</div>
-				</div>
-			}
 		</div>
 	)
 }

@@ -3,6 +3,58 @@
 .roiModal {
 	max-width: 380px;
 
+	&.dark {
+		.roiModal__controlGroup {
+			label {
+				color: $primary-1;
+			}
+
+			.roiModal__controlGroup__list {
+				.roiModal__controlGroup__list__item {
+					background: $background-5;
+					border-radius: 16px;
+				}
+
+				.roiModal__controlGroup__list__pill {
+					background-color: $background-29;
+					border-color: $background-29;
+					color: $text-color-19;
+				}
+			}
+		}
+
+		.roiModal__resultContainer {
+			.roiModal__result {
+				background: $background-60;
+
+				.roiModal__result__title {
+					color: $primary-1;
+				}
+
+				.roiModal__result__main {
+					.roiModal__result__main__value {
+						color: $text-color-white-2;
+					}
+				}
+			}
+		}
+
+		.roiModal__Detail {
+			background: $background-14;
+			color: $text-color-6;
+
+			.roiModal__moreContent {
+				.roiModal__row {
+					div {
+						&:last-child {
+							color: $text-color-white-2;
+						}
+					}
+				}
+			}
+		}
+	}
+
 	.roiModal__tab {
 		margin-bottom: 24px;
 	}
@@ -119,69 +171,78 @@
 		}
 	}
 
-	.roiModal__more {
+	.roiModal__Detail {
 		margin-top: 30px;
-		display: flex;
-		justify-content: center;
+		margin-left: -24px;
+		margin-right: -24px;
+		margin-bottom: -24px;
+		padding: 24px;
 
-		.roiModal__more__item {
-			display: inline-flex;
-			justify-content: center;
-			gap: 10px;
-			align-items: center;
-			color: $primary-2;
-			font-weight: 600;
-			cursor: pointer;
-			user-select: none;
-		}
-	}
-
-	.roiModal__moreContent {
-		.roiModal__row {
+		.roiModal__more {
 			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			font-size: 14px;
+			justify-content: center;
 
-			div {
-				&:last-child {
-					color: $text-color-3;
-				}
-			}
-		}
-
-		ul {
-			margin-top: 40px;
-
-			li {
-				font-size: 12px;
-			}
-		}
-
-		.roiModal__action {
-			margin-top: 30px;
-
-			a {
-				display: flex;
-				width: fit-content;
+			.roiModal__more__item {
+				display: inline-flex;
+				justify-content: center;
+				gap: 10px;
 				align-items: center;
-				gap: 5px;
-				font-weight: 600;
 				color: $primary-2;
-				margin-right: auto;
-				margin-left: auto;
-				text-decoration: none;
+				font-weight: 600;
+				cursor: pointer;
+				user-select: none;
+			}
+		}
 
-				&:hover {
-					text-decoration: underline;
+		.roiModal__moreContent {
+			.roiModal__row {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				font-size: 14px;
+
+				div {
+					&:last-child {
+						color: $text-color-3;
+					}
 				}
+			}
 
-				svg {
-					fill: $primary-2;
+			ul {
+				margin-top: 40px;
+
+				li {
+					font-size: 12px;
+				}
+			}
+
+			.roiModal__action {
+				margin-top: 30px;
+
+				a {
+					display: flex;
+					width: fit-content;
+					align-items: center;
+					gap: 5px;
+					font-weight: 600;
+					color: $primary-2;
+					margin-right: auto;
+					margin-left: auto;
+					text-decoration: none;
+
+					&:hover {
+						text-decoration: underline;
+					}
+
+					svg {
+						fill: $primary-2;
+					}
 				}
 			}
 		}
 	}
+
+
 }
 
 @keyframes zoom {

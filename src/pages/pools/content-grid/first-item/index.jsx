@@ -13,7 +13,7 @@ function FirstItem() {
 	return (
 		<Card
 			type={cardType.blueEffect}
-			className={css.firstItem}
+			className={`${css.firstItem} ${darkClass}`}
 			classNameContent={css.firstItemContent}
 		>
 			<Header />

@@ -1,0 +1,9 @@
+@import 'components/global-style/base.scss';
+
+.trading {
+	background: $background-61;
+
+	.container {
+		@include container;
+	}
+}

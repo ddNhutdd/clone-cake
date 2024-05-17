@@ -16,7 +16,9 @@ export const url = {
 	info_stable_swap: '/info/stable-swap',
 	ifo: '/ifo',
 	affiliates: '/affiliates',
-	pools: '/pools'
+	pools: '/pools',
+	tradingReward: '/trading-reward/cake-stakers',
+	topTraders: '/trading-reward/top-traders'
 };
 
 export const localStorageVariable = {

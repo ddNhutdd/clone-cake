@@ -7,6 +7,7 @@ import { useContext, useState } from 'react';
 import { MdOutlineCalculate } from "react-icons/md";
 import useMediaQuery, { widthDevice } from 'src/hooks/useMedia';
 import { DrillContext } from 'src/context/drill';
+import { useTheme } from 'src/context/dark-theme';
 
 function FirstRow() {
 	// show detail
@@ -27,9 +28,13 @@ function FirstRow() {
 		closeModal
 	} = useContext(DrillContext);
 
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<>
-			<div onClick={rowClickHandle} className={css.firstRow}>
+		<div className={`${css.firstRowContainer} ${darkClass}`}>
+			<div onClick={rowClickHandle} className={`${css.firstRow}`}>
 				<div className={css.firstRow__firstCell}>
 					<div className={css.firstRow__firstCell__left}>
 						<div className={css.firstRow__firstCell__left__large}>
@@ -150,14 +155,14 @@ function FirstRow() {
 									<div className={css.hidenContent__cartItem__image}>
 										<img src="https://pancakeswap.finance/images/cake-staking/benefit-earn-cake.png" alt="dk" />
 									</div>
-									<div className={css.hidenContent__cartItem__content}>
-										<div className={css.hiddenContent__cardItem__header}>
+									<div>
+										<div className={css[`firstRowContainer--cardTitle`]}>
 											Earn CAKE
 										</div>
-										<div className={css.hiddenContent__cardItem__text}>
+										<div className={css[`firstRowContainer--cardText`]}>
 											Total Distributed
 										</div>
-										<div className={css.hiddenContent__cardItem__value}>
+										<div className={css[`firstRowContainer--cardValue`]}>
 											1,247,348.68 CAKE
 										</div>
 									</div>
@@ -171,14 +176,14 @@ function FirstRow() {
 									<div className={css.hidenContent__cartItem__image}>
 										<img src="https://pancakeswap.finance/images/cake-staking/benefit-gauges-voting.png" alt="dk" />
 									</div>
-									<div className={css.hidenContent__cartItem__content}>
-										<div className={css.hiddenContent__cardItem__header}>
+									<div>
+										<div className={css[`firstRowContainer--cardTitle`]}>
 											Gauges Voting
 										</div>
-										<div className={css.hiddenContent__cardItem__text}>
+										<div className={css[`firstRowContainer--cardText`]}>
 											Number of Gauges to Vote
 										</div>
-										<div className={css.hiddenContent__cardItem__value}>
+										<div className={css[`firstRowContainer--cardValue`]}>
 											400
 										</div>
 									</div>
@@ -192,14 +197,14 @@ function FirstRow() {
 									<div className={css.hidenContent__cartItem__image}>
 										<img src="https://pancakeswap.finance/images/cake-staking/benefit-earn-cake.png" alt="dk" />
 									</div>
-									<div className={css.hidenContent__cartItem__content}>
-										<div className={css.hiddenContent__cardItem__header}>
+									<div>
+										<div className={css[`firstRowContainer--cardTitle`]}>
 											Earn CAKE
 										</div>
-										<div className={css.hiddenContent__cardItem__text}>
+										<div className={css[`firstRowContainer--cardText`]}>
 											Total Distributed
 										</div>
-										<div className={css.hiddenContent__cardItem__value}>
+										<div className={css[`firstRowContainer--cardValue`]}>
 											1,247,348.68 CAKE
 										</div>
 									</div>
@@ -214,18 +219,16 @@ function FirstRow() {
 										<div className={css.hidenContent__cartItem__image}>
 											<img src="https://pancakeswap.finance/images/cake-staking/benefit-snapshot-voting.png" alt="dk" />
 										</div>
-										<div className={css.hiddenContent__cardItem__header}>
+										<div className={`${css[`firstRowContainer--cardTitle`]}`}>
 											Snapshot Voting
 										</div>
 									</div>
-									<div className={css.hiddenContent__cardItem__last__content}>
+									<div className={`${css.hiddenContent__cardItem__last__content} ${css[`firstRowContainer--borderLeft`]}`}>
 										<div className={css.hidenContent__cartItem__image}>
 											<img src="https://pancakeswap.finance/images/cake-staking/benefit-ifo.png" alt="dk" />
 										</div>
-										<div className={css.hidenContent__cartItem__content}>
-											<div className={css.hiddenContent__cardItem__header}>
-												IFO and more
-											</div>
+										<div className={css[`firstRowContainer--cardTitle`]}>
+											IFO and more
 										</div>
 									</div>
 								</div>
@@ -245,7 +248,7 @@ function FirstRow() {
 					</div>
 				</div >
 			}
-		</>
+		</div>
 	)
 }
 

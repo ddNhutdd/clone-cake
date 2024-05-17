@@ -11,6 +11,7 @@ import ArrowSquareIcon from 'src/assets/icons/arrow-square.icon';
 import { NavLink } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { DrillContext } from 'src/context/drill';
+import { useTheme } from 'src/context/dark-theme';
 
 function Footer(props) {
 	const {
@@ -26,8 +27,12 @@ function Footer(props) {
 	// modal calculator
 	const { openModal } = useContext(DrillContext);
 
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.footer}>
+		<div className={`${css.footer} ${darkClass}`}>
 			<div className={`${css.footer__row} ${css.first}`}>
 				<div className={css.footer__pillContainer}>
 					{
@@ -42,7 +47,7 @@ function Footer(props) {
 								</Pill>
 								<ToolTip
 									content="Rewards are distributed and included in your total staking balance."
-									className={`flex items-center`}
+									className={`flex items-center ${css.footer__tooltip}`}
 								>
 									<FaRegCircleQuestion />
 								</ToolTip>
@@ -57,7 +62,7 @@ function Footer(props) {
 								</Pill>
 								<ToolTip
 									content="Rewards are distributed and included in your total staking balance."
-									className={`flex items-center`}
+									className={`flex items-center ${css.footer__tooltip}`}
 								>
 									<FaRegCircleQuestion />
 								</ToolTip>
@@ -167,7 +172,6 @@ function Footer(props) {
 					</div>
 				</>
 			}
-
 		</div>
 	)
 }

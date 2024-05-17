@@ -6,6 +6,28 @@
 	color: $text-color-3;
 	border-top: 1px solid $border-color;
 
+	&.dark {
+		border-color: $border-color-3;
+		color: $text-color-white-2;
+
+		.footer--underline-dash {
+			text-decoration-color: $text-color-6;
+		}
+
+		.footer__row {
+			.footer__pillContainer {
+				.footer__tooltip {
+					color: $text-color-6;
+				}
+
+				.footer__manualPill {
+					color: $primary-1;
+					border-color: $primary-1;
+				}
+			}
+		}
+	}
+
 	.footer--underline-dash {
 		text-decoration: underline;
 		text-decoration-style: dotted;

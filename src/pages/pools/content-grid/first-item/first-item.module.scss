@@ -2,6 +2,40 @@
 
 .firstItem {
 
+	&.dark {
+		.firstItem--rowTitle {
+			color: $primary-1;
+		}
+
+		.firstItem--rowContent {
+			color: $text-color-white-2;
+		}
+
+		.firstItem--rowBold {
+			color: $text-color-white-2;
+		}
+
+		.firstItemContent {
+			.firstItemContent__main {
+				.firstItemContent__main__title {
+					color: $text-color-white-2;
+				}
+
+				.firstItemContent__main__card {
+					background: $border-color-3;
+
+					.firstItemContent__main__cardContent {
+						background-color: $background-6;
+
+						.firstItemContent__main__line {
+							background: $border-color-3;
+						}
+					}
+				}
+			}
+		}
+	}
+
 	.firstItem--rowImage {
 		width: 48px;
 

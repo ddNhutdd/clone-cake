@@ -1,16 +1,20 @@
 @import 'components/global-style/base.scss';
 
-.mobileContent {
+.valueContent {
 	color: $text-color-3;
 	font-size: 14px;
 	width: 100%;
 
-	.mobileContent__rowTwoSide {
+	&.dark {
+		color: $text-color-white-2;
+	}
+
+	.valueContent__rowTwoSide {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 
-		.mobileContent__toolTipRoot {
+		.valueContent__toolTipRoot {
 			text-decoration-line: underline;
 			text-decoration-thickness: initial;
 			text-decoration-style: dotted;
@@ -19,7 +23,7 @@
 		}
 	}
 
-	.mobileContent__rowOneSide {
+	.valueContent__rowOneSide {
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;

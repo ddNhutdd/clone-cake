@@ -17,6 +17,7 @@ const Info = lazy(() => import('../pages/info'));
 const Ifo = lazy(() => import('../pages/ifo'));
 const Affiliates = lazy(() => import('../pages/affiliates'));
 const Pools = lazy(() => import('../pages/pools'));
+const CakeStakers = lazy(() => import('../pages/cake-stakers'));
 
 export const router = createBrowserRouter([
 	{
@@ -147,6 +148,14 @@ export const router = createBrowserRouter([
 				element: (
 					<Suspense>
 						<Pools />
+					</Suspense>
+				),
+			},
+			{
+				path: url.tradingReward,
+				element: (
+					<Suspense>
+						<CakeStakers />
 					</Suspense>
 				),
 			}

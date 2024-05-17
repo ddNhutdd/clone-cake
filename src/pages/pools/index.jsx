@@ -29,7 +29,7 @@ function Pools() {
 	}
 
 	// kiểu hiển thị
-	const [showTypeSelected, setShowTypeSelected] = useState(showType.grid);
+	const [showTypeSelected, setShowTypeSelected] = useState(showType.list);
 
 	// theme 
 	const { isDarkMode } = useTheme();

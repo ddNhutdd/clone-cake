@@ -128,8 +128,14 @@
 	border-color: $border-color-8;
 	box-shadow: none;
 	color: $text-color-16;
-	
+
 	&:hover {
 		opacity: 1;
+	}
+
+	&.dark {
+		background-color: $background-29;
+		border-color: $background-29;
+		color: $text-color-19;
 	}
 }

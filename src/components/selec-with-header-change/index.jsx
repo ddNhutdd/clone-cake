@@ -1,4 +1,4 @@
-import { createElement, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import css from './select.module.scss';
 import { FaCaretDown } from "react-icons/fa6";
 import { useTheme } from 'src/context/dark-theme';
@@ -10,13 +10,21 @@ function SelectWithHeaderChange(props) {
 		selectValue
 	} = props;
 
-	// theme
-	const { isDarkMode } = useTheme();
-	const darkClass = isDarkMode ? css.dark : '';
-
 	const headerElement = useRef();
 	const menuElement = useRef();
 	const showMenu = useRef(false);
+
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+	if (menuElement.current) {
+		if (isDarkMode) {
+			!menuElement?.current?.classList?.contains(css.dark) &&
+				menuElement?.current?.classList?.add(css.dark)
+		} else {
+			menuElement?.current?.classList?.remove(css.dark)
+		}
+	}
 
 	const initial = () => {
 		createMenu();
