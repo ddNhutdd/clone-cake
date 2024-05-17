@@ -1,0 +1,18 @@
+@import 'components/global-style/base.scss';
+
+.lineaPill {
+	background: rgb(18, 18, 18);
+	align-items: center;
+	border-radius: 16px;
+	color: rgb(255, 255, 255);
+	display: inline-flex;
+	font-weight: 400;
+	white-space: nowrap;
+	height: 28px;
+	padding: 0px 8px;
+	font-size: 14px;
+
+	svg {
+		margin-right: 3px;
+	}
+}

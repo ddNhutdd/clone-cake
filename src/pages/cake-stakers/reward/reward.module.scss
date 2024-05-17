@@ -1,0 +1,69 @@
+@import 'components/global-style/base.scss';
+
+.reward {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	background: $background-62;
+
+	.container {
+		@include container;
+
+		.reward__title {
+			font-size: 56px;
+			font-weight: 900;
+			line-height: 98%;
+			letter-spacing: 0.01em;
+			background: $background-64;
+			-webkit-background-clip: text;
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+			text-align: center;
+			color: $text-color-3;
+			-webkit-text-stroke: 4px $text-color-20;
+		}
+
+		.reward__card {
+			max-width: 716px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 30px;
+			margin-bottom: 30px;
+
+			.reward__cardContent {
+				padding-top: 48px;
+				padding-bottom: 48px;
+				text-align: center;
+
+				.reward__cardContent__top {
+					color: $text-color-3;
+					font-weight: 600;
+					line-height: 1.5;
+					margin-bottom: 8px;
+					font-size: 16px;
+				}
+
+				.reward__cardContent__bot {
+					color: $text-color-3;
+					font-weight: 400;
+					line-height: 1.5;
+					margin-bottom: 32px;
+					font-size: 16px;
+				}
+
+				.reward__cardContent__img {
+					max-width: 420px;
+					margin-left: auto;
+					margin-right: auto;
+
+					img {
+						width: 100%;
+					}
+				}
+
+				.reward__action {
+					margin-top: 30px;
+				}
+			}
+		}
+	}
+}

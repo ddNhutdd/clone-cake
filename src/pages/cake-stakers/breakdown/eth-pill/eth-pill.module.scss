@@ -1,0 +1,20 @@
+@import 'components/global-style/base.scss';
+
+.ethPill {
+	background: #627eea;
+	align-items: center;
+	border-radius: 16px;
+	color: $text-color-white-1;
+	display: inline-flex;
+	font-weight: 400;
+	white-space: nowrap;
+	height: 28px;
+	padding: 0px 8px;
+	font-size: 14px;
+
+	svg {
+		fill: $text-color-3;
+		width: 10px;
+		margin-right: 3px;
+	}
+}

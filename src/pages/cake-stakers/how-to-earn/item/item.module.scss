@@ -1,0 +1,27 @@
+@import 'components/global-style/base.scss';
+
+.item {
+	.item__step {
+		color: $text-color-3;
+		font-weight: 600;
+		font-size: 12px;
+		text-align: right;
+		margin-bottom: 32px;
+	}
+
+	.item__image {
+		img {
+			max-width: 180px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	.item__title {
+		color: $text-color-4;
+		font-weight: 600;
+		margin-bottom: 16px;
+		line-height: 110%;
+		font-size: 24px;
+	}
+}

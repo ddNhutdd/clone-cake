@@ -2,8 +2,174 @@
 
 .trading {
 	background: $background-61;
+	padding-top: 50px;
+	padding-bottom: 50px;
 
 	.container {
 		@include container;
+		position: relative;
+		display: flex;
+		align-items: center;
+
+		@media screen and (max-width: 1080px) {
+			flex-direction: column-reverse;
+		}
+
+		.trading__left {
+			flex: 1;
+			position: relative;
+			z-index: 3;
+
+			@media screen and (max-width: 850px) {
+				align-self: flex-start;
+			}
+
+			.trading__title {
+				font-size: 60px;
+				font-weight: 600;
+				line-height: 110%;
+				color: $text-color-4;
+
+				@media screen and (max-width: 850px) {
+					font-size: 40px;
+				}
+			}
+
+			.trading__subTitle {
+				color: $text-color-4;
+				font-weight: 600;
+				margin-left: 4px;
+				font-size: 40px;
+				line-height: 110%;
+				margin-bottom: 16px;
+
+				@media screen and (max-width: 850px) {
+					font-size: 16px;
+				}
+			}
+
+			.trading__text {
+				color: $text-color-3;
+				font-weight: 600;
+				margin-bottom: 32px;
+				line-height: 26.4px;
+				font-size: 24px;
+				max-width: 404px;
+			}
+
+			.trading__action {
+				display: flex;
+				gap: 15px;
+
+				@media screen and (max-width: 893px) {
+					justify-content: center;
+				}
+			}
+		}
+
+		.trading__right {
+			width: 360px;
+			position: relative;
+			z-index: 3;
+
+			@media screen and (max-width: 850px) {
+				width: 170px;
+			}
+
+			@media screen and (max-width:370px) {
+				width: 100%;
+			}
+
+			img {
+				width: 100%;
+			}
+		}
+
+		.trading__backgroundImage {
+			img {
+				position: absolute;
+				z-index: 1;
+			}
+
+			.trading__starTop {
+				top: 0;
+				left: 55%;
+				width: 43px;
+				height: 43px;
+				@include botLeftTotopRight(2.5s);
+
+				@media screen and (max-width: 1080px) {
+					top: 10%;
+					left: 5%;
+				}
+			}
+
+			.trading__starRight {
+				top: 50%;
+				right: 0%;
+				width: 71px;
+				height: 71px;
+				@include topLeftToBottomRight;
+
+				@media screen and (max-width: 1080px) {
+					top: 40%;
+					right: 0%;
+				}
+
+				@media screen and (max-width: 850px) {
+					right: 10%;
+				}
+			}
+
+			.trading__starBot {
+				left: 48%;
+				bottom: 15%;
+				width: 36px;
+				@include botLeftTotopRight(3.5s);
+
+				@media screen and (max-width: 1080px) {
+					left: 10%;
+					bottom: 40%;
+				}
+
+				@media screen and (max-width: 850px) {
+					bottom: 50%;
+				}
+			}
+
+			.trading__butterTop {
+				top: 3%;
+				left: 55%;
+				width: 186px;
+				height: 168px;
+				@include topLeftToBottomRight(3.5s);
+
+				@media screen and (max-width: 1080px) {
+					top: 3%;
+					left: 17%;
+				}
+
+				@media screen and (max-width: 850px) {
+					width: 86px;
+					height: 48px;
+				}
+			}
+
+			.trading__butterBot {
+				left: 58%;
+				bottom: 18%;
+				width: 167px;
+				height: 261px;
+
+				@media screen and (max-width: 1080px) {
+					left: 19%;
+					bottom: 38%;
+				}
+
+				@media screen and (max-width: 850px) {
+					display: none;
+				}
+			}
+		}
 	}
 }

@@ -29,14 +29,35 @@ function Trading() {
 				<div className={css.trading__right}>
 					<img src="/src/assets/imgs/trading-reward-banner-bunny.webp" alt="dk" />
 				</div>
+				<div className={css.trading__backgroundImage}>
+					<img
+						src="https://pancakeswap.finance/images/trading-reward/star2.png"
+						alt="dk"
+						className={css.trading__starTop}
+					/>
+					<img
+						src="https://pancakeswap.finance/images/trading-reward/star1.png"
+						alt="dk"
+						className={css.trading__starRight}
+					/>
+					<img
+						src="https://pancakeswap.finance/images/trading-reward/star3.png"
+						alt="dk"
+						className={css.trading__starBot}
+					/>
+					<img
+						src="https://pancakeswap.finance/images/trading-reward/butter-1.png"
+						alt="dk"
+						className={css.trading__butterTop}
+					/>
+					<img
+						src="https://pancakeswap.finance/images/trading-reward/butter-2.png"
+						alt="dk"
+						className={css.trading__butterBot}
+					/>
+				</div>
 			</div>
-			<div className={css.trading__backgroundImage}>
-				<img src="https://pancakeswap.finance/images/trading-reward/star1.png" alt="dk" />
-				<img src="https://pancakeswap.finance/images/trading-reward/star2.png" alt="dk" />
-				<img src="https://pancakeswap.finance/images/trading-reward/star3.png" alt="dk" />
-				<img src="https://pancakeswap.finance/images/trading-reward/butter-1.png" alt="dk" />
-				<img src="https://pancakeswap.finance/images/trading-reward/butter-2.png" alt="dk" />
-			</div>
+
 		</div>
 	)
 }
