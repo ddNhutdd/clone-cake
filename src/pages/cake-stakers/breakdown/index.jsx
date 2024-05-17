@@ -1,12 +1,8 @@
 import Card from 'src/components/card';
 import css from './breakdown.module.scss';
+import Pill, { pillType } from 'src/components/pill';
+import V3 from './v3';
 import EthPill from './eth-pill';
-import BnbPill from './bnb-pill';
-import ZkSyncPill from './zkSync-pill';
-import ZkEvmPill from './zkEvm-pill';
-import BasePill from './base-pill';
-import ArbPill from './arb-pill';
-import LineaPill from './linea-pill';
 
 function Breakdown() {
 	return (
@@ -18,20 +14,12 @@ function Breakdown() {
 				<div className={css.breakdown__subTitle}>
 					Round #1 | Mar 1, 2024, 07:00 - Apr 1, 2024, 06:59
 				</div>
-				<EthPill />
-				<BnbPill />
-				<ZkSyncPill />
-				<ZkEvmPill />
-				<BasePill />
-				<ArbPill />
-				<LineaPill />
-				
 				<Card
-					className
-					classNameContent
+					className={css.breakdown__card}
+					classNameContent={css.breakdown__cardContent}
 				>
 					<div className={css.breakdown__header}>
-						<div>
+						<div className={css.breakdown__row}>
 							<div className={css.breakdown__cell}>
 								TRADING PAIR
 							</div>
@@ -49,9 +37,36 @@ function Breakdown() {
 					<div className={css.breakdown__body}>
 						<div className={css.breakdown__row}>
 							<div className={css.breakdown__cell}>
-								<div>
-
+								<div
+									className={css.breakdown__firstData}
+								>
+									<div className={css.breakdown__firstData__img}>
+										<img src="https://tokens.pancakeswap.finance/images/eth/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2.png" alt="dk" />
+										<img src="https://tokens.pancakeswap.finance/images/eth/0xae78736Cd615f374D3085123A210448E74Fc6393.png" alt="dk" />
+									</div>
+									<div className={css.breakdown__firstData__text}>
+										USDT-USDC LP
+									</div>
+									<Pill
+										type={pillType.outline}
+										className={css.breakdown__firstData__pill}
+									>
+										0.01%
+									</Pill>
+									<div>
+										<V3 />
+									</div>
+									<EthPill />
 								</div>
+							</div>
+							<div className={css.breakdown__cell}>
+								0.01%
+							</div>
+							<div className={css.breakdown__cell}>
+								0.01%
+							</div>
+							<div className={css.breakdown__cell}>
+								0.01%
 							</div>
 						</div>
 					</div>
