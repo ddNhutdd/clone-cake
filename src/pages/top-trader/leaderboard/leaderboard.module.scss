@@ -1,0 +1,42 @@
+@import 'components/global-style/base.scss';
+
+.leaderBoard {
+	background: $background-3;
+
+	.container {
+		@include container;
+
+		.leaderBoard__header {
+			color: $text-color-4;
+			font-weight: 600;
+			margin-bottom: 16px;
+			text-align: center;
+			font-size: 40px;
+			line-height: 110%;
+		}
+
+		.leaderBoard__time {
+			color: $text-color-1;
+			font-weight: 600;
+			line-height: 1.5;
+			text-align: center;
+			font-size: 16px;
+		}
+
+		.leaderBoard__paging {
+			display: flex;
+			justify-content: center;
+			margin-top: 16px;
+			margin-bottom: 16px;
+		}
+
+		.leaderBoard__tops {
+			display: flex;
+			gap: 20px;
+
+			.leaderBoard__tops__item {
+				flex: 1;
+			}
+		}
+	}
+}

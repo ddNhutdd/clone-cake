@@ -1,1 +1,12 @@
 @import 'components/global-style/base.scss';
+
+.poolLeftImage {
+	width: 280px;
+	position: absolute;
+	left: 0;
+	bottom: -50px;
+
+	@media screen and (max-width: 1080px) {
+		display: none;
+	}
+}

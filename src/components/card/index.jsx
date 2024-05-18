@@ -39,17 +39,9 @@ const Card = forwardRef((props, ref) => {
 	return (
 		<div
 			ref={ref}
-			className={`
-				${css.card} 
-				${renderCardType()}
-				${className} 
-				${classTheme}
-		`}>
+			className={`${css.card} ${renderCardType()} ${className} ${classTheme}`}>
 			<div
-				className={`
-				${css.card__content}
-				${classNameContent}
-			`}>
+				className={`${css.card__content} ${classNameContent}`}>
 				{children}
 			</div>
 		</div>

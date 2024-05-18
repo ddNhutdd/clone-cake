@@ -1,0 +1,220 @@
+@import 'components/global-style/base.scss';
+
+.reward {
+	background: $background-62;
+	padding-top: 50px;
+	padding-bottom: 100px;
+	position: relative;
+
+	.container {
+		@include container;
+
+		.reward__header {
+			position: relative;
+			font-size: 56px;
+			font-weight: 900;
+			line-height: 98%;
+			letter-spacing: 0.01em;
+			background: $background-64;
+			-webkit-text-fill-color: transparent;
+			margin: auto;
+			padding: 0;
+			text-align: center;
+			-webkit-background-clip: text;
+			background-clip: text;
+			-webkit-text-stroke: 4px $text-color-20;
+			margin-bottom: 50px;
+
+			@media screen and (max-width: 968px) {
+				font-size: 40px;
+				-webkit-text-stroke: 3px $text-color-20;
+			}
+		}
+
+		.reward__cardContainer {
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-between;
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 900px;
+
+			@media screen and (max-width: 850px) {
+				flex-direction: column;
+				gap: 20px;
+			}
+
+			.reward__card {
+				width: 48.5%;
+
+				@media screen and (max-width: 850px) {
+					width: 100%;
+				}
+
+				.reward__cardName {
+					color: $text-color-3;
+					font-weight: 600;
+					line-height: 1.5;
+					margin-bottom: 24px;
+					text-align: right;
+					font-size: 16px;
+				}
+
+				.reward__cardIcon {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+
+				.reward__cardComingSoon {
+					color: $text-color-3;
+					font-weight: 600;
+					line-height: 1.5;
+					margin-top: 16px;
+					text-align: center;
+					font-size: 16px;
+				}
+
+				.reward__cardText {
+					color: $text-color-1;
+					font-weight: 400;
+					line-height: 1.5;
+					margin-top: 8px;
+					text-align: center;
+					font-size: 14px;
+				}
+
+				.reward__cardLink {
+					padding-top: 20px;
+					display: flex;
+					justify-content: center;
+
+					a {
+						display: inline-flex;
+						align-items: center;
+						justify-content: center;
+						gap: 5px;
+						font-weight: 600;
+						color: $primary-2;
+						text-decoration: none;
+
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+
+				.reward__unclaimed {
+					color: $text-color-4;
+					font-weight: 600;
+					line-height: 1.5;
+					text-transform: uppercase;
+					margin-bottom: 4px;
+					font-size: 12px;
+				}
+
+				.reward__row {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					flex-wrap: wrap;
+
+					div {
+						&:nth-of-type(1) {
+							color: $text-color-3;
+							font-weight: 600;
+							line-height: 1.5;
+							font-size: 40px;
+						}
+					}
+				}
+
+				.reward__estimate {
+					color: $text-color-1;
+					font-weight: 400;
+					line-height: 1.5;
+					font-size: 14px;
+				}
+
+				.reward__total {
+					padding-top: 44px;
+					color: $text-color-1;
+					font-weight: 600;
+					line-height: 1.5;
+					text-transform: uppercase;
+					font-size: 12px;
+				}
+
+				.reward__value {
+					color: $text-color-3;
+					font-weight: 600;
+					line-height: 1.5;
+					font-size: 24px;
+				}
+			}
+		}
+	}
+
+	.reward__backgroundImage {
+
+		@media screen and (max-width:1200px) {
+			display: none;
+		}
+
+		.reward__backgroundImage__left {
+			position: absolute;
+			top: 8%;
+			left: 0%;
+			width: 93px;
+			height: 243px;
+		}
+
+		.reward__backgroundImage__coin {
+			position: absolute;
+			overflow: hidden;
+			top: 2%;
+			right: 0px;
+			width: 183px;
+			height: 175px;
+
+			img {
+				width: 100%;
+				@include topLeftToBottomRight(3.5s);
+			}
+		}
+
+		.reward__backgroundImage__face {
+			position: absolute;
+			overflow: hidden;
+			width: 161px;
+			height: 160px;
+			bottom: 20%;
+			right: 0px;
+			z-index: 1;
+
+			img {
+				width: 100%;
+				@include botLeftTotopRight(3.5s);
+			}
+		}
+
+		.reward__backgroundImage__ship {
+			position: absolute;
+			overflow: hidden;
+			width: 307px;
+			height: 297px;
+			right: 15%;
+			bottom: 4%;
+			z-index: 2;
+			@include topLeftToBottomRight (4.5s);
+
+			@media screen and (max-width:1600px) {
+				right: 2%;
+			}
+
+			img {
+				width: 100%;
+			}
+		}
+	}
+}

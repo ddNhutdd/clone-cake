@@ -14,7 +14,22 @@ function CakeStakers() {
 			<HeaderComponent list={HeaderComponentList7} />
 			<Trading />
 			<Reward />
-			<Pool />
+			<Pool
+				imageLeft={
+					<img
+						src='https://pancakeswap.finance/images/trading-reward/pool-1.png'
+						className={css.poolLeftImage}
+					/>
+				}
+				imageRight={`https://pancakeswap.finance/images/trading-reward/pool-2.png`}
+				data={[
+					["Starts", "On Mar 1, 2024, 07:00"],
+					["Ends", "Apr 1, 2024, 06:59"],
+					["Total volume generated", "$37,833,550.868"],
+					["Total reward to distribute", "35in CAKE"],
+					["Number of eligible pairs", "97"]
+				]}
+			/>
 			<HowToEarn />
 			<Breakdown />
 			<Question />

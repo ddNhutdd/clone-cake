@@ -3,7 +3,36 @@ import css from './pool.module.scss';
 import Button from 'src/components/button';
 import { useTheme } from 'src/context/dark-theme';
 
-function Pool() {
+function Pool(props) {
+	const {
+		data,
+		imageLeft,
+		imageRight
+	} = props;
+
+	// render data
+	const renderData = (list) => {
+		return list?.map(([value1, value2]) => {
+			return (
+				<div className={css.pool__cardContent__row}>
+					<div>
+						{value1}
+					</div>
+					<div>
+						{value2}
+						{
+							list.at(-1).at(0) === value1 && <Button
+								className={`${css[`pool--button`]} ${css.pool__inlineButton}`}
+							>
+								View Pairs
+							</Button>
+						}
+					</div>
+				</div>
+			)
+		})
+	}
+
 	// theme
 	const { isDarkMode } = useTheme();
 	const darkClass = isDarkMode ? css.dark : '';
@@ -19,68 +48,20 @@ function Pool() {
 					<div className={css.pool__cardContent__title}>
 						Current Reward Pool
 					</div>
-					<div className={css.pool__cardContent__row}>
-						<div>
-							Starts
-						</div>
-						<div>
-							On Mar 1, 2024, 07:00
-						</div>
-					</div>
-					<div className={css.pool__cardContent__row}>
-						<div>
-							Ends
-						</div>
-						<div>
-							Apr 1, 2024, 06:59
-						</div>
-					</div>
-					<div className={css.pool__cardContent__row}>
-						<div>
-							Total volume generated
-						</div>
-						<div>
-							$37,833,550.868
-						</div>
-					</div>
-					<div className={css.pool__cardContent__row}>
-						<div>
-							Total reward to distribute
-						</div>
-						<div>
-							35 in CAKE
-						</div>
-					</div>
-					<div className={css.pool__cardContent__row}>
-						<div>
-							Number of eligible pairs
-						</div>
-						<div>
-							97
-							<Button
-								className={`${css[`pool--button`]} ${css.pool__inlineButton}`}
-							>
-								View Pairs
-							</Button>
-						</div>
-					</div>
+					{
+						renderData(data)
+					}
 					<div className={css.pool__cardContent__action}>
 						<Button className={`${css[`pool--button`]}`}>
 							View Pairs
 						</Button>
 					</div>
-					<img
-						src="https://pancakeswap.finance/images/trading-reward/pool-2.png"
-						alt="dk"
-						className={css.pool__face}
-					/>
+					{
+						imageRight && <img src={imageRight} className={css.pool__face} alt="dk" />
+					}
 				</Card>
 				<div className={css.pool__backgroundImge}>
-					<img
-						className={css.pool__chain}
-						src="https://pancakeswap.finance/images/trading-reward/pool-1.png"
-						alt="dk"
-					/>
+					{imageLeft}
 				</div>
 			</div>
 		</div >
