@@ -1,10 +1,15 @@
 import Card, { cardType } from 'src/components/card';
 import css from './pool.module.scss';
 import Button from 'src/components/button';
+import { useTheme } from 'src/context/dark-theme';
 
 function Pool() {
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.pool}>
+		<div className={`${css.pool} ${darkClass}`}>
 			<div className={css.container}>
 				<Card
 					type={cardType.flat}

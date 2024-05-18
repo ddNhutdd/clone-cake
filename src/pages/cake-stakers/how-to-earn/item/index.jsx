@@ -1,3 +1,4 @@
+import { useTheme } from 'src/context/dark-theme';
 import css from './item.module.scss';
 
 function Item(props) {
@@ -5,8 +6,12 @@ function Item(props) {
 		content
 	} = props;
 
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.item}>
+		<div className={`${css.item} ${darkClass}`}>
 			<div className={css.item__step}>
 				Step {content.number}
 			</div>

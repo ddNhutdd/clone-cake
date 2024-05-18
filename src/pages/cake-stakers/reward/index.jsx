@@ -1,10 +1,15 @@
 import Card, { cardType } from 'src/components/card';
 import css from './reward.module.scss';
 import Button from 'src/components/button';
+import { useTheme } from 'src/context/dark-theme';
 
 function Reward() {
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.reward}>
+		<div className={`${css.reward} ${darkClass}`}>
 			<div className={css.container}>
 				<div className={css.reward__title}>
 					Your Trading Reward
@@ -31,7 +36,23 @@ function Reward() {
 						</div>
 					</Card>
 				</div>
-
+			</div>
+			<div className={css.reward__backgroundImage}>
+				<div className={css.reward__backgroundImage__left}>
+					<img src="https://pancakeswap.finance/images/trading-reward/left-bunny.png" alt="dk" />
+				</div>
+				<div className={css.reward__backgroundImage__topButter}>
+					<img src="https://pancakeswap.finance/images/trading-reward/butter.png" alt="dk" />
+				</div>
+				<div className={css.reward__backgroundImage__topCoin}>
+					<img src="https://pancakeswap.finance/images/trading-reward/coin.png" alt="dk" />
+				</div>
+				<div className={css.reward__backgroundImage__rightFace}>
+					<img src="https://pancakeswap.finance/images/trading-reward/right-bunny.png" alt="dk" />
+				</div>
+				<div className={css.reward__backgroundImage__botHeart}>
+					<img src="https://pancakeswap.finance/images/trading-reward/love-butter.png" alt="dk" />
+				</div>
 			</div>
 		</div >
 	)

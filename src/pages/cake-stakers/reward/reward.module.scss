@@ -4,6 +4,24 @@
 	padding-top: 50px;
 	padding-bottom: 50px;
 	background: $background-62;
+	position: relative;
+	overflow: hidden;
+
+	&.dark {
+		.container {
+			.reward__card {
+				.reward__cardContent {
+					.reward__cardContent__top {
+						color: $text-color-white-2;
+					}
+
+					.reward__cardContent__bot {
+						color: $text-color-white-2;
+					}
+				}
+			}
+		}
+	}
 
 	.container {
 		@include container;
@@ -63,6 +81,78 @@
 				.reward__action {
 					margin-top: 30px;
 				}
+			}
+		}
+	}
+
+	.reward__backgroundImage {
+		.reward__backgroundImage__left {
+			position: absolute;
+			top: 8%;
+			left: 0%;
+			overflow: hidden;
+			width: 93px;
+			height: 243px;
+
+			img {
+				@include botLeftTotopRight(3.5s);
+				width: 100%;
+			}
+		}
+
+		.reward__backgroundImage__topButter {
+			position: absolute;
+			overflow: hidden;
+			width: 195px;
+			height: 191px;
+			top: -12%;
+			left: 20%;
+
+			img {
+				@include topLeftToBottomRight(3s);
+				width: 100%;
+			}
+		}
+
+		.reward__backgroundImage__topCoin {
+			position: absolute;
+			overflow: hidden;
+			width: 183px;
+			height: 175px;
+			top: 2%;
+			right: 0px;
+
+			img {
+				@include topLeftToBottomRight(3.5s);
+				width: 100%;
+			}
+		}
+
+		.reward__backgroundImage__rightFace {
+			position: absolute;
+			overflow: hidden;
+			width: 183px;
+			height: 175px;
+			bottom: 20%;
+			right: 0px;
+
+			img {
+				@include botLeftTotopRight(2.5s);
+				width: 100%;
+			}
+		}
+
+		.reward__backgroundImage__botHeart {
+			position: absolute;
+			overflow: hidden;
+			width: 306px;
+			height: 313px;
+			right: 16%;
+			bottom: 0%;
+
+			img {
+				@include topLeftToBottomRight(4.5s);
+				width: 100%;
 			}
 		}
 	}

@@ -1,21 +1,22 @@
 @import 'components/global-style/base.scss';
 
-@mixin columnSpace {
-	display: grid;
-	grid-template-columns: 40% 20% 20% 20%;
-}
-
-@mixin cellConfig {
-	padding: 10px;
-
-	&:last-child {
-		text-align: right;
-	}
-}
-
 .breakdown {
 	padding-bottom: 50px;
 	background: $background-3;
+
+	&.dark {
+		background: $background-6;
+
+		.container {
+			.breakdown__title {
+				color: $primary-1;
+			}
+
+			.breakdown__subTitle {
+				color: $text-color-6;
+			}
+		}
+	}
 
 	.container {
 		@include container;
@@ -40,65 +41,6 @@
 		.breakdown__card {
 			margin-top: 40px;
 
-			.breakdown__cardContent {
-				.breakdown__header {
-					.breakdown__row {
-						@include columnSpace;
-
-						.breakdown__cell {
-							@include cellConfig();
-
-							color: $text-color-4;
-							font-size: 12px;
-							text-transform: uppercase;
-							white-space: nowrap;
-							text-align: left;
-							font-weight: 600
-						}
-					}
-				}
-
-				.breakdown__body {
-					max-height: 500px;
-					overflow-y: auto;
-
-					.breakdown__row {
-						@include columnSpace;
-
-						.breakdown__cell {
-							@include cellConfig();
-
-							.breakdown__firstData {
-								display: flex;
-								align-items: center;
-								gap: 5px;
-
-								.breakdown__firstData__img {
-									position: relative;
-
-									img {
-										&:nth-of-type(1) {
-											position: absolute;
-											z-index: 1;
-											top: -5px;
-											left: -5px;
-											width: 15px;
-											height: 15px;
-										}
-
-										&:nth-of-type(2) {
-											position: relative;
-											z-index: 2;
-											width: 24px;
-											height: 24px;
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
 		}
 	}
 }

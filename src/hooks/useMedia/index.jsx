@@ -1,8 +1,9 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 
 export const widthDevice = {
 	width_576: '(max-width: 576px)',
 	width_768: '(max-width: 768px)',
+	width_968: '(max-width: 968px)',
 	width_992: '(max-width: 992px)',
 	width_1200: '(max-width: 1200px)',
 	width_1400: '(max-width: 1400px)',
@@ -17,6 +18,8 @@ const useMediaQuery = () => {
 				setDevice(widthDevice.width_576);
 			} else if (window.matchMedia(widthDevice.width_768).matches) {
 				setDevice(widthDevice.width_768);
+			} else if (window.matchMedia(widthDevice.width_968).matches) {
+				setDevice(widthDevice.width_968);
 			} else if (window.matchMedia(widthDevice.width_992).matches) {
 				setDevice(widthDevice.width_992);
 			} else if (window.matchMedia(widthDevice.width_1200).matches) {

@@ -6,6 +6,7 @@ import Reward from './reward';
 import Pool from './pool';
 import HowToEarn from './how-to-earn';
 import Breakdown from './breakdown';
+import Question from './question';
 
 function CakeStakers() {
 	return (
@@ -16,6 +17,7 @@ function CakeStakers() {
 			<Pool />
 			<HowToEarn />
 			<Breakdown />
+			<Question />
 		</div>
 	)
 }

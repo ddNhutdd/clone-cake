@@ -5,6 +5,20 @@
 	padding-top: 50px;
 	padding-bottom: 50px;
 
+	&.dark {
+		background: $background-6;
+
+		.container {
+			.howToEarn__card {
+				.howToEarn__cardContent {
+					.howToEarn__title {
+						color: $primary-1;
+					}
+				}
+			}
+		}
+	}
+
 	.container {
 		@include container;
 

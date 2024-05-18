@@ -1,0 +1,38 @@
+@import 'components/global-style/base.scss';
+
+.question {
+	background: $background-66;
+	padding-top: 50px;
+	padding-bottom: 50px;
+
+	&.dark {
+		background: $background-68;
+
+		.container {
+			.question__title {
+				color: $primary-1;
+			}
+		}
+	}
+
+	.container {
+		@include container;
+
+		.question__title {
+			color: $text-color-4;
+			font-weight: 600;
+			line-height: 1.5;
+			margin-bottom: 64px;
+			font-size: 40px;
+			text-align: center;
+		}
+
+		.question__item {
+			margin-top: 24px;
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+	}
+}

@@ -17,8 +17,8 @@ export const url = {
 	ifo: '/ifo',
 	affiliates: '/affiliates',
 	pools: '/pools',
-	tradingReward: '/trading-reward/cake-stakers',
-	topTraders: '/trading-reward/top-traders'
+	tradingReward: '/cake-stakers',
+	topTraders: '/top-traders'
 };
 
 export const localStorageVariable = {

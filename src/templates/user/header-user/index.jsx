@@ -171,6 +171,7 @@ function Header() {
 			id: 1,
 			content: 'Swap',
 			url: url.swap,
+			subUrl: [url.limit, url.twap],
 			onClick: () => { redirectPage(url.swap) }
 		},
 		{
@@ -202,6 +203,7 @@ function Header() {
 		{
 			id: 7,
 			content: 'Trading Reward',
+			subUrl: [url.topTraders],
 			url: url.tradingReward,
 			onClick: () => redirectPage(url.tradingReward)
 		},
@@ -237,7 +239,11 @@ function Header() {
 
 	const renderActiveMenu = (list) => {
 		const findItem = list.find(item => {
-			return location.pathname === item.url
+			// kiểm tra với url
+			if (location.pathname === item.url) return true;
+
+			// kiểm tra với subUrl
+			return item?.subUrl?.find(sub => sub === location.pathname)
 		})
 		return Boolean(findItem);
 	}
@@ -439,10 +445,12 @@ function Header() {
 						<DropdownHeader
 							header={`Game`}
 							list={gameMenuList}
+							active={renderActiveMenu(gameMenuList)}
 						/>
 						<DropdownHeader
 							header={`NFT`}
 							list={nftMenuList}
+							active={renderActiveMenu(nftMenuList)}
 						/>
 						<DropdownHeader
 							header={<HiOutlineDotsHorizontal />}

@@ -1,6 +1,20 @@
 @import 'components/global-style/base.scss';
 
 .item {
+	&.dark {
+		.item__step {
+			color: $text-color-white-2;
+		}
+
+		.item__title {
+			color: $primary-1;
+		}
+
+		.item__text {
+			color: $text-color-6;
+		}
+	}
+
 	.item__step {
 		color: $text-color-3;
 		font-weight: 600;

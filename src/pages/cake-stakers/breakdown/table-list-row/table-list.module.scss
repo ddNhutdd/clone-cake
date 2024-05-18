@@ -1,0 +1,103 @@
+@import 'components/global-style/base.scss';
+
+@mixin columnSpace {
+	display: grid;
+	grid-template-columns: 40% 20% 20% 20%;
+}
+
+@mixin cellConfig {
+	padding: 10px;
+
+	&:last-child {
+		text-align: right;
+	}
+}
+
+.tableListRow {
+	&.dark {
+		.tableListRow__header {
+			.tableListRow__row {
+				.tableListRow__cell {
+					color: $primary-1;
+				}
+			}
+		}
+
+		.tableListRow__body {
+			.tableListRow__row {
+				.tableListRow__cell {
+					color: $text-color-6;
+
+					.tableListRow__firstData {
+						.tableListRow__firstData__text {
+							color: $text-color-white-2;
+						}
+
+						.tableListRow__firstData__pill {
+							border-color: $primary-1;
+							color: $primary-1;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.tableListRow__header {
+		.tableListRow__row {
+			@include columnSpace;
+
+			.tableListRow__cell {
+				@include cellConfig();
+
+				color: $text-color-4;
+				font-size: 12px;
+				text-transform: uppercase;
+				white-space: nowrap;
+				text-align: left;
+				font-weight: 600
+			}
+		}
+	}
+
+	.tableListRow__body {
+		max-height: 500px;
+		overflow-y: auto;
+
+		.tableListRow__row {
+			@include columnSpace;
+
+			.tableListRow__cell {
+				@include cellConfig();
+
+				.tableListRow__firstData {
+					display: flex;
+					align-items: center;
+					gap: 5px;
+
+					.tableListRow__firstData__img {
+						position: relative;
+
+						img {
+							&:nth-of-type(1) {
+								position: absolute;
+								z-index: 1;
+								top: -5px;
+								left: -5px;
+								width: 15px;
+								height: 15px;
+							}
+
+							&:nth-of-type(2) {
+								position: relative;
+								z-index: 2;
+								width: 24px;
+								height: 24px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -3,6 +3,7 @@ import css from './how-to-earn.module.scss';
 import ArrowSquareIcon from 'src/assets/icons/arrow-square.icon';
 import { NavLink } from 'react-router-dom';
 import Item from './item';
+import { useTheme } from 'src/context/dark-theme';
 
 const list = [
 	{
@@ -32,10 +33,14 @@ const list = [
 ]
 
 function HowToEarn() {
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	const renderList = (list) => {
 		return list?.map(item => {
 			return (
-				<div className={css.howToEarn__item}>
+				<div key={item.number} className={css.howToEarn__item}>
 					<Item
 						content={item}
 					/>
@@ -45,7 +50,7 @@ function HowToEarn() {
 	}
 
 	return (
-		<div className={css.howToEarn}>
+		<div className={`${css.howToEarn} ${darkClass}`}>
 			<div className={css.container}>
 				<Card
 					className={css.howToEarn__card}

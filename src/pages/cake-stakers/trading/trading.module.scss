@@ -5,6 +5,26 @@
 	padding-top: 50px;
 	padding-bottom: 50px;
 
+	&.dark {
+		background: $background-67;
+
+		.container {
+			.trading__left {
+				.trading__title {
+					color: $primary-1;
+				}
+
+				.trading__subTitle {
+					color: $primary-1;
+				}
+
+				.trading__text {
+					color: $text-color-white-2;
+				}
+			}
+		}
+	}
+
 	.container {
 		@include container;
 		position: relative;

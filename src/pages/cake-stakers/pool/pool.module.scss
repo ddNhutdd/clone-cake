@@ -2,7 +2,12 @@
 
 .pool {
 	background: $background-3;
-	padding-bottom: 50px;
+	padding-top: 50px;
+	padding-bottom: 100px;
+
+	&.dark {
+		background: $background-6;
+	}
 
 	.pool--button {
 		background: $background-65;
@@ -19,7 +24,6 @@
 
 		.pool__card {
 			width: 1100px;
-			margin-top: 100px;
 			margin-left: auto;
 			margin-right: auto;
 			padding: 0;

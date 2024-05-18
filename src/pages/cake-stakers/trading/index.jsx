@@ -1,9 +1,14 @@
 import Button, { buttonClassesType } from 'src/components/button';
 import css from './trading.module.scss';
+import { useTheme } from 'src/context/dark-theme';
 
 function Trading() {
+	//theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.trading}>
+		<div className={`${css.trading} ${darkClass}`}>
 			<div className={css.container}>
 				<div className={css.trading__left}>
 					<div className={css.trading__title}>

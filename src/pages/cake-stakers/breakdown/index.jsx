@@ -1,56 +1,25 @@
 import Card from 'src/components/card';
 import css from './breakdown.module.scss';
-import Pill, { pillType } from 'src/components/pill';
-import V3 from './v3';
-import EthPill from './eth-pill';
+import TableListRow from './table-list-row';
+import TableListItem from './table-list-item';
+import useMediaQuery, { widthDevice } from 'src/hooks/useMedia';
+import { useTheme } from 'src/context/dark-theme';
 
 function Breakdown() {
+	// responsive
+	const screen = useMediaQuery();
+	const cardContent = screen === widthDevice.width_968 ||
+		screen === widthDevice.width_768 ||
+		screen === widthDevice.width_576 ?
+		<TableListItem /> :
+		<TableListRow />
 
-	const renderList = () => {
-		const result = [];
-		for (let index = 0; index < 50; index++) {
-			result.push(
-				<div className={css.breakdown__row}>
-					<div className={css.breakdown__cell}>
-						<div
-							className={css.breakdown__firstData}
-						>
-							<div className={css.breakdown__firstData__img}>
-								<img src="https://tokens.pancakeswap.finance/images/eth/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2.png" alt="dk" />
-								<img src="https://tokens.pancakeswap.finance/images/eth/0xae78736Cd615f374D3085123A210448E74Fc6393.png" alt="dk" />
-							</div>
-							<div className={css.breakdown__firstData__text}>
-								USDT-USDC LP
-							</div>
-							<Pill
-								type={pillType.outline}
-								className={css.breakdown__firstData__pill}
-							>
-								0.01%
-							</Pill>
-							<div>
-								<V3 />
-							</div>
-							<EthPill />
-						</div>
-					</div>
-					<div className={css.breakdown__cell}>
-						0.01%
-					</div>
-					<div className={css.breakdown__cell}>
-						0.01%
-					</div>
-					<div className={css.breakdown__cell}>
-						0.01%
-					</div>
-				</div>
-			)
-		}
-		return result;
-	}
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
 
 	return (
-		<div className={css.breakdown}>
+		<div className={`${css.breakdown} ${darkClass}`}>
 			<div className={css.container}>
 				<div className={css.breakdown__title}>
 					Rewards Breakdown
@@ -62,25 +31,7 @@ function Breakdown() {
 					className={css.breakdown__card}
 					classNameContent={css.breakdown__cardContent}
 				>
-					<div className={css.breakdown__header}>
-						<div className={css.breakdown__row}>
-							<div className={css.breakdown__cell}>
-								TRADING PAIR
-							</div>
-							<div className={css.breakdown__cell}>
-								YOUR VOLUME
-							</div>
-							<div className={css.breakdown__cell}>
-								YOUR TRADING FEE
-							</div>
-							<div className={css.breakdown__cell}>
-								REWARD EARNED
-							</div>
-						</div>
-					</div>
-					<div className={css.breakdown__body}>
-						{renderList()}
-					</div>
+					{cardContent}
 				</Card>
 			</div>
 		</div >

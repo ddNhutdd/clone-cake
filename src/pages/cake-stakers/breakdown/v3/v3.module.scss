@@ -1,6 +1,10 @@
 @import 'components/global-style/base.scss';
 
 .v3 {
+	&.dark {
+		background-color: $primary-1;
+	}
+
 	align-items: center;
 	border-radius: 16px;
 	color: rgb(255, 255, 255);

@@ -1,0 +1,67 @@
+@import 'components/global-style/base.scss';
+
+.questionItem {
+	&.dark {
+		.questionItem__row {
+			.questionItem__title {
+				color: $text-color-white-2;
+			}
+		}
+
+		.questionItem__details {
+			ul {
+				li {
+					color: $text-color-6;
+				}
+			}
+		}
+	}
+
+	.questionItem__row {
+		padding-bottom: 16px;
+		display: flex;
+		gap: 24px;
+		align-items: center;
+		justify-content: space-between;
+		cursor: pointer;
+
+		.questionItem__title {
+			color: $text-color-3;
+			line-height: 1.5;
+			font-weight: bold;
+			font-size: 16px;
+		}
+
+		.questionItem__toggle {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+			font-weight: 600;
+			color: $primary-2;
+
+		}
+	}
+
+	.questionItem__details {
+		ul {
+			list-style: none;
+
+			li {
+				a {
+					display: inline-block;
+					color: $primary-2;
+					text-decoration: none;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+
+				&::before {
+					content: '-';
+					margin-right: 5px;
+				}
+			}
+		}
+	}
+}
