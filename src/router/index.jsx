@@ -18,7 +18,8 @@ const Ifo = lazy(() => import('../pages/ifo'));
 const Affiliates = lazy(() => import('../pages/affiliates'));
 const Pools = lazy(() => import('../pages/pools'));
 const CakeStakers = lazy(() => import('../pages/cake-stakers'));
-const TopTrader = lazy(() => import('../pages/top-trader'))
+const TopTrader = lazy(() => import('../pages/top-trader'));
+const PositionManager = lazy(() => import(`../pages/position-manager`));
 
 export const router = createBrowserRouter([
 	{
@@ -165,6 +166,14 @@ export const router = createBrowserRouter([
 				element: (
 					<Suspense>
 						<TopTrader />
+					</Suspense>
+				),
+			},
+			{
+				path: url.positionManager,
+				element: (
+					<Suspense>
+						<PositionManager />
 					</Suspense>
 				),
 			}

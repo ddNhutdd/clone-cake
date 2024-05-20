@@ -3,6 +3,20 @@
 .leaderBoard {
 	background: $background-3;
 
+	&.dark {
+		background: $background-6;
+
+		.container {
+			.leaderBoard__header {
+				color: $primary-1;
+			}
+
+			.leaderBoard__time {
+				color: $text-color-6;
+			}
+		}
+	}
+
 	.container {
 		@include container;
 
@@ -30,9 +44,29 @@
 			margin-bottom: 16px;
 		}
 
+		.leaderBoard__threeCup {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: -30px;
+
+			img {
+				width: 286px;
+				display: none;
+
+				@media screen and (max-width: 1080px) {
+					display: block;
+				}
+			}
+		}
+
 		.leaderBoard__tops {
 			display: flex;
 			gap: 20px;
+
+			@media screen and (max-width: 1080px) {
+				flex-direction: column;
+			}
 
 			.leaderBoard__tops__item {
 				flex: 1;

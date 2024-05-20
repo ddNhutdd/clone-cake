@@ -1,9 +1,14 @@
 import Button, { buttonClassesType } from 'src/components/button';
 import css from './panel.module.scss';
+import { useTheme } from 'src/context/dark-theme';
 
 function Panel() {
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.panel}>
+		<div className={`${css.panel} ${darkClass}`}>
 			<div className={css.container}>
 				<div className={css.panel__left}>
 					<div className={css.panel__left__header}>

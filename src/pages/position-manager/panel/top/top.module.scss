@@ -1,0 +1,108 @@
+@import 'components/global-style/base.scss';
+
+.top {
+	background: $background-55;
+	background-position: center center;
+	border-radius: 32px;
+	display: flex;
+	position: relative;
+
+	.top__left {
+		width: 70%;
+		padding: 16px 0 16px 24px;
+		position: relative;
+		z-index: 2;
+
+		@media screen and (max-width: 300px) {
+			width: 100%;
+		}
+
+		.top__header {
+			line-height: 110%;
+			font-weight: 600;
+			font-size: 32px;
+			color: $text-color-white-1;
+			margin-bottom: 8px;
+
+			@media screen and (max-width: 576px) {
+				font-size: 24px;
+			}
+		}
+
+		.top__text {
+			font-size: 18px;
+			font-weight: 600;
+			color: $text-color-white-1;
+			margin-bottom: 15px;
+
+			@media screen and (max-width: 576px) {
+				font-size: 12px;
+			}
+		}
+
+		.top__action {
+			display: flex;
+			gap: 10px;
+
+			@media screen and (max-width: 300px) {
+				flex-wrap: wrap;
+			}
+
+			button {
+				@media screen and (max-width: 576px) {
+					padding: 8px 12px;
+					min-height: unset;
+				}
+			}
+		}
+	}
+
+	.top__right {
+		width: 50%;
+
+		@media screen and (max-width: 300px) {
+			display: none;
+		}
+
+		.top__right__imageContiner {
+			background: url('https://pancakeswap.finance/_next/static/media/bCakeMigration.413eba75.png');
+			background-size: 450px;
+			background-position: 86% -3px;
+			background-repeat: no-repeat;
+			border-bottom-right-radius: 32px;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 50%;
+			height: 110%;
+			z-index: 1;
+
+			@media screen and (max-width: 900px) {
+				background-position: 86% 7px;
+			}
+
+			@media screen and (max-width: 850px) {
+				height: 100%;
+				background-position: 7% 8px;
+			}
+
+			@media screen and (max-width: 638px) {
+				background-position: 31% 20px;
+			}
+
+			@media screen and (max-width: 634px) {
+				background-position: 31% 47px;
+			}
+
+			@media screen and (max-width: 576px) {
+				background-size: 320px;
+				background-position: 6px 6px;
+			}
+
+			@media screen and (max-width: 495px) {
+				background-size: 316px;
+				background-position: -16px 53px;
+			}
+		}
+	}
+}

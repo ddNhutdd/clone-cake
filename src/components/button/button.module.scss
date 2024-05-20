@@ -19,7 +19,6 @@
 	padding: 10px 24px;
 	min-height: 48px;
 
-
 	&.dark {
 		color: $text-color-5;
 	}
@@ -31,6 +30,11 @@
 	&:active {
 		box-shadow: none;
 		transform: translateY(1px);
+	}
+
+	svg {
+		color: $text-color-white-1;
+		fill: $text-color-white-1;
 	}
 }
 
@@ -118,6 +122,17 @@
 	&.dark {
 		background-color: $background-5;
 		color: $primary-2;
+	}
+}
+
+.button-primary-white {
+	@include buttonCustom;
+	background: $background-8;
+	color: $primary-2;
+	box-shadow: rgba(0, 0, 0, 0.2) 0px -2px 0px inset;
+
+	svg {
+		fill: $primary-2;
 	}
 }
 

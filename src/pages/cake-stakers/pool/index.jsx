@@ -14,7 +14,7 @@ function Pool(props) {
 	const renderData = (list) => {
 		return list?.map(([value1, value2]) => {
 			return (
-				<div className={css.pool__cardContent__row}>
+				<div key={value1} className={css.pool__cardContent__row}>
 					<div>
 						{value1}
 					</div>

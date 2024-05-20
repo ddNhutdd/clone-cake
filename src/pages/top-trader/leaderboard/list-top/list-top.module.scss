@@ -1,0 +1,28 @@
+@import 'components/global-style/base.scss';
+
+.listTop {
+	margin-top: 40px;
+
+	@media screen and (max-width: 968px) {
+		padding: 0;
+		border-radius: 0;
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+
+	.listTopContent {
+		padding: 16px;
+
+		@media screen and (max-width: 968px) {
+			padding: 0;
+			border-radius: 0;
+		}
+
+		.listTop__paging {
+			padding-top: 20px;
+			padding-bottom: 20px;
+			display: flex;
+			justify-content: center;
+		}
+	}
+}

@@ -1,0 +1,61 @@
+@import 'components/global-style/base.scss';
+
+.item {
+	.item--largeBold {
+		color: $text-color-4;
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+	.item--smallTitle {
+		color: $text-color-1;
+		font-weight: 400;
+		line-height: 1.5;
+		margin-right: auto;
+		font-size: 12px;
+	}
+
+	.item--value {
+		color: $text-color-3;
+		font-weight: 600;
+		line-height: 1.5;
+		text-align: right;
+		font-size: 16px;
+	}
+
+	.item--valueBold {
+		color: $text-color-3;
+		line-height: 1.5;
+		font-weight: bold;
+		text-align: right;
+		font-size: 16px;
+	}
+
+	.item__row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 8px;
+		gap: 10px;
+
+		.item__iconContainer {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+
+			.item__iconContainer__address {
+				font-weight: 600;
+				color: $primary-2;
+			}
+
+			svg {
+				width: 32px;
+				height: 32px;
+			}
+		}
+
+		.item__row__value {
+			text-align: right;
+		}
+	}
+}

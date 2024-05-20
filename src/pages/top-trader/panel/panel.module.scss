@@ -3,6 +3,31 @@
 .panel {
 	position: relative;
 	padding: 50px 0;
+	background: $background-69;
+
+	&.dark {
+		background: $background-67 ;
+
+		.container {
+			.panel__left {
+				.panel__left__header {
+					color: $primary-1;
+				}
+
+				.panel__left__subHeader {
+					color: $text-color-white-2;
+				}
+
+				.panel__left__title {
+					color: $primary-1;
+				}
+
+				.panel__left__text {
+					color: $text-color-white-2;
+				}
+			}
+		}
+	}
 
 	.container {
 		@include container;

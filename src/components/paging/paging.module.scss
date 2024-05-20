@@ -6,6 +6,12 @@
 	gap: 15px;
 	user-select: none;
 
+	&.dark {
+		.paging__text {
+			color: $text-color-white-2;
+		}
+	}
+
 	.paging__button {
 		display: flex;
 		align-items: center;

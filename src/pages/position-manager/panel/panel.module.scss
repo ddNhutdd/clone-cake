@@ -1,0 +1,14 @@
+@import 'components/global-style/base.scss';
+
+.panel {
+	padding: 32px 0;
+	background: $background-41;
+
+	.container {
+		@include container;
+
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+}

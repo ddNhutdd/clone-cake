@@ -18,7 +18,8 @@ export const url = {
 	affiliates: '/affiliates',
 	pools: '/pools',
 	tradingReward: '/cake-stakers',
-	topTraders: '/top-traders'
+	topTraders: '/top-traders',
+	positionManager: '/position-manager',
 };
 
 export const localStorageVariable = {

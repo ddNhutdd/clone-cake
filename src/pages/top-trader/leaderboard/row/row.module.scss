@@ -1,0 +1,73 @@
+@import 'components/global-style/base.scss';
+
+@mixin row {
+	display: grid;
+	grid-template-columns: 50% 25% 25%;
+}
+
+@mixin cell {
+	padding: 10px;
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	color: $text-color-3;
+	font-weight: 600;
+
+	&:last-child {
+		text-align: right;
+	}
+}
+
+.row {
+	@include row;
+
+	&.dark {
+		.row__cell {
+			color: $text-color-white-2;
+
+			.row__cell__myRank {
+				.row__cell__myRank__rank {
+					color: $primary-1;
+				}
+			}
+
+			.row__small {
+				color: $text-color-6;
+			}
+		}
+	}
+
+	.row__cell {
+		@include cell;
+
+		.row__cell__myRank {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+
+			.row__cell__myRank__rank {
+				margin-right: 40px;
+				color: $text-color-4;
+			}
+
+			.row__cell__myRank__icon {
+				svg {
+					width: 42px;
+					height: 42px;
+				}
+			}
+
+			.row__cell__myRank__address {
+				font-weight: 600;
+				color: $primary-2;
+			}
+		}
+
+		.row__small {
+			color: $text-color-1;
+			font-size: 12px;
+			font-weight: 400;
+		}
+	}
+}

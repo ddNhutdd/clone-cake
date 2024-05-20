@@ -76,6 +76,8 @@ function Header() {
 		{
 			id: 4,
 			content: 'Position Manager',
+			url: url.positionManager,
+			onClick: () => { redirectPage(url.positionManager) }
 		},
 		{
 			id: 5,

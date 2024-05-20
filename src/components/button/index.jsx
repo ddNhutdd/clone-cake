@@ -11,6 +11,7 @@ export const buttonClassesType = {
 	secondThin: 'secondaryThin',
 	outline: 'outline',
 	primaryPuple: 'primaryPuple',
+	primaryWhite: 'primaryWhite',
 	disaled: 'disabled'
 };
 
@@ -50,6 +51,9 @@ const Button = forwardRef((props, ref) => {
 
 			case buttonClassesType.disaled:
 				return css['button-disabled'];
+
+			case buttonClassesType.primaryWhite:
+				return css['button-primary-white'];
 
 			default:
 				return css['button-primary'];

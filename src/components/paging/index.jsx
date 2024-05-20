@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import css from './paging.module.scss';
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
+import { useTheme } from 'src/context/dark-theme';
 
 export const Paging = (props) => {
 	const {
@@ -11,6 +12,10 @@ export const Paging = (props) => {
 		totalItems,
 		onChange
 	} = props;
+
+	//theme 
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
 
 	const totalPage = Math.ceil(totalItems / pageSize);
 	const [prevDisable, setPrevDisable] = useState(currentPage <= 1);
@@ -54,14 +59,20 @@ export const Paging = (props) => {
 	}, [currentPage])
 
 	return (
-		<div className={css.paging}>
-			<div onClick={preClickHandle.bind(null, currentPage)} className={`${css.paging__button} ${renderClassDisable(prevDisable)}`}>
+		<div className={`${css.paging} ${darkClass}`}>
+			<div
+				onClick={preClickHandle.bind(null, currentPage)}
+				className={`${css.paging__button} ${renderClassDisable(prevDisable)}`}
+			>
 				<FaArrowLeft />
 			</div>
-			<div>
+			<div className={css.paging__text}>
 				Page {currentPage} of {totalPage}
 			</div>
-			<div onClick={nextClickHandle.bind(null, currentPage)} className={`${css.paging__button} ${renderClassDisable(nextDisable)}`}>
+			<div
+				onClick={nextClickHandle.bind(null, currentPage)}
+				className={`${css.paging__button} ${renderClassDisable(nextDisable)}`}
+			>
 				<FaArrowRight />
 			</div>
 		</div>

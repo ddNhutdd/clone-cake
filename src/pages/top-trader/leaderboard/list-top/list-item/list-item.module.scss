@@ -1,0 +1,12 @@
+@import 'components/global-style/base.scss';
+
+.listItem {
+	.listItem__item {
+		padding: 16px;
+		border-bottom: 1px solid $border-color;
+
+		&:first-child {
+			border-top: 1px solid $border-color;
+		}
+	}
+}

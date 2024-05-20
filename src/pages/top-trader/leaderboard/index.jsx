@@ -2,10 +2,16 @@ import { Paging } from 'src/components/paging';
 import css from './leaderboard.module.scss';
 import TopItem from './top-item';
 import MyRank from './my-rank';
+import ListTop from './list-top';
+import { useTheme } from 'src/context/dark-theme';
 
 function Leaderboard() {
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.leaderBoard}>
+		<div className={`${css.leaderBoard} ${darkClass}`}>
 			<div className={css.container}>
 				<div className={css.leaderBoard__header}>
 					Leaderboard
@@ -19,6 +25,9 @@ function Leaderboard() {
 						totalItems={40}
 						onChange={() => { }}
 					/>
+				</div>
+				<div className={css.leaderBoard__threeCup}>
+					<img src="/src/assets/imgs/three-cup.png" alt="dk" />
 				</div>
 				<div className={css.leaderBoard__tops}>
 					<div className={css.leaderBoard__tops__item}>
@@ -50,6 +59,7 @@ function Leaderboard() {
 					</div>
 				</div>
 				<MyRank />
+				<ListTop />
 			</div>
 		</div>
 	)

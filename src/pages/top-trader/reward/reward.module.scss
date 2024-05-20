@@ -6,6 +6,60 @@
 	padding-bottom: 100px;
 	position: relative;
 
+	&.dark {
+		.container {
+			.reward__cardContainer {
+				.reward__card {
+					.reward__cardName {
+						color: $text-color-white-2;
+					}
+
+					.reward__cardComingSoon {
+						color: $text-color-white-2;
+					}
+
+					.reward__cardText {
+						color: $text-color-6;
+					}
+
+					.reward__childCard {
+						.reward__childCardContent {
+							background-color: $background-14;
+
+							&:nth-of-type(1) {
+								margin-bottom: 24px;
+							}
+
+							.reward__unclaimed {
+								color: $primary-1;
+							}
+
+							.reward__row {
+								div {
+									&:nth-of-type(1) {
+										color: $text-color-white-2;
+									}
+								}
+							}
+
+							.reward__estimate {
+								color: $text-color-6;
+							}
+
+							.reward__total {
+								color: $text-color-6;
+							}
+
+							.reward__value {
+								color: $text-color-white-2;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
 	.container {
 		@include container;
 
@@ -104,52 +158,53 @@
 					}
 				}
 
-				.reward__unclaimed {
-					color: $text-color-4;
-					font-weight: 600;
-					line-height: 1.5;
-					text-transform: uppercase;
-					margin-bottom: 4px;
-					font-size: 12px;
-				}
+				.reward__childCard {
+					.reward__unclaimed {
+						color: $text-color-4;
+						font-weight: 600;
+						line-height: 1.5;
+						text-transform: uppercase;
+						margin-bottom: 4px;
+						font-size: 12px;
+					}
 
-				.reward__row {
-					display: flex;
-					align-items: center;
-					justify-content: space-between;
-					flex-wrap: wrap;
+					.reward__row {
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						flex-wrap: wrap;
 
-					div {
-						&:nth-of-type(1) {
-							color: $text-color-3;
-							font-weight: 600;
-							line-height: 1.5;
-							font-size: 40px;
+						div {
+							&:nth-of-type(1) {
+								color: $text-color-3;
+								font-weight: 600;
+								line-height: 1.5;
+								font-size: 40px;
+							}
 						}
 					}
-				}
 
-				.reward__estimate {
-					color: $text-color-1;
-					font-weight: 400;
-					line-height: 1.5;
-					font-size: 14px;
-				}
+					.reward__estimate {
+						color: $text-color-1;
+						font-weight: 400;
+						line-height: 1.5;
+						font-size: 14px;
+					}
 
-				.reward__total {
-					padding-top: 44px;
-					color: $text-color-1;
-					font-weight: 600;
-					line-height: 1.5;
-					text-transform: uppercase;
-					font-size: 12px;
-				}
+					.reward__total {
+						color: $text-color-1;
+						font-weight: 600;
+						line-height: 1.5;
+						text-transform: uppercase;
+						font-size: 12px;
+					}
 
-				.reward__value {
-					color: $text-color-3;
-					font-weight: 600;
-					line-height: 1.5;
-					font-size: 24px;
+					.reward__value {
+						color: $text-color-3;
+						font-weight: 600;
+						line-height: 1.5;
+						font-size: 24px;
+					}
 				}
 			}
 		}

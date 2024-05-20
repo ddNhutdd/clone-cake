@@ -1,7 +1,10 @@
 import css from './item.module.scss';
 import TreeBranchIcon from 'src/assets/icons/tree-branch.icon';
 import PancakeUnknowIcon from 'src/assets/icons/pancake-unknow.icon';
+import pancakeUnknowDarkIcon from 'src/assets/icons/pancake-unknow-dark.icon';
 import Card from 'src/components/card';
+import { useTheme } from 'src/context/dark-theme';
+import PancakeUnknowDarkIcon from 'src/assets/icons/pancake-unknow-dark.icon';
 
 function TopItem(props) {
 	const {
@@ -43,8 +46,12 @@ function TopItem(props) {
 		}
 	}
 
+	//theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.topItem}>
+		<div className={`${css.topItem} ${darkClass}`}>
 			<div className={css.topItem__img}>
 				{renderImage(rank)}
 			</div>
@@ -53,7 +60,9 @@ function TopItem(props) {
 			>
 				<div className={`${css.topItem__metal} ${renderClassRank(rank)}`}>
 					<TreeBranchIcon />
-					<PancakeUnknowIcon />
+					{
+						isDarkMode ? <PancakeUnknowDarkIcon /> : <PancakeUnknowIcon />
+					}
 					<TreeBranchIcon />
 				</div>
 				<div className={css.topItem__address}>

@@ -33,7 +33,7 @@ function ModalWalletContent(props) {
 				<label>Your Address</label>
 				<Input2
 					ref={inputAddressElement}
-					value={address}
+					value={address || ''}
 					icon={
 						<CopyToClipboard
 							onCopy={copyClickHandle}
