@@ -1,1 +1,61 @@
 @import 'components/global-style/base.scss';
+
+.controls {
+	.container {
+		@include container;
+		padding: 16px 32px;
+		display: flex;
+		justify-content: space-between;
+		gap: 10px;
+		flex-wrap: wrap;
+
+		.controls__left {
+			display: flex;
+			gap: 20px;
+			flex-wrap: wrap;
+
+			.controls__view {
+				display: flex;
+				gap: 15px;
+
+				.control__viewItem {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+			}
+
+			.controls__staking {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 5px;
+
+				.controls__staking__switch {
+					transform: scale(0.7);
+				}
+			}
+
+			.controls__tab {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+
+		.controls__right {
+			display: flex;
+			align-items: center;
+			gap: 15px;
+			flex-wrap: wrap;
+
+			.controls__right__controlGrounp {
+				min-width: 150px;
+
+				input {
+					min-height: 40px;
+				}
+			}
+		}
+	}
+}

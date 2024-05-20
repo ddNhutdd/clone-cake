@@ -30,6 +30,10 @@
 			display: flex;
 			align-items: center;
 
+			@media screen and (max-width: 968px) {
+				display: none;
+			}
+
 			.bottom__right__image {
 				width: 40%;
 				overflow: hidden;
