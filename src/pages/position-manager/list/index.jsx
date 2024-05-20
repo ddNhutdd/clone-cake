@@ -1,8 +1,9 @@
 import React from 'react'
+import Controls from './controls'
 
 function List() {
   return (
-	<div>List</div>
+    <Controls />
   )
 }
 
