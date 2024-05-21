@@ -21,8 +21,9 @@ function InputSwap(props) {
 	const darkClass = isDarkMode ? css.dark : '';
 
 	// swap click handle 
+	const [swapStatus, setSwapStatus] = useState(false);
 	const swapClickHandle = () => {
-		
+
 		onChange()
 	}
 
