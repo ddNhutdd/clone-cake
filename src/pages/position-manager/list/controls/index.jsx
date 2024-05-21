@@ -5,6 +5,9 @@ import { FaList } from 'react-icons/fa';
 import Tabs from 'src/components/tabs';
 import SelectWithHeaderChange from 'src/components/selec-with-header-change';
 import Input3 from 'src/components/input-3';
+import { useContext } from 'react';
+import { DrillContext } from 'src/context/drill';
+import { showType } from 'src/constants';
 
 // tablist
 const typeTabList = [
@@ -45,15 +48,24 @@ const sortList = [
 ]
 
 function Controls() {
+	const {
+		showType: showTypeContext,
+		setShowType
+	} = useContext(DrillContext);
+
+	const viewItemActive = (view) => {
+		return view === showTypeContext ? css.active : ''
+	}
+
 	return (
 		<div className={css.controls}>
 			<div className={css.container}>
 				<div className={css.controls__left}>
 					<div className={css.controls__view}>
-						<div className={`${css.control__viewItem}`}>
+						<div onClick={setShowType.bind(null, showType.grid)} className={`${css.control__viewItem} ${viewItemActive(showType.grid)}`}>
 							<BsGrid3X2GapFill />
 						</div>
-						<div className={`${css.control__viewItem}`}>
+						<div onClick={setShowType.bind(null, showType.list)} className={`${css.control__viewItem} ${viewItemActive(showType.list)}`}>
 							<FaList />
 						</div>
 					</div>

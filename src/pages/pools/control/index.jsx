@@ -7,8 +7,8 @@ import SelectWithHeaderChange from 'src/components/selec-with-header-change';
 import Switch from 'src/components/switch/switch';
 import Input3 from 'src/components/input-3';
 import { DrillContext } from 'src/context/drill';
-import { showType } from '..';
 import { useTheme } from 'src/context/dark-theme';
+import { showType } from 'src/constants';
 
 const sortOptions = [
 	{

@@ -1,6 +1,6 @@
-import css from './panel.module.scss';
 import Bottom from './bottom';
-import Top from './top'
+import css from './panel.module.scss';
+import Top from './top';
 
 function Panel() {
 	return (

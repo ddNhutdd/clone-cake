@@ -1,1 +1,344 @@
 @import 'components/global-style/base.scss';
+
+@mixin cellConfig {
+	padding: 24px 32px 24px 0px;
+
+	@media screen and (max-width: 1150px) {
+		padding: 24px 16px 24px 0px;
+	}
+}
+
+.row {
+	.row--success {
+		color: $text-color-7;
+	}
+
+	.row--line-through {
+		text-decoration: line-through;
+		color: $text-color-3;
+	}
+
+	.row--small {
+		font-size: 12px;
+		color: $text-color-1;
+		text-align: left;
+	}
+
+	.row--600 {
+		font-weight: 600;
+	}
+
+	.row--under-dot {
+		text-decoration: underline;
+		text-decoration-style: dotted;
+		text-decoration-color: $text-color-3;
+		text-underline-offset: 3px;
+	}
+
+	.row--black {
+		color: $text-color-dark;
+	}
+
+	.row--link {
+		margin-top: 4px;
+
+		a {
+
+			font-weight: 600;
+			color: $primary-2;
+			display: inline-flex;
+			align-items: center;
+			gap: 5px;
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+
+			svg {
+				fill: $primary-2;
+			}
+		}
+	}
+
+	.row--reward-pill {
+		background-color: $text-color-4;
+		color: $text-color-white-1;
+		display: flex;
+		align-items: center;
+		gap: 5px;
+
+		svg {
+			position: relative;
+			top: 2px;
+		}
+	}
+
+	.row__content {
+		display: flex;
+		border-bottom: 2px solid $border-color-8;
+		cursor: pointer;
+
+		@media screen and (max-width: 968px) {
+			flex-wrap: wrap;
+		}
+
+		.row__first {
+			@include cellConfig();
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			padding-left: 32px;
+
+			@media screen and (max-width: 1150px) {
+				padding-left: 16px;
+			}
+
+			@media screen and (max-width: 576px) {
+				flex-wrap: wrap;
+			}
+
+			.row__first__img {
+				position: relative;
+
+				img {
+					&:nth-of-type(1) {
+						position: absolute;
+						z-index: 1;
+						top: -6px;
+						left: -8px;
+						width: 20px;
+						height: 20px;
+					}
+
+					&:nth-of-type(2) {
+						position: relative;
+						z-index: 2;
+						width: 33px;
+						height: 33px;
+					}
+				}
+			}
+
+			.row__first__coin {
+				font-weight: 600;
+				color: $text-color-3;
+				white-space: nowrap;
+			}
+
+			.row__first__name {
+				font-size: 19.2px;
+				color: $text-color-3;
+			}
+
+			.row__first__percentContainer {
+				@media screen and (max-width: 576px) {
+					display: none;
+				}
+
+				.row__first__percent {
+					height: unset;
+					padding: 2px 4px;
+				}
+			}
+
+			.row__first__boost {
+				color: $text-color-7;
+				border-color: $text-color-7;
+				position: relative;
+				top: 3px;
+			}
+		}
+
+		.row__second {
+			@include cellConfig();
+
+			@media screen and (max-width: 850px) {
+				width: fit-content;
+				padding-left: 16px;
+				padding-top: 0;
+			}
+
+			.row__second__content {
+				display: flex;
+				gap: 5px;
+
+				@media screen and (max-width: 350px) {
+					flex-wrap: wrap;
+				}
+
+				svg {
+					width: 20px;
+					position: relative;
+					top: 2px;
+
+					&:last-child {
+						font-size: 20px;
+					}
+
+					&:active {
+						position: relative;
+						top: 3px;
+					}
+				}
+			}
+		}
+
+		.row__third {
+			@include cellConfig();
+
+			@media screen and (max-width: 968px) {
+				display: none;
+			}
+		}
+
+		.row__fourth {
+			@include cellConfig();
+
+			@media screen and (max-width: 968px) {
+				display: none;
+			}
+		}
+
+		.row__fifth {
+			@include cellConfig();
+
+			@media screen and (max-width: 968px) {
+				display: none;
+			}
+		}
+
+		.row__sixth {
+			margin-left: auto;
+			display: flex;
+			align-items: center;
+			padding-right: 32px;
+			color: $primary-2;
+
+			@media screen and (max-width: 1150px) {
+				padding-right: 16px;
+			}
+
+			@media screen and (max-width: 350px) {
+				display: none;
+			}
+		}
+	}
+
+	.row__detail {
+		padding: 24px 32px;
+		display: flex;
+		align-items: flex-start;
+		gap: 20px;
+
+		@media screen and (max-width: 768px) {
+			flex-direction: column;
+		}
+
+		.row__detail__left {
+			width: 304px;
+
+			@media screen and (max-width: 768px) {
+				width: 100%;
+			}
+
+			.row__detail__row {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				color: $text-color-3;
+				font-size: 14px;
+				gap: 8px;
+
+				@media screen and (max-width: 400px) {
+					flex-direction: column;
+					margin-bottom: 12px;
+					align-items: flex-start;
+					gap: 0;
+				}
+
+				&.more {
+					display: none;
+
+					@media screen and (max-width: 968px) {
+						display: flex;
+					}
+				}
+			}
+
+			.row__detail__row__linkContainer {
+				@media screen and (max-width: 768px) {
+					display: none;
+				}
+			}
+		}
+
+		.row__detail__right {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+
+			@media screen and (max-width: 768px) {
+				width: 100%;
+			}
+
+			.row__card {
+				padding: 2px;
+				width: 100%;
+
+				.row__cardContent {
+					padding: 16px;
+
+					.row__cardTitle {
+						color: $text-color-1;
+						font-weight: 600;
+						text-transform: uppercase;
+						font-size: 12px;
+					}
+
+					.row__cardHighLight {
+						color: $text-color-3;
+						font-weight: 600;
+						line-height: 1.5;
+					}
+
+					.row__cardText {
+						color: $text-color-1;
+						font-size: 12px;
+
+						span {
+							margin-left: 4px;
+							margin-right: 4px;
+							font-weight: 600;
+						}
+					}
+
+					.row__detail__line {
+						border-left: 1px solid $background-10;
+						border-top: 1px solid $background-10;
+						margin-top: 16px;
+						margin-bottom: 16px;
+					}
+
+					.row__cardUpto {
+						color: $text-color-1;
+						font-weight: 600;
+						font-size: 16px;
+						line-height: 120%;
+						display: flex;
+						align-items: center;
+					}
+				}
+			}
+		}
+
+		.row__detail__row__linkContainerBottom {
+			display: none;
+
+			@media screen and (max-width: 768px) {
+				display: block;
+			}
+		}
+	}
+}

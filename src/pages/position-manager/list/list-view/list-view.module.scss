@@ -1,1 +1,11 @@
 @import 'components/global-style/base.scss';
+
+.listView {
+	.container {
+		@include container;
+
+		.listView__cardContent {
+			padding: 0;
+		}
+	}
+}

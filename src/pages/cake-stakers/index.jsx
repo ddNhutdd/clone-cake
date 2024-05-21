@@ -1,12 +1,12 @@
 import HeaderComponent from 'src/components/header-component';
-import css from './cake-stakers.module.scss';
 import HeaderComponentList7 from 'src/constants/header-component-list-7';
-import Trading from './trading';
-import Reward from './reward';
-import Pool from './pool';
-import HowToEarn from './how-to-earn';
 import Breakdown from './breakdown';
+import css from './cake-stakers.module.scss';
+import HowToEarn from './how-to-earn';
+import Pool from './pool';
 import Question from './question';
+import Reward from './reward';
+import Trading from './trading';
 
 function CakeStakers() {
 	return (

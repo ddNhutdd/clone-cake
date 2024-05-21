@@ -10,11 +10,7 @@ import { useState } from 'react';
 import Modal from 'src/components/modal';
 import RoiModal from './roi-modal';
 import { useTheme } from 'src/context/dark-theme';
-
-export const showType = {
-	list: 'list',
-	grid: 'grid'
-}
+import { showType } from 'src/constants';
 
 function Pools() {
 	// modal calc roi

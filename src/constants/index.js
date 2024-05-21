@@ -94,3 +94,8 @@ export const sortType = {
 	asc: 'acscending',
 	des: 'descending'
 }
+
+export const showType = {
+	list: 'list',
+	grid: 'grid'
+}

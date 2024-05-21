@@ -13,7 +13,9 @@ function Tabs(props) {
 		listTabs,
 		selectedItem,
 		onChange,
-		color = tabColor.purple
+		cssCustom = '',
+		color = tabColor.purple,
+		disabled = false
 	} = props;
 
 	const { isDarkMode } = useTheme();
@@ -36,7 +38,7 @@ function Tabs(props) {
 		listTabs.map((item) => (
 			<div
 				key={item.id}
-				className={`${css.tabs__item} ${renderClassActive(item)}`}
+				className={`${css.tabs__item} ${cssCustom} ${renderClassActive(item)}`}
 				onClick={itemClickHandle.bind(null, item)}
 			>
 				{item.content}
@@ -54,10 +56,12 @@ function Tabs(props) {
 				break;
 		}
 	}
-
+	const renderDisabled = () => {
+		return disabled ? css.disabled : ''
+	}
 
 	return (
-		<div className={`${css.tabs} ${classTheme} ${renderColor()}`}>
+		<div className={`${css.tabs} ${renderDisabled()} ${classTheme} ${renderColor()}`}>
 			{renderList()}
 		</div>
 	);

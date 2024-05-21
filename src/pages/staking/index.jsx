@@ -1,16 +1,14 @@
 import css from './staking.module.scss';
-import {useState} from 'react';
+import { useState } from 'react';
 import GridCards from './grid-cards';
 import ListItems from './list-items';
-import {FaList} from 'react-icons/fa';
-import {BsFillGrid3X2GapFill} from 'react-icons/bs';
-import {useTheme} from 'context/dark-theme';
+import { FaList } from 'react-icons/fa';
+import { BsFillGrid3X2GapFill } from 'react-icons/bs';
+import { useTheme } from 'context/dark-theme';
+import { showType } from 'src/constants';
 
 function Staking() {
-	const actionType = {
-		list: 'list',
-		grid: 'grid',
-	};
+
 	const list = [
 		{
 			id: '1',
@@ -108,14 +106,14 @@ function Staking() {
 		},
 	];
 
-	const {isDarkMode} = useTheme();
+	const { isDarkMode } = useTheme();
 
-	const [isShowType, setIsShowType] = useState(actionType.grid);
+	const [isShowType, setIsShowType] = useState(showType.grid);
 
 	const renderMainData = () => {
-		return isShowType === actionType.grid ?
-				<GridCards list={list} />
-			:	<ListItems list={list} />;
+		return isShowType === showType.grid ?
+			<GridCards list={list} />
+			: <ListItems list={list} />;
 	};
 	const renderClassActiveAction = (action) => {
 		return isShowType === action ? css.active : '';
@@ -145,18 +143,18 @@ function Staking() {
 						<span
 							onClick={actionClickHandle.bind(
 								null,
-								actionType.grid,
+								showType.grid,
 							)}
-							className={`${renderClassActiveAction(actionType.grid)}`}
+							className={`${renderClassActiveAction(showType.grid)}`}
 						>
 							<BsFillGrid3X2GapFill />
 						</span>
 						<span
 							onClick={actionClickHandle.bind(
 								null,
-								actionType.list,
+								showType.list,
 							)}
-							className={`${renderClassActiveAction(actionType.list)}`}
+							className={`${renderClassActiveAction(showType.list)}`}
 						>
 							<FaList />
 						</span>
