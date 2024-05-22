@@ -1,1 +1,76 @@
 @import 'components/global-style/base.scss';
+
+.input {
+	border: 1px solid $border-color;
+	border-radius: 18px;
+	overflow: hidden;
+
+	.input--title {
+		font-size: 12px;
+		line-height: 16px;
+		color: $text-color-3;
+	}
+
+	.input--selected {
+		color: rgb(40, 13, 95);
+		-webkit-box-align: center;
+		align-items: center;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: inline-flex;
+		align-items: center;
+		gap: 5px;
+		font-weight: 500;
+		max-width: 95%;
+
+		svg {
+			position: relative;
+			top: 2px;
+		}
+	}
+
+	.input__header {
+		display: flex;
+
+		.input__header__left {
+			display: flex;
+			width: 60%;
+			padding: 16px;
+			background: $background-10;
+			cursor: pointer;
+
+			.input__header__left__img {
+				margin-right: 5px;
+				width: 40px;
+
+				img {
+					width: 100%;
+				}
+			}
+
+			.input__header__left__content {
+				flex: 1;
+			}
+		}
+
+		.input__header__right {
+			width: 40%;
+			padding: 16px;
+			background: $background-10;
+			cursor: pointer;
+			margin-left: 1px;
+		}
+	}
+
+	.input__body {
+		display: flex;
+		padding-left: 16px;
+		padding-right: 16px;
+		align-items: center;
+
+		.input__body__balance {
+			margin-left: auto;
+		}
+	}
+}
