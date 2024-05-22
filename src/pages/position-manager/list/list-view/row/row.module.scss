@@ -14,8 +14,18 @@
 	}
 
 	.row--line-through {
-		text-decoration: line-through;
+		position: relative;
 		color: $text-color-3;
+
+		&::after {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 1px;
+			position: absolute;
+			inset: 50% 0;
+			background: $text-color-3;
+		}
 	}
 
 	.row--small {
@@ -74,10 +84,85 @@
 		}
 	}
 
+	&.dark {
+		.row--small {
+			color: $text-color-6;
+		}
+
+		.row--under-dot {
+			text-decoration-color: $text-color-white-1;
+		}
+
+		.row--line-through {
+			color: $text-color-white-2;
+
+			&::after {
+				background: $text-color-white-2;
+			}
+		}
+
+		.row--black {
+			color: $text-color-white-1;
+		}
+
+		.row__content {
+			border-color: $border-color-7 !important;
+
+			.row__first {
+				.row__first__coin {
+					color: $text-color-white-2;
+				}
+
+				.row__first__name {
+					color: $text-color-white-2;
+				}
+			}
+		}
+
+		.row__detail {
+			.row__detail__left {
+				.row__detail__row {
+					color: $text-color-white-2;
+				}
+			}
+
+			.row__detail__right {
+				.row__card {
+					&:nth-of-type(2) {
+						.row__cardContent {
+							background: $background-6 !important;
+						}
+					}
+
+					.row__cardContent {
+						.row__cardTitle {
+							color: $text-color-6;
+						}
+
+						.row__cardHighLight {
+							color: $text-color-white-2;
+						}
+
+						.row__cardText {
+							color: $text-color-6;
+						}
+
+						.row__cardUpto {
+							color: $text-color-6;
+						}
+					}
+				}
+			}
+		}
+	}
+
 	.row__content {
 		display: flex;
-		border-bottom: 2px solid $border-color-8;
 		cursor: pointer;
+
+		&.borderBottom {
+			border-bottom: 2px solid $border-color-8;
+		}
 
 		@media screen and (max-width: 968px) {
 			flex-wrap: wrap;

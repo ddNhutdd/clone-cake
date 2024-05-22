@@ -1,6 +1,45 @@
 @import 'components/global-style/base.scss';
 
 .bottom {
+
+	&.dark {
+		.container {
+			.bottom__left {
+				.bottom__left__header {
+					color: $primary-1;
+				}
+
+				.bottom__left__text {
+					color: $text-color-white-2;
+				}
+			}
+
+			.bottom__right {
+				.bottom__right__card {
+					.bottom__right__content {
+						.bottom__right__header {
+							color: $text-color-white-2;
+
+							svg {
+								&:last-child {
+									color: $text-color-6;
+								}
+							}
+						}
+
+						.bottom__right__title {
+							color: $text-color-6;
+						}
+
+						.bottom__right__text {
+							color: $text-color-6;
+						}
+					}
+				}
+			}
+		}
+	}
+
 	.container {
 		@include container;
 		display: flex;

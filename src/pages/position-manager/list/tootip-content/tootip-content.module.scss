@@ -1,0 +1,43 @@
+@import 'components/global-style/base.scss';
+
+.tootipContent {
+	.tootipContent--bold {
+		font-weight: 600;
+	}
+
+	.tootipContent--bolder {
+		font-weight: bolder;
+	}
+
+	.tootipContent--line-through {
+		text-decoration: line-through;
+	}
+
+	color: $text-color-3;
+
+	ul {
+		margin-bottom: 16px;
+		list-style: none;
+
+		li {
+			position: relative;
+			padding-left: 15px;
+
+			&::before {
+				content: '';
+				display: block;
+				width: 5px;
+				height: 5px;
+				border-radius: 5px;
+				background-color: $text-color-3;
+				position: absolute;
+				inset: 50% 3px;
+				transform: translate3d(0, -50%, 0);
+			}
+		}
+	}
+
+	.tootipContent__params {
+		margin-bottom: 16px;
+	}
+}

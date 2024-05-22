@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaAngleDown, FaAngleUp, FaRegCircleQuestion } from "react-icons/fa6";
 import { IoRocket } from "react-icons/io5";
 import { MdOutlineCalculate } from "react-icons/md";
@@ -10,6 +10,8 @@ import Button from 'src/components/button';
 import Card from 'src/components/card';
 import Pill, { pillType } from 'src/components/pill';
 import css from './item.module.scss';
+import { DrillContext } from "src/context/drill";
+import { useTheme } from "src/context/dark-theme";
 
 function Item() {
 	// toggle detail
@@ -18,9 +20,16 @@ function Item() {
 		setShowDetail(state => !state);
 	}
 
+	// show roi modal
+	const { roiModalOpen } = useContext(DrillContext);
+
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
 		<Card
-			className={css.item__card}
+			className={`${css.item__card} ${darkClass}`}
 			classNameContent={css.item__cardContent}
 		>
 			<div className={css.item__cardContent__header}>
@@ -69,7 +78,7 @@ function Item() {
 					<span>
 						142.92%
 					</span>
-					<MdOutlineCalculate />
+					<MdOutlineCalculate onClick={roiModalOpen} />
 				</div>
 			</div>
 			<div className={css.item__cardContent__row}>

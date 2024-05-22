@@ -1,6 +1,7 @@
 import { useTheme } from 'src/context/dark-theme';
 import css from './input-swap.module.scss';
 import { HiArrowsUpDown } from "react-icons/hi2";
+import { useState } from 'react';
 
 function InputSwap(props) {
 	const {
@@ -16,16 +17,16 @@ function InputSwap(props) {
 	// output unit
 	const [outputUnit, setOutputUnit] = useState(outputUnitInitial);
 
+	// swap click handle
+	const swapClickHandle = () => {
+		setInputUnit(outputUnit);
+		setOutputUnit(inputUnit);
+		onChange();
+	}
+
 	// theme
 	const { isDarkMode } = useTheme();
 	const darkClass = isDarkMode ? css.dark : '';
-
-	// swap click handle 
-	const [swapStatus, setSwapStatus] = useState(false);
-	const swapClickHandle = () => {
-
-		onChange()
-	}
 
 	return (
 		<div className={`${css.inputSwap} ${darkClass}`}>
@@ -42,7 +43,7 @@ function InputSwap(props) {
 				</div>
 			</div>
 			<div className={css.inputSwap__right}>
-				<HiArrowsUpDown />
+				<HiArrowsUpDown onClick={swapClickHandle} />
 			</div>
 		</div>
 	)

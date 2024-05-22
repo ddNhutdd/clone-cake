@@ -77,6 +77,7 @@ function RoiModalContent() {
 	// arrow flow
 	const [arrowFlow, setArrowFlow] = useState(flowType.down);
 	const arrowRef = useRef(null);
+	// cái này chạy là do vị trí của component
 	const animationArrow = () => {
 		if (arrowRef && arrowRef.current) {
 			addAnimate(arrowRef.current);
@@ -132,6 +133,12 @@ function RoiModalContent() {
 		animationArrow();
 	}
 
+	// input swap
+	const inputSwapChangeHandle = () => {
+		setArrowFlow(flowType.down);
+		animationArrow();
+	}
+
 	return (
 		<div className={css.roiModalContent}>
 			<div className={css.roiModalContent__controlGroup}>
@@ -139,8 +146,9 @@ function RoiModalContent() {
 					USDT-USDC LP STAKED
 				</label>
 				<InputSwap
-					inputUnit={<div style={{ whiteSpace: 'nowrap' }}>AIOZ-WBNB LP</div>}
-					outputUnit={`USD`}
+					inputUnitInitial={<div style={{ whiteSpace: 'nowrap' }}>AIOZ-WBNB LP</div>}
+					outputUnitInitial={`USD`}
+					onChange={inputSwapChangeHandle}
 				/>
 				<div className={css.roiModalContent__listBalance}>
 					<div

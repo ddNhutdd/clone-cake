@@ -1,6 +1,25 @@
 @import 'components/global-style/base.scss';
 
 .controls {
+
+	&.dark {
+		.container {
+			.controls__left {
+				.controls__view {
+					.control__viewItem {
+						color: $text-color-19;
+					}
+				}
+
+				.controls__staking {
+					.controls__staking__text {
+						color: $text-color-white-2;
+					}
+				}
+			}
+		}
+	}
+
 	.container {
 		@include container;
 		padding: 16px 32px;
@@ -61,6 +80,14 @@
 
 			.controls__right__controlGrounp {
 				min-width: 150px;
+
+				label {
+					color: $text-color-1;
+					font-weight: 600;
+					line-height: 1.5;
+					text-transform: uppercase;
+					font-size: 12px;
+				}
 
 				input {
 					min-height: 40px;

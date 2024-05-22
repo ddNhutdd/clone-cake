@@ -19,6 +19,90 @@
 		}
 	}
 
+	&.dark {
+		.item__card--title {
+			color: $text-color-6;
+		}
+
+		.item__card--text {
+			color: $text-color-6;
+		}
+
+		.item__cardContent {
+			.item__cardContent__header {
+				.item__cardContent__header__content {
+					.item__cardContent__header__textConainer {
+						div {
+							&:nth-of-type(1) {
+								color: $text-color-white-2;
+							}
+
+							&:nth-of-type(2) {
+								color: $text-color-white-2;
+							}
+						}
+					}
+				}
+			}
+
+			.item__cardContent__row {
+				color: $text-color-white-2;
+
+				.item__cardContent__row__first {
+					svg {
+						color: $text-color-7;
+
+						&:last-child {
+							color: $text-color-6;
+						}
+					}
+
+					span {
+						&:nth-of-type(2) {
+							text-decoration-color: $text-color-white-2;
+						}
+
+						&:nth-of-type(3) {
+							text-decoration-color: $text-color-white-2;
+
+							&::before {
+								border-color: $text-color-white-2;
+							}
+						}
+					}
+				}
+			}
+
+			.item__cardContent__hightLight {
+				color: $text-color-white-2;
+			}
+
+			.item__cardChild {
+				.item__cardChildContent {
+					background: $background-6;
+
+					.item__cardContent__boost {
+						.item__cardContent__boost__left {
+							.item__cardContent__boost__text {
+								color: $text-color-6;
+							}
+						}
+					}
+
+					.item__cardContent__line {
+						border-color: $background-11;
+					}
+				}
+			}
+
+			.item__cardContent__detail {
+				.item__cardContent__detail__row {
+					color: $text-color-white-2;
+				}
+			}
+		}
+	}
+
 	.item__cardContent {
 		.item__cardContent__header {
 			display: flex;
@@ -264,6 +348,7 @@
 			margin-right: auto;
 			font-weight: 600;
 			color: $primary-2;
+			cursor: pointer;
 		}
 
 		.item__cardContent__detail {

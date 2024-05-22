@@ -14,7 +14,15 @@ import { DrillContext } from 'src/context/drill';
 import { ToolTip } from 'src/components/tooltip';
 import { useTheme } from 'src/context/dark-theme';
 
-function Row() {
+function Row(props) {
+	const {
+		borderBottom = true
+	} = props;
+
+	const renderBorderBottom = () => {
+		return borderBottom ? css.borderBottom : '';
+	}
+
 	// detail
 	const [detailShow, setDetailShow] = useState(false);
 	const toggleDetail = () => {
@@ -30,7 +38,7 @@ function Row() {
 
 	return (
 		<div className={`${css.rowContainer} ${darkClass}`}>
-			<div onClick={toggleDetail} className={`${css.row}`}>
+			<div onClick={toggleDetail} className={`${css.row} ${renderBorderBottom()}`}>
 				<div className={css.row__firstCell}>
 					<div className={css.row__firstCell__left}>
 						<div className={css.row__firstCell__large}>

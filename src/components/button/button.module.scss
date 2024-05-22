@@ -134,6 +134,15 @@
 	svg {
 		fill: $primary-2;
 	}
+
+	&.dark {
+		background: $background-5;
+		color: $primary-2;
+
+		svg {
+			fill: $primary-2;
+		}
+	}
 }
 
 .button-disabled {

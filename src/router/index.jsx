@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import UserTemplate from '../templates/user/user.template';
 import { url } from 'src/constants';
+import BridgeTemplates from 'src/templates/bridge-templates';
 
 const Home = lazy(() => import('../pages/home'));
 const Swap = lazy(() => import('../pages/swap'));
@@ -20,6 +21,7 @@ const Pools = lazy(() => import('../pages/pools'));
 const CakeStakers = lazy(() => import('../pages/cake-stakers'));
 const TopTrader = lazy(() => import('../pages/top-trader'));
 const PositionManager = lazy(() => import(`../pages/position-manager`));
+const Bridge = lazy(() => import('../pages/bridge'));
 
 export const router = createBrowserRouter([
 	{
@@ -179,4 +181,17 @@ export const router = createBrowserRouter([
 			}
 		],
 	},
+	{
+		element: <BridgeTemplates />,
+		children: [
+			{
+				path: url.bridge,
+				element: (
+					<Suspense>
+						<Bridge />
+					</Suspense>
+				),
+			},
+		]
+	}
 ]);

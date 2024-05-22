@@ -20,6 +20,7 @@ export const url = {
 	tradingReward: '/cake-stakers',
 	topTraders: '/top-traders',
 	positionManager: '/position-manager',
+	bridge: '/bridge'
 };
 
 export const localStorageVariable = {

@@ -3,10 +3,15 @@ import { IoRocket } from "react-icons/io5";
 import { FaRegCircleQuestion } from "react-icons/fa6";
 import Button, { buttonClassesType } from 'src/components/button';
 import Card from 'src/components/card';
+import { useTheme } from 'src/context/dark-theme';
 
 function Bottom() {
+	// theme 
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.bottom}>
+		<div className={`${css.bottom} ${darkClass}`}>
 			<div className={css.container}>
 				<div className={css.bottom__left}>
 					<div className={css.bottom__left__header}>
@@ -24,30 +29,31 @@ function Bottom() {
 						className={css.bottom__right__card}
 						classNameContent={css.bottom__right__content}
 					>
-					<div className={css.bottom__right__header}>
-						<IoRocket />
-						<div>
-							Yield Booster
+						<div className={css.bottom__right__header}>
+							<IoRocket />
+							<div>
+								Yield Booster
+							</div>
+							<FaRegCircleQuestion />
 						</div>
-						<FaRegCircleQuestion />
-					</div>
-					<div className={css.bottom__right__line} />
-					<div className={css.bottom__right__title}>
-						No CAKE locked
-					</div>
-					<div className={css.bottom__right__text}>
-						An active veCAKE staking position is required for activating farm yield boosters.
-					</div>
-					<div className={css.bottom__right__action}>
-						<Button
-							type={buttonClassesType.primaryPuple}
-						>
-							Go to CAKE Staking
-						</Button>
-					</div>
-				</Card>
+						<div className={css.bottom__right__line} />
+						<div className={css.bottom__right__title}>
+							No CAKE locked
+						</div>
+						<div className={css.bottom__right__text}>
+							An active veCAKE staking position is required for activating farm yield boosters.
+						</div>
+						<div className={css.bottom__right__action}>
+							<Button
+								type={buttonClassesType.primaryPuple}
+								className={`w-100`}
+							>
+								Go to CAKE Staking
+							</Button>
+						</div>
+					</Card>
+				</div>
 			</div>
-		</div>
 		</div >
 	)
 }

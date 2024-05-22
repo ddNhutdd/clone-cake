@@ -1,0 +1,40 @@
+@import 'src/components/global-style/base.scss';
+
+.bridgeHeaderDropdown {
+	position: relative;
+
+	.bridgeHeaderDropdown__header {
+		&:hover+.bridgeHeaderDropdown__menu {
+			display: block;
+		}
+	}
+
+	.bridgeHeaderDropdown__menu {
+		&:hover {
+			display: block;
+		}
+
+		position: absolute;
+		top: 56px;
+		padding: 4px 0;
+		width: 280px;
+		background-color: $background-1;
+		border: 1px solid $border-color;
+		border-radius: 16px;
+		display: none;
+		overflow: hidden;
+
+		.bridgeHeaderDropdown__item {
+			display: flex;
+			height: 48px;
+			padding: 0 16px;
+			align-items: center;
+			justify-content: space-between;
+
+			&:hover {
+				opacity: 1 !important;
+				background: $background-8;
+			}
+		}
+	}
+}

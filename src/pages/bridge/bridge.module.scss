@@ -1,0 +1,59 @@
+@import 'components/global-style/base.scss';
+
+.bridge {
+	padding: 20px 0;
+
+	.bridge--blue {
+		color: $text-color-22;
+		cursor: pointer;
+	}
+
+	.container {
+		@include container;
+
+		.bridge__content {
+			width: 420px;
+			margin-left: auto;
+			margin-right: auto;
+			display: flex;
+			gap: 20px;
+			flex-direction: column;
+
+			.bridge__warning {
+				color: $yellow-3;
+				font-size: 14px;
+			}
+
+			.bridge__card {
+				.bridge__cardContent {
+					.bridge__connect {
+						cursor: pointer;
+						color: $text-color-21;
+						font-size: 12px;
+						line-height: 16px;
+						text-align: right;
+					}
+
+					.bridge__arrow {}
+
+					.bridge__rowContainer {
+						display: flex;
+						flex-direction: column;
+						gap: 8px;
+						margin-top: 24px;
+						margin-bottom: 24px;
+
+						.bridge__row {
+							display: flex;
+							align-items: center;
+							justify-content: space-between;
+							font-size: 12px;
+							line-height: 16px;
+							color: $text-color-21;
+						}
+					}
+				}
+			}
+		}
+	}
+}

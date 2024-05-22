@@ -1,3 +1,4 @@
+import { useContext, useState } from "react";
 import { FaAngleDown, FaAngleUp, FaRegCircleQuestion } from "react-icons/fa6";
 import { IoRocket } from "react-icons/io5";
 import { MdOutlineCalculate } from "react-icons/md";
@@ -8,19 +9,37 @@ import PancakeOutlineIcon from 'src/assets/icons/pancake-outline.icon';
 import Button from "src/components/button";
 import Card from "src/components/card";
 import Pill, { pillType } from 'src/components/pill';
+import { useTheme } from "src/context/dark-theme";
+import { DrillContext } from "src/context/drill";
 import css from './row.module.scss';
-import { useState } from "react";
+import { ToolTip } from "src/components/tooltip";
+import TootipContent from "../../tootip-content";
 
-function Row() {
+function Row(props) {
+	const {
+		borderBottom = true
+	} = props;
+
+	const renderBorderBottom = () => {
+		return borderBottom ? css.borderBottom : '';
+	}
+
 	// toggle detail
 	const [showDetail, setShowDetail] = useState(false);
 	const toggleDetail = () => {
 		setShowDetail(state => !state);
 	}
 
+	// show modal roi
+	const { roiModalOpen } = useContext(DrillContext);
+
+	// theme 
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.row}>
-			<div onClick={toggleDetail} className={css.row__content}>
+		<div className={`${css.row}  ${darkClass}`}>
+			<div onClick={toggleDetail} className={`${css.row__content} ${renderBorderBottom()}`}>
 				<div className={css.row__first}>
 					<div className={css.row__first__img}>
 						<img src="https://tokens.pancakeswap.finance/images/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c.png" alt="dk" />
@@ -58,17 +77,22 @@ function Row() {
 						<div className={css[`row--success`]}>
 							<IoRocket />
 						</div>
-						<div className={`${css[`row--success`]} ${css[`row--under-dot`]}`}>
+						<div className={`${css[`row--success`]}`}>
 							Up to
 						</div>
-						<div className={`${css[`row--success`]} ${css[`row--line-through`]} ${css[`row--under-dot`]} ${css[`row--600`]}`}>
-							385.15%
-						</div>
+						<ToolTip
+							className={`flex items-center gap-1`}
+							content={<TootipContent />}
+						>
+							<div className={`${css[`row--success`]} ${css[`row--under-dot`]} ${css[`row--600`]}`}>
+								385.15%
+							</div>
+							<div className={`${css[`row--line-through`]} ${css[`row--under-dot`]}`}>
+								143.69%
+							</div>
+						</ToolTip>
 						<div>
-							143.69%
-						</div>
-						<div>
-							<MdOutlineCalculate />
+							<MdOutlineCalculate onClick={roiModalOpen} />
 						</div>
 					</div>
 				</div>

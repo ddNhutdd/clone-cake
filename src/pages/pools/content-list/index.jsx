@@ -16,7 +16,7 @@ function ContentList() {
               <Row />
               <Row />
               <Row />
-              <Row />
+              <Row borderBottom={false} />
             </div>
           </Card>
         </div>

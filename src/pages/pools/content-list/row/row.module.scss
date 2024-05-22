@@ -56,7 +56,7 @@
 		}
 
 		.row {
-			border-color: $border-color-7;
+			border-color: $border-color-7 !important;
 
 			.row__firstCell {
 				.row__firstCell__right {
@@ -164,7 +164,11 @@
 		display: flex;
 		align-items: center;
 		cursor: pointer;
-		border-bottom: 2px solid $border-color-8;
+
+		&.borderBottom {
+			border-bottom: 2px solid $border-color-8;
+		}
+
 
 		.row__firstCell {
 			padding: 24px 8px 24px 32px;

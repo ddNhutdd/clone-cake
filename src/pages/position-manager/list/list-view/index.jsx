@@ -13,7 +13,7 @@ function ListView() {
 					<Row />
 					<Row />
 					<Row />
-					<Row />
+					<Row borderBottom={false} />
 				</Card>
 			</div>
 		</div>

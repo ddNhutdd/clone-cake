@@ -1,6 +1,10 @@
 @import 'components/global-style/base.scss';
 
 .positionManager {
+	&.dark {
+		background: $background-6;
+	}
+
 	background: $background-3;
 	padding-bottom: 50px;
 }
