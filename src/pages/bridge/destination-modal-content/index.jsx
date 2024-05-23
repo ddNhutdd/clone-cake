@@ -2,6 +2,7 @@ import Switch from 'src/components/switch/switch';
 import css from './destination-modal-content.module.scss';
 import TabHeaderSlide from 'src/components/tab-header-slide';
 import { useState } from 'react';
+import { useTheme } from 'src/context/dark-theme';
 
 const listTab = [
 	{
@@ -22,8 +23,12 @@ function DestinationModalContent() {
 		setSelectedTab(item);
 	}
 
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.destinationModalContent}>
+		<div className={`${css.destinationModalContent} ${darkClass}`}>
 			<div className={css.destinationModalContent__text}>
 				Choose the amount of
 				{" "}

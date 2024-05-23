@@ -7,6 +7,24 @@
 		display: block;
 	}
 
+	&.dark {
+		.bridgeModal__contentContainer {
+			.bridgeModal__modal {
+				background: $background-58;
+
+				.bridgeModal__header {
+					.bridgeModal__headerText {
+						color: $text-color-white-2;
+					}
+
+					svg {
+						color: $text-color-white-2;
+					}
+				}
+			}
+		}
+	}
+
 	.bridgeModal__overlay {
 		position: fixed;
 		z-index: 999998;

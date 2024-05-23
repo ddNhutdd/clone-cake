@@ -10,6 +10,18 @@
 	overflow: hidden;
 	position: relative;
 
+	&.dark {
+		background: $background-11;
+
+		.tabHeaderSlide__item {
+			color: $text-color-white-2;
+
+			&.active {
+				color: $text-color-5;
+			}
+		}
+	}
+
 	.tabHeaderSlide__item {
 		position: relative;
 		z-index: 3;

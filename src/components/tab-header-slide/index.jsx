@@ -1,3 +1,4 @@
+import { useTheme } from 'src/context/dark-theme';
 import css from './tab-header-slide.module.scss';
 
 function TabHeaderSlide(props) {
@@ -32,8 +33,12 @@ function TabHeaderSlide(props) {
 	const findIndex = list?.findIndex(item => item.content === selectedItem.content);
 	const left = findIndex * widthValue;
 
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.tabHeaderSlide}>
+		<div className={`${css.tabHeaderSlide} ${darkClass}`}>
 			{renderList(list)}
 			<div
 				style={{ width: widthValue + "%", left: left + "%" }}

@@ -2,6 +2,7 @@ import TabHeaderSlide from 'src/components/tab-header-slide';
 import css from './tolerance.module.scss';
 import Switch from 'src/components/switch/switch';
 import { useState } from 'react';
+import { useTheme } from 'src/context/dark-theme';
 
 const listTab = [
 	{
@@ -25,8 +26,12 @@ function ToleranceModalContent() {
 	//switch
 	const [checked, setChecked] = useState(false);
 
+	//theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.toleranceModalContent}>
+		<div className={`${css.toleranceModalContent} ${darkClass}`}>
 			<div className={css.toleranceModalContent__text}>
 				Your transaction will revert if the price change unfavorably by more than this percentage.
 			</div>

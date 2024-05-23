@@ -1,3 +1,4 @@
+import { useTheme } from 'src/context/dark-theme';
 import css from './bridge-modal.module.scss';
 import { IoClose } from "react-icons/io5";
 
@@ -12,9 +13,13 @@ function BridgeModal(props) {
 	// render 
 	const showClass = show ? css.show : '';
 
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
 		<div
-			className={`${css.bridgeModal} ${showClass}`}
+			className={`${css.bridgeModal} ${showClass} ${darkClass}`}
 		>
 			<div
 				className={`${css.bridgeModal__overlay} ${css.fadeIn}`}
