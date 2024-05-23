@@ -1,0 +1,40 @@
+@import 'src/components/global-style/base.scss';
+
+.inputSearch {
+	position: relative;
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	border: 1px solid $border-color;
+	border-radius: 18px;
+	height: 40px;
+	padding-left: 8px;
+	padding-right: 8px;
+	width: 100%;
+	box-sizing: border-box;
+	margin-bottom: 32px;
+
+	svg {
+		font-size: 25px;
+		margin-right: 10px;
+		color: $text-color-21;
+	}
+
+	input {
+		background-color: transparent;
+		color: $text-color-3;
+		font-size: 14px;
+		border: 0px;
+		width: 0px;
+		flex-basis: 0px;
+		-webkit-box-flex: 1;
+		flex-grow: 1;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		outline: none;
+
+		&::placeholder {
+			color: $text-color-3;
+		}
+	}
+}

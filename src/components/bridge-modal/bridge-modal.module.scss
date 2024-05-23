@@ -1,0 +1,82 @@
+@import 'src/components/global-style/base.scss';
+
+.bridgeModal {
+	display: none;
+
+	&.show {
+		display: block;
+	}
+
+	.bridgeModal__overlay {
+		position: fixed;
+		z-index: 999998;
+		inset: 0;
+		background: #000000b8;
+	}
+
+	.bridgeModal__contentContainer {
+		z-index: 999999;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		min-width: 380px;
+		width: 432px;
+		transform: translate(-50%, -50%);
+
+		@media screen and (max-width: 576px) {
+			width: 90%;
+			min-width: unset;
+		}
+
+		.bridgeModal__modal {
+			width: 100%;
+			padding-top: 16px;
+			background: $background-1;
+			overflow: hidden;
+			border-radius: 18px;
+
+			.bridgeModal__header {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				justify-content: space-between;
+				padding-left: 16px;
+				padding-right: 16px;
+
+				.bridgeModal__headerText {
+					color: $text-color-3;
+					line-height: 24px;
+				}
+
+				svg {
+					font-size: 25px;
+					position: relative;
+					top: 3px;
+					cursor: pointer;
+				}
+			}
+
+			.bridgeModal__content {
+				padding: 16px;
+			}
+		}
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.fadeIn {
+	animation: fadeIn .1s 1;
+}
+
+.modalFadeIn {
+	animation: fadeIn .3s 1;
+}

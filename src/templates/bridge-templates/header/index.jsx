@@ -2,6 +2,9 @@ import SwitchTheme from 'src/components/switch/switch-theme';
 import css from './header.module.scss';
 import { NavLink } from 'react-router-dom';
 import BridgeHeaderDropdown from 'src/components/bridge-header-dropdown';
+import { url } from 'src/constants';
+import useMediaQuery, { widthDevice } from 'src/hooks/useMedia';
+import { useTheme } from 'src/context/dark-theme';
 
 const listEVMs = [
 	{
@@ -28,20 +31,32 @@ const listAptos = [
 ]
 
 function Header() {
+	//responsive
+	const screen = useMediaQuery();
+
+	// theme 
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.header}>
+		<div className={`${css.header} ${darkClass}`}>
 			<div className={css.header__left}>
 				<div className={css.header__logo}>
-					<NavLink>
-						<img src="/src/assets/imgs/logo.svg" alt="dk" />
-					</NavLink>
-					<NavLink>
-						<img src="/src/assets/imgs/logo-text-light.svg" alt="dk" />
-					</NavLink>
+					<>
+						<NavLink>
+							<img src={`/src/assets/imgs/logo${screen === widthDevice.width_576 ? '2' : ''}.svg`} alt="dk" />
+						</NavLink>
+						<NavLink>
+							<img src={`/src/assets/imgs/logo${screen === widthDevice.width_576 ? '2' : '-text-light'}.svg`} alt="dk" />
+						</NavLink>
+					</>
 				</div>
 				<ul className={css.header__menu}>
 					<li>
-						<NavLink className={`${css.header__item} ${css.active}`}>
+						<NavLink
+							className={`${css.header__item} ${css.active}`}
+							to={url.bridge}
+						>
 							CAKE
 						</NavLink>
 					</li>
@@ -49,7 +64,10 @@ function Header() {
 						<BridgeHeaderDropdown
 							list={listEVMs}
 						>
-							<NavLink className={css.header__item}>
+							<NavLink
+								className={css.header__item}
+								to={url.bridge}
+							>
 								EVMs
 							</NavLink>
 						</BridgeHeaderDropdown>
@@ -59,13 +77,19 @@ function Header() {
 							list={listAptos}
 							showIcon={true}
 						>
-							<NavLink className={css.header__item}>
+							<NavLink
+								className={css.header__item}
+								to={url.bridge}
+							>
 								Aptos
 							</NavLink>
 						</BridgeHeaderDropdown>
 					</li>
 					<li>
-						<NavLink className={css.header__item}>
+						<NavLink
+							className={css.header__item}
+							to={url.bridge}
+						>
 							Swap
 						</NavLink>
 					</li>

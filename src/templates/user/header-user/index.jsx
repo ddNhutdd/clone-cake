@@ -191,6 +191,8 @@ function Header() {
 			id: 4,
 			content: 'Bride',
 			icon: <FaArrowRightFromBracket />,
+			url: url.bridge,
+			onClick: () => { redirectPage(url.bridge) }
 		},
 		{
 			id: 5,

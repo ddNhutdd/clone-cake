@@ -1,0 +1,17 @@
+@import 'components/global-style/base.scss';
+
+.tokenModalContent {
+	.tokenModalContent__title { // phần tử này với phần tử input search phía trên đang chồng margin (margin collapsing)
+		font-size: 10px;
+		line-height: 16px;
+		text-transform: uppercase;
+		color: $text-color-21;
+		margin-bottom: 8px;
+		margin-top: 16px;
+	}
+
+	.tokenModalContent__list {
+		max-height: 400px;
+		overflow-y: auto;
+	}
+}

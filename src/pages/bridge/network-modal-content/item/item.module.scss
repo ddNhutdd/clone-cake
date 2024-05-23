@@ -1,0 +1,37 @@
+@import 'components/global-style/base.scss';
+
+.item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+
+	.item__image {
+		width: 32px;
+		height: 32px;
+
+		img {
+			width: 100%;
+			border-radius: 32px;
+		}
+	}
+
+	.item__content {
+		flex: 1;
+
+		div {
+			&:nth-of-type(1) {
+				color: $text-color-21;
+				white-space: nowrap;
+				font-size: 12px;
+				line-height: 16px;
+			}
+
+			&:nth-of-type(2) {
+				font-weight: 400;
+				letter-spacing: -0.02em;
+				line-height: 20px;
+				color: $text-color-3;
+			}
+		}
+	}
+}
