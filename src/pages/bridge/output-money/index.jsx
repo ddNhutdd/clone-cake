@@ -1,3 +1,4 @@
+import { useTheme } from 'src/context/dark-theme';
 import css from './output-money.module.scss';
 import { FaAngleDown } from "react-icons/fa6";
 
@@ -7,8 +8,12 @@ function OutputMoney(props) {
 		networkModalOpen
 	} = props;
 
+	// theme 
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.outputMoney}>
+		<div className={`${css.outputMoney} ${darkClass}`}>
 			<div className={css.outputMoney__header}>
 				<div
 					className={css.outputMoney__header__left}

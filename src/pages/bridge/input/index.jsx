@@ -1,3 +1,4 @@
+import { useTheme } from 'src/context/dark-theme';
 import css from './input.module.scss';
 import { FaAngleDown } from "react-icons/fa6";
 
@@ -7,8 +8,12 @@ function Input(props) {
 		networkModalOpen
 	} = props;
 
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.input}>
+		<div className={`${css.input} ${darkClass}`}>
 			<div className={css.input__header}>
 				<div
 					className={css.input__header__left}

@@ -30,6 +30,42 @@
 		}
 	}
 
+	&.dark {
+		border-color: $border-color-3;
+
+		.outputMoney--title {
+			color: $text-color-white-2;
+		}
+
+		.outputMoney--selected {
+			color: $text-color-white-2;
+		}
+
+		.outputMoney__header {
+			.outputMoney__header__left {
+				background: $background-11;
+			}
+
+			.outputMoney__header__right {
+				background: $background-11;
+			}
+		}
+
+		.outputMoney__body {
+			.outputMoney__body__currency {
+				.outputMoney__body__currency__list {
+					.outputMoney__body__currency__item {
+						color: $text-color-6;
+
+						&.active {
+							color: $text-color-white-2;
+						}
+					}
+				}
+			}
+		}
+	}
+
 	.outputMoney__header {
 		display: flex;
 

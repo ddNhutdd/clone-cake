@@ -2,10 +2,43 @@
 
 .bridge {
 	padding: 20px 0;
+	min-height: 100vh;
 
 	.bridge--blue {
-		color: $text-color-22;
+		color: $text-color-22 !important;
 		cursor: pointer;
+	}
+
+	&.dark {
+		background: $background-7;
+
+		.container {
+			.bridge__content {
+				.bridge__card {
+					.bridge__cardContent {
+						.bridge__connect {
+							color: $text-color-6;
+						}
+
+						.bridge__arrow {
+							color: $text-color-white-2;
+						}
+
+						.bridge__rowContainer {
+							.bridge__row {
+								color: $text-color-6;
+
+								div {
+									&:nth-of-type(2) {
+										color: $text-color-white-2;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	.container {
