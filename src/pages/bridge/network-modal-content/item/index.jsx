@@ -1,8 +1,13 @@
+import { useTheme } from 'src/context/dark-theme';
 import css from './item.module.scss';
 
 function Item() {
+	// theme
+	const { isDarkMode } = useTheme();
+	const darkClass = isDarkMode ? css.dark : '';
+
 	return (
-		<div className={css.item}>
+		<div className={`${css.item} ${darkClass}`}>
 			<div className={css.item__image}>
 				<img src="https://icons-ckg.pages.dev/lz-dark/networks/opbnb.svg" alt="dk" />
 			</div>

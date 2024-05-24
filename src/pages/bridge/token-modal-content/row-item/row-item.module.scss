@@ -7,6 +7,18 @@
 	padding-top: 10px;
 	padding-bottom: 10px;
 
+	&.dark {
+		.rowItem__row {
+			.rowItem__top {
+				color: $text-color-6;
+			}
+
+			.rowItem__bottom {
+				color: $text-color-white-2;
+			}
+		}
+	}
+
 	.rowItem__img {
 		width: 32px;
 		height: 32px;
@@ -23,7 +35,6 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-
 			color: $text-color-21;
 			white-space: nowrap;
 			font-size: 12px;
@@ -34,7 +45,6 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-
 			color: $text-color-3;
 			font-weight: 400;
 			letter-spacing: -0.02em;

@@ -1,0 +1,49 @@
+@import 'src/components/global-style/base.scss';
+
+.header {
+	padding: 16px;
+	border-bottom: 2px solid $border-color;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	.header__left {
+		width: 156px;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.header__right {
+		display: flex;
+		align-items: center;
+		gap: 15px;
+
+		.header__right__item {
+			display: flex;
+			align-items: center;
+
+			&:nth-of-type(1) {
+				font-weight: 600;
+				font-size: 16px;
+			}
+
+			&:nth-of-type(2) {
+				font-size: 25px;
+
+				&:hover {
+					opacity: 0.65;
+					cursor: pointer;
+				}
+
+				svg {
+					&:active {
+						position: relative;
+						top: 1px;
+					}
+				}
+			}
+		}
+	}
+}

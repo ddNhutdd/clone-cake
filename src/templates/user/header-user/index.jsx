@@ -188,6 +188,13 @@ function Header() {
 			icon: <FaArrowRightFromBracket />,
 		},
 		{
+			id: 8,
+			content: 'Option',
+			icon: <FaArrowRightFromBracket />,
+			url: url.option,
+			onClick: () => { redirectPage(url.option) }
+		},
+		{
 			id: 4,
 			content: 'Bride',
 			icon: <FaArrowRightFromBracket />,

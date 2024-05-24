@@ -13,6 +13,8 @@ import ToleranceModalContent from './tolerance-modal-content';
 import TokenModalContent from './token-modal-content';
 import NetworkModalContent from './network-modal-content';
 import { useTheme } from 'src/context/dark-theme';
+import { NavLink } from 'react-router-dom';
+import ArrowSquareIcon from 'src/assets/icons/arrow-square.icon';
 
 function Bridge() {
 
@@ -140,6 +142,18 @@ function Bridge() {
 								</Button>
 							</div>
 						</Card>
+						<div className={css.bridge__link}>
+							<NavLink>
+								How to bridge?
+								<ArrowSquareIcon />
+							</NavLink>
+						</div>
+						<div className={css.bridge__link}>
+							<NavLink>
+								Need Help?
+								<ArrowSquareIcon />
+							</NavLink>
+						</div>
 					</div>
 				</div>
 			</div>

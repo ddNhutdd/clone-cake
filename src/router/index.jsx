@@ -3,6 +3,7 @@ import { Suspense, lazy } from 'react';
 import UserTemplate from '../templates/user/user.template';
 import { url } from 'src/constants';
 import BridgeTemplates from 'src/templates/bridge-templates';
+import PerTemplates from 'src/templates/per-templates';
 
 const Home = lazy(() => import('../pages/home'));
 const Swap = lazy(() => import('../pages/swap'));
@@ -22,6 +23,7 @@ const CakeStakers = lazy(() => import('../pages/cake-stakers'));
 const TopTrader = lazy(() => import('../pages/top-trader'));
 const PositionManager = lazy(() => import(`../pages/position-manager`));
 const Bridge = lazy(() => import('../pages/bridge'));
+const Option = lazy(() => import('../pages/option'));
 
 export const router = createBrowserRouter([
 	{
@@ -189,6 +191,19 @@ export const router = createBrowserRouter([
 				element: (
 					<Suspense>
 						<Bridge />
+					</Suspense>
+				),
+			},
+		]
+	},
+	{
+		element: <PerTemplates />,
+		children: [
+			{
+				path: url.option,
+				element: (
+					<Suspense>
+						<Option />
 					</Suspense>
 				),
 			},

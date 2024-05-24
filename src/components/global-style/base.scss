@@ -134,6 +134,12 @@ $box-shadow-5: inset 0px 2px 2px -1px rgba(74, 74, 104, 0.1);
 $box-shadow-6: 0px 0px 0px 1px #7645d9,
 	0px 0px 0px 4px rgba(118, 69, 217, 0.6);
 $box-shadow-7: inset 0px 2px 2px -1px rgba(74, 74, 104, .1);
+$box-shadow-8: (
+	0 0 #0000,
+	0 0 #0000),
+	(0 0 #0000, 0 0 #0000),
+	(0px -2px 0px inset rgba(0, 0, 0, .1)
+);
 
 // ----------------------------------------------------------------
 

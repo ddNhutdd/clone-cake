@@ -117,6 +117,28 @@
 					}
 				}
 			}
+
+			.bridge__link {
+				display: flex;
+				justify-content: center;
+
+				a {
+					display: flex;
+					width: fit-content;
+					font-weight: 600;
+					text-decoration: none;
+					align-items: center;
+					color: $primary-2;
+
+					&:hover {
+						text-decoration: underline;
+					}
+
+					svg {
+						fill: $primary-2;
+					}
+				}
+			}
 		}
 	}
 }

@@ -1,0 +1,48 @@
+@import 'src/components/global-style/base.scss';
+
+.perButtonGroup {
+	box-shadow: $box-shadow-8;
+	border-radius: 9999px;
+	background: $background-8;
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 26px;
+	padding-right: 8px;
+	cursor: pointer;
+
+	&:active {
+		top: 1px
+	}
+
+	.perButtonGroup__img {
+		position: absolute;
+		top: 58%;
+		left: -5px;
+		transform: translateY(-50%);
+		width: 32px;
+		height: 32px;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.perButtonGroup__text {
+		color: $text-color-3;
+		font-weight: 600;
+	}
+
+	.perButtonGroup__down {
+		color: $text-color-3;
+
+		svg {
+			position: relative;
+			top: 4px;
+		}
+	}
+}

@@ -1,7 +1,14 @@
 @import 'components/global-style/base.scss';
 
 .tokenModalContent {
-	.tokenModalContent__title { // phần tử này với phần tử input search phía trên đang chồng margin (margin collapsing)
+	&.dark {
+		.tokenModalContent__title {
+			color: $text-color-6;
+		}
+	}
+
+	.tokenModalContent__title {
+		// phần tử này với phần tử input search phía trên đang chồng margin (margin collapsing)
 		font-size: 10px;
 		line-height: 16px;
 		text-transform: uppercase;
