@@ -1,7 +1,6 @@
 import { useState, cloneElement } from "react";
 
 const useStep = (current, steps) => {
-
 	const [currentInner, setCurrentInner] = useState(current);
 
 	const nextStep = () => {
@@ -24,8 +23,13 @@ const useStep = (current, steps) => {
 			setStep,
 		});
 	}
-	return [generateContent, setStep, nextStep, prevStep];
-
+	return [
+		generateContent,
+		setStep,
+		nextStep,
+		prevStep,
+		currentInner
+	];
 }
 
 export default useStep;

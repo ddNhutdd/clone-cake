@@ -5,7 +5,9 @@ import { useEffect, useRef } from 'react';
 function ScaleModal(props) {
 	const {
 		show,
-		close
+		close,
+		title,
+		children
 	} = props;
 
 	const modalRootElementRef = useRef(null);
@@ -63,7 +65,7 @@ function ScaleModal(props) {
 				<div className={css.scaleModal__modal}>
 					<div className={css.scaleModal__header}>
 						<div>
-							Settings
+							{title}
 						</div>
 						<div>
 							<IoClose onClick={close} />
@@ -71,7 +73,7 @@ function ScaleModal(props) {
 					</div>
 					<div className={css.scaleModal__line} />
 					<div className={css.scaleModal__body}>
-						dfafdafdasfdas
+						{children}
 					</div>
 				</div>
 			</div>

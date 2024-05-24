@@ -1,7 +1,17 @@
+import css from './option.module.scss';
+import RightTop from './right-top';
+
 function Option() {
 	return (
-		<div>
-			Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat porro beatae id ipsam reprehenderit soluta, sint dignissimos nam praesentium molestias commodi quaerat voluptate cum. Quas corporis inventore obcaecati eaque veritatis!
+		<div className={css.option}>
+			<div className={css.option__left}>
+
+			</div>
+			<div className={css.option__right}>
+				<div className={css.option__right__top}>
+					<RightTop />
+				</div>
+			</div>
 		</div>
 	)
 }

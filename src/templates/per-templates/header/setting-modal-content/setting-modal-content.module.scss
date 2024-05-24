@@ -1,0 +1,9 @@
+@import 'src/components/global-style/base.scss';
+
+.settingModalContent {
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	justify-content: space-between;
+}

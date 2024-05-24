@@ -1,0 +1,25 @@
+@import 'components/global-style/base.scss';
+
+.rightTop {
+	background-image: $background-74;
+	padding: 1px;
+
+	.rightTop__content {
+		background: $background-1;
+		padding: 16px;
+
+		.rightTop__tab {
+			display: flex;
+			gap: 10px;
+
+			.rightTop__item {
+				color: $text-color-29;
+				cursor: pointer;
+
+				&.active {
+					color: $text-color-3;
+				}
+			}
+		}
+	}
+}

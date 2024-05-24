@@ -1,0 +1,71 @@
+@import 'src/components/global-style/base.scss';
+
+.addressModalContent {
+	margin-top: -40px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+
+	.addressModalContent__img {
+		width: 90px;
+		height: 90px;
+		margin: auto;
+		border-radius: 99px;
+		background: #4d82ff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		.addressModalContent__ship {
+			font-size: 50px;
+		}
+	}
+
+	.addressModalContent__address {
+		text-align: center;
+		font-weight: 600;
+		color: $text-color-3;
+	}
+
+	.addressModalContent__token {
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 18px;
+		color: $text-color-28;
+		text-align: center;
+	}
+
+	.addressModalContent__row {
+		display: flex;
+		gap: 10px;
+
+		.addressModalContent__item {
+			background: $background-12;
+			width: 100%;
+			padding: 10px;
+			border-radius: 99px;
+			transition: transform .2s, background .2s;
+			cursor: pointer;
+
+			&:hover {
+				transform: scale(1.025);
+				background: $background-73;
+			}
+
+			div {
+				text-align: center;
+				color: $text-color-3;
+				font-weight: 600;
+				font-size: 13px;
+
+				svg {
+					font-size: 20px;
+				}
+
+				&:nth-of-type(1) {}
+
+				&:nth-of-type(2) {}
+			}
+		}
+	}
+}

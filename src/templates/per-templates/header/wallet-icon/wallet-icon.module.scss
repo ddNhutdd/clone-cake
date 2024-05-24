@@ -1,0 +1,18 @@
+@import 'src/components/global-style/base.scss';
+
+.walletIcon {
+	width: 28px;
+	height: 28px;
+	border: 2px solid $primary-2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: $background-1;
+	border-radius: 99px;
+
+	svg {
+		width: 90%;
+		fill: $primary-2;
+
+	}
+}

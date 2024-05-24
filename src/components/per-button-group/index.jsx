@@ -1,15 +1,19 @@
 import { FaAngleDown } from 'react-icons/fa6';
 import css from './per-button-group.module.scss';
-import ArbCircleIcon from 'src/assets/icons/arb-circle.icon';
 
-function PerButtonGroup() {
+function PerButtonGroup(props) {
+	const {
+		onClick,
+		img,
+		text
+	} = props;
 	return (
-		<div className={css.perButtonGroup}>
+		<div onClick={onClick} className={css.perButtonGroup}>
 			<div className={css.perButtonGroup__img}>
-				<ArbCircleIcon />
+				{img}
 			</div>
 			<div className={css.perButtonGroup__text}>
-				Arbitrum
+				{text}
 			</div>
 			<div className={css.perButtonGroup__down}>
 				<FaAngleDown />

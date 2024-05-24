@@ -7,6 +7,10 @@
 	align-items: center;
 	justify-content: space-between;
 
+	@media screen and (max-width: 576px) {
+		flex-wrap: wrap;
+	}
+
 	.header__left {
 		width: 156px;
 
@@ -19,6 +23,10 @@
 		display: flex;
 		align-items: center;
 		gap: 15px;
+
+		@media screen and (max-width: 576px) {
+			flex-wrap: wrap;
+		}
 
 		.header__right__item {
 			display: flex;
