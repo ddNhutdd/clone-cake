@@ -1,0 +1,53 @@
+@import 'components/global-style/base.scss';
+
+.top {
+	display: flex;
+	gap: 20px;
+
+	.top__image {
+		position: relative;
+		width: fit-content;
+
+		img {
+			width: 32px;
+			height: 32px;
+
+			&:nth-of-type(1) {
+				position: relative;
+				z-index: 2;
+			}
+
+			&:nth-of-type(2) {
+				position: absolute;
+				top: 0;
+				left: 50%;
+				z-index: 1;
+			}
+		}
+	}
+
+	.top__dropdown {
+		.top__dropdownHeader {
+			width: 200px;
+
+			button {
+				width: 100%;
+
+				svg {
+					fill: $primary-2;
+				}
+			}
+
+		}
+	}
+
+	.top__item {
+		color: $text-color-1;
+		font-size: 14px;
+		width: 10%;
+
+		.top__number {
+			color: $text-color-3;
+		}
+	}
+}

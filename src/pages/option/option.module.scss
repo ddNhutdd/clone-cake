@@ -1,1 +1,21 @@
 @import 'components/global-style/base.scss';
+
+.option {
+	.container {
+		padding: 10px;
+		display: flex;
+
+		.option__left {
+			width: calc(100% - 360px);
+			padding: 5px;
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+
+		.option__right {
+			width: 360px;
+			padding: 5px;
+		}
+	}
+}

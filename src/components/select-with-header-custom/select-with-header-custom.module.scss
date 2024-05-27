@@ -1,0 +1,32 @@
+@import 'components/global-style/base.scss';
+
+.selectWithHeaderCustom__menu {
+	transform-origin: top center;
+	transform: scaleY(0);
+	transition: .2s transform;
+	position: fixed;
+	z-index: 999999;
+
+	&.show {
+		transform: scaleY(1);
+	}
+
+	ul {
+		padding-top: 5px;
+		padding-bottom: 5px;
+		background: $background-1;
+		border: 1px solid $border-color;
+		border-radius: 16px;
+		list-style: none;
+
+		li {
+			padding: 8px;
+			cursor: pointer;
+			transition: .2s background-color;
+
+			&:hover {
+				background-color: $background-75;
+			}
+		}
+	}
+}

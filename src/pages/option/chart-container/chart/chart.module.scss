@@ -1,0 +1,73 @@
+@import 'components/global-style/base.scss';
+
+.chart {
+	width: 100%;
+
+	.chart__top {
+		font-size: 13px;
+		color: $text-color-31;
+		padding-top: 20px;
+		padding-bottom: 10px;
+
+		span {
+			&.green {
+				color: $text-color-32;
+			}
+
+			&.red {
+				color: $text-color-33;
+			}
+		}
+	}
+
+	.chart__mainContainer {
+		position: relative;
+
+		.chart__main {
+			height: 50vh;
+			cursor: crosshair;
+		}
+
+		.chart__action {
+			padding: 20px 50px;
+			position: absolute;
+			left: 50%;
+			bottom: 10%;
+			transform: translateX(-50%);
+			z-index: 99;
+			opacity: 0;
+			transition: .2s opacity;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 15px;
+
+			&:hover {
+				opacity: 1;
+			}
+
+			.chart__actionGroup {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 10px;
+
+				button {
+					width: 24px;
+					height: 24px;
+					border-radius: 4px;
+					box-shadow: 0 2px 4px #0003;
+					background-color: #fff;
+					cursor: pointer;
+					color: #131722;
+					border: 0;
+					outline: 0;
+
+					&:hover {
+						color: blue;
+					}
+				}
+			}
+		}
+	}
+}

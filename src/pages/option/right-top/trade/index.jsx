@@ -40,7 +40,7 @@ function Trade() {
 	}
 	return (
 		<div className={css.trade}>
-			<div>
+			<div className={css[`trade--title`]}>
 				Expiry
 			</div>
 			<div>
@@ -51,58 +51,58 @@ function Trade() {
 				/>
 			</div>
 			<div className={css.trade__row}>
-				<div>
+				<div className={css[`trade--title`]}>
 					Strikes
 				</div>
-				<div>
-					<span>
+				<div className={css.trade__rowContent}>
+					<span className={css[`trade--title`]}>
 						Edit amounts for all
 					</span>
-					<span>
+					<span className={css.trade__rowSwitch}>
 						<Switch />
 					</span>
 				</div>
 			</div>
 			<div className={css.trade__row}>
-				<button>
+				<button className={css.green}>
 					0 Call strikes
 					<FaAngleDown />
 				</button>
-				<button>
+				<button className={css.red}>
 					0 Put strikes
 					<FaAngleDown />
 				</button>
 			</div>
 			<div className={css.trade__row}>
-				<div>
+				<div className={css[`trade--title`]}>
 					Balance
 				</div>
-				<div>
-					<span>
+				<div className={css.trade__rowContentBalance}>
+					<span className={css[`trade--highlight`]}>
 						0
 					</span>
-					<span>
+					<span className={`${css[`trade--title`]} ${css.trade__arb}`}>
 						ARB
 					</span>
-					<span>
+					<span className={css[`trade--highlight`]}>
 						0
 					</span>
-					<span>
+					<span className={css[`trade--title`]}>
 						USDC
 					</span>
 				</div>
 			</div>
-			<div>
+			<div className={css[`trade--title`]}>
 				Auto Exercisers
 			</div>
-			<div>
+			<div className={`${css[`trade--title`]} ${css[`trade--highlight`]}`}>
 				Time Based
 			</div>
 			<div className={css.trade__row}>
-				<div>
+				<div className={`${css[`trade--title`]} ${css.trade__rowTime}`}>
 					Options are automatically exercised 5 minutes before expiry.
 				</div>
-				<div>
+				<div className={css.trade__rowTimeSwitch}>
 					<Switch />
 				</div>
 			</div>

@@ -4,7 +4,7 @@ import css from './per-templates.module.scss';
 
 function PerTemplates() {
 	return (
-		<div>
+		<div className={css.perTemplates}>
 			<Header />
 			<Outlet />
 		</div>
